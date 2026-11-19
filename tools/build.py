@@ -1026,86 +1026,68 @@ def render_shortcodes(html_body: str) -> str:
 # --------------------------------------------------------------------------- pages
 
 
-HEB_LETTERS = "אבגדהוזחטי"
-
-
 def build_home(H, K, V, F):
-    n = len(H["models"])
+    lead = H["models"][0]
     top = H["models"][:10]
+    rows = "".join(f"""<li data-tip="{e(m['name'] + nl(tr(f"{m['score']:.1f} (95% interval {m['lo']:.1f} to {m['hi']:.1f})", f"{m['score']:.1f} (רווח סמך {m['lo']:.1f} עד {m['hi']:.1f})")))}" tabindex="0" style="--d:{i * 60}ms">
+<span class="h-rank">{m['rank']}</span><span class="h-name"><bdi>{e(m['name'])}</bdi><small>{e(m['lab'])}</small></span>
+{score_track(m, big=True, lo=50)}<span class="h-score">{m['score']:.1f}</span></li>""" for i, m in enumerate(top))
+    hk = sorted(K["models"], key=lambda m: -m["s"])
+    strip = "".join(f'<i class="dot {lab_cls(m["lab"])}" style="left:{pct(m["s"], .35, .6):.2f}%" data-tip="{e(m["name"])}: {m["s"]:.2f}" tabindex="0"></i>' for m in hk)
+    latest = "".join(
+        f'<li><a href="{u("/findings/" + f["slug"] + "/")}"><time datetime="{f["date"].isoformat()}">{short_date(f["date"])}</time>'
+        f'<span{" lang=\"en\" dir=\"ltr\"" if LANG == "he" and f.get("lang") == "en" else ""}>{e(f["title"])}</span></a></li>'
+        for f in F[:4])
+    top3 = "".join(f'<li>{chip(m["lab"])}<bdi>{e(m["name"])}</bdi><b>{m["score"]:.1f}</b></li>' for m in H["models"][:3])
+    n = len(H["models"])
     s1, s2 = V["headline"]["asked_twice_same"], V["headline"]["own_vs_ruling_same"]
-    sp = K["sephardi"]["overall"]
-
-    def rashi_entry(m):
-        place = {1: tr("First place. ", "במקום הראשון. "), 2: tr("Second. ", "שני. "), 3: tr("Third. ", "שלישי. ")}.get(m["rank"], "")
-        txt = tr(f"{place}Scores {m['score']:.1f}, its 95% interval {m['lo']:.1f} to {m['hi']:.1f}.",
-                 f"{place}ציונו {m['score']:.1f}, ורווח הסמך שלו בין {m['lo']:.1f} ל-{m['hi']:.1f}:")
-        return (f'<span class="cm" data-tip="{e(m["name"])}{nl(m["lab"])}" tabindex="0"><b class="dh">{chip(m["lab"])}<bdi>{e(m["name"])}</bdi>.</b> '
-                f'{txt}</span> ')
-
-    rashi_top = "".join(rashi_entry(m) for m in top[:5])
-    rashi_bot = "".join(rashi_entry(m) for m in top[5:]) + (
-        f'<span class="cm"><b class="dh">{tr("And all of these", "וכל אלו")}.</b> '
-        + tr(f"are provisional: one AI judge has graded them, and no rabbi has yet. The full table has all {n} models, with intervals and notes.",
-             f"זמניים הם: שופט ממוחשב אחד בדק אותם, ועדיין לא בדק אותם רב. בטבלה המלאה כל {n} המודלים, עם רווחי סמך והערות:")
-        + f' <a href="{u("/halachabench/")}">{tr("To the leaderboard", "לטבלת התוצאות")}</a></span>')
-
-    tos_top = (
-        f'<span class="cm"><b class="dh"><a href="{u("/hashkafabench/")}">{tr("Stringent or lenient", "מחמיר או מקל")}</a>.</b> '
-        + tr("Asked everyday questions in seven areas of halacha, Claude's models rule most leniently, and GPT, Gemini and Grok cannot be told apart. Within one lab the spread can exceed the gap between labs.",
-             "בשאלות יומיומיות בשבעה תחומי הלכה, המודלים של Claude פוסקים לקולא יותר מכולם, ובין GPT, Gemini ו-Grok אין הבדל מובהק. ובתוך חברה אחת הפער יכול לעלות על הפער שבין החברות:")
-        + "</span> "
-        f'<span class="cm"><b class="dh"><a href="{u("/values/")}">{tr("Halacha against its own values", "הלכה מול ערכים")}</a>.</b> '
-        + tr(f"Asked the same halachic question twice, a model gives the same ruling {s1:.0%} of the time. Asked what it would do itself, it matches its own ruling only {s2:.0%} of the time.",
-             f"כששואלים מודל את אותה שאלה הלכתית פעמיים, הוא פוסק אותו דבר ב-{s1:.0%} מהמקרים. כששואלים מה היה עושה בעצמו, תשובתו תואמת את פסיקתו רק ב-{s2:.0%}:")
-        + "</span>")
-    latest = "; ".join(f'<a href="{u("/findings/" + f["slug"] + "/")}"{" lang=\"en\" dir=\"ltr\"" if LANG == "he" and f.get("lang") == "en" else ""}>{e(f["title"])}</a>' for f in F[:4])
-    tos_bot = (
-        f'<span class="cm"><b class="dh"><a href="{u("/findings/sephardi-asker/")}">{tr("When the asker is Sephardi", "כשהשואל ספרדי")}</a>.</b> '
-        + tr(f"rulings grow {abs(sp['diff']):.2f} more lenient on average, almost all of it in Shabbat, Yom Tov, kashrut and fasts, where the traditions differ.",
-             f"הפסיקות מקלות ב-{abs(sp['diff']):.2f} בממוצע, וכמעט כל ההבדל בשבת, ביום טוב, בכשרות ובצומות, ששם המנהגים חלוקים:")
-        + "</span> "
-        f'<span class="cm"><b class="dh"><a href="{u("/halachabench/")}#papers">{tr("The hardest paper", "השאלון הקשה")}</a>.</b> '
-        + tr("Chuppah v'Kiddushin and Niddah, for nearly every model; Mitzvot HaTeluyot BaAretz is the easiest.",
-             "חופה וקידושין ונידה, כמעט לכל מודל; והקל שבהם מצוות התלויות בארץ:")
-        + "</span> "
-        f'<span class="cm"><b class="dh">{tr("Lately", "ולאחרונה")}.</b> {latest}{"" if F[3]["title"].rstrip().endswith((".", "?", "!")) else "."} '
-        f'<a href="{u("/findings/")}">{tr("Every finding", "כל הממצאים")}</a></span>')
-
-    notes = [(tr("The data", "הנתונים"), "https://github.com/halachabench/halacha-bench-results"),
-             (tr("How it is graded", "שיטת הבדיקה"), u("/method/")),
-             (tr("Proof bundle", "חבילת ההוכחות"), u("/method/") + "#bundle"),
-             (tr("Cite", "ציטוט"), u("/method/") + "#cite"),
-             ("@HalachaBench", "https://x.com/HalachaBench")]
-    note_html = "".join(
-        f'<li><span class="nm">{HEB_LETTERS[i] if LANG == "he" else "abcdefghij"[i]}</span><a href="{href}">{e(t)}</a></li>'
-        for i, (t, href) in enumerate(notes))
-
-    opener = tr("How", "כמה")
-    main = tr(f"well do AI models know halacha? We gave them the real semicha exams of Israel's Chief Rabbinate: five papers of the Cheshvan 5787 sitting, in Hebrew, with no seforim and no internet, three attempts at every question. Every answer was graded against a rubric sealed before grading began, and the scores are set out here, with the measure of their doubt beside them.",
-              f"הלכה יודעת הבינה המלאכותית? נתנו לה את מבחני הסמיכה האמיתיים של הרבנות הראשית לישראל: חמישה שאלונים ממועד חשוון תשפ\"ז, בעברית, בלי ספרים ובלי אינטרנט, שלושה ניסיונות לכל שאלה. כל תשובה נבדקה מול מחוון שנחתם קודם שהתחילה הבדיקה, והציונים מובאים כאן, ולצדם מידת הספק שבהם.")
-
     body = f"""
-<section class="daf2 wrap" aria-label="{tr('Overview', 'סקירה')}">
-  <header class="d-head">
-    <span class="d-folio">{tr("Folio 2a", "דף ב.")}</span>
-    <span class="d-masechet">HalachaBench</span>
-    <span class="d-perek">{tr("Chapter one: the semicha exam", "פרק ראשון: מבחן הסמיכה")}</span>
-  </header>
-  <div class="d-grid">
-    <aside class="d-notes" aria-label="{tr('Sources', 'מקורות')}"><p class="d-label">{tr("Sources", "מקורות")}</p><ol>{note_html}</ol></aside>
-    <div class="d-main">
-      <p><span class="opener">{opener}</span> {main}</p>
-      <p class="d-cta"><a class="btn" href="{u('/halachabench/')}">{tr(f"See all {n} models", f"לכל {n} המודלים")}</a></p>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <h1 class="tagline">{tr(SITE["tagline_en"], SITE["tagline_he"])}</h1>
+      <p class="lede">{tr("How well do AI models know halacha? We test them on real semicha exam questions from Israel's Chief Rabbinate, in Hebrew, with no books and no internet.",
+                          "כמה הלכה יודעת הבינה המלאכותית? אנחנו בוחנים אותה על שאלות אמיתיות ממבחני הסמיכה של הרבנות הראשית, בעברית, בלי ספרים ובלי אינטרנט.")}</p>
+      <p class="hero-links"><a class="btn" href="{u('/halachabench/')}">{tr(f"See all {n} models", f"לכל {n} המודלים")}</a>
+      <a class="plain-link" href="{u('/method/')}">{tr("How grading works", "איך בודקים")}</a></p>
     </div>
-    <div class="d-rashi d-cm"><p class="d-label">{tr("The scores", "הציונים")}</p><p>{rashi_top}</p></div>
-    <div class="d-rashi-b d-cm"><p>{rashi_bot}</p></div>
-    <div class="d-tos d-cm"><p class="d-label">{tr("The studies", "המחקרים")}</p><p>{tos_top}</p></div>
-    <div class="d-tos-b d-cm"><p>{tos_bot}</p></div>
+    <figure class="hero-board">
+      <figcaption><span class="cap">{tr("Top ten, score out of 100", "עשרת הראשונים, ציון מתוך 100")}</span><span class="h-axis"><span></span><span></span>{axis([50, 60, 70, 80, 90, 100], lambda v: f"{v:g}", 50, 100)}<span></span></span></figcaption>
+      <ol>{rows}</ol>
+      <p class="fig-note">{tr("Provisional: one AI judge, no rabbi has graded yet. Lines show 95% intervals.",
+                              "זמני: שופט ממוחשב אחד, ואף רב עדיין לא בדק. הקווים הם רווחי סמך של 95%.")}</p>
+    </figure>
   </div>
 </section>
 
-<section class="wrap home-lower slim">
+<section class="studies wrap" aria-label="{tr('The three studies', 'שלושת המחקרים')}">
+  <article>
+    <h2><a href="{u('/halachabench/')}">{tr("The semicha exam", "מבחן הסמיכה")}</a></h2>
+    <ol class="top3">{top3}</ol>
+    <a class="plain-link" href="{u('/halachabench/')}">{tr("Leaderboard", "טבלת התוצאות")}</a>
+  </article>
+  <article>
+    <h2><a href="{u('/hashkafabench/')}">{tr("Stringent or lenient?", "מחמיר או מקל?")}</a></h2>
+    <div class="mini-strip" aria-label="{tr(f'Stringency of {len(hk)} models on one line', f'רמת החומרה של {len(hk)} מודלים על קו אחד')}"><span class="ms-track">{strip}</span>
+    <span class="ms-ends"><span>{tr("lenient", "מקל")}</span><span>{tr("stringent", "מחמיר")}</span></span></div>
+    <a class="plain-link" href="{u('/hashkafabench/')}">{tr("Stringency by area", "חומרה לפי תחום")}</a>
+  </article>
+  <article>
+    <h2><a href="{u('/values/')}">{tr("Halacha vs. own values", "הלכה מול ערכים")}</a></h2>
+    <div class="pair"><div><b>{s1:.0%}</b><small>{tr("same ruling, asked twice", "אותה פסיקה, פעמיים")}</small></div>
+    <div><b class="b2">{s2:.0%}</b><small>{tr("ruling matches its own choice", "הפסיקה תואמת את בחירתו")}</small></div></div>
+    <a class="plain-link" href="{u('/values/')}">{tr("Where they part ways", "איפה הם נפרדים")}</a>
+  </article>
+</section>
+
+<section class="wrap home-lower">
+  <div>
+    <h2 class="sec-title">{tr("Latest findings", "ממצאים אחרונים")}</h2>
+    <ol class="f-titles">{latest}</ol>
+    <a class="plain-link" href="{u('/findings/')}">{tr("Every finding", "כל הממצאים")}</a>
+  </div>
   <aside class="trust">
+    <h2 class="sec-title">{tr("Built to be checked", "בנוי כדי שאפשר יהיה לבדוק")}</h2>
     <p>{tr("Rubrics sealed before grading, every step pre-registered, exam text kept private.",
            "המחוונים נחתמו לפני הבדיקה, כל שלב נרשם מראש, ונוסח המבחן נשאר פרטי.")} <a href="{u('/method/')}">{tr("Method", "השיטה")}</a></p>
     <a class="sefaria-badge" href="https://www.sefaria.org">
