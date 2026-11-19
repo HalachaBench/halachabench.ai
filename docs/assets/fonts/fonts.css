@@ -11,3 +11,5 @@
 @font-face { font-family: 'Domitian'; font-style: normal; font-weight: 400; font-display: swap; src: url(/assets/fonts/domitian-roman.woff2) format('woff2'); }
 @font-face { font-family: 'Domitian'; font-style: italic; font-weight: 400; font-display: swap; src: url(/assets/fonts/domitian-italic.woff2) format('woff2'); }
 @font-face { font-family: 'Domitian'; font-style: normal; font-weight: 700; font-display: swap; src: url(/assets/fonts/domitian-bold.woff2) format('woff2'); }
+@font-face { font-family: 'Noto Rashi Hebrew'; font-style: normal; font-weight: 400; font-display: swap; src: url(/assets/fonts/noto-rashi-hebrew-400-hebrew.woff2) format('woff2'); unicode-range: U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F; }
+@font-face { font-family: 'Noto Rashi Hebrew'; font-style: normal; font-weight: 700; font-display: swap; src: url(/assets/fonts/noto-rashi-hebrew-700-hebrew.woff2) format('woff2'); unicode-range: U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F; }
