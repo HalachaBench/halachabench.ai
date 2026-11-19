@@ -14,6 +14,7 @@ import html
 import json
 import re
 import shutil
+import sys
 from datetime import date, datetime
 from pathlib import Path
 
@@ -24,7 +25,11 @@ HB = ROOT.parent / "halacha-bench-results"
 HK = ROOT.parent / "hashkafa-bench-results"
 CONTENT = ROOT / "content"
 STATIC = ROOT / "static"
-OUT = ROOT / "docs"
+PREVIEW = "--preview" in sys.argv
+OUT = ROOT / ("preview-build" if PREVIEW else "docs")
+PREVIEW_META = '\n<meta name="robots" content="noindex, nofollow">' if PREVIEW else ""
+PREVIEW_BAR = ('\n<div class="preview-bar">Private preview for the team. Not public yet, please do not share.</div>'
+               if PREVIEW else "")
 SITE = json.loads((CONTENT / "site.json").read_text(encoding="utf-8"))
 
 e = html.escape
@@ -266,7 +271,7 @@ def page(path: str, title: str, body: str, desc: str = "", image: str = "/assets
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{e(full_title)}</title>
-<meta name="description" content="{e(desc)}">
+<meta name="description" content="{e(desc)}">{PREVIEW_META}
 <link rel="canonical" href="https://{SITE['domain']}{path}">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="HalachaBench">
@@ -284,7 +289,7 @@ def page(path: str, title: str, body: str, desc: str = "", image: str = "/assets
 <script>try{{var t=localStorage.getItem('hb-theme');if(t)document.documentElement.dataset.theme=t;}}catch(_){{}}</script>
 </head>
 <body>
-<a class="skip" href="#main">Skip to content</a>
+<a class="skip" href="#main">Skip to content</a>{PREVIEW_BAR}
 <header class="site-head">
   <div class="wrap head-row">
     <a class="brand" href="/"><img src="/assets/favicon.png" alt="" width="28" height="28"><span>HalachaBench</span></a>
@@ -320,6 +325,7 @@ def page(path: str, title: str, body: str, desc: str = "", image: str = "/assets
       <p class="muted small">Last updated {fmt_date(SITE['_updated'])}</p>
     </div>
   </div>
+  <div class="wrap foot-legal">© {SITE['_updated'].year} {e(SITE['copyright'])}</div>
 </footer>
 <div class="tip" role="tooltip" hidden></div>
 <script src="/assets/site.js?v={SITE['build']}" defer></script>
@@ -894,14 +900,17 @@ def main():
     build_hebrew(H)
     build_404()
     write_csv(H, K)
-    (OUT / "CNAME").write_text(SITE["domain"] + "\n", encoding="utf-8")
+    if not PREVIEW:
+        (OUT / "CNAME").write_text(SITE["domain"] + "\n", encoding="utf-8")
     (OUT / ".nojekyll").write_text("", encoding="utf-8")
     urls = ["/", "/halachabench/", "/hashkafabench/", "/values/", "/findings/", "/method/", "/about/", "/he/"] + \
            [f"/findings/{f['slug']}/" for f in F]
     (OUT / "sitemap.xml").write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
         "".join(f"  <url><loc>https://{SITE['domain']}{u}</loc></url>\n" for u in urls) + "</urlset>\n", encoding="utf-8")
-    (OUT / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: https://{SITE['domain']}/sitemap.xml\n", encoding="utf-8")
+    robots = ("User-agent: *\nDisallow: /\n" if PREVIEW
+              else f"User-agent: *\nAllow: /\nSitemap: https://{SITE['domain']}/sitemap.xml\n")
+    (OUT / "robots.txt").write_text(robots, encoding="utf-8")
     print(f"built {len(urls)} pages, {len(H['models'])} HalachaBench models, {len(K['models'])} HashkafaBench models, {len(F)} findings")
 
 

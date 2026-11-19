@@ -405,3 +405,6 @@ h2, h3 { letter-spacing: -.01em; }
   .site-nav a { padding: 10px 8px; }
   .theme-toggle { margin: 6px 0 0 8px; }
 }
+
+.foot-legal { margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--hair); font: 12px var(--mono); color: var(--muted); }
+.preview-bar { background: var(--ink); color: var(--page); font: 12.5px var(--mono); text-align: center; padding: 7px 16px; }
