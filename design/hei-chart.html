@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hei chart logo | HalachaBench</title>
+<style>
+  :root { --paper: #f6f4ef; --ink: #111; --muted: #77736b; --rule: #dcd7cb; --dark: #13120f; --dark-ink: #efebe2;
+    --c1: #2a78d6; --c2: #eb6834; --c3: #1baf7a; --c4: #a3459c;
+    --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif; --mono: ui-monospace, Menlo, Consolas, monospace; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font: 17px/1.55 var(--serif); }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 48px 32px 96px; }
+  h1 { font-weight: 400; font-size: 46px; letter-spacing: -.02em; margin: 0 0 8px; }
+  .lede { color: #45423c; max-width: 44em; margin: 0 0 36px; }
+  section { border-top: 1px solid var(--ink); padding: 26px 0 40px; }
+  h2 { font-weight: 400; font-size: 28px; margin: 0 0 4px; }
+  .why { color: #45423c; max-width: 46em; margin: 0 0 22px; }
+  .grid { display: grid; grid-template-columns: 1.6fr 1.6fr 1fr; gap: 20px; }
+  .tile { border: 1px solid var(--rule); border-radius: 6px; padding: 28px; display: flex; align-items: center; justify-content: center; min-height: 170px; }
+  .tile.dark { background: var(--dark); border-color: #2f2d27; color: var(--dark-ink);
+    --c1: #3987e5; --c2: #d95926; --c3: #199e70; --c4: #b45aad; }
+  .lockup { display: flex; align-items: center; gap: 16px; }
+  .word { font: 400 38px/1 var(--serif); letter-spacing: -.02em; white-space: nowrap; }
+  .word span { color: var(--muted); } .dark .word span { color: #938e82; }
+  .sizes { flex-direction: column; gap: 12px; }
+  .row { display: flex; align-items: center; gap: 18px; }
+  .avatar { width: 88px; height: 88px; border-radius: 50%; display: grid; place-items: center; background: var(--ink); color: var(--paper);
+    --c1: #3987e5; --c2: #d95926; --c3: #199e70; --c4: #b45aad; }
+  .cap { font: 12px var(--mono); color: var(--muted); margin: 0; }
+  svg { display: block; }
+  .ink { fill: currentColor; } .c1 { fill: var(--c1); } .c2 { fill: var(--c2); } .c3 { fill: var(--c3); } .c4 { fill: var(--c4); }
+  .big { display: flex; gap: 48px; align-items: center; justify-content: center; padding: 20px 0 8px; }
+  @media (max-width: 860px) { .grid { grid-template-columns: 1fr; } .word { font-size: 30px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Hei with a leaderboard</h1>
+<p class="lede">The ה's floating left leg becomes a tiny ranked bar chart: four bars, the best on top. Two ways to point
+the bars. Below 32 px the mark drops to three thicker bars so it stays crisp.</p>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <path id="roof" d="M9 9h40.5a7.5 7.5 0 0 1 7.5 7.5V56h-8V17H9z"/>
+    <!-- A: bars grow leftward from a right edge, the way Hebrew reads -->
+    <g id="barsA"><rect class="c1" x="9" y="27" width="32" height="5" rx="1"/><rect class="c2" x="16" y="35" width="25" height="5" rx="1"/><rect class="c3" x="23" y="43" width="18" height="5" rx="1"/><rect class="c4" x="30" y="51" width="11" height="5" rx="1"/></g>
+    <g id="barsA3"><rect class="c1" x="9" y="27" width="32" height="7" rx="1"/><rect class="c2" x="19" y="38" width="22" height="7" rx="1"/><rect class="c3" x="29" y="49" width="12" height="7" rx="1"/></g>
+    <!-- B: bars grow rightward from the left edge, where the leg stands -->
+    <g id="barsB"><rect class="c1" x="9" y="27" width="32" height="5" rx="1"/><rect class="c2" x="9" y="35" width="25" height="5" rx="1"/><rect class="c3" x="9" y="43" width="18" height="5" rx="1"/><rect class="c4" x="9" y="51" width="11" height="5" rx="1"/></g>
+    <g id="barsB3"><rect class="c1" x="9" y="27" width="32" height="7" rx="1"/><rect class="c2" x="9" y="38" width="22" height="7" rx="1"/><rect class="c3" x="9" y="49" width="12" height="7" rx="1"/></g>
+  </defs>
+</svg>
+
+<section>
+<h2>A. Bars grow to the left</h2>
+<p class="why">Right-aligned, so the bars read right to left like Hebrew, and their ragged left edge echoes where the
+ה's leg would stand.</p>
+<div class="big">
+  <svg width="200" height="200" viewBox="0 0 64 64" aria-label="Hei mark, version A"><use class="ink" href="#roof"/><use href="#barsA"/></svg>
+</div>
+<div class="grid">
+  <div class="tile"><div class="lockup"><svg width="64" height="64" viewBox="0 0 64 64" aria-hidden="true"><use class="ink" href="#roof"/><use href="#barsA"/></svg><span class="word">HalachaBench<span>.ai</span></span></div></div>
+  <div class="tile dark"><div class="lockup"><svg width="64" height="64" viewBox="0 0 64 64" aria-hidden="true"><use class="ink" href="#roof"/><use href="#barsA"/></svg><span class="word">HalachaBench<span>.ai</span></span></div></div>
+  <div class="tile sizes"><div class="row">
+    <svg width="16" height="16" viewBox="0 0 64 64"><use class="ink" href="#roof"/><use href="#barsA3"/></svg>
+    <svg width="32" height="32" viewBox="0 0 64 64"><use class="ink" href="#roof"/><use href="#barsA3"/></svg>
+    <div class="avatar"><svg width="56" height="56" viewBox="0 0 64 64"><use class="ink" href="#roof"/><use href="#barsA"/></svg></div>
+  </div><p class="cap">16 px and 32 px use three bars; X avatar</p></div>
+</div>
+</section>
+
+<section>
+<h2>B. Bars grow to the right</h2>
+<p class="why">Left-aligned like an ordinary leaderboard, standing on the spot where the ה's leg would be.</p>
+<div class="big">
+  <svg width="200" height="200" viewBox="0 0 64 64" aria-label="Hei mark, version B"><use class="ink" href="#roof"/><use href="#barsB"/></svg>
+</div>
+<div class="grid">
+  <div class="tile"><div class="lockup"><svg width="64" height="64" viewBox="0 0 64 64" aria-hidden="true"><use class="ink" href="#roof"/><use href="#barsB"/></svg><span class="word">HalachaBench<span>.ai</span></span></div></div>
+  <div class="tile dark"><div class="lockup"><svg width="64" height="64" viewBox="0 0 64 64" aria-hidden="true"><use class="ink" href="#roof"/><use href="#barsB"/></svg><span class="word">HalachaBench<span>.ai</span></span></div></div>
+  <div class="tile sizes"><div class="row">
+    <svg width="16" height="16" viewBox="0 0 64 64"><use class="ink" href="#roof"/><use href="#barsB3"/></svg>
+    <svg width="32" height="32" viewBox="0 0 64 64"><use class="ink" href="#roof"/><use href="#barsB3"/></svg>
+    <div class="avatar"><svg width="56" height="56" viewBox="0 0 64 64"><use class="ink" href="#roof"/><use href="#barsB"/></svg></div>
+  </div><p class="cap">16 px and 32 px use three bars; X avatar</p></div>
+</div>
+</section>
+</div>
+</body>
+</html>

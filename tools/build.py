@@ -287,6 +287,8 @@ def page(path: str, title: str, body: str, desc: str = "", image: str = "/assets
 <meta name="twitter:site" content="@HalachaBench">
 <meta name="theme-color" content="#f6f4ef">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 {hebrew_font}
 <link rel="stylesheet" href="/assets/style.css?v={SITE['build']}">
 <script>try{{var t=localStorage.getItem('hb-theme');if(t)document.documentElement.dataset.theme=t;}}catch(_){{}}</script>
@@ -295,7 +297,7 @@ def page(path: str, title: str, body: str, desc: str = "", image: str = "/assets
 <a class="skip" href="#main">Skip to content</a>{PREVIEW_BAR}
 <header class="site-head">
   <div class="wrap head-row">
-    <a class="wordmark" href="/">HalachaBench<span>.ai</span></a>
+    <a class="wordmark" href="/">{mark_svg(34)}HalachaBench<span>.ai</span></a>
     <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav"><span class="visually-hidden">Menu</span><i></i></button>
     <nav id="site-nav" class="site-nav" aria-label="Main">{nav}<a href="/he/" lang="he" class="he-link">עברית</a>
       <button class="theme-toggle" type="button" aria-label="Switch between light and dark"></button></nav>
@@ -307,7 +309,7 @@ def page(path: str, title: str, body: str, desc: str = "", image: str = "/assets
 <footer class="site-foot">
   <div class="wrap foot-grid">
     <div class="foot-about">
-      <a class="wordmark small" href="/">HalachaBench<span>.ai</span></a>
+      <a class="wordmark small" href="/">{mark_svg(28)}HalachaBench<span>.ai</span></a>
       <p>An independent project. Not connected to or endorsed by the Chief Rabbinate of Israel or by any model
       developer; model names are their owners' trademarks. Results are provisional, and nothing here is psak.</p>
     </div>
@@ -334,6 +336,21 @@ def page(path: str, title: str, body: str, desc: str = "", image: str = "/assets
         dest = OUT / path.strip("/")
     dest.parent.mkdir(parents=True, exist_ok=True)
     dest.write_text(doc, encoding="utf-8")
+
+
+# --------------------------------------------------------------------------- brand mark
+
+ROOF = "M9 9h40.5a7.5 7.5 0 0 1 7.5 7.5V56h-8V17H9z"
+BARS4 = [("m1", 19, 27, 26, 5), ("m2", 19, 35, 20, 5), ("m3", 19, 43, 14, 5), ("m4", 19, 51, 8, 5)]
+BARS3 = [("m1", 20, 27, 25, 7), ("m2", 20, 38, 17, 7), ("m3", 20, 49, 9, 7)]
+
+
+def mark_svg(size: int, small: bool = False, cls: str = "mark") -> str:
+    """The HalachaBench mark: a hei whose full-weight left leg is the axis of a ranked bar chart."""
+    bars = BARS3 if small else BARS4
+    rects = "".join(f'<rect class="{c}" x="{x}" y="{y}" width="{w}" height="{h}" rx="1"/>' for c, x, y, w, h in bars)
+    return (f'<svg class="{cls}" width="{size}" height="{size}" viewBox="0 0 64 64" aria-hidden="true" focusable="false">'
+            f'<path class="m0" d="{ROOF}"/><rect class="m0" x="9" y="26" width="8" height="30"/>{rects}</svg>')
 
 
 # --------------------------------------------------------------------------- shared pieces

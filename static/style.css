@@ -77,7 +77,11 @@ code { font: 13px/1.4 var(--mono); background: var(--paper-2); padding: 1px 5px;
 .site-head { position: sticky; top: 0; z-index: 20; background: color-mix(in srgb, var(--paper) 90%, transparent);
   backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--rule); }
 .head-row { display: flex; align-items: center; gap: 24px; height: 68px; }
-.wordmark { font: 400 26px/1 var(--serif); letter-spacing: -.02em; color: var(--ink); text-decoration: none; white-space: nowrap; }
+.wordmark { font: 400 26px/1 var(--serif); letter-spacing: -.02em; color: var(--ink); text-decoration: none; white-space: nowrap;
+  display: inline-flex; align-items: center; gap: 10px; }
+.wordmark > span { margin-left: -10px; }
+.mark .m0 { fill: currentColor; } .mark .m1 { fill: var(--lab-google); } .mark .m2 { fill: var(--lab-anthropic); }
+.mark .m3 { fill: var(--lab-openai); } .mark .m4 { fill: var(--lab-meta); }
 .wordmark span { color: var(--muted); }
 .wordmark.small { font-size: 22px; }
 .site-nav { display: flex; align-items: center; gap: 22px; margin-left: auto; font: 13.5px var(--mono); }
@@ -107,11 +111,11 @@ code { font: 13px/1.4 var(--mono); background: var(--paper-2); padding: 1px 5px;
 .hero-board { margin: 0; padding-top: 6px; }
 .hero-board figcaption { font: 12.5px var(--mono); color: var(--ink-2); border-bottom: 1px solid var(--ink); padding-bottom: 6px; }
 .hero-board .cap { display: block; margin-bottom: 8px; }
-.h-axis { display: grid; grid-template-columns: 28px minmax(0, 11em) minmax(0, 1fr) 56px; gap: 14px; }
+.h-axis { display: grid; grid-template-columns: 28px minmax(0, 190px) minmax(0, 1fr) 56px; gap: 14px; }
 .h-axis .axis { height: 14px; color: var(--muted); }
 .hero-board li .track::before { background: linear-gradient(90deg, var(--rule) 0 100%); }
 .hero-board ol { list-style: none; margin: 0; padding: 0; }
-.hero-board li { display: grid; grid-template-columns: 28px minmax(0, 11em) minmax(0, 1fr) 56px; align-items: center; gap: 14px;
+.hero-board li { display: grid; grid-template-columns: 28px minmax(0, 190px) minmax(0, 1fr) 56px; align-items: center; gap: 14px;
   padding: 9px 0; border-bottom: 1px solid var(--rule); }
 .h-rank { font: 13px var(--mono); color: var(--muted); }
 .h-name { font-size: 18px; line-height: 1.15; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }

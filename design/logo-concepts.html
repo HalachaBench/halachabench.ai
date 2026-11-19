@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Logo concepts | HalachaBench</title>
+<style>
+  :root { --paper: #f6f4ef; --ink: #111; --muted: #77736b; --rule: #dcd7cb; --accent: #1f4f8f; --dark: #13120f; --dark-ink: #efebe2; --dark-accent: #93b4e8;
+    --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif; --mono: ui-monospace, Menlo, Consolas, monospace; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font: 17px/1.55 var(--serif); }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 48px 32px 96px; }
+  h1 { font-weight: 400; font-size: 48px; letter-spacing: -.02em; margin: 0 0 8px; }
+  .lede { color: #45423c; max-width: 44em; margin: 0 0 40px; }
+  section { border-top: 1px solid var(--ink); padding: 28px 0 44px; }
+  h2 { font-weight: 400; font-size: 30px; margin: 0 0 4px; }
+  .why { color: #45423c; max-width: 46em; margin: 0 0 24px; }
+  .grid { display: grid; grid-template-columns: 1.6fr 1.6fr 1fr; gap: 20px; align-items: stretch; }
+  .tile { border: 1px solid var(--rule); border-radius: 6px; padding: 28px; display: flex; align-items: center; justify-content: center; min-height: 170px; }
+  .tile.dark { background: var(--dark); border-color: #2f2d27; color: var(--dark-ink); }
+  .lockup { display: flex; align-items: center; gap: 16px; }
+  .word { font: 400 38px/1 var(--serif); letter-spacing: -.02em; white-space: nowrap; }
+  .word span { color: var(--muted); }
+  .dark .word span { color: #938e82; }
+  .sizes { display: flex; flex-direction: column; gap: 14px; align-items: center; justify-content: center; }
+  .row { display: flex; align-items: center; gap: 18px; }
+  .avatar { width: 88px; height: 88px; border-radius: 50%; overflow: hidden; display: grid; place-items: center; background: var(--ink); }
+  .cap { font: 12px var(--mono); color: var(--muted); margin-top: 8px; }
+  svg { display: block; }
+  /* mark colours: currentColor = ink, .acc = accent */
+  .mark .ink { fill: currentColor; } .mark .acc { fill: var(--accent); } .mark .stroke { stroke: currentColor; fill: none; }
+  .mark .acc-stroke { stroke: var(--accent); fill: none; }
+  .dark .mark .acc, .avatar .mark .acc { fill: var(--dark-accent); } .dark .mark .acc-stroke, .avatar .mark .acc-stroke { stroke: var(--dark-accent); }
+  .avatar .mark { color: var(--paper); }
+  @media (max-width: 860px) { .grid { grid-template-columns: 1fr; } .word { font-size: 30px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Logo concepts</h1>
+<p class="lede">Three directions for the HalachaBench mark, each shown with the wordmark from the current site, on paper
+and on dark, at favicon size and as the round X avatar. Pick one direction (or a mix) and it gets refined into final
+SVG and PNG files.</p>
+
+<!-- ============ 1: Hei bar ============ -->
+<section>
+<h2>1. Hei bar</h2>
+<p class="why">The Hebrew letter ה, for halacha. Its left leg already floats free of the roof; here it becomes a
+bar from a bar chart, in tekhelet blue. Reads as a letter to anyone who learns, and as a measurement to everyone else.</p>
+<div class="grid">
+  <div class="tile"><div class="lockup">
+    <svg class="mark" width="64" height="64" viewBox="0 0 64 64" aria-hidden="true">
+      <path class="ink" d="M9 9h40.5a7.5 7.5 0 0 1 7.5 7.5V56h-8V17H9z"/>
+      <rect class="acc" x="9" y="29" width="8" height="27" rx="1.5"/>
+    </svg>
+    <span class="word">HalachaBench<span>.ai</span></span></div></div>
+  <div class="tile dark"><div class="lockup">
+    <svg class="mark" width="64" height="64" viewBox="0 0 64 64" aria-hidden="true">
+      <path class="ink" d="M9 9h40.5a7.5 7.5 0 0 1 7.5 7.5V56h-8V17H9z"/>
+      <rect class="acc" x="9" y="29" width="8" height="27" rx="1.5"/>
+    </svg>
+    <span class="word">HalachaBench<span>.ai</span></span></div></div>
+  <div class="tile sizes">
+    <div class="row">
+      <svg class="mark" width="16" height="16" viewBox="0 0 64 64"><path class="ink" d="M9 9h40.5a7.5 7.5 0 0 1 7.5 7.5V56h-8V17H9z"/><rect class="acc" x="9" y="29" width="8" height="27" rx="1.5"/></svg>
+      <svg class="mark" width="32" height="32" viewBox="0 0 64 64"><path class="ink" d="M9 9h40.5a7.5 7.5 0 0 1 7.5 7.5V56h-8V17H9z"/><rect class="acc" x="9" y="29" width="8" height="27" rx="1.5"/></svg>
+      <div class="avatar"><svg class="mark" width="56" height="56" viewBox="0 0 64 64"><path class="ink" d="M9 9h40.5a7.5 7.5 0 0 1 7.5 7.5V56h-8V17H9z"/><rect class="acc" x="9" y="29" width="8" height="27" rx="1.5"/></svg></div>
+    </div>
+    <p class="cap">16 px, 32 px, X avatar</p>
+  </div>
+</div>
+</section>
+
+<!-- ============ 2: The daf ============ -->
+<section>
+<h2>2. The daf</h2>
+<p class="why">The shape of a page of Gemara: the main text in the middle, Rashi and Tosafot wrapped around it. Pared
+down to blocks and lines, it also reads as a table of results, which is what the site is.</p>
+<div class="grid">
+  <div class="tile"><div class="lockup">
+    <svg class="mark" width="64" height="64" viewBox="0 0 64 64" aria-hidden="true">
+      <rect class="ink" x="23" y="8" width="18" height="48" rx="1"/>
+      <rect class="acc" x="23" y="8" width="18" height="9" rx="1"/>
+      <g class="ink"><rect x="8" y="8" width="11" height="3.5"/><rect x="8" y="15" width="11" height="3.5"/><rect x="8" y="22" width="11" height="3.5"/><rect x="8" y="29" width="11" height="3.5"/><rect x="8" y="36" width="11" height="3.5"/><rect x="8" y="43" width="11" height="3.5"/><rect x="8" y="50" width="11" height="3.5"/>
+      <rect x="45" y="8" width="11" height="3.5"/><rect x="45" y="15" width="11" height="3.5"/><rect x="45" y="22" width="11" height="3.5"/><rect x="45" y="29" width="11" height="3.5"/><rect x="45" y="36" width="11" height="3.5"/><rect x="45" y="43" width="11" height="3.5"/><rect x="45" y="50" width="11" height="3.5"/></g>
+    </svg>
+    <span class="word">HalachaBench<span>.ai</span></span></div></div>
+  <div class="tile dark"><div class="lockup">
+    <svg class="mark" width="64" height="64" viewBox="0 0 64 64" aria-hidden="true">
+      <rect class="ink" x="23" y="8" width="18" height="48" rx="1"/>
+      <rect class="acc" x="23" y="8" width="18" height="9" rx="1"/>
+      <g class="ink"><rect x="8" y="8" width="11" height="3.5"/><rect x="8" y="15" width="11" height="3.5"/><rect x="8" y="22" width="11" height="3.5"/><rect x="8" y="29" width="11" height="3.5"/><rect x="8" y="36" width="11" height="3.5"/><rect x="8" y="43" width="11" height="3.5"/><rect x="8" y="50" width="11" height="3.5"/>
+      <rect x="45" y="8" width="11" height="3.5"/><rect x="45" y="15" width="11" height="3.5"/><rect x="45" y="22" width="11" height="3.5"/><rect x="45" y="29" width="11" height="3.5"/><rect x="45" y="36" width="11" height="3.5"/><rect x="45" y="43" width="11" height="3.5"/><rect x="45" y="50" width="11" height="3.5"/></g>
+    </svg>
+    <span class="word">HalachaBench<span>.ai</span></span></div></div>
+  <div class="tile sizes">
+    <div class="row">
+      <svg class="mark" width="16" height="16" viewBox="0 0 64 64"><rect class="ink" x="23" y="8" width="18" height="48"/><rect class="acc" x="23" y="8" width="18" height="9"/><rect class="ink" x="8" y="8" width="11" height="48" opacity=".45"/><rect class="ink" x="45" y="8" width="11" height="48" opacity=".45"/></svg>
+      <svg class="mark" width="32" height="32" viewBox="0 0 64 64"><rect class="ink" x="23" y="8" width="18" height="48" rx="1"/><rect class="acc" x="23" y="8" width="18" height="9" rx="1"/><g class="ink"><rect x="8" y="8" width="11" height="5"/><rect x="8" y="18" width="11" height="5"/><rect x="8" y="28" width="11" height="5"/><rect x="8" y="38" width="11" height="5"/><rect x="8" y="48" width="11" height="5"/><rect x="45" y="8" width="11" height="5"/><rect x="45" y="18" width="11" height="5"/><rect x="45" y="28" width="11" height="5"/><rect x="45" y="38" width="11" height="5"/><rect x="45" y="48" width="11" height="5"/></g></svg>
+      <div class="avatar"><svg class="mark" width="54" height="54" viewBox="0 0 64 64"><rect class="ink" x="23" y="8" width="18" height="48" rx="1"/><rect class="acc" x="23" y="8" width="18" height="9" rx="1"/><g class="ink"><rect x="8" y="8" width="11" height="5"/><rect x="8" y="18" width="11" height="5"/><rect x="8" y="28" width="11" height="5"/><rect x="8" y="38" width="11" height="5"/><rect x="8" y="48" width="11" height="5"/><rect x="45" y="8" width="11" height="5"/><rect x="45" y="18" width="11" height="5"/><rect x="45" y="28" width="11" height="5"/><rect x="45" y="38" width="11" height="5"/><rect x="45" y="48" width="11" height="5"/></g></svg></div>
+    </div>
+    <p class="cap">16 px (simplified), 32 px, X avatar</p>
+  </div>
+</div>
+</section>
+
+<!-- ============ 3: Interval H ============ -->
+<section>
+<h2>3. Interval H</h2>
+<p class="why">A serif H, the same H as today's favicon, whose crossbar is the site's own score line: an interval with
+end caps and a blue score dot. It carries the brand you already have and adds the one idea the site is about,
+measurement with honest error bars.</p>
+<div class="grid">
+  <div class="tile"><div class="lockup">
+    <svg class="mark" width="64" height="64" viewBox="0 0 64 64" aria-hidden="true">
+      <path class="ink" d="M8 8h16v3.5h-4.5v41h4.5V56H8v-3.5h4.5v-41H8zM40 8h16v3.5h-4.5v41H56V56H40v-3.5h4.5v-41H40z"/>
+      <path class="stroke" d="M19.5 32h25M26 26.5v11M38 26.5v11" stroke-width="3" stroke-linecap="round"/>
+      <circle class="acc" cx="34.5" cy="32" r="5.5"/>
+    </svg>
+    <span class="word">HalachaBench<span>.ai</span></span></div></div>
+  <div class="tile dark"><div class="lockup">
+    <svg class="mark" width="64" height="64" viewBox="0 0 64 64" aria-hidden="true">
+      <path class="ink" d="M8 8h16v3.5h-4.5v41h4.5V56H8v-3.5h4.5v-41H8zM40 8h16v3.5h-4.5v41H56V56H40v-3.5h4.5v-41H40z"/>
+      <path class="stroke" d="M19.5 32h25M26 26.5v11M38 26.5v11" stroke-width="3" stroke-linecap="round"/>
+      <circle class="acc" cx="34.5" cy="32" r="5.5"/>
+    </svg>
+    <span class="word">HalachaBench<span>.ai</span></span></div></div>
+  <div class="tile sizes">
+    <div class="row">
+      <svg class="mark" width="16" height="16" viewBox="0 0 64 64"><path class="ink" d="M8 8h18v48H8zM38 8h18v48H38z"/><circle class="acc" cx="32" cy="32" r="9"/></svg>
+      <svg class="mark" width="32" height="32" viewBox="0 0 64 64"><path class="ink" d="M8 8h16v3.5h-4.5v41h4.5V56H8v-3.5h4.5v-41H8zM40 8h16v3.5h-4.5v41H56V56H40v-3.5h4.5v-41H40z"/><path class="stroke" d="M19.5 32h25" stroke-width="4"/><circle class="acc" cx="34.5" cy="32" r="6.5"/></svg>
+      <div class="avatar"><svg class="mark" width="54" height="54" viewBox="0 0 64 64"><path class="ink" d="M8 8h16v3.5h-4.5v41h4.5V56H8v-3.5h4.5v-41H8zM40 8h16v3.5h-4.5v41H56V56H40v-3.5h4.5v-41H40z"/><path class="stroke" d="M19.5 32h25M26 26.5v11M38 26.5v11" stroke-width="3" stroke-linecap="round"/><circle class="acc" cx="34.5" cy="32" r="5.5"/></svg></div>
+    </div>
+    <p class="cap">16 px (simplified), 32 px, X avatar</p>
+  </div>
+</div>
+</section>
+</div>
+</body>
+</html>

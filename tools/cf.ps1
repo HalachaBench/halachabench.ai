@@ -1,7 +1,7 @@
 # Cloudflare helpers for the team preview. The API token is read from Windows Credential Manager
 # (target HalachaBench/cloudflare-token) only for the call that needs it, and is never printed.
 param(
-  [Parameter(Mandatory = $true)][ValidateSet('access-org', 'deploy', 'access-apps', 'protect')][string]$Action,
+  [Parameter(Mandatory = $true)][ValidateSet('access-org', 'create', 'deploy', 'access-apps', 'protect', 'check')][string]$Action,
   [string]$Project = 'halachabench-preview',
   [string[]]$Emails = @()
 )
@@ -28,9 +28,9 @@ public static class CredR {
 function Get-Token { [Text.Encoding]::UTF8.GetString([CredR]::Read('HalachaBench/cloudflare-token')) }
 function Cf($Method, $Path, $Body) {
   $h = @{ Authorization = "Bearer $(Get-Token)" }
-  $args = @{ Method = $Method; Uri = "https://api.cloudflare.com/client/v4/accounts/$Account$Path"; Headers = $h }
-  if ($Body) { $args.Body = ($Body | ConvertTo-Json -Depth 10); $args.ContentType = 'application/json' }
-  Invoke-RestMethod @args
+  $req = @{ Method = $Method; Uri = "https://api.cloudflare.com/client/v4/accounts/$Account$Path"; Headers = $h }
+  if ($Body) { $req.Body = ($Body | ConvertTo-Json -Depth 10); $req.ContentType = 'application/json' }
+  Invoke-RestMethod @req
 }
 
 switch ($Action) {
@@ -41,21 +41,28 @@ switch ($Action) {
   'access-apps' {
     (Cf GET '/access/apps').result | ForEach-Object { "$($_.name)  $($_.domain)  $($_.id)" }
   }
+  'create' {
+    $env:CLOUDFLARE_ACCOUNT_ID = $Account; $env:CLOUDFLARE_API_TOKEN = Get-Token
+    try { npx --yes wrangler@4.45.0 pages project create $Project --production-branch main 2>&1 | Out-String | Write-Output }
+    finally { Remove-Item Env:CLOUDFLARE_API_TOKEN -ErrorAction SilentlyContinue }
+  }
   'deploy' {
+    $apps = (Cf GET '/access/apps').result | Where-Object { $_.domain -like "*$Project.pages.dev*" }
+    if (-not $apps) { throw "Refusing to deploy: no Access app protects $Project.pages.dev yet. Run -Action protect first." }
     $root = Split-Path $PSScriptRoot -Parent
-    $env:CLOUDFLARE_ACCOUNT_ID = $Account
-    $env:CLOUDFLARE_API_TOKEN = Get-Token
-    try {
-      npx --yes wrangler@4.45.0 pages project list 2>$null | Out-String | Select-String -Quiet $Project | Out-Null
-      npx --yes wrangler@4.45.0 pages project create $Project --production-branch main 2>&1 | Out-String | Write-Output
-      npx --yes wrangler@4.45.0 pages deploy (Join-Path $root 'preview-build') --project-name $Project --branch main --commit-dirty=true 2>&1 | Out-String | Write-Output
-    } finally { Remove-Item Env:CLOUDFLARE_API_TOKEN -ErrorAction SilentlyContinue }
+    $env:CLOUDFLARE_ACCOUNT_ID = $Account; $env:CLOUDFLARE_API_TOKEN = Get-Token
+    try { npx --yes wrangler@4.45.0 pages deploy (Join-Path $root 'preview-build') --project-name $Project --branch main --commit-dirty=true 2>&1 | Out-String | Write-Output }
+    finally { Remove-Item Env:CLOUDFLARE_API_TOKEN -ErrorAction SilentlyContinue }
+  }
+  'check' {
+    try { $r = Invoke-WebRequest -Uri "https://$Project.pages.dev/" -MaximumRedirection 0 -UseBasicParsing -ErrorAction Stop; "status $($r.StatusCode) (NOT protected?)" }
+    catch { $resp = $_.Exception.Response; if ($resp) { "status $([int]$resp.StatusCode) -> $($resp.Headers['Location'])" } else { $_.Exception.Message } }
   }
   'protect' {
     if ($Emails.Count -eq 0) { throw 'Pass -Emails a@b.com,c@d.com' }
     $include = @($Emails | ForEach-Object { @{ email = @{ email = $_ } } })
     $app = @{
-      name = "HalachaBench team preview"; type = 'self_hosted'; session_duration = '720h'
+      name = "HalachaBench team preview"; type = 'self_hosted'; session_duration = '168h'
       domain = "$Project.pages.dev"
       self_hosted_domains = @("$Project.pages.dev", "*.$Project.pages.dev")
       policies = @(@{ name = 'Team emails'; decision = 'allow'; include = $include })
