@@ -18,15 +18,6 @@
     if (location.hash) a.href = a.href.split('#')[0] + location.hash;
   }));
 
-  // easter egg: press D on the home page to read it as a daf (hb-daf-key)
-  const onHome = /^\/(he\/)?$/.test(location.pathname);
-  if (onHome) document.addEventListener('keydown', e => {
-    if ((e.key === 'd' || e.key === 'D' || e.key === 'ד') && !e.ctrlKey && !e.metaKey && !e.altKey &&
-        !/input|select|textarea/i.test(e.target.tagName)) {
-      location.href = (location.pathname.startsWith('/he/') ? '/he' : '') + '/daf/';
-    }
-  });
-
   // hb-daf-typed: hidden ways into the daf view
   const dafUrl = (location.pathname.startsWith('/he/') ? '/he' : '') + '/daf/';
   const onDaf = /\/daf\/$/.test(location.pathname);
