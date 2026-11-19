@@ -9,14 +9,14 @@ rank,model,lab,score,ci95_low,ci95_high,worst_of_3,how_it_ran,added
 8,Claude Opus 5.5,Anthropic,69.1,64.7,73.3,60.0,"Claude Code CLI, effort high",2026-11-01
 9,Gemini 3.8 Flash,Google,64.4,59.7,68.9,54.3,"Antigravity CLI, effort high",2026-11-01
 10,Muse Wonder Full,Meta,60.8,56.4,65.2,47.9,"Muse Code CLI, effort high",2026-11-06
-11,GPT-6 Sol,OpenAI,48.7,44.1,53.3,37.2,"Codex, effort high",2026-11-01
+11,GPT-6 Sol,OpenAI,48.7,44.1,53.3,37.2,"Codex, effort high",2026-11-03
 12,Muse Wonder,Meta,48.2,43.4,53.1,35.5,"Muse Code CLI, effort high",2026-11-06
 13,Claude Opus 4.8,Anthropic,48.0,43.3,52.7,36.3,"Claude Code CLI, effort high",2026-11-02
-14,Muse Spark 1.3,Meta,36.2,32.2,40.4,22.0,"Muse Code CLI, effort high",2026-11-01
+14,Muse Spark 1.3,Meta,36.2,32.2,40.4,22.0,"Muse Code CLI, effort high",2026-11-06
 15,GPT-6.1 Terra,OpenAI,34.6,30.8,38.5,25.6,"Codex, effort high",2026-11-01
 16,GPT-6 Luna,OpenAI,32.4,28.5,36.4,21.8,"Codex, effort high",2026-11-01
 17,Grok 4.7,xAI,29.9,26.3,33.6,16.4,"xAI API, effort high",2026-11-02
-18,Claude Sonnet 4.6,Anthropic,29.6,25.4,33.9,19.9,"Claude Code CLI, effort high",2026-11-01
+18,Claude Sonnet 4.6,Anthropic,29.6,25.4,33.9,19.9,"Claude Code CLI, effort high",2026-11-02
 19,Claude Sonnet 5.5,Anthropic,28.7,24.2,33.3,18.3,"Claude Code CLI, effort high",2026-11-01
 20,Muse Ember,Meta,15.3,12.0,18.8,6.2,"Muse Code CLI, effort high",2026-11-09
 21,Grok 4.3,xAI,10.8,8.1,13.6,4.8,"xAI API, effort high",2026-11-02

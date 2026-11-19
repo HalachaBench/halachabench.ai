@@ -20,7 +20,9 @@
   --lab-anthropic: #eb6834;
   --lab-openai: #1baf7a;
   --lab-google: #2a78d6;
-  --lab-other: #a3a29b;
+  --lab-other: #c4c2ba;
+  --lab-meta: #a3459c;
+  --lab-xai: #2e2d2a;
   --ci: rgba(11, 11, 11, .55);
   --b-ruling: #2a4f9a;
   --b-itself: #c0611f;
@@ -37,7 +39,7 @@
     --page: #0d0d0d; --surface: #1a1a19; --surface-2: #232321; --ink: #f0efec; --ink-2: #c3c2b7; --muted: #94938c;
     --hair: #2c2c2a; --axis: #383835; --ring: rgba(255, 255, 255, .10); --accent: #6da7ec; --accent-ink: #0b0b0b;
     --accent-soft: #16263b; --gold: #e0a43a; --warn-bg: #2a2210; --warn-ink: #f2d38a; --warn-edge: #5a4718;
-    --lab-anthropic: #d95926; --lab-openai: #199e70; --lab-google: #3987e5; --lab-other: #6f6e68;
+    --lab-anthropic: #d95926; --lab-openai: #199e70; --lab-google: #3987e5; --lab-other: #55544f; --lab-meta: #b45aad; --lab-xai: #e6e4dd;
     --ci: rgba(240, 239, 236, .6); --b-ruling: #7d9fe0; --b-itself: #e08a4c; --shadow: none;
   }
 }
@@ -46,7 +48,7 @@
   --page: #0d0d0d; --surface: #1a1a19; --surface-2: #232321; --ink: #f0efec; --ink-2: #c3c2b7; --muted: #94938c;
   --hair: #2c2c2a; --axis: #383835; --ring: rgba(255, 255, 255, .10); --accent: #6da7ec; --accent-ink: #0b0b0b;
   --accent-soft: #16263b; --gold: #e0a43a; --warn-bg: #2a2210; --warn-ink: #f2d38a; --warn-edge: #5a4718;
-  --lab-anthropic: #d95926; --lab-openai: #199e70; --lab-google: #3987e5; --lab-other: #6f6e68;
+  --lab-anthropic: #d95926; --lab-openai: #199e70; --lab-google: #3987e5; --lab-other: #55544f; --lab-meta: #b45aad; --lab-xai: #e6e4dd;
   --ci: rgba(240, 239, 236, .6); --b-ruling: #7d9fe0; --b-itself: #e08a4c; --shadow: none;
 }
 
@@ -161,7 +163,7 @@ section { margin: 0 0 44px; }
 /* lab chips */
 .lab-dot { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 8px; flex: none; vertical-align: 0; }
 .lab-anthropic { background: var(--lab-anthropic); } .lab-openai { background: var(--lab-openai); }
-.lab-google { background: var(--lab-google); } .lab-other { background: var(--lab-other); }
+.lab-google { background: var(--lab-google); } .lab-meta { background: var(--lab-meta); } .lab-xai { background: var(--lab-xai); } .lab-other { background: var(--lab-other); }
 
 /* home split */
 .split { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); gap: 32px; margin-top: 52px; }
@@ -408,3 +410,16 @@ h2, h3 { letter-spacing: -.01em; }
 
 .foot-legal { margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--hair); font: 12px var(--mono); color: var(--muted); }
 .preview-bar { background: var(--ink); color: var(--page); font: 12.5px var(--mono); text-align: center; padding: 7px 16px; }
+
+/* Powered by Sefaria badge (official image, unaltered; navy on light, white on dark) */
+.sources-credit { display: flex; align-items: center; gap: 14px; margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--hair); }
+.sources-credit p { margin: 0; font-size: 13px; color: var(--ink-2); line-height: 1.45; }
+.sefaria-badge { flex: none; line-height: 0; }
+.sefaria-badge img { width: 140px; height: auto; }
+.sefaria-badge .on-dark { display: none; }
+:root[data-theme="dark"] .sefaria-badge .on-light { display: none; }
+:root[data-theme="dark"] .sefaria-badge .on-dark { display: block; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .sefaria-badge .on-light { display: none; }
+  :root:not([data-theme="light"]) .sefaria-badge .on-dark { display: block; }
+}

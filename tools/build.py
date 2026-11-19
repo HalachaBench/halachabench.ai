@@ -36,8 +36,8 @@ e = html.escape
 
 # --------------------------------------------------------------------------- labs
 
-LABS = {  # lab -> css class; only three hues (validated all-pairs), the rest neutral
-    "Anthropic": "lab-anthropic", "OpenAI": "lab-openai", "Google": "lab-google",
+LABS = {  # lab -> css class. Four hues validated all-pairs (light and dark), xAI as ink, the rest neutral gray.
+    "Anthropic": "lab-anthropic", "OpenAI": "lab-openai", "Google": "lab-google", "Meta": "lab-meta", "xAI": "lab-xai",
 }
 
 
@@ -157,7 +157,7 @@ def parse_halacha():
         m["added"] = first
         if m["added_later"]:
             for u in sorted(updates, key=lambda u: u["date"]):
-                if re.search(r"(?<![\w.])" + re.escape(m["name"]) + r"(?![\w.])", u["text"]):
+                if re.search(r"(?<![\w.])" + re.escape(m["name"]) + r"(?!\w|\.\d)", u["text"]):
                     m["added"] = u["date"]
                     break
     # comparison bullets and section texts reused on pages
@@ -428,7 +428,7 @@ def stringency_rows(K) -> str:
 <th class="bar-head"><div class="axis-ends"><span>← more lenient</span><span>more stringent →</span></div><div class="axis">{ticks}</div></th>
 <th class="num" data-sort="num" aria-sort="descending">Stringency</th><th class="num hide-sm" data-sort="num">95% CI</th></tr></thead>
 <tbody>{''.join(rows)}</tbody></table></div>
-<p class="legend-row">{''.join(f'<span>{chip(l)}{l}</span>' for l in LABS)}<span>{chip('Other')}xAI</span>
+<p class="legend-row">{''.join(f'<span>{chip(l)}{l}</span>' for l in LABS if l in {m['lab'] for m in K['models']})}
 <span class="legend-ci"><i></i>95% CI</span><span class="muted">0 = most lenient position, 1 = most stringent. Neither end is "better".</span></p>"""
 
 
@@ -572,6 +572,13 @@ def build_home(H, K, V, F):
         <li>Rabbis are invited to review the rubrics and grade a random sample of answers</li>
       </ul>
       <a class="more" href="/method/">Method and proof bundle →</a>
+      <div class="sources-credit">
+        <a class="sefaria-badge" href="https://www.sefaria.org">
+          <img class="on-light" src="/assets/img/powered-by-sefaria-navy.png" alt="Powered by Sefaria" width="140" height="73">
+          <img class="on-dark" src="/assets/img/powered-by-sefaria-white.png" alt="Powered by Sefaria" width="140" height="73">
+        </a>
+        <p>Rubric sources were checked against texts from the Sefaria library.</p>
+      </div>
     </div>
   </aside>
 </section>
@@ -614,7 +621,7 @@ questions (10,000 replicates) and cover only the choice of questions, not judge 
 </section>
 <section class="prose">
 <h2 id="updates">Changelog</h2>
-<ol class="changelog wide">{log}<li><time>1 November 2026</time><span>First results: 22 models.</span></li></ol>
+<ol class="changelog wide">{log}<li><time>1 November 2026</time><span>First results: {sum(1 for m in H["models"] if not m["added_later"])} models.</span></li></ol>
 </section>
 <section class="prose"><h2>More</h2>
 <p><a href="/method/">How the exam is run and graded</a> · <a href="/findings/grok-checks/">Checks on the Grok results</a> ·

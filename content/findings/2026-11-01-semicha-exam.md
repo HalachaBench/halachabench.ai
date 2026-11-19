@@ -18,7 +18,7 @@ accepted views, common errors) and sealed with a cryptographic commitment before
 
 ## What we found
 
-- **The best model scored 80 out of 100.** Claude Fable 5.1 led the first 22 models with 79.7, ahead of GPT-6 Astra
+- **The best model scored 80 out of 100.** Claude Fable 5.1 led the first 17 models with 79.7, ahead of GPT-6 Astra
   (73.3) and GPT-6.1 Sol (72.8).
 - **The spread is enormous.** Many models, including every open-weight model we could run on our own hardware,
   scored under 11.
