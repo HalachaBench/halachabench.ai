@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>בדיקות על התוצאות של Grok | HalachaBench</title>
+<meta name="description" content="Grok 4.7 קיבל 29.9, הרבה מתחת למובילים. בדקנו את התוצאה בחמש דרכים והיא עומדת בעינה. התשובות שלו קצרות.">
+<link rel="canonical" href="https://halachabench.ai/he/findings/grok-checks/">
+<link rel="alternate" hreflang="en" href="https://halachabench.ai/findings/grok-checks/">
+<link rel="alternate" hreflang="he" href="https://halachabench.ai/he/findings/grok-checks/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="HalachaBench">
+<meta property="og:locale" content="he_IL">
+<meta property="og:title" content="בדיקות על התוצאות של Grok">
+<meta property="og:description" content="Grok 4.7 קיבל 29.9, הרבה מתחת למובילים. בדקנו את התוצאה בחמש דרכים והיא עומדת בעינה. התשובות שלו קצרות.">
+<meta property="og:url" content="https://halachabench.ai/he/findings/grok-checks/">
+<meta property="og:image" content="https://halachabench.ai/assets/img/halachabench-results.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@HalachaBench">
+<meta name="theme-color" content="#f6f4ef">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600&family=Frank+Ruhl+Libre:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/style.css?v=202611182111">
+<script>try{var t=localStorage.getItem('hb-theme');if(t)document.documentElement.dataset.theme=t;var p=localStorage.getItem('hb-lang'),h='he';if(!p&&h==='en'&&/^he\b/i.test((navigator.languages&&navigator.languages[0])||navigator.language||''))p='he';if(p&&p!==h&&location.search.indexOf('lang=')<0)location.replace('/findings/grok-checks/');}catch(_){}</script>
+</head>
+<body>
+<a class="skip" href="#main">דילוג לתוכן</a>
+<header class="site-head">
+  <div class="wrap head-row">
+    <a class="wordmark" href="/he/" dir="ltr"><svg class="mark" width="34" height="34" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path class="m0" d="M9 9h40.5a7.5 7.5 0 0 1 7.5 7.5V56h-8V17H9z"/><rect class="m0" x="9" y="26" width="8" height="30"/><rect class="m1" x="19" y="27" width="26" height="5" rx="1"/><rect class="m2" x="19" y="35" width="20" height="5" rx="1"/><rect class="m3" x="19" y="43" width="14" height="5" rx="1"/><rect class="m4" x="19" y="51" width="8" height="5" rx="1"/></svg>HalachaBench<span>.ai</span></a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav"><span class="visually-hidden">תפריט</span><i></i></button>
+    <nav id="site-nav" class="site-nav" aria-label="ראשי"><a href="/he/halachabench/">טבלת התוצאות</a><a href="/he/hashkafabench/">HashkafaBench</a><a href="/he/values/">הלכה מול ערכים</a><a href="/he/findings/" aria-current="page">ממצאים</a><a href="/he/method/">שיטה</a><a href="/he/about/">אודות</a><a class="lang-switch" href="/findings/grok-checks/" data-lang-to="en" lang="en" hreflang="en">English</a>
+      <button class="theme-toggle" type="button" aria-label="מעבר בין מצב בהיר לכהה"></button></nav>
+  </div>
+</header>
+<main id="main">
+
+<article class="post">
+<header class="page-head wrap narrow">
+<p class="crumbs"><a href="/he/findings/">ממצאים</a> <span class="tag t-hb">HalachaBench</span>
+<time datetime="2026-11-02">2 בנובמבר 2026</time></p>
+<h1>בדיקות על התוצאות של Grok</h1><p class="lede">Grok 4.7 קיבל 29.9, הרבה מתחת למובילים. בדקנו את התוצאה בחמש דרכים והיא עומדת בעינה. התשובות שלו קצרות.</p>
+</header>
+<div class="wrap narrow prose"><p>Grok 4.7 מקבל ציון נמוך בהרבה מהמובילים, ולכן התוצאה שלו נבדקה יותר מכל תוצאה אחרת. בקצרה: התשובות שלו קצרות, והציון הנמוך עומד בעינו גם כששינינו את אופן הבדיקה או את המחוונים.</p>
+<ul>
+<li><strong>התשובות שלו היו שלמות.</strong> כל 180 התשובות הסתיימו כרגיל, בעברית, בלי הגבלה על אורך הפלט ובלי שאף אחת נקטעה; רמת החשיבה (reasoning effort) הייתה גבוהה בכל אחת מהן.</li>
+<li><strong>הוא כותב תשובות קצרות.</strong> Grok 4.7 חשב ארוכות (חציון של כ-18,000 טוקנים של חשיבה לתשובה), אבל כתב חציון של 213 מילים, לעומת 368 אצל Claude Sonnet 4.6 ו-664 אצל Gemini 4 Argon. המחוונים נותנים נקודות על כל מקור, שלב ופסק שהתשובה מביאה, ולכן תשובה קצרה, גם אם השורה התחתונה שלה נכונה, עדיין מקבלת ציון נמוך.</li>
+<li><strong>בודק שני, עיוור, הסכים עם השופט.</strong> Claude Opus 5.5, בלי לדעת איזה מודל כתב איזו תשובה, בדק מחדש 30 תשובות והסכים עם GPT-6 Astra ב-88% מההכרעות על סעיפי המחוון, באותה מידה לגבי שני המודלים. Astra לא החמיר עם Grok.</li>
+<li><strong>המחוונים ש-Grok ערער עליהם אינם מסבירים את הציון שלו.</strong> Grok 4.7 עבר על כל 60 המחוונים החתומים וביקש לשנות או להסיר 405 מתוך 661 הסעיפים שלהם. כשמחשבים את הציון שלו בלי הסעיפים שעליהם ערער, הציון <em>יורד</em>, לא עולה.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>הציון מחושב לפי</th>
+<th>Grok 4.7</th>
+<th>מקום</th>
+<th>Gemini 4 Argon</th>
+<th>מקום</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>כל הסעיפים</td>
+<td>29.9</td>
+<td>10</td>
+<td>78.2</td>
+<td>2</td>
+</tr>
+<tr>
+<td>בלי 274 הסעיפים ש-Grok אמר שיש להסיר</td>
+<td>28.5</td>
+<td>10</td>
+<td>76.8</td>
+<td>2</td>
+</tr>
+<tr>
+<td>רק 256 הסעיפים ש-Grok קיבל כפי שנכתבו</td>
+<td>26.0</td>
+<td>12</td>
+<td>75.3</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p><em>המקומות הם מתוך 22 המודלים שקיבלו ציון ב-2 בנובמבר.</em></p>
+<ul>
+<li><strong>רוב הביקורת של Grok לא עמדה במבחן.</strong> כל טענה שהייתה משנה ציון נבדקה מול המקורות בספריא. 24 אומתו כטעויות אמיתיות במחוונים, ב-29 סעיפים; 11 הופרכו. כשמחשבים את הציונים בלי 29 הסעיפים האלה, Grok 4.7 נשאר על 29.9, ואף מודל אינו זז ביותר מ-0.7 נקודות.</li>
+<li><strong>כש-Grok הוא השופט, התוצאה זהה.</strong> בבדיקה לפי אותם מחוונים חתומים, Grok 4.7 הסכים עם Astra ב-92% מתוך 1,937 הכרעות על סעיפי המחוון, ולא נתן לתשובות שלו עצמו ציון גבוה יותר.</li>
+</ul>
+<p>שום דבר מכל זה אינו משנה את הציונים: המחוונים נשארים כפי שנחתמו. כל טעות שתימצא במחוון תתוקן לכל המודלים בבת אחת, בגרסה הבאה.</p>
+<p class="post-links"><a class="plain-link" href="https://x.com/HalachaBench/status/2117067063541797020">לשרשור ב-X</a><a class="plain-link" href="/he/halachabench/">לנתונים</a></p>
+<nav class="pager" aria-label="עוד ממצאים"><a class="pg prev" href="/he/findings/hardest-paper/"><small>קודם</small>איזה שאלון במבחני הסמיכה הכי קשה לבינה מלאכותית?</a><a class="pg next" href="/he/findings/older-gpt/"><small>הבא</small>GPT ישן יותר גבר על החדש ב-29 נקודות</a></nav></div></article>
+</main>
+<footer class="site-foot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <a class="wordmark small" href="/he/" dir="ltr"><svg class="mark" width="28" height="28" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path class="m0" d="M9 9h40.5a7.5 7.5 0 0 1 7.5 7.5V56h-8V17H9z"/><rect class="m0" x="9" y="26" width="8" height="30"/><rect class="m1" x="19" y="27" width="26" height="5" rx="1"/><rect class="m2" x="19" y="35" width="20" height="5" rx="1"/><rect class="m3" x="19" y="43" width="14" height="5" rx="1"/><rect class="m4" x="19" y="51" width="8" height="5" rx="1"/></svg>HalachaBench<span>.ai</span></a>
+      <p>מיזם עצמאי. אין לו קשר לרבנות הראשית לישראל או לחברות שמפתחות את המודלים, והוא אינו פועל מטעמן; שמות המודלים הם סימני מסחר של בעליהם. התוצאות זמניות, ואין בשום דבר כאן פסק הלכה.</p>
+    </div>
+    <nav class="foot-links" aria-label="תוצאות"><h2>תוצאות</h2>
+      <a href="/he/halachabench/">טבלת מבחן הסמיכה</a><a href="/he/hashkafabench/">HashkafaBench</a>
+      <a href="/he/values/">הלכה מול ערכים</a><a href="/he/findings/">כל הממצאים</a></nav>
+    <nav class="foot-links" aria-label="מקורות"><h2>מקורות</h2>
+      <a href="https://github.com/halachabench/halacha-bench-results">נתוני התוצאות ב-GitHub</a>
+      <a href="https://github.com/halachabench/hashkafa-bench-results">נתוני HashkafaBench ב-GitHub</a>
+      <a href="/he/method/#cite">ציטוט HalachaBench</a></nav>
+    <nav class="foot-links" aria-label="יצירת קשר"><h2>יצירת קשר</h2>
+      <a href="mailto:halachabench@gmail.com" dir="ltr">halachabench@gmail.com</a><a href="https://x.com/HalachaBench">‎@HalachaBench ב-X</a></nav>
+  </div>
+  <div class="wrap foot-legal"><span dir="ltr">© 2026 MasechetAI</span><span>עודכן לאחרונה 13 בנובמבר 2026</span></div>
+</footer>
+<div class="tip" role="tooltip" hidden></div>
+<script src="/assets/site.js?v=202611182111" defer></script>
+
+</body>
+</html>

@@ -3,13 +3,14 @@
 1. Every internal link and asset resolves to a file in docs/.
 2. No denied term (from the private deny file, if present, plus a built-in list) appears in any text file.
 3. Every file under docs/ came from an allowed source (built pages, static/, content/images, the two public repos).
-4. No long Hebrew passage outside the Hebrew summary page (guards against exam text leaking in).
+4. No long Hebrew passage on English pages (guards against exam text leaking in).
 """
 from __future__ import annotations
 
 import json
 import re
 import sys
+sys.stdout.reconfigure(encoding="utf-8")
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -44,7 +45,9 @@ for p in text_files:
                 target = target / "index.html"
             if not target.exists():
                 problems.append(f"broken link {ref} in {p.relative_to(DOCS)}")
-        if not p.parts[-2:] == ("he", "index.html"):
+        # Hebrew pages (docs/he/...) are translations of the public English pages; on English pages a long
+        # Hebrew run would most likely be leaked exam text.
+        if p.relative_to(DOCS).parts[0] != "he":
             body = re.sub(r"<[^>]+>", " ", t)
             for run in re.findall(r"[֐-׿][֐-׿\s\"'׳״,.:;()-]{60,}", body):
                 problems.append(f"long Hebrew passage in {p.relative_to(DOCS)}: {run[:60]!r}")

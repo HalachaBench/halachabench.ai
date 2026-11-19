@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>טבלת מבחן הסמיכה | HalachaBench</title>
+<meta name="description" content="30 מודלים של בינה מלאכותית על שאלות אמיתיות ממבחני הסמיכה של הרבנות הראשית. Claude Fable 5.2 מוביל עם 85.8.">
+<link rel="canonical" href="https://halachabench.ai/he/halachabench/">
+<link rel="alternate" hreflang="en" href="https://halachabench.ai/halachabench/">
+<link rel="alternate" hreflang="he" href="https://halachabench.ai/he/halachabench/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="HalachaBench">
+<meta property="og:locale" content="he_IL">
+<meta property="og:title" content="טבלת מבחן הסמיכה">
+<meta property="og:description" content="30 מודלים של בינה מלאכותית על שאלות אמיתיות ממבחני הסמיכה של הרבנות הראשית. Claude Fable 5.2 מוביל עם 85.8.">
+<meta property="og:url" content="https://halachabench.ai/he/halachabench/">
+<meta property="og:image" content="https://halachabench.ai/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@HalachaBench">
+<meta name="theme-color" content="#f6f4ef">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600&family=Frank+Ruhl+Libre:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/style.css?v=202611182111">
+<script>try{var t=localStorage.getItem('hb-theme');if(t)document.documentElement.dataset.theme=t;var p=localStorage.getItem('hb-lang'),h='he';if(!p&&h==='en'&&/^he\b/i.test((navigator.languages&&navigator.languages[0])||navigator.language||''))p='he';if(p&&p!==h&&location.search.indexOf('lang=')<0)location.replace('/halachabench/');}catch(_){}</script>
+</head>
+<body>
+<a class="skip" href="#main">דילוג לתוכן</a>
+<header class="site-head">
+  <div class="wrap head-row">
+    <a class="wordmark" href="/he/" dir="ltr"><svg class="mark" width="34" height="34" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path class="m0" d="M9 9h40.5a7.5 7.5 0 0 1 7.5 7.5V56h-8V17H9z"/><rect class="m0" x="9" y="26" width="8" height="30"/><rect class="m1" x="19" y="27" width="26" height="5" rx="1"/><rect class="m2" x="19" y="35" width="20" height="5" rx="1"/><rect class="m3" x="19" y="43" width="14" height="5" rx="1"/><rect class="m4" x="19" y="51" width="8" height="5" rx="1"/></svg>HalachaBench<span>.ai</span></a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav"><span class="visually-hidden">תפריט</span><i></i></button>
+    <nav id="site-nav" class="site-nav" aria-label="ראשי"><a href="/he/halachabench/" aria-current="page">טבלת התוצאות</a><a href="/he/hashkafabench/">HashkafaBench</a><a href="/he/values/">הלכה מול ערכים</a><a href="/he/findings/">ממצאים</a><a href="/he/method/">שיטה</a><a href="/he/about/">אודות</a><a class="lang-switch" href="/halachabench/" data-lang-to="en" lang="en" hreflang="en">English</a>
+      <button class="theme-toggle" type="button" aria-label="מעבר בין מצב בהיר לכהה"></button></nav>
+  </div>
+</header>
+<main id="main">
+
+<section class="page-head wrap">
+  <h1>טבלת התוצאות של מבחן הסמיכה</h1>
+  <p class="lede">30 מודלים של בינה מלאכותית ענו על 60 השאלות של חמישה שאלוני סמיכה של הרבנות הראשית ממועד חשוון תשפ"ז: שלוש פעמים כל אחד, בעברית, בלי ספרים ובלי אינטרנט. <bdi>Claude Fable 5.2</bdi> מוביל עם 85.8.</p>
+  <dl class="facts">
+    <div><dt>שאלונים</dt><dd>נידה, חופה וקידושין, מצוות התלויות בארץ, מקוואות, תפילה וברכות</dd></div>
+    <div><dt>שופט</dt><dd><bdi>GPT-6 Astra</bdi>, מאמץ גבוה</dd></div>
+    <div><dt>נתונים</dt><dd>חבילת ביניים מ-13 בנובמבר 2026, <a href="https://github.com/halachabench/halacha-bench-results">ב-GitHub</a></dd></div>
+  </dl>
+</section>
+<div class="wrap">
+<aside class="note-provisional"><p><strong>תוצאות זמניות.</strong> את כל התשובות בדק עד כה שופט ממוחשב אחד, <bdi>GPT-6 Astra</bdi>, שהוא עצמו אחד המודלים בטבלה. המחוונים נכתבו ונבדקו בידי מודלים של בינה מלאכותית; אף רב עדיין לא עבר עליהם ואף רב עדיין לא בדק תשובה. אין אלה ציוני מבחן, וציון גבוה אינו היתר לסמוך על מודל בפסיקת הלכה.</p></aside>
+<section class="block">
+<div class="controls" data-for="hb-table">
+  <div class="seg" role="group" aria-label="אילו מודלים">
+    <button type="button" data-kind="all" aria-pressed="true">כל 30</button>
+    <button type="button" data-kind="hosted" aria-pressed="false">בענן</button>
+    <button type="button" data-kind="open" aria-pressed="false">משקלות פתוחים</button>
+  </div>
+  <label class="select"><span class="visually-hidden">חברה</span><select data-lab-filter><option value="">כל החברות</option><option value="Anthropic">Anthropic</option><option value="Google">Google</option><option value="Meta">Meta</option><option value="OpenAI">OpenAI</option><option value="xAI">xAI</option><option value="Alibaba">Alibaba</option><option value="Dicta">Dicta</option><option value="inclusionAI">inclusionAI</option></select></label>
+  <a class="plain-link csv" href="/data/halachabench-v1.csv" download>הורדת CSV</a>
+</div>
+<div class="table-wrap"><table class="board" id="hb-table">
+<caption class="visually-hidden">ציוני HalachaBench v1, מהגבוה לנמוך</caption>
+<thead><tr>
+<th class="rank" data-sort="num" scope="col">#</th><th data-sort="text" scope="col">מודל</th>
+<th class="chart" scope="col"><span class="visually-hidden">ציון ורווח סמך של 95%</span><span class="axis" aria-hidden="true"><span style="left:0.00%">0</span><span style="left:25.00%">25</span><span style="left:50.00%">50</span><span style="left:75.00%">75</span><span style="left:100.00%">100</span></span></th>
+<th class="num" data-sort="num" aria-sort="descending" scope="col">ציון</th>
+<th class="num hide-sm" data-sort="num" scope="col">רווח סמך 95%</th>
+<th class="num hide-sm" data-sort="num" scope="col" title="ממוצע הניסיון החלש ביותר בכל שאלה">הגרוע מ-3</th>
+<th class="hide-md" data-sort="text" scope="col">איך הורץ</th><th class="num hide-md" data-sort="text" scope="col">נוסף</th>
+</tr></thead>
+<tbody><tr class="r top" data-lab="Anthropic" data-kind="hosted">
+<td class="rank" data-v="1">1</td>
+<td class="model" data-v="Claude Fable 5.2"><span class="mname"><span class="lab-dot lab-anthropic" aria-hidden="true"></span><bdi>Claude Fable 5.2</bdi><a class="fn" href="#note-7" aria-label="הערה 7">⁷</a></span>
+<span class="msub">Anthropic</span></td>
+<td class="chart" data-v="85.8" data-tip="Claude Fable 5.2 (Anthropic)&amp;#10;ציון 85.8, רווח סמך 82.7 עד 88.5&amp;#10;הגרוע מבין 3 הניסיונות: 79.8&amp;#10;Claude Code CLI, effort high" tabindex="0"><span class="track"><i class="ci" style="left:82.70%;width:5.80%"></i><i class="worst" style="left:79.80%"></i><i class="dot lab-anthropic" style="left:85.80%"></i></span></td>
+<td class="num score" data-v="85.8">85.8</td>
+<td class="num ci-txt hide-sm" data-v="82.7"><bdi>82.7–88.5</bdi></td>
+<td class="num hide-sm" data-v="79.8">79.8</td>
+<td class="how hide-md" data-v="Claude Code CLI, effort high" dir="ltr">Claude Code CLI, effort high</td>
+<td class="num added hide-md" data-v="2026-11-09">9.11</td>
+</tr><tr class="r top" data-lab="Google" data-kind="hosted">
+<td class="rank" data-v="2">2</td>
+<td class="model" data-v="Gemini 4 Carbon"><span class="mname"><span class="lab-dot lab-google" aria-hidden="true"></span><bdi>Gemini 4 Carbon</bdi><a class="fn" href="#note-8" aria-label="הערה 8">⁸</a><span class="new">חדש</span></span>
+<span class="msub">Google</span></td>
+<td class="chart" data-v="82.3" data-tip="Gemini 4 Carbon (Google)&amp;#10;ציון 82.3, רווח סמך 78.4 עד 86.0&amp;#10;הגרוע מבין 3 הניסיונות: 75.9&amp;#10;Antigravity CLI, effort high" tabindex="0"><span class="track"><i class="ci" style="left:78.40%;width:7.60%"></i><i class="worst" style="left:75.90%"></i><i class="dot lab-google" style="left:82.30%"></i></span></td>
+<td class="num score" data-v="82.3">82.3</td>
+<td class="num ci-txt hide-sm" data-v="78.4"><bdi>78.4–86.0</bdi></td>
+<td class="num hide-sm" data-v="75.9">75.9</td>
+<td class="how hide-md" data-v="Antigravity CLI, effort high" dir="ltr">Antigravity CLI, effort high</td>
+<td class="num added hide-md" data-v="2026-11-13">13.11</td>
+</tr><tr class="r top" data-lab="Anthropic" data-kind="hosted">
+<td class="rank" data-v="3">3</td>
+<td class="model" data-v="Claude Fable 5.1"><span class="mname"><span class="lab-dot lab-anthropic" aria-hidden="true"></span><bdi>Claude Fable 5.1</bdi></span>
+<span class="msub">Anthropic</span></td>
+<td class="chart" data-v="79.7" data-tip="Claude Fable 5.1 (Anthropic)&amp;#10;ציון 79.7, רווח סמך 75.8 עד 83.4&amp;#10;הגרוע מבין 3 הניסיונות: 70.4&amp;#10;Claude Code CLI, effort high" tabindex="0"><span class="track"><i class="ci" style="left:75.80%;width:7.60%"></i><i class="worst" style="left:70.40%"></i><i class="dot lab-anthropic" style="left:79.70%"></i></span></td>
+<td class="num score" data-v="79.7">79.7</td>
+<td class="num ci-txt hide-sm" data-v="75.8"><bdi>75.8–83.4</bdi></td>
+<td class="num hide-sm" data-v="70.4">70.4</td>
+<td class="how hide-md" data-v="Claude Code CLI, effort high" dir="ltr">Claude Code CLI, effort high</td>
+<td class="num added hide-md" data-v="2026-11-01">1.11</td>
+</tr><tr class="r" data-lab="Google" data-kind="hosted">
+<td class="rank" data-v="4">4</td>
+<td class="model" data-v="Gemini 4 Argon"><span class="mname"><span class="lab-dot lab-google" aria-hidden="true"></span><bdi>Gemini 4 Argon</bdi><a class="fn" href="#note-3" aria-label="הערה 3">³</a></span>
+<span class="msub">Google</span></td>
+<td class="chart" data-v="78.2" data-tip="Gemini 4 Argon (Google)&amp;#10;ציון 78.2, רווח סמך 74.3 עד 81.9&amp;#10;הגרוע מבין 3 הניסיונות: 70.7&amp;#10;Antigravity CLI, effort high" tabindex="0"><span class="track"><i class="ci" style="left:74.30%;width:7.60%"></i><i class="worst" style="left:70.70%"></i><i class="dot lab-google" style="left:78.20%"></i></span></td>
+<td class="num score" data-v="78.2">78.2</td>
+<td class="num ci-txt hide-sm" data-v="74.3"><bdi>74.3–81.9</bdi></td>
+<td class="num hide-sm" data-v="70.7">70.7</td>
+<td class="how hide-md" data-v="Antigravity CLI, effort high" dir="ltr">Antigravity CLI, effort high</td>
+<td class="num added hide-md" data-v="2026-11-02">2.11</td>
+</tr><tr class="r" data-lab="OpenAI" data-kind="hosted">
+<td class="rank" data-v="5">5</td>
+<td class="model" data-v="GPT-5.6 Sol"><span class="mname"><span class="lab-dot lab-openai" aria-hidden="true"></span><bdi>GPT-5.6 Sol</bdi><a class="fn" href="#note-5" aria-label="הערה 5">⁵</a></span>
+<span class="msub">OpenAI</span></td>
+<td class="chart" data-v="77.3" data-tip="GPT-5.6 Sol (OpenAI)&amp;#10;ציון 77.3, רווח סמך 72.4 עד 81.3&amp;#10;הגרוע מבין 3 הניסיונות: 68.5&amp;#10;Codex, effort high" tabindex="0"><span class="track"><i class="ci" style="left:72.40%;width:8.90%"></i><i class="worst" style="left:68.50%"></i><i class="dot lab-openai" style="left:77.30%"></i></span></td>
+<td class="num score" data-v="77.3">77.3</td>
+<td class="num ci-txt hide-sm" data-v="72.4"><bdi>72.4–81.3</bdi></td>
+<td class="num hide-sm" data-v="68.5">68.5</td>
+<td class="how hide-md" data-v="Codex, effort high" dir="ltr">Codex, effort high</td>
+<td class="num added hide-md" data-v="2026-11-03">3.11</td>
+</tr><tr class="r" data-lab="OpenAI" data-kind="hosted">
+<td class="rank" data-v="6">6</td>
+<td class="model" data-v="GPT-6 Astra"><span class="mname"><span class="lab-dot lab-openai" aria-hidden="true"></span><bdi>GPT-6 Astra</bdi></span>
+<span class="msub">OpenAI</span></td>
+<td class="chart" data-v="73.3" data-tip="GPT-6 Astra (OpenAI)&amp;#10;ציון 73.3, רווח סמך 69.4 עד 77.0&amp;#10;הגרוע מבין 3 הניסיונות: 66.2&amp;#10;Codex, effort high" tabindex="0"><span class="track"><i class="ci" style="left:69.40%;width:7.60%"></i><i class="worst" style="left:66.20%"></i><i class="dot lab-openai" style="left:73.30%"></i></span></td>
+<td class="num score" data-v="73.3">73.3</td>
+<td class="num ci-txt hide-sm" data-v="69.4"><bdi>69.4–77.0</bdi></td>
+<td class="num hide-sm" data-v="66.2">66.2</td>
+<td class="how hide-md" data-v="Codex, effort high" dir="ltr">Codex, effort high</td>
+<td class="num added hide-md" data-v="2026-11-01">1.11</td>
+</tr><tr class="r" data-lab="OpenAI" data-kind="hosted">
+<td class="rank" data-v="7">7</td>
+<td class="model" data-v="GPT-6.1 Sol"><span class="mname"><span class="lab-dot lab-openai" aria-hidden="true"></span><bdi>GPT-6.1 Sol</bdi></span>
+<span class="msub">OpenAI</span></td>
+<td class="chart" data-v="72.8" data-tip="GPT-6.1 Sol (OpenAI)&amp;#10;ציון 72.8, רווח סמך 69.1 עד 76.2&amp;#10;הגרוע מבין 3 הניסיונות: 63.9&amp;#10;Codex, effort high" tabindex="0"><span class="track"><i class="ci" style="left:69.10%;width:7.10%"></i><i class="worst" style="left:63.90%"></i><i class="dot lab-openai" style="left:72.80%"></i></span></td>
+<td class="num score" data-v="72.8">72.8</td>
+<td class="num ci-txt hide-sm" data-v="69.1"><bdi>69.1–76.2</bdi></td>
+<td class="num hide-sm" data-v="63.9">63.9</td>
+<td class="how hide-md" data-v="Codex, effort high" dir="ltr">Codex, effort high</td>
+<td class="num added hide-md" data-v="2026-11-01">1.11</td>
+</tr><tr class="r" data-lab="Anthropic" data-kind="hosted">
+<td class="rank" data-v="8">8</td>
+<td class="model" data-v="Claude Opus 5.5"><span class="mname"><span class="lab-dot lab-anthropic" aria-hidden="true"></span><bdi>Claude Opus 5.5</bdi></span>
+<span class="msub">Anthropic</span></td>
+<td class="chart" data-v="69.1" data-tip="Claude Opus 5.5 (Anthropic)&amp;#10;ציון 69.1, רווח סמך 64.7 עד 73.3&amp;#10;הגרוע מבין 3 הניסיונות: 60.0&amp;#10;Claude Code CLI, effort high" tabindex="0"><span class="track"><i class="ci" style="left:64.70%;width:8.60%"></i><i class="worst" style="left:60.00%"></i><i class="dot lab-anthropic" style="left:69.10%"></i></span></td>
+<td class="num score" data-v="69.1">69.1</td>
+<td class="num ci-txt hide-sm" data-v="64.7"><bdi>64.7–73.3</bdi></td>
+<td class="num hide-sm" data-v="60.0">60.0</td>
+<td class="how hide-md" data-v="Claude Code CLI, effort high" dir="ltr">Claude Code CLI, effort high</td>
+<td class="num added hide-md" data-v="2026-11-01">1.11</td>
+</tr><tr class="r" data-lab="Google" data-kind="hosted">
+<td class="rank" data-v="9">9</td>
+<td class="model" data-v="Gemini 3.8 Flash"><span class="mname"><span class="lab-dot lab-google" aria-hidden="true"></span><bdi>Gemini 3.8 Flash</bdi></span>
+<span class="msub">Google</span></td>
+<td class="chart" data-v="64.4" data-tip="Gemini 3.8 Flash (Google)&amp;#10;ציון 64.4, רווח סמך 59.7 עד 68.9&amp;#10;הגרוע מבין 3 הניסיונות: 54.3&amp;#10;Antigravity CLI, effort high" tabindex="0"><span class="track"><i class="ci" style="left:59.70%;width:9.20%"></i><i class="worst" style="left:54.30%"></i><i class="dot lab-google" style="left:64.40%"></i></span></td>
+<td class="num score" data-v="64.4">64.4</td>
+<td class="num ci-txt hide-sm" data-v="59.7"><bdi>59.7–68.9</bdi></td>
+<td class="num hide-sm" data-v="54.3">54.3</td>
+<td class="how hide-md" data-v="Antigravity CLI, effort high" dir="ltr">Antigravity CLI, effort high</td>
+<td class="num added hide-md" data-v="2026-11-01">1.11</td>
+</tr><tr class="r" data-lab="Meta" data-kind="hosted">
+<td class="rank" data-v="10">10</td>
+<td class="model" data-v="Muse Wonder Full"><span class="mname"><span class="lab-dot lab-meta" aria-hidden="true"></span><bdi>Muse Wonder Full</bdi><a class="fn" href="#note-6" aria-label="הערה 6">⁶</a></span>
+<span class="msub">Meta</span></td>
+<td class="chart" data-v="60.8" data-tip="Muse Wonder Full (Meta)&amp;#10;ציון 60.8, רווח סמך 56.4 עד 65.2&amp;#10;הגרוע מבין 3 הניסיונות: 47.9&amp;#10;Muse Code CLI, effort high" tabindex="0"><span class="track"><i class="ci" style="left:56.40%;width:8.80%"></i><i class="worst" style="left:47.90%"></i><i class="dot lab-meta" style="left:60.80%"></i></span></td>
+<td class="num score" data-v="60.8">60.8</td>
+<td class="num ci-txt hide-sm" data-v="56.4"><bdi>56.4–65.2</bdi></td>
+<td class="num hide-sm" data-v="47.9">47.9</td>
+<td class="how hide-md" data-v="Muse Code CLI, effort high" dir="ltr">Muse Code CLI, effort high</td>
+<td class="num added hide-md" data-v="2026-11-06">6.11</td>
+</tr><tr class="r" data-lab="OpenAI" data-kind="hosted">
+<td class="rank" data-v="11">11</td>
+<td class="model" data-v="GPT-6 Sol"><span class="mname"><span class="lab-dot lab-openai" aria-hidden="true"></span><bdi>GPT-6 Sol</bdi><a class="fn" href="#note-5" aria-label="הערה 5">⁵</a></span>
+<span class="msub">OpenAI</span></td>
+<td class="chart" data-v="48.7" data-tip="GPT-6 Sol (OpenAI)&amp;#10;ציון 48.7, רווח סמך 44.1 עד 53.3&amp;#10;הגרוע מבין 3 הניסיונות: 37.2&amp;#10;Codex, effort high" tabindex="0"><span class="track"><i class="ci" style="left:44.10%;width:9.20%"></i><i class="worst" style="left:37.20%"></i><i class="dot lab-openai" style="left:48.70%"></i></span></td>
+<td class="num score" data-v="48.7">48.7</td>
+<td class="num ci-txt hide-sm" data-v="44.1"><bdi>44.1–53.3</bdi></td>
+<td class="num hide-sm" data-v="37.2">37.2</td>
+<td class="how hide-md" data-v="Codex, effort high" dir="ltr">Codex, effort high</td>
+<td class="num added hide-md" data-v="2026-11-03">3.11</td>
+</tr><tr class="r" data-lab="Meta" data-kind="hosted">
+<td class="rank" data-v="12">12</td>
+<td class="model" data-v="Muse Wonder"><span class="mname"><span class="lab-dot lab-meta" aria-hidden="true"></span><bdi>Muse Wonder</bdi><a class="fn" href="#note-6" aria-label="הערה 6">⁶</a></span>
+<span class="msub">Meta</span></td>
+<td class="chart" data-v="48.2" data-tip="Muse Wonder (Meta)&amp;#10;ציון 48.2, רווח סמך 43.4 עד 53.1&amp;#10;הגרוע מבין 3 הניסיונות: 35.5&amp;#10;Muse Code CLI, effort high" tabindex="0"><span class="track"><i class="ci" style="left:43.40%;width:9.70%"></i><i class="worst" style="left:35.50%"></i><i class="dot lab-meta" style="left:48.20%"></i></span></td>
+<td class="num score" data-v="48.2">48.2</td>
+<td class="num ci-txt hide-sm" data-v="43.4"><bdi>43.4–53.1</bdi></td>
+<td class="num hide-sm" data-v="35.5">35.5</td>
+<td class="how hide-md" data-v="Muse Code CLI, effort high" dir="ltr">Muse Code CLI, effort high</td>
+<td class="num added hide-md" data-v="2026-11-06">6.11</td>
+</tr><tr class="r" data-lab="Anthropic" data-kind="hosted">
+<td class="rank" data-v="13">13</td>
+<td class="model" data-v="Claude Opus 4.8"><span class="mname"><span class="lab-dot lab-anthropic" aria-hidden="true"></span><bdi>Claude Opus 4.8</bdi></span>
+<span class="msub">Anthropic</span></td>
+<td class="chart" data-v="48.0" data-tip="Claude Opus 4.8 (Anthropic)&amp;#10;ציון 48.0, רווח סמך 43.3 עד 52.7&amp;#10;הגרוע מבין 3 הניסיונות: 36.3&amp;#10;Claude Code CLI, effort high" tabindex="0"><span class="track"><i class="ci" style="left:43.30%;width:9.40%"></i><i class="worst" style="left:36.30%"></i><i class="dot lab-anthropic" style="left:48.00%"></i></span></td>
+<td class="num score" data-v="48.0">48.0</td>
+<td class="num ci-txt hide-sm" data-v="43.3"><bdi>43.3–52.7</bdi></td>
+<td class="num hide-sm" data-v="36.3">36.3</td>
+<td class="how hide-md" data-v="Claude Code CLI, effort high" dir="ltr">Claude Code CLI, effort high</td>
+<td class="num added hide-md" data-v="2026-11-02">2.11</td>
+</tr><tr class="r" data-lab="Meta" data-kind="hosted">
+<td class="rank" data-v="14">14</td>
+<td class="model" data-v="Muse Spark 1.3"><span class="mname"><span class="lab-dot lab-meta" aria-hidden="true"></span><bdi>Muse Spark 1.3</bdi><a class="fn" href="#note-6" aria-label="הערה 6">⁶</a></span>
+<span class="msub">Meta</span></td>
+<td class="chart" data-v="36.2" data-tip="Muse Spark 1.3 (Meta)&amp;#10;ציון 36.2, רווח סמך 32.2 עד 40.4&amp;#10;הגרוע מבין 3 הניסיונות: 22.0&amp;#10;Muse Code CLI, effort high" tabindex="0"><span class="track"><i class="ci" style="left:32.20%;width:8.20%"></i><i class="worst" style="left:22.00%"></i><i class="dot lab-meta" style="left:36.20%"></i></span></td>
+<td class="num score" data-v="36.2">36.2</td>
+<td class="num ci-txt hide-sm" data-v="32.2"><bdi>32.2–40.4</bdi></td>
+<td class="num hide-sm" data-v="22.0">22.0</td>
+<td class="how hide-md" data-v="Muse Code CLI, effort high" dir="ltr">Muse Code CLI, effort high</td>
+<td class="num added hide-md" data-v="2026-11-06">6.11</td>
+</tr><tr class="r" data-lab="OpenAI" data-kind="hosted">
+<td class="rank" data-v="15">15</td>
+<td class="model" data-v="GPT-6.1 Terra"><span class="mname"><span class="lab-dot lab-openai" aria-hidden="true"></span><bdi>GPT-6.1 Terra</bdi></span>
+<span class="msub">OpenAI</span></td>
+<td class="chart" data-v="34.6" data-tip="GPT-6.1 Terra (OpenAI)&amp;#10;ציון 34.6, רווח סמך 30.8 עד 38.5&amp;#10;הגרוע מבין 3 הניסיונות: 25.6&amp;#10;Codex, effort high" tabindex="0"><span class="track"><i class="ci" style="left:30.80%;width:7.70%"></i><i class="worst" style="left:25.60%"></i><i class="dot lab-openai" style="left:34.60%"></i></span></td>
+<td class="num score" data-v="34.6">34.6</td>
+<td class="num ci-txt hide-sm" data-v="30.8"><bdi>30.8–38.5</bdi></td>
+<td class="num hide-sm" data-v="25.6">25.6</td>
+<td class="how hide-md" data-v="Codex, effort high" dir="ltr">Codex, effort high</td>
+<td class="num added hide-md" data-v="2026-11-01">1.11</td>
+</tr><tr class="r" data-lab="OpenAI" data-kind="hosted">
+<td class="rank" data-v="16">16</td>
+<td class="model" data-v="GPT-6 Luna"><span class="mname"><span class="lab-dot lab-openai" aria-hidden="true"></span><bdi>GPT-6 Luna</bdi></span>
+<span class="msub">OpenAI</span></td>
+<td class="chart" data-v="32.4" data-tip="GPT-6 Luna (OpenAI)&amp;#10;ציון 32.4, רווח סמך 28.5 עד 36.4&amp;#10;הגרוע מבין 3 הניסיונות: 21.8&amp;#10;Codex, effort high" tabindex="0"><span class="track"><i class="ci" style="left:28.50%;width:7.90%"></i><i class="worst" style="left:21.80%"></i><i class="dot lab-openai" style="left:32.40%"></i></span></td>
+<td class="num score" data-v="32.4">32.4</td>
+<td class="num ci-txt hide-sm" data-v="28.5"><bdi>28.5–36.4</bdi></td>
+<td class="num hide-sm" data-v="21.8">21.8</td>
+<td class="how hide-md" data-v="Codex, effort high" dir="ltr">Codex, effort high</td>
+<td class="num added hide-md" data-v="2026-11-01">1.11</td>
+</tr><tr class="r" data-lab="xAI" data-kind="hosted">
+<td class="rank" data-v="17">17</td>
+<td class="model" data-v="Grok 4.7"><span class="mname"><span class="lab-dot lab-xai" aria-hidden="true"></span><bdi>Grok 4.7</bdi><a class="fn" href="#note-4" aria-label="הערה 4">⁴</a></span>
+<span class="msub">xAI</span></td>
+<td class="chart" data-v="29.9" data-tip="Grok 4.7 (xAI)&amp;#10;ציון 29.9, רווח סמך 26.3 עד 33.6&amp;#10;הגרוע מבין 3 הניסיונות: 16.4&amp;#10;xAI API, effort high" tabindex="0"><span class="track"><i class="ci" style="left:26.30%;width:7.30%"></i><i class="worst" style="left:16.40%"></i><i class="dot lab-xai" style="left:29.90%"></i></span></td>
+<td class="num score" data-v="29.9">29.9</td>
+<td class="num ci-txt hide-sm" data-v="26.3"><bdi>26.3–33.6</bdi></td>
+<td class="num hide-sm" data-v="16.4">16.4</td>
+<td class="how hide-md" data-v="xAI API, effort high" dir="ltr">xAI API, effort high</td>
+<td class="num added hide-md" data-v="2026-11-02">2.11</td>
+</tr><tr class="r" data-lab="Anthropic" data-kind="hosted">
+<td class="rank" data-v="18">18</td>
+<td class="model" data-v="Claude Sonnet 4.6"><span class="mname"><span class="lab-dot lab-anthropic" aria-hidden="true"></span><bdi>Claude Sonnet 4.6</bdi></span>
+<span class="msub">Anthropic</span></td>
+<td class="chart" data-v="29.6" data-tip="Claude Sonnet 4.6 (Anthropic)&amp;#10;ציון 29.6, רווח סמך 25.4 עד 33.9&amp;#10;הגרוע מבין 3 הניסיונות: 19.9&amp;#10;Claude Code CLI, effort high" tabindex="0"><span class="track"><i class="ci" style="left:25.40%;width:8.50%"></i><i class="worst" style="left:19.90%"></i><i class="dot lab-anthropic" style="left:29.60%"></i></span></td>
+<td class="num score" data-v="29.6">29.6</td>
+<td class="num ci-txt hide-sm" data-v="25.4"><bdi>25.4–33.9</bdi></td>
+<td class="num hide-sm" data-v="19.9">19.9</td>
+<td class="how hide-md" data-v="Claude Code CLI, effort high" dir="ltr">Claude Code CLI, effort high</td>
+<td class="num added hide-md" data-v="2026-11-02">2.11</td>
+</tr><tr class="r" data-lab="Anthropic" data-kind="hosted">
+<td class="rank" data-v="19">19</td>
+<td class="model" data-v="Claude Sonnet 5.5"><span class="mname"><span class="lab-dot lab-anthropic" aria-hidden="true"></span><bdi>Claude Sonnet 5.5</bdi></span>
+<span class="msub">Anthropic</span></td>
+<td class="chart" data-v="28.7" data-tip="Claude Sonnet 5.5 (Anthropic)&amp;#10;ציון 28.7, רווח סמך 24.2 עד 33.3&amp;#10;הגרוע מבין 3 הניסיונות: 18.3&amp;#10;Claude Code CLI, effort high" tabindex="0"><span class="track"><i class="ci" style="left:24.20%;width:9.10%"></i><i class="worst" style="left:18.30%"></i><i class="dot lab-anthropic" style="left:28.70%"></i></span></td>
+<td class="num score" data-v="28.7">28.7</td>
+<td class="num ci-txt hide-sm" data-v="24.2"><bdi>24.2–33.3</bdi></td>
+<td class="num hide-sm" data-v="18.3">18.3</td>
+<td class="how hide-md" data-v="Claude Code CLI, effort high" dir="ltr">Claude Code CLI, effort high</td>
+<td class="num added hide-md" data-v="2026-11-01">1.11</td>
+</tr><tr class="r" data-lab="Meta" data-kind="hosted">
+<td class="rank" data-v="20">20</td>
+<td class="model" data-v="Muse Ember"><span class="mname"><span class="lab-dot lab-meta" aria-hidden="true"></span><bdi>Muse Ember</bdi><a class="fn" href="#note-6" aria-label="הערה 6">⁶</a></span>
+<span class="msub">Meta</span></td>
+<td class="chart" data-v="15.3" data-tip="Muse Ember (Meta)&amp;#10;ציון 15.3, רווח סמך 12.0 עד 18.8&amp;#10;הגרוע מבין 3 הניסיונות: 6.2&amp;#10;Muse Code CLI, effort high" tabindex="0"><span class="track"><i class="ci" style="left:12.00%;width:6.80%"></i><i class="worst" style="left:6.20%"></i><i class="dot lab-meta" style="left:15.30%"></i></span></td>
+<td class="num score" data-v="15.3">15.3</td>
+<td class="num ci-txt hide-sm" data-v="12.0"><bdi>12.0–18.8</bdi></td>
+<td class="num hide-sm" data-v="6.2">6.2</td>
+<td class="how hide-md" data-v="Muse Code CLI, effort high" dir="ltr">Muse Code CLI, effort high</td>
+<td class="num added hide-md" data-v="2026-11-09">9.11</td>
+</tr><tr class="r" data-lab="xAI" data-kind="hosted">
+<td class="rank" data-v="21">21</td>
+<td class="model" data-v="Grok 4.3"><span class="mname"><span class="lab-dot lab-xai" aria-hidden="true"></span><bdi>Grok 4.3</bdi><a class="fn" href="#note-4" aria-label="הערה 4">⁴</a></span>
+<span class="msub">xAI</span></td>
+<td class="chart" data-v="10.8" data-tip="Grok 4.3 (xAI)&amp;#10;ציון 10.8, רווח סמך 8.1 עד 13.6&amp;#10;הגרוע מבין 3 הניסיונות: 4.8&amp;#10;xAI API, effort high" tabindex="0"><span class="track"><i class="ci" style="left:8.10%;width:5.50%"></i><i class="worst" style="left:4.80%"></i><i class="dot lab-xai" style="left:10.80%"></i></span></td>
+<td class="num score" data-v="10.8">10.8</td>
+<td class="num ci-txt hide-sm" data-v="8.1"><bdi>8.1–13.6</bdi></td>
+<td class="num hide-sm" data-v="4.8">4.8</td>
+<td class="how hide-md" data-v="xAI API, effort high" dir="ltr">xAI API, effort high</td>
+<td class="num added hide-md" data-v="2026-11-02">2.11</td>
+</tr><tr class="r" data-lab="Meta" data-kind="open">
+<td class="rank" data-v="22">22</td>
+<td class="model" data-v="Muse Glimmer 30B"><span class="mname"><span class="lab-dot lab-meta" aria-hidden="true"></span><bdi>Muse Glimmer 30B</bdi></span>
+<span class="msub">Meta, משקלות פתוחים</span></td>
+<td class="chart" data-v="10.5" data-tip="Muse Glimmer 30B (Meta)&amp;#10;ציון 10.5, רווח סמך 7.6 עד 13.7&amp;#10;הגרוע מבין 3 הניסיונות: 4.4&amp;#10;local, llama.cpp, Q4_K_M" tabindex="0"><span class="track"><i class="ci" style="left:7.60%;width:6.10%"></i><i class="worst" style="left:4.40%"></i><i class="dot lab-meta" style="left:10.50%"></i></span></td>
+<td class="num score" data-v="10.5">10.5</td>
+<td class="num ci-txt hide-sm" data-v="7.6"><bdi>7.6–13.7</bdi></td>
+<td class="num hide-sm" data-v="4.4">4.4</td>
+<td class="how hide-md" data-v="local, llama.cpp, Q4_K_M" dir="ltr">local, llama.cpp, Q4_K_M</td>
+<td class="num added hide-md" data-v="2026-11-01">1.11</td>
+</tr><tr class="r" data-lab="Anthropic" data-kind="hosted">
+<td class="rank" data-v="23">23</td>
+<td class="model" data-v="Claude Haiku 5.5"><span class="mname"><span class="lab-dot lab-anthropic" aria-hidden="true"></span><bdi>Claude Haiku 5.5</bdi></span>
+<span class="msub">Anthropic</span></td>
+<td class="chart" data-v="8.6" data-tip="Claude Haiku 5.5 (Anthropic)&amp;#10;ציון 8.6, רווח סמך 6.0 עד 11.5&amp;#10;הגרוע מבין 3 הניסיונות: 3.6&amp;#10;Claude Code CLI, effort high" tabindex="0"><span class="track"><i class="ci" style="left:6.00%;width:5.50%"></i><i class="worst" style="left:3.60%"></i><i class="dot lab-anthropic" style="left:8.60%"></i></span></td>
+<td class="num score" data-v="8.6">8.6</td>
+<td class="num ci-txt hide-sm" data-v="6.0"><bdi>6.0–11.5</bdi></td>
+<td class="num hide-sm" data-v="3.6">3.6</td>
+<td class="how hide-md" data-v="Claude Code CLI, effort high" dir="ltr">Claude Code CLI, effort high</td>
+<td class="num added hide-md" data-v="2026-11-01">1.11</td>
+</tr><tr class="r" data-lab="inclusionAI" data-kind="open">
+<td class="rank" data-v="24">24</td>
+<td class="model" data-v="Ling 3.0 Flash"><span class="mname"><span class="lab-dot lab-other" aria-hidden="true"></span><bdi>Ling 3.0 Flash</bdi></span>
+<span class="msub">inclusionAI, משקלות פתוחים</span></td>
+<td class="chart" data-v="6.1" data-tip="Ling 3.0 Flash (inclusionAI)&amp;#10;ציון 6.1, רווח סמך 4.4 עד 8.0&amp;#10;הגרוע מבין 3 הניסיונות: 0.9&amp;#10;local, llama.cpp, Q4_K_M" tabindex="0"><span class="track"><i class="ci" style="left:4.40%;width:3.60%"></i><i class="worst" style="left:0.90%"></i><i class="dot lab-other" style="left:6.10%"></i></span></td>
+<td class="num score" data-v="6.1">6.1</td>
+<td class="num ci-txt hide-sm" data-v="4.4"><bdi>4.4–8.0</bdi></td>
+<td class="num hide-sm" data-v="0.9">0.9</td>
+<td class="how hide-md" data-v="local, llama.cpp, Q4_K_M" dir="ltr">local, llama.cpp, Q4_K_M</td>
+<td class="num added hide-md" data-v="2026-11-01">1.11</td>
+</tr><tr class="r" data-lab="Alibaba" data-kind="open">
+<td class="rank" data-v="25">25</td>
+<td class="model" data-v="Qwen3.8 27B"><span class="mname"><span class="lab-dot lab-other" aria-hidden="true"></span><bdi>Qwen3.8 27B</bdi><a class="fn" href="#note-1" aria-label="הערה 1">¹</a></span>
+<span class="msub">Alibaba, משקלות פתוחים</span></td>
+<td class="chart" data-v="6.0" data-tip="Qwen3.8 27B (Alibaba)&amp;#10;ציון 6.0, רווח סמך 4.1 עד 8.2&amp;#10;הגרוע מבין 3 הניסיונות: 1.6&amp;#10;local, llama.cpp, UD-Q4_K_M" tabindex="0"><span class="track"><i class="ci" style="left:4.10%;width:4.10%"></i><i class="worst" style="left:1.60%"></i><i class="dot lab-other" style="left:6.00%"></i></span></td>
+<td class="num score" data-v="6.0">6.0</td>
+<td class="num ci-txt hide-sm" data-v="4.1"><bdi>4.1–8.2</bdi></td>
+<td class="num hide-sm" data-v="1.6">1.6</td>
+<td class="how hide-md" data-v="local, llama.cpp, UD-Q4_K_M" dir="ltr">local, llama.cpp, UD-Q4_K_M</td>
+<td class="num added hide-md" data-v="2026-11-01">1.11</td>
+</tr><tr class="r" data-lab="OpenAI" data-kind="open">
+<td class="rank" data-v="26">26</td>
+<td class="model" data-v="gpt-oss-120b"><span class="mname"><span class="lab-dot lab-openai" aria-hidden="true"></span><bdi>gpt-oss-120b</bdi></span>
+<span class="msub">OpenAI, משקלות פתוחים</span></td>
+<td class="chart" data-v="4.4" data-tip="gpt-oss-120b (OpenAI)&amp;#10;ציון 4.4, רווח סמך 2.6 עד 6.4&amp;#10;הגרוע מבין 3 הניסיונות: 2.1&amp;#10;local, llama.cpp, MXFP4" tabindex="0"><span class="track"><i class="ci" style="left:2.60%;width:3.80%"></i><i class="worst" style="left:2.10%"></i><i class="dot lab-openai" style="left:4.40%"></i></span></td>
+<td class="num score" data-v="4.4">4.4</td>
+<td class="num ci-txt hide-sm" data-v="2.6"><bdi>2.6–6.4</bdi></td>
+<td class="num hide-sm" data-v="2.1">2.1</td>
+<td class="how hide-md" data-v="local, llama.cpp, MXFP4" dir="ltr">local, llama.cpp, MXFP4</td>
+<td class="num added hide-md" data-v="2026-11-01">1.11</td>
+</tr><tr class="r" data-lab="Dicta" data-kind="open">
+<td class="rank" data-v="27">27</td>
+<td class="model" data-v="DictaLM 3.0 24B Thinking"><span class="mname"><span class="lab-dot lab-other" aria-hidden="true"></span><bdi>DictaLM 3.0 24B Thinking</bdi><a class="fn" href="#note-1" aria-label="הערה 1">¹</a></span>
+<span class="msub">Dicta, משקלות פתוחים</span></td>
+<td class="chart" data-v="4.3" data-tip="DictaLM 3.0 24B Thinking (Dicta)&amp;#10;ציון 4.3, רווח סמך 2.8 עד 6.0&amp;#10;הגרוע מבין 3 הניסיונות: 0.8&amp;#10;local, llama.cpp, Q4_K_M" tabindex="0"><span class="track"><i class="ci" style="left:2.80%;width:3.20%"></i><i class="worst" style="left:0.80%"></i><i class="dot lab-other" style="left:4.30%"></i></span></td>
+<td class="num score" data-v="4.3">4.3</td>
+<td class="num ci-txt hide-sm" data-v="2.8"><bdi>2.8–6.0</bdi></td>
+<td class="num hide-sm" data-v="0.8">0.8</td>
+<td class="how hide-md" data-v="local, llama.cpp, Q4_K_M" dir="ltr">local, llama.cpp, Q4_K_M</td>
+<td class="num added hide-md" data-v="2026-11-01">1.11</td>
+</tr><tr class="r" data-lab="Google" data-kind="open">
+<td class="rank" data-v="28">28</td>
+<td class="model" data-v="Gemma 4 31B"><span class="mname"><span class="lab-dot lab-google" aria-hidden="true"></span><bdi>Gemma 4 31B</bdi></span>
+<span class="msub">Google, משקלות פתוחים</span></td>
+<td class="chart" data-v="4.3" data-tip="Gemma 4 31B (Google)&amp;#10;ציון 4.3, רווח סמך 2.5 עד 6.4&amp;#10;הגרוע מבין 3 הניסיונות: 2.0&amp;#10;local, llama.cpp, Q4_K_M" tabindex="0"><span class="track"><i class="ci" style="left:2.50%;width:3.90%"></i><i class="worst" style="left:2.00%"></i><i class="dot lab-google" style="left:4.30%"></i></span></td>
+<td class="num score" data-v="4.3">4.3</td>
+<td class="num ci-txt hide-sm" data-v="2.5"><bdi>2.5–6.4</bdi></td>
+<td class="num hide-sm" data-v="2.0">2.0</td>
+<td class="how hide-md" data-v="local, llama.cpp, Q4_K_M" dir="ltr">local, llama.cpp, Q4_K_M</td>
+<td class="num added hide-md" data-v="2026-11-01">1.11</td>
+</tr><tr class="r" data-lab="Meta" data-kind="open">
+<td class="rank" data-v="29">29</td>
+<td class="model" data-v="Llama 4 Scout 17B-16E"><span class="mname"><span class="lab-dot lab-meta" aria-hidden="true"></span><bdi>Llama 4 Scout 17B-16E</bdi><a class="fn" href="#note-2" aria-label="הערה 2">²</a></span>
+<span class="msub">Meta, משקלות פתוחים</span></td>
+<td class="chart" data-v="4.2" data-tip="Llama 4 Scout 17B-16E (Meta)&amp;#10;ציון 4.2, רווח סמך 2.6 עד 6.0&amp;#10;הגרוע מבין 3 הניסיונות: 1.4&amp;#10;local, llama.cpp, Q4_K_M" tabindex="0"><span class="track"><i class="ci" style="left:2.60%;width:3.40%"></i><i class="worst" style="left:1.40%"></i><i class="dot lab-meta" style="left:4.20%"></i></span></td>
+<td class="num score" data-v="4.2">4.2</td>
+<td class="num ci-txt hide-sm" data-v="2.6"><bdi>2.6–6.0</bdi></td>
+<td class="num hide-sm" data-v="1.4">1.4</td>
+<td class="how hide-md" data-v="local, llama.cpp, Q4_K_M" dir="ltr">local, llama.cpp, Q4_K_M</td>
+<td class="num added hide-md" data-v="2026-11-01">1.11</td>
+</tr><tr class="r" data-lab="OpenAI" data-kind="open">
+<td class="rank" data-v="30">30</td>
+<td class="model" data-v="gpt-oss-20b"><span class="mname"><span class="lab-dot lab-openai" aria-hidden="true"></span><bdi>gpt-oss-20b</bdi></span>
+<span class="msub">OpenAI, משקלות פתוחים</span></td>
+<td class="chart" data-v="1.2" data-tip="gpt-oss-20b (OpenAI)&amp;#10;ציון 1.2, רווח סמך 0.5 עד 2.1&amp;#10;הגרוע מבין 3 הניסיונות: 0.0&amp;#10;local, llama.cpp, MXFP4" tabindex="0"><span class="track"><i class="ci" style="left:0.50%;width:1.60%"></i><i class="worst" style="left:0.00%"></i><i class="dot lab-openai" style="left:1.20%"></i></span></td>
+<td class="num score" data-v="1.2">1.2</td>
+<td class="num ci-txt hide-sm" data-v="0.5"><bdi>0.5–2.1</bdi></td>
+<td class="num hide-sm" data-v="0.0">0.0</td>
+<td class="how hide-md" data-v="local, llama.cpp, MXFP4" dir="ltr">local, llama.cpp, MXFP4</td>
+<td class="num added hide-md" data-v="2026-11-01">1.11</td>
+</tr></tbody></table></div>
+<div class="chart-key"><ul class="lab-key"><li><span class="lab-dot lab-anthropic" aria-hidden="true"></span>Anthropic</li><li><span class="lab-dot lab-openai" aria-hidden="true"></span>OpenAI</li><li><span class="lab-dot lab-google" aria-hidden="true"></span>Google</li><li><span class="lab-dot lab-meta" aria-hidden="true"></span>Meta</li><li><span class="lab-dot lab-xai" aria-hidden="true"></span>xAI</li><li><span class="lab-dot lab-other" aria-hidden="true"></span>מעבדות אחרות</li></ul><p><i class="k-dot"></i>ציון <i class="k-ci"></i>רווח סמך 95% <i class="k-worst"></i>הגרוע מבין 3 הניסיונות</p></div>
+<p class="fig-note">ציון: כמה מהמחוון התשובה משיגה, מ-0 עד 100, בממוצע על 60 שאלות ו-3 ניסיונות. הגרוע מ-3: הניסיון החלש ביותר בכל שאלה, בממוצע. רווחי הסמך (95%) מחושבים בבוטסטרפ על השאלות (10,000 חזרות) ומשקפים רק את בחירת השאלות, לא טעויות של השופט או של המחוון. לחיצה על כותרת עמודה ממיינת לפיה.</p>
+</section>
+<section class="block two-col">
+  <div>
+    <h2 class="sec-title" id="papers">איזה שאלון הכי קשה?</h2>
+    <p class="section-sub">הציון הממוצע בכל שאלון לשמונת המודלים שנבדקו ב-1 בנובמבר. חופה וקידושין ונידה הם הקשים ביותר כמעט לכל מודל.</p>
+    <div class="table-wrap heat-wrap"><table class="heat seq">
+<thead><tr><th></th><th scope="col">חופה וקידושין</th><th scope="col">נידה</th><th scope="col">מקוואות</th><th scope="col">תפילה וברכות</th><th scope="col">מצוות התלויות בארץ</th></tr></thead><tbody><tr><th scope="row"><span class="lab-dot lab-anthropic" aria-hidden="true"></span><bdi>Claude Fable 5.1</bdi></th><td style="background:#2f7cd8;color:#ffffff" data-tip="Claude Fable 5.1&#10;חופה וקידושין: 73" tabindex="0">73</td><td style="background:#2874cf;color:#ffffff" data-tip="Claude Fable 5.1&#10;נידה: 77" tabindex="0">77</td><td style="background:#2369be;color:#ffffff" data-tip="Claude Fable 5.1&#10;מקוואות: 82" tabindex="0">82</td><td style="background:#2369be;color:#ffffff" data-tip="Claude Fable 5.1&#10;תפילה וברכות: 82" tabindex="0">82</td><td style="background:#2062b4;color:#ffffff" data-tip="Claude Fable 5.1&#10;מצוות התלויות בארץ: 85" tabindex="0">85</td></tr><tr><th scope="row"><span class="lab-dot lab-openai" aria-hidden="true"></span><bdi>GPT-6 Astra</bdi></th><td style="background:#4d90e1;color:#ffffff" data-tip="GPT-6 Astra&#10;חופה וקידושין: 62" tabindex="0">62</td><td style="background:#458bdf;color:#ffffff" data-tip="GPT-6 Astra&#10;נידה: 65" tabindex="0">65</td><td style="background:#2874cf;color:#ffffff" data-tip="GPT-6 Astra&#10;מקוואות: 77" tabindex="0">77</td><td style="background:#266fc8;color:#ffffff" data-tip="GPT-6 Astra&#10;תפילה וברכות: 79" tabindex="0">79</td><td style="background:#2165b7;color:#ffffff" data-tip="GPT-6 Astra&#10;מצוות התלויות בארץ: 84" tabindex="0">84</td></tr><tr><th scope="row"><span class="lab-dot lab-openai" aria-hidden="true"></span><bdi>GPT-6.1 Sol</bdi></th><td style="background:#5294e3;color:#ffffff" data-tip="GPT-6.1 Sol&#10;חופה וקידושין: 60" tabindex="0">60</td><td style="background:#3f87dd;color:#ffffff" data-tip="GPT-6.1 Sol&#10;נידה: 67" tabindex="0">67</td><td style="background:#2772cc;color:#ffffff" data-tip="GPT-6.1 Sol&#10;מקוואות: 78" tabindex="0">78</td><td style="background:#2976d3;color:#ffffff" data-tip="GPT-6.1 Sol&#10;תפילה וברכות: 76" tabindex="0">76</td><td style="background:#2267bb;color:#ffffff" data-tip="GPT-6.1 Sol&#10;מצוות התלויות בארץ: 83" tabindex="0">83</td></tr><tr><th scope="row"><span class="lab-dot lab-anthropic" aria-hidden="true"></span><bdi>Claude Opus 5.5</bdi></th><td style="background:#4a8fe1;color:#ffffff" data-tip="Claude Opus 5.5&#10;חופה וקידושין: 63" tabindex="0">63</td><td style="background:#5294e3;color:#ffffff" data-tip="Claude Opus 5.5&#10;נידה: 60" tabindex="0">60</td><td style="background:#3781da;color:#ffffff" data-tip="Claude Opus 5.5&#10;מקוואות: 70" tabindex="0">70</td><td style="background:#2a78d6;color:#ffffff" data-tip="Claude Opus 5.5&#10;תפילה וברכות: 75" tabindex="0">75</td><td style="background:#2772cc;color:#ffffff" data-tip="Claude Opus 5.5&#10;מצוות התלויות בארץ: 78" tabindex="0">78</td></tr><tr><th scope="row"><span class="lab-dot lab-google" aria-hidden="true"></span><bdi>Gemini 3.8 Flash</bdi></th><td style="background:#5294e3;color:#ffffff" data-tip="Gemini 3.8 Flash&#10;חופה וקידושין: 60" tabindex="0">60</td><td style="background:#609ee8;color:#111111" data-tip="Gemini 3.8 Flash&#10;נידה: 55" tabindex="0">55</td><td style="background:#4289de;color:#ffffff" data-tip="Gemini 3.8 Flash&#10;מקוואות: 66" tabindex="0">66</td><td style="background:#4289de;color:#ffffff" data-tip="Gemini 3.8 Flash&#10;תפילה וברכות: 66" tabindex="0">66</td><td style="background:#2d7ad7;color:#ffffff" data-tip="Gemini 3.8 Flash&#10;מצוות התלויות בארץ: 74" tabindex="0">74</td></tr><tr><th scope="row"><span class="lab-dot lab-openai" aria-hidden="true"></span><bdi>GPT-6.1 Terra</bdi></th><td style="background:#b9d4f6;color:#111111" data-tip="GPT-6.1 Terra&#10;חופה וקידושין: 24" tabindex="0">24</td><td style="background:#bfd7f7;color:#111111" data-tip="GPT-6.1 Terra&#10;נידה: 21" tabindex="0">21</td><td style="background:#9cc3f2;color:#111111" data-tip="GPT-6.1 Terra&#10;מקוואות: 34" tabindex="0">34</td><td style="background:#73abed;color:#111111" data-tip="GPT-6.1 Terra&#10;תפילה וברכות: 48" tabindex="0">48</td><td style="background:#7cb0ee;color:#111111" data-tip="GPT-6.1 Terra&#10;מצוות התלויות בארץ: 45" tabindex="0">45</td></tr><tr><th scope="row"><span class="lab-dot lab-openai" aria-hidden="true"></span><bdi>GPT-6 Luna</bdi></th><td style="background:#bdd6f6;color:#111111" data-tip="GPT-6 Luna&#10;חופה וקידושין: 22" tabindex="0">22</td><td style="background:#c6dcf7;color:#111111" data-tip="GPT-6 Luna&#10;נידה: 17" tabindex="0">17</td><td style="background:#8bb9f0;color:#111111" data-tip="GPT-6 Luna&#10;מקוואות: 40" tabindex="0">40</td><td style="background:#8ebaf0;color:#111111" data-tip="GPT-6 Luna&#10;תפילה וברכות: 39" tabindex="0">39</td><td style="background:#7fb2ee;color:#111111" data-tip="GPT-6 Luna&#10;מצוות התלויות בארץ: 44" tabindex="0">44</td></tr><tr><th scope="row"><span class="lab-dot lab-anthropic" aria-hidden="true"></span><bdi>Claude Sonnet 5.5</bdi></th><td style="background:#b4d1f6;color:#111111" data-tip="Claude Sonnet 5.5&#10;חופה וקידושין: 26" tabindex="0">26</td><td style="background:#c8ddf7;color:#111111" data-tip="Claude Sonnet 5.5&#10;נידה: 16" tabindex="0">16</td><td style="background:#a5c8f4;color:#111111" data-tip="Claude Sonnet 5.5&#10;מקוואות: 31" tabindex="0">31</td><td style="background:#bbd5f6;color:#111111" data-tip="Claude Sonnet 5.5&#10;תפילה וברכות: 23" tabindex="0">23</td><td style="background:#73abed;color:#111111" data-tip="Claude Sonnet 5.5&#10;מצוות התלויות בארץ: 48" tabindex="0">48</td></tr></tbody>
+<tfoot><tr><th scope="row">ממוצע שמונת המודלים</th><td>49</td><td>47</td><td>60</td><td>61</td><td>68</td></tr></tfoot></table></div>
+  </div>
+</section>
+<section class="block prose">
+<h2 id="apart">אילו מודלים נבדלים בבירור?</h2>
+<p>רווחי סמך חופפים אינם אומרים בעצמם ששני מודלים שקולים, ולכן המודלים הושוו גם שאלה מול שאלה.</p>
+<ul>
+<li><strong>Claude Fable 5.2 ו-Gemini 4 Carbon בראש:</strong> הם לא נבדלים בבירור (Fable 5.2 מקדים ב-3.5 נקודות, רווח סמך של
+  95% בין −0.3 ל-7.1). Fable 5.2 מקדים בבירור כל מודל אחר: את Claude Fable 5.1 ב-6.0 נקודות (3.0 עד 9.1), את
+  Gemini 4 Argon ב-7.5 (3.7 עד 11.2) ואת GPT-5.6 Sol ב-8.5 (4.2 עד 13.4). Gemini 4 Carbon מקדים בבירור את Gemini 4
+  Argon (ב-4.1, 1.8 עד 6.4), את GPT-6 Astra (ב-9.0, 4.1 עד 13.7) ואת כל המודלים שמתחתם, אבל אינו נבדל בבירור
+  מ-Claude Fable 5.1 (שנמצא 2.6 נקודות מאחורי Carbon, −0.9 עד 6.1) או מ-GPT-5.6 Sol (ב-5.0, −0.4 עד 10.8).</li>
+<li><strong>לא נבדלים בבירור:</strong> Claude Fable 5.1, Gemini 4 Argon ו-GPT-5.6 Sol (Fable מקדים את Argon ב-1.5 נקודות, רווח
+  סמך של 95% בין −1.8 ל-4.9, ואת GPT-5.6 Sol ב-2.5, −2.5 עד 7.9); GPT-5.6 Sol עם GPT-6 Astra (ב-3.9, −0.9 עד 8.5)
+  ועם GPT-6.1 Sol (ב-4.5, −0.5 עד 8.9); Gemini 4 Argon ו-GPT-6 Astra (ב-4.9, −0.3 עד 10.0); GPT-6 Astra, GPT-6.1 Sol
+  ו-Claude Opus 5.5; Gemini 3.8 Flash ו-Muse Wonder Full (ב-3.6, −1.2 עד 8.1); GPT-6 Sol, Muse Wonder ו-Claude Opus
+  4.8 (GPT-6 Sol מקדים את Opus 4.8 ב-0.6, −4.6 עד 5.4, ו-Muse Wonder נמצא במרחק של עד 0.4 משניהם); Muse Spark 1.3
+  עם GPT-6.1 Terra (ב-1.6, −3.3 עד 6.8) ועם GPT-6 Luna (ב-3.9, −0.6 עד 8.3); GPT-6 Luna, Grok 4.7, Claude Sonnet
+  4.6 ו-Claude Sonnet 5.5; GPT-6.1 Terra ו-GPT-6 Luna; Grok 4.3, Muse Glimmer 30B ו-Claude Haiku 5.5, וכן Claude
+  Haiku 5.5 עם Qwen3.8 27B; רוב הזוגות בין המקומות 22 עד 27.</li>
+<li><strong>נבדלים בבירור:</strong> Claude Fable 5.1 מקדים כל מודל שמתחתיו מלבד Gemini 4 Argon ו-GPT-5.6 Sol (ב-6.4 נקודות על
+  GPT-6 Astra, 1.6 עד 11.1); GPT-5.6 Sol מקדים את Claude Opus 5.5 (ב-8.2, 2.0 עד 14.1) ואת כל מודל שמתחתיו;
+  Gemini 4 Argon מקדים את GPT-6.1 Sol (ב-5.5, 0.8 עד 10.2) ואת כל מודל שמתחתיו; GPT-6.1 Terra מקדים את Grok 4.7
+  (ב-4.7, 0.5 עד 9.1), את Claude Sonnet 4.6 (ב-5.0, 0.1 עד 10.0) ואת Claude Sonnet 5.5 (ב-5.9, 0.8 עד 10.9);
+  Claude Opus 5.5 מקדים את Muse Wonder Full (ב-8.3, 4.5 עד 12.0), ו-Muse Wonder Full מקדים את GPT-6 Sol (ב-12.1,
+  7.8 עד 16.6) ואת כל מודל שמתחתיו; Claude Opus 4.8, GPT-6 Sol ו-Muse Wonder נבדלים מכל מודל אחר, אבל לא זה מזה;
+  Muse Spark 1.3 מקדים את Grok 4.7 (ב-6.4, 2.2 עד 10.7) ואת כל מודל שמתחתיו; Muse Ember נמצא מתחת ל-Claude Sonnet
+  5.5 (ב-13.4, 9.2 עד 17.7) ומקדים את Grok 4.3 (ב-4.6, 1.0 עד 8.2), את Muse Glimmer 30B (ב-4.8, 2.2 עד 7.6) ואת
+  Claude Haiku 5.5 (ב-6.7, 3.4 עד 10.2); gpt-oss-20b נמצא מתחת לכל מודל אחר.</li>
+<li><strong>בין דורות:</strong> Claude Opus 5.5 גבוה מ-Claude Opus 4.8 ב-21.0 נקודות (17.4 עד 24.9); Claude Sonnet 5.5 ו-Claude
+  Sonnet 4.6 אינם נבדלים בבירור (הפרש של 0.9, −3.0 עד 4.9). בכיוון ההפוך, GPT-5.6 Sol גבוה ב-28.6 נקודות מ-GPT-6
+  Sol, החדש ממנו (24.2 עד 33.2), ומקדים אותו ב-57 מתוך 59 השאלות ששניהם ענו עליהן. GPT-6 Sol לא עשה יותר טעויות;
+  הוא כתב תשובות קצרות יותר (חציון של כ-200 מילים לעומת כ-310, עם פחות חשיבה), שכיסו פחות מהמקורות ומהפסקים
+  שהמחוונים דורשים (48% מהדרישות, לעומת 77%).</li>
+<li><strong>בין מודלי Muse:</strong> Muse Wonder Full גבוה מ-Muse Wonder ב-12.5 נקודות (9.3 עד 15.8), ו-Muse Wonder גבוה מ-Muse
+  Spark 1.3 ב-12.0 (7.5 עד 16.6). Muse Ember, ששוחרר ב-9 בנובמבר כמודל ה-Muse הקל ביותר של Meta, נמוך מ-Muse Spark
+  1.3 ב-20.9 (16.7 עד 25.3) וגבוה ב-4.8 מ-Muse Glimmer 30B, מודל ה-Muse בעל המשקלות הפתוחים שהורץ מקומית, שנמוך
+  מ-Muse Spark 1.3 ב-25.7 (21.7 עד 30.0).</li>
+</ul>
+</section>
+<section class="block prose">
+<h2 id="notes">הערות על הרצות מסוימות</h2>
+<ol class="notes"><li id="note-1"><span class="fn-mark">¹</span>חלק מההרצות לא הפיקו טקסט תשובה. המודל מיצה את מגבלת הפלט שקבענו בעודו חושב (DictaLM ב-9 מתוך 180 ו-Qwen3.8 27B ב-9 מתוך 180; המגבלות היו 57,088 ו-65,536 טוקנים, והאחרונה נמוכה ממה שכרטיס המודל של Qwen מתיר), או שנעצר אחרי החשיבה בלי לכתוב תשובה (Qwen3.8 27B ב-10 מתוך 180). כל הרצה כזו נוסתה פעם נוספת; אלה שנותרו גם אז בלי תשובה מקבלות ציון 0, כמו כל תשובה שנכשלה.</li><li id="note-2"><span class="fn-mark">²</span>Llama 4 Scout נכשל באחת הבדיקות שלפני ההרצה: כשנשאל אם יש לו כלים, טען שיש לו כלי חיפוש ברשת שלא היה לו. הוא רץ בקונטיינר סגור בלי רשת ובלי כלים, ולכן נשאר ברשימה, והכישלון מדווח כאן.</li><li id="note-3"><span class="fn-mark">³</span>ההרצה של Gemini 4 Argon נעצרה כשמכסת השימוש של החשבון נגמרה, והושלמה על קרדיטים של Google AI שנרכשו (תיקון רשום; הקרדיטים משנים רק את החיוב). במהלך ההרצה, בדיקה ידנית של תוכנת Antigravity הפעילה את העדכון האוטומטי שלה, כך ש-84 מתוך 180 התשובות של Argon (ב-28 שאלות) רצו על גרסה 1.4.12 במקום גרסה 1.4.10 שנרשמה מראש. ב-28 השאלות האלה, הפער בין Argon לבין ארבעת המודלים הקרובים אליו נמצא בטווח של 2.6 נקודות מהפער שלו ב-32 השאלות האחרות (מבחן פרמוטציה, p בין 0.57 ל-0.82), כך שלגרסה לא הייתה השפעה נראית לעין. התשובות נשמרו ומדווחות כאן.</li><li id="note-4"><span class="fn-mark">⁴</span>Grok 4.7 ו-Grok 4.3 רצו דרך ה-Responses API של xAI: בלי כלים בבקשה, בלי שמירת התגובות, רמת מאמץ חשיבה (reasoning effort) high, והדגימה המומלצת של xAI ‏(temperature 0.7, top_p 0.95). כל תגובה נבדקה: אף אחת לא השתמשה בכלי או במקור, ואף אחת לא נקטעה. ראו <a href="#checks-on-the-grok-results">בדיקות על תוצאות Grok</a>.</li><li id="note-5"><span class="fn-mark">⁵</span>GPT-5.6 Sol ו-GPT-6 Sol רצו על Codex כמו שאר מודלי GPT, באותן הגדרות. ה-Codex של GPT-5.6 Sol חושף סט שונה של הגדרות כלים, וזה מתועד. בכל שלושת הניסיונות בשאלה אחת (<code>5787-cheshvan-teluyot-yishum-q11</code>), בשני המודלים, מערכת הבטיחות של OpenAI סימנה את התשובה באמצע כתיבתה ואותתה על מעבר למודל קטן יותר. מערכת ההרצה עוצרת כל הרצה שמקבלת אירוע שאינה מזהה, כדי שלא תירשם תחת שמו של מודל אחד תשובה של מודל אחר; שלוש התשובות האלה של כל אחד משני המודלים מקבלות ציון 0, כמו כל תשובה שנכשלה. שתי ההרצות האלה השתמשו בגרסה מאוחרת יותר של קוד ההרצה; השינויים היחידים הם המונחים של הבדיקה שלפני ההרצה ואפשרות להריץ מחדש ניסיון בודד, והקוד ששולח את השאלה ורושם את התשובה לא השתנה. GPT-5.4 ו-GPT-5.5 אינם זמינים בחשבון Codex שבו נעשה כאן שימוש.</li><li id="note-6"><span class="fn-mark">⁶</span>Muse Wonder Full, Muse Wonder, Muse Spark 1.3 ו-Muse Ember רצו דרך Muse Code CLI של Meta במנוי Muse Code: גרסת תוכנה מקובעת (1.4.14), רמת מאמץ גבוהה, תהליך חדש עם תיקיית בית משלו לכל תשובה, ה-preset הריק, וכלי הרשת, המעטפת (shell) וכתיבת הקבצים כבויים. כל הרצה נוטרה בזמן אמת, וכל פעולה מלבד כתיבת התשובה הייתה פוסלת אותה; אף הרצה לא נפסלה. כל 180 התשובות של כל מודל הושלמו. Muse Ember נוסף ביום ש-Meta שחררה אותו. Muse Code שומר את הגדרות הכלים ואת ההוראות המובנות שלו בהקשר של המודל. חלק מתשובות Muse (כ-25 מתוך 540) מעצבות את הציטוטים שלהן כקישורי Markdown לנתיבי קבצים או לכתובות אינטרנט מדומים, כפי שעוזר תכנות היה עושה; הציטוטים עצמם רגילים, והתשובות נבדקו כפי שנכתבו.</li><li id="note-7"><span class="fn-mark">⁷</span>Claude Fable 5.2 רץ כמו שאר מודלי Claude ‏(Claude Code CLI, כל הכלים כבויים, רמת מאמץ גבוהה), אבל על Claude Code 2.1.290 במקום 2.1.283: ה-API של Anthropic מסרב להפעיל את המודל הזה בגרסה הישנה. כמו כל מודל Claude מאז 2 בנובמבר, הוא רץ על חשבון Claude של הפרויקט עצמו, שכתובת הדוא"ל שלו, ש-Claude Code מציג למודל, מכילה את שם הפרויקט.</li><li id="note-8"><span class="fn-mark">⁸</span>Gemini 4 Carbon רץ כמו Gemini 4 Argon ‏(Antigravity CLI 1.4.10, רמת מאמץ גבוהה, כל הרצה נוטרה בזמן אמת; אף אחת לא השתמשה בכלי). הוא חושב הרבה יותר זמן מכל מודל אחר: חציון של כ-69,000 טוקני פלט ו-13 דקות לתשובה, לעומת כ-14,000 אצל Argon. שני ניסיונות בשאלה אחת הגיעו לפסק זמן אחרי 30 דקות בלי מענה, פעמיים כל אחד, והורצו פעם נוספת לפי כלל ההרצה החוזרת הרשום; שניהם ענו אז, כך שכל 180 התשובות קיבלו ציון. במהלך השיפוט שלו, השירות של OpenAI התחיל לשלוח סוג חדש של הודעת סטטוס עם כל קריאה ל-GPT-6 Astra, הודעה שרק חוזרת על רמת מאמץ החשיבה שהתבקשה. מערכת ההרצה עוצרת כל קריאה שמקבלת הודעה שאינה מזהה, ולכן השיפוט נעצר. תיקון רשום מאפשר למערכת ההרצה לקבל את ההודעה הזו כשהיא חוזרת בדיוק על רמת המאמץ שהתבקשה (כל הודעה אחרת עדיין עוצרת את הקריאה); הדבר משנה את הגיבוב של פרוטוקול השיפוט, והגיבוב החדש נרשם כשקול לישן. השיפוט שהחל תחת הגיבוב הישן הונח בצד, וכל התשובות של Carbon נבדקו מחדש מההתחלה. הציונים של 29 המודלים האחרים לא השתנו.</li></ol>
+</section>
+<section class="block prose">
+<h2 id="updates">יומן שינויים</h2>
+<ol class="changelog wide"><li><time>13 בנובמבר 2026</time><span>נוסף Gemini 4 Carbon. הוא במקום השני (82.3), 4.1 נקודות מעל Gemini 4 Argon, ואינו נבדל בבירור מ-Claude Fable 5.2. במהלך השיפוט שלו תוקן פרוטוקול השיפוט בתיקון רשום (הערה ⁸).</span></li><li><time>9 בנובמבר 2026</time><span>נוספו שני מודלים: Claude Fable 5.2, שתופס את המקום הראשון (85.8) ומקדים בבירור כל מודל אחר, ו-Muse Ember של Meta, מודל ה-Muse הקטן ביותר (15.3, מקום 19).</span></li><li><time>6 בנובמבר 2026</time><span>נוספו שלושה ממודלי Muse של Meta, שהורצו דרך Muse Code CLI של Meta: Muse Wonder Full, Muse Wonder ו-Muse Spark 1.3. Muse Wonder Full במקום השמיני (60.8).</span></li><li><time>3 בנובמבר 2026</time><span>נוספו שני מודלי GPT מוקדמים יותר, GPT-5.6 Sol ו-GPT-6 Sol. הישן מביניהם קיבל ציון גבוה בהרבה.</span></li><li><time>2 בנובמבר 2026</time><span>נוספו חמישה מודלים, וכולם קיבלו ציון על אותן שאלות, באותם מחוונים ובידי אותו שופט: Gemini 4 Argon, Grok 4.7, Grok 4.3, Claude Opus 4.8 ו-Claude Sonnet 4.6.</span></li><li><time>1 בנובמבר 2026</time><span>התוצאות הראשונות: 17 מודלים.</span></li></ol>
+<p><a href="/he/method/">איך המבחן מורץ ונבדק</a>. <a href="/he/findings/grok-checks/">בדיקות על התוצאות של Grok</a>.</p>
+</section>
+</div>
+</main>
+<footer class="site-foot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <a class="wordmark small" href="/he/" dir="ltr"><svg class="mark" width="28" height="28" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path class="m0" d="M9 9h40.5a7.5 7.5 0 0 1 7.5 7.5V56h-8V17H9z"/><rect class="m0" x="9" y="26" width="8" height="30"/><rect class="m1" x="19" y="27" width="26" height="5" rx="1"/><rect class="m2" x="19" y="35" width="20" height="5" rx="1"/><rect class="m3" x="19" y="43" width="14" height="5" rx="1"/><rect class="m4" x="19" y="51" width="8" height="5" rx="1"/></svg>HalachaBench<span>.ai</span></a>
+      <p>מיזם עצמאי. אין לו קשר לרבנות הראשית לישראל או לחברות שמפתחות את המודלים, והוא אינו פועל מטעמן; שמות המודלים הם סימני מסחר של בעליהם. התוצאות זמניות, ואין בשום דבר כאן פסק הלכה.</p>
+    </div>
+    <nav class="foot-links" aria-label="תוצאות"><h2>תוצאות</h2>
+      <a href="/he/halachabench/">טבלת מבחן הסמיכה</a><a href="/he/hashkafabench/">HashkafaBench</a>
+      <a href="/he/values/">הלכה מול ערכים</a><a href="/he/findings/">כל הממצאים</a></nav>
+    <nav class="foot-links" aria-label="מקורות"><h2>מקורות</h2>
+      <a href="https://github.com/halachabench/halacha-bench-results">נתוני התוצאות ב-GitHub</a>
+      <a href="https://github.com/halachabench/hashkafa-bench-results">נתוני HashkafaBench ב-GitHub</a>
+      <a href="/he/method/#cite">ציטוט HalachaBench</a></nav>
+    <nav class="foot-links" aria-label="יצירת קשר"><h2>יצירת קשר</h2>
+      <a href="mailto:halachabench@gmail.com" dir="ltr">halachabench@gmail.com</a><a href="https://x.com/HalachaBench">‎@HalachaBench ב-X</a></nav>
+  </div>
+  <div class="wrap foot-legal"><span dir="ltr">© 2026 MasechetAI</span><span>עודכן לאחרונה 13 בנובמבר 2026</span></div>
+</footer>
+<div class="tip" role="tooltip" hidden></div>
+<script src="/assets/site.js?v=202611182111" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gemini 4 Carbon מטפס למקום השני | HalachaBench</title>
+<meta name="description" content="82.3, ארבע נקודות מעל Gemini 4 Argon ובלי הבדל ברור מ-Claude Fable 5.2. הוא חושב הרבה יותר זמן מכל מודל אחר, כ-69,000 טוקנים לתשובה.">
+<link rel="canonical" href="https://halachabench.ai/he/findings/gemini-carbon/">
+<link rel="alternate" hreflang="en" href="https://halachabench.ai/findings/gemini-carbon/">
+<link rel="alternate" hreflang="he" href="https://halachabench.ai/he/findings/gemini-carbon/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="HalachaBench">
+<meta property="og:locale" content="he_IL">
+<meta property="og:title" content="Gemini 4 Carbon מטפס למקום השני">
+<meta property="og:description" content="82.3, ארבע נקודות מעל Gemini 4 Argon ובלי הבדל ברור מ-Claude Fable 5.2. הוא חושב הרבה יותר זמן מכל מודל אחר, כ-69,000 טוקנים לתשובה.">
+<meta property="og:url" content="https://halachabench.ai/he/findings/gemini-carbon/">
+<meta property="og:image" content="https://halachabench.ai/assets/img/efficiency-score-vs-tokens.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@HalachaBench">
+<meta name="theme-color" content="#f6f4ef">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600&family=Frank+Ruhl+Libre:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/style.css?v=202611182111">
+<script>try{var t=localStorage.getItem('hb-theme');if(t)document.documentElement.dataset.theme=t;var p=localStorage.getItem('hb-lang'),h='he';if(!p&&h==='en'&&/^he\b/i.test((navigator.languages&&navigator.languages[0])||navigator.language||''))p='he';if(p&&p!==h&&location.search.indexOf('lang=')<0)location.replace('/findings/gemini-carbon/');}catch(_){}</script>
+</head>
+<body>
+<a class="skip" href="#main">דילוג לתוכן</a>
+<header class="site-head">
+  <div class="wrap head-row">
+    <a class="wordmark" href="/he/" dir="ltr"><svg class="mark" width="34" height="34" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path class="m0" d="M9 9h40.5a7.5 7.5 0 0 1 7.5 7.5V56h-8V17H9z"/><rect class="m0" x="9" y="26" width="8" height="30"/><rect class="m1" x="19" y="27" width="26" height="5" rx="1"/><rect class="m2" x="19" y="35" width="20" height="5" rx="1"/><rect class="m3" x="19" y="43" width="14" height="5" rx="1"/><rect class="m4" x="19" y="51" width="8" height="5" rx="1"/></svg>HalachaBench<span>.ai</span></a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav"><span class="visually-hidden">תפריט</span><i></i></button>
+    <nav id="site-nav" class="site-nav" aria-label="ראשי"><a href="/he/halachabench/">טבלת התוצאות</a><a href="/he/hashkafabench/">HashkafaBench</a><a href="/he/values/">הלכה מול ערכים</a><a href="/he/findings/" aria-current="page">ממצאים</a><a href="/he/method/">שיטה</a><a href="/he/about/">אודות</a><a class="lang-switch" href="/findings/gemini-carbon/" data-lang-to="en" lang="en" hreflang="en">English</a>
+      <button class="theme-toggle" type="button" aria-label="מעבר בין מצב בהיר לכהה"></button></nav>
+  </div>
+</header>
+<main id="main">
+
+<article class="post">
+<header class="page-head wrap narrow">
+<p class="crumbs"><a href="/he/findings/">ממצאים</a> <span class="tag t-hb">HalachaBench</span>
+<time datetime="2026-11-13">13 בנובמבר 2026</time></p>
+<h1>Gemini 4 Carbon מטפס למקום השני</h1><p class="lede">82.3, ארבע נקודות מעל Gemini 4 Argon ובלי הבדל ברור מ-Claude Fable 5.2. הוא חושב הרבה יותר זמן מכל מודל אחר, כ-69,000 טוקנים לתשובה.</p>
+</header>
+<div class="wrap narrow prose"><p>Gemini 4 Carbon של Google מקבל <strong>82.3</strong> (רווח סמך של 95%: 78.4 – 86.0), המקום השני בטבלה.</p>
+<ul>
+<li><strong>מקדים בבירור את אחיו.</strong> Carbon גבוה ב-4.1 נקודות מ-Gemini 4 Argon (1.8 עד 6.4), ומקדים בבירור את GPT-6 Astra ואת כל המודלים שמתחתיו.</li>
+<li><strong>בלי הבדל ברור מהמוביל.</strong> Claude Fable 5.2 מקדים אותו ב-3.5 נקודות, אבל רווח הסמך של 95% נע בין −0.3 ל-7.1.</li>
+<li><strong>הוא פשוט חושב… הרבה.</strong> חציון של כ-69,000 טוקנים של פלט ו-13 דקות לתשובה, לעומת כ-14,000 אצל Argon וכ-6,000 אצל Fable 5.2. שני ניסיונות על שאלה אחת חרגו מהזמן אחרי 30 דקות והורצו מחדש לפי כלל הניסיון החוזר שנרשם מראש; כל 180 התשובות קיבלו ציון.</li>
+</ul>
+<p><img alt="ציון מול מספר טוקנים לתשובה, כפי שפורסם ב-10 בנובמבר, לפני ש-Carbon נוסף" src="/assets/img/efficiency-score-vs-tokens.png" /></p>
+<p>כפי שמראה התרשים מלפני ההרצה של Carbon, יותר חשיבה בדרך כלל לא קנתה תשובה טובה יותר: Fable 5.1 ו-GPT-6 Astra הגיעו לצמרת עם כמה אלפי טוקנים בלבד.</p>
+<p>במהלך הבדיקה של Carbon, שירות השופט החל לשלוח סוג חדש של הודעת סטטוס. תיקון שנרשם אפשר למערכת ההרצה לקבל אותה, כל התשובות של Carbon נבדקו מחדש מההתחלה, והציונים של אף מודל אחר לא השתנו.</p>
+<p class="post-links"><a class="plain-link" href="https://x.com/HalachaBench/status/2121254678205800572">לשרשור ב-X</a><a class="plain-link" href="/he/halachabench/">לנתונים</a></p>
+<nav class="pager" aria-label="עוד ממצאים"><a class="pg prev" href="/he/findings/sephardi-asker/"><small>קודם</small>תגידו לבינה המלאכותית שאתם ספרדים</a><span></span></nav></div></article>
+</main>
+<footer class="site-foot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <a class="wordmark small" href="/he/" dir="ltr"><svg class="mark" width="28" height="28" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path class="m0" d="M9 9h40.5a7.5 7.5 0 0 1 7.5 7.5V56h-8V17H9z"/><rect class="m0" x="9" y="26" width="8" height="30"/><rect class="m1" x="19" y="27" width="26" height="5" rx="1"/><rect class="m2" x="19" y="35" width="20" height="5" rx="1"/><rect class="m3" x="19" y="43" width="14" height="5" rx="1"/><rect class="m4" x="19" y="51" width="8" height="5" rx="1"/></svg>HalachaBench<span>.ai</span></a>
+      <p>מיזם עצמאי. אין לו קשר לרבנות הראשית לישראל או לחברות שמפתחות את המודלים, והוא אינו פועל מטעמן; שמות המודלים הם סימני מסחר של בעליהם. התוצאות זמניות, ואין בשום דבר כאן פסק הלכה.</p>
+    </div>
+    <nav class="foot-links" aria-label="תוצאות"><h2>תוצאות</h2>
+      <a href="/he/halachabench/">טבלת מבחן הסמיכה</a><a href="/he/hashkafabench/">HashkafaBench</a>
+      <a href="/he/values/">הלכה מול ערכים</a><a href="/he/findings/">כל הממצאים</a></nav>
+    <nav class="foot-links" aria-label="מקורות"><h2>מקורות</h2>
+      <a href="https://github.com/halachabench/halacha-bench-results">נתוני התוצאות ב-GitHub</a>
+      <a href="https://github.com/halachabench/hashkafa-bench-results">נתוני HashkafaBench ב-GitHub</a>
+      <a href="/he/method/#cite">ציטוט HalachaBench</a></nav>
+    <nav class="foot-links" aria-label="יצירת קשר"><h2>יצירת קשר</h2>
+      <a href="mailto:halachabench@gmail.com" dir="ltr">halachabench@gmail.com</a><a href="https://x.com/HalachaBench">‎@HalachaBench ב-X</a></nav>
+  </div>
+  <div class="wrap foot-legal"><span dir="ltr">© 2026 MasechetAI</span><span>עודכן לאחרונה 13 בנובמבר 2026</span></div>
+</footer>
+<div class="tip" role="tooltip" hidden></div>
+<script src="/assets/site.js?v=202611182111" defer></script>
+
+</body>
+</html>

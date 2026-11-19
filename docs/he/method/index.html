@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>שיטה | HalachaBench</title>
+<meta name="description" content="איך המודלים עונים על שאלות HalachaBench, איך נחתמים המחוונים ואיך נבדקות התשובות.">
+<link rel="canonical" href="https://halachabench.ai/he/method/">
+<link rel="alternate" hreflang="en" href="https://halachabench.ai/method/">
+<link rel="alternate" hreflang="he" href="https://halachabench.ai/he/method/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="HalachaBench">
+<meta property="og:locale" content="he_IL">
+<meta property="og:title" content="שיטה">
+<meta property="og:description" content="איך המודלים עונים על שאלות HalachaBench, איך נחתמים המחוונים ואיך נבדקות התשובות.">
+<meta property="og:url" content="https://halachabench.ai/he/method/">
+<meta property="og:image" content="https://halachabench.ai/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@HalachaBench">
+<meta name="theme-color" content="#f6f4ef">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600&family=Frank+Ruhl+Libre:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/style.css?v=202611182111">
+<script>try{var t=localStorage.getItem('hb-theme');if(t)document.documentElement.dataset.theme=t;var p=localStorage.getItem('hb-lang'),h='he';if(!p&&h==='en'&&/^he\b/i.test((navigator.languages&&navigator.languages[0])||navigator.language||''))p='he';if(p&&p!==h&&location.search.indexOf('lang=')<0)location.replace('/method/');}catch(_){}</script>
+</head>
+<body>
+<a class="skip" href="#main">דילוג לתוכן</a>
+<header class="site-head">
+  <div class="wrap head-row">
+    <a class="wordmark" href="/he/" dir="ltr"><svg class="mark" width="34" height="34" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path class="m0" d="M9 9h40.5a7.5 7.5 0 0 1 7.5 7.5V56h-8V17H9z"/><rect class="m0" x="9" y="26" width="8" height="30"/><rect class="m1" x="19" y="27" width="26" height="5" rx="1"/><rect class="m2" x="19" y="35" width="20" height="5" rx="1"/><rect class="m3" x="19" y="43" width="14" height="5" rx="1"/><rect class="m4" x="19" y="51" width="8" height="5" rx="1"/></svg>HalachaBench<span>.ai</span></a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav"><span class="visually-hidden">תפריט</span><i></i></button>
+    <nav id="site-nav" class="site-nav" aria-label="ראשי"><a href="/he/halachabench/">טבלת התוצאות</a><a href="/he/hashkafabench/">HashkafaBench</a><a href="/he/values/">הלכה מול ערכים</a><a href="/he/findings/">ממצאים</a><a href="/he/method/" aria-current="page">שיטה</a><a href="/he/about/">אודות</a><a class="lang-switch" href="/method/" data-lang-to="en" lang="en" hreflang="en">English</a>
+      <button class="theme-toggle" type="button" aria-label="מעבר בין מצב בהיר לכהה"></button></nav>
+  </div>
+</header>
+<main id="main">
+
+<section class="page-head wrap narrow"><h1>איך המבחן מורץ ונבדק</h1>
+<p class="lede">שאלות אמיתיות, תשובות בלי ספרים ובלי אינטרנט, מחוונים שנחתמו לפני הבדיקה, ותיעוד פומבי שאפשר לבדוק מולו כל שינוי מאוחר.</p></section>
+<div class="wrap narrow prose">
+<ol class="steps">
+<li><h3>שאלות</h3><p>60 שאלות מחמישה שאלוני סמיכה של הרבנות הראשית, חשוון תשפ"ז.</p></li>
+<li><h3>תשובות</h3><p>כל מודל עונה על כל שאלה שלוש פעמים, בעברית, בלי ספרים ובלי אינטרנט, כל פעם בתהליך חדש.</p></li>
+<li><h3>מחוונים</h3><p>נוסחו, נבקרו ונבדקו בידי מודלים משלוש חברות, ונחתמו ב-29 באוקטובר 2026.</p></li>
+<li><h3>בדיקה</h3><p>מודל שופט בודק כל סעיף בכל תשובה לפי פרוטוקול קבוע אחד.</p></li>
+</ol>
+<ul>
+<li><strong>השאלות.</strong> השאלונים הועתקו פעמיים מתמונות הדפים על ידי שני מודלים של Claude ‏(Claude Fable ו-Claude Opus),
+  ו-Claude Fable 5.1 הכריע בכל הבדל ביניהם מול התמונה. איש עדיין לא הגיה את הטקסט. השאלות הן של הרבנות הראשית
+  עצמה ואינן מובאות כאן; השאלונים מפורסמים ב-gov.il. מזהי פריטים כמו <code>5787-cheshvan-niddah-iyun-q03</code> מציינים את
+  השאלון, החלק והשאלה.</li>
+<li><strong>המענה.</strong> כל תשובה נכתבה בתהליך חדש, בלי שום דבר מהפרויקט מלבד השאלה, כללי הבחינה (לענות בעברית, לציין מקורות,
+  עד 600 מילים; המגבלה היא הוראה, ותשובות ארוכות יותר לא קוצרו) והוראה קבועה לענות בלי ספרים ובלי אינטרנט. בלי
+  חיפוש ברשת. מודלי Claude רצו כשכל הכלים כבויים; 6 מתוך 1,086 ההרצות שלהם ניסו בכל זאת לבצע קריאה לכלי, נעצרו
+  והורצו מחדש. בתוכנות של GPT ושל Gemini אי אפשר לכבות את כל הכלים, ולכן נאסר השימוש בכלים וכל הרצה נוטרה בזמן
+  אמת; באף אחת מהרצות המבחן שלהם לא נעשה שימוש בכלי. הרצה שניסתה להשתמש בכלי, או שהסתיימה בלי תשובה, הורצה פעם
+  נוספת, וכישלון שני מקבל ציון 0. המודלים המקומיים רצו בקונטיינרים סגורים, בלי רשת ובלי כלים. מודלי Grok רצו דרך
+  ה-API של xAI בלי כלים בבקשה, וכל תגובה נבדקה לאיתור שימוש בכלי או במקור (לא נמצא אף מקרה). מודלי Muse רצו דרך
+  Muse Code כשכלי הרשת, המעטפת (shell) וכתיבת הקבצים כבויים, וכל הרצה נוטרה בזמן אמת; באף אחת מהרצות המבחן שלהם
+  לא נעשה שימוש בכלי. ההנחיות לא היו זהות בין התוכנות: מודלי Claude ו-Grok ראו רק הנחיית מערכת קצרה וניטרלית;
+  מודלי GPT ראו גם את ההוראות המובנות של Codex והוראה נוספת שלא להשתמש בכלים; מודלי Gemini ראו את ההוראות המובנות
+  של Antigravity; ומודלי Muse ראו את אותה הנחיית מערכת ניטרלית יחד עם ההוראות המובנות של Muse Code והגדרות הכלים
+  שלו.</li>
+<li><strong>המחוונים.</strong> אין מפתח תשובות רשמי. כל אחד מ-60 המחוונים נוסח על ידי Claude Fable 5.1 כפי שרב היה מנסח מחוון
+  (מקורות, ראשונים, הפסק, שיטות מקובלות אחרות, טעויות נפוצות), עם 9–12 סעיפים לכל שאלה: 7–11 דרישות שמזכות
+  בנקודות ו-1–3 טעויות שמורידות נקודות. סבב נוסף של Claude Fable 5.1 ביקר כל טיוטה, והיא נוסחה מחדש. לאחר מכן
+  בדקו את כל המחוונים שלושה מודלים משלוש חברות (Claude Fable 5.1, GPT-6 Astra, Gemini 4 Argon): שינויים שלפחות
+  שניים מהם ביקשו הוכנסו, ובכל נקודה שהעלה רק בודק אחד הכריע Claude Fable 5.1, מנסח המחוונים, בנימוק כתוב.
+  Claude Opus 5.5 בדק את המקורות המצוטטים שנמצאים בספריא (כ-2,000 בדיקות, בארבעה סבבים); מקורות שאינם בספריא
+  מסומנים כלא מאומתים, וארבע בעיות קלות נותרו פתוחות. איש ממי שכתב או בדק מחוון לא ראה תשובה של מודל כלשהו.
+  המחוונים נחתמו בהתחייבות קריפטוגרפית ממולחת ב-29 באוקטובר 2026 (התאריך הוא הרישום של יומן החתימה עצמו;
+  ההתחייבויות מתפרסמות עם המאגר הזה, וערכי המלח שפותחים אותן יפורסמו עם סיום סבב הבדיקה של הרבנים), אחרי שמודלי
+  Claude ו-GPT כבר ענו ולפני שנבדקה תשובת מבחן כלשהי.</li>
+<li><strong>השיפוט.</strong> GPT-6 Astra (רמת מאמץ גבוהה) קבע, לכל סעיף בכל תשובה שהיה בה טקסט, אם התשובה עומדת בו, לפי פרוטוקול
+  שיפוט קבוע אחד. 5% מהתשובות (244) נבדקו פעמיים כדי לבחון עקביות; התוצאה תדווח יחד עם השופט השני.</li>
+<li><strong>רישום מראש.</strong> השאלות, כללי הבחינה ורשימת המודלים נרשמו מקומית באמצעות גיבוב לפני שנאספו התשובות של כל מודל;
+  המחוונים החתומים, פרוטוקול השיפוט וקוד הניתוח – לפני שנבדקה תשובת מבחן כלשהי. שינויים מאוחרים יותר נרשמים
+  כתיקונים רשומים, עם נימוקיהם. הרשומות האלה פרטיות; הגיבובים שלהן מתפרסמים כאן לראשונה, כך שמהיום הם מראים
+  שהרשומות אינן משתנות, אבל אין בהם כשלעצמם כדי להוכיח מתי הרשומות נוצרו.</li>
+</ul>
+<h2>חישוב הציון</h2><p>תשובה מקבלת את הנקודות של כל דרישה שהיא עומדת בה ומפסידה את הנקודות של כל טעות מהמחוון של השאלה שהיא נופלת
+בה; הציון שלה הוא הסכום הזה חלקי סך הנקודות של הדרישות, כפול 100, ונשמר בטווח שבין 0 ל-100. בפרוטוקול השיפוט
+יש גם שש בדיקות כלליות שחלות על כל תשובה (למשל, ציטוט של מקור שאינו קיים); הן עדיין בגדר טיוטה, ולכן השופט רשם
+אותן, אבל הן אינן נכללות בציונים האלה. סירוב לענות, תשובה שנכשלה או תשובה שנפסלה מקבלים ציון 0.</p>
+<h2 id="caveats">הסתייגויות</h2><ul>
+<li><strong>השופט הוא גם מתמודד.</strong> GPT-6 Astra בדק כל תשובה שהיה בה טקסט, והוא גם נמצא ברשימה, וכך גם מודלי GPT אחרים;
+  שופט עשוי להעדיף תשובות שדומות לשלו. השופט השני (Claude Opus 5.5) והבדיקה של הרבנים יראו עד כמה זה משנה.</li>
+<li><strong>כותב המחוונים הוא גם מתמודד.</strong> Claude Fable 5.1 ניסח כל מחוון, ביצע כל ניסוח מחדש, החליט אילו הצעות של בודק
+  יחיד לקבל, והגיע למקום השלישי; יורשו Claude Fable 5.2 קיבל את הציון הגבוה ביותר; Claude Opus 5.5, מתמודד נוסף,
+  בדק את מקורות המחוונים. מחוון שנכתב בידי מודל עשוי להעדיף את דרך המענה של אותו מודל. שני בודקי המחוונים
+  האחרים, GPT-6 Astra ו-Gemini 4 Argon, הם גם מתמודדים, והגיעו למקום השישי ולמקום הרביעי.</li>
+<li><strong>חלק מהמודלים נוספו מאוחר יותר.</strong> Gemini 4 Argon, שני מודלי Grok, Claude Opus 4.8, Claude Sonnet 4.6, GPT-5.6 Sol,
+  GPT-6 Sol, ארבעת המודלים של Muse Code, Claude Fable 5.2 ו-Gemini 4 Carbon נוספו אחרי שהתוצאות הראשונות פורסמו.
+  כל אחד מהם נרשם כתיקון רשום לפני שנאספו תשובותיו, הורץ על אותן שאלות ונבדק באותם מחוונים חתומים ובידי אותו
+  שופט.</li>
+<li><strong>אין הגנה מזליגה לנתוני האימון.</strong> שאלות הרבנות חוזרות לעתים קרובות ממועדים קודמים, שהשאלונים שלהם (וגם כמה
+  תשובות לא רשמיות) זמינים ברשת, ו-60 השאלות האלה עדיין לא נבדקו לאיתור חזרות. ייתכן שמודל ראה באימון גרסה קרובה
+  של שאלה.</li>
+<li><strong>אף רב עדיין לא בדק דבר.</strong> רבנים יבדקו את המחוונים ויתנו ציונים למדגם אקראי של תשובות; הציונים שלהם יתקנו את
+  ציוני ה-AI (בשיטת הסקה מבוססת חיזוי, prediction-powered inference), והתוצאות ייקראו מאומתות רק אם השופטים מבוססי
+  ה-AI יסכימו איתם במידה מספקת. עד אז כל מספר כאן הוא זמני.</li>
+<li><strong>זה לא ציון מעבר.</strong> הציונים האלה אינם ציון במבחן הסמיכה, אינם קובעים אם מודל "עובר סמיכה", ואינם סמכות לפסוק
+  הלכה.</li>
+</ul>
+<h2 id="bundle">חבילת ההוכחות</h2>
+<p><a href="https://github.com/halachabench/halacha-bench-results/tree/main/bundle"><code>bundle/</code></a> מקבע, באמצעות גיבוב, את הנתונים שמהם נגזרות התוצאות האלה, בלי טקסט הבחינה:</p>
+<table>
+<thead>
+<tr>
+<th>קובץ</th>
+<th>מה הוא מכיל</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>criteria.json</code></td>
+<td>המזהה, הנקודות, הציר והסטטוס של כל סעיף (בלי נוסח הסעיף) בכל 96 השאלות החתומות: 60 שאלות המבחן, ו-36 שאלות פיתוח משאלוני אייר תשפ"ו, שאינן מקבלות ציון כאן. <code>approved</code> פירושו אושר בידי צוות הבודקים של מודלי ה-AI, לא בידי רב. הקובץ מפרט גם את שש הבדיקות הכלליות של פרוטוקול השיפוט (בסטטוס טיוטה, לא נכללות בציון).</td>
+</tr>
+<tr>
+<td><code>commitments.json</code>, <code>seal-log.jsonl</code></td>
+<td>ההתחייבויות הממולחות לכל 96 המחוונים החתומים, ויומן החתימה המשורשר בגיבובים שחתם אותם ב-29 באוקטובר 2026.</td>
+</tr>
+<tr>
+<td><code>prereg.json</code></td>
+<td>ה-SHA-256 של כל רשומת רישום מראש.</td>
+</tr>
+<tr>
+<td><code>scores.json</code></td>
+<td>הציון הממוצע שנתן השופט לכל מודל.</td>
+</tr>
+<tr>
+<td><code>withheld.json</code></td>
+<td>ה-SHA-256 של הקבצים ברמת התשובה הבודדת: ההתחייבות הממולחת של כל תשובה, כל הכרעה של השופט, ו-244 הבדיקות החוזרות.</td>
+</tr>
+<tr>
+<td><code>MANIFEST.json</code></td>
+<td>ה-SHA-256 של כל קובץ.</td>
+</tr>
+<tr>
+<td><code>.gitattributes</code></td>
+<td>שומר על כל קובץ זהה ברמת הבייט בעת checkout, כך שהגיבובים תואמים.</td>
+</tr>
+</tbody>
+</table>
+<p>פרסום כל ההכרעות עכשיו היה מאפשר לרב שבודק בבדיקה עיוורת לשייך תשובה למודל שכתב אותה, ולכן הקבצים ברמת התשובה
+ממתינים לסיום סבב הבדיקה של הרבנים; <code>withheld.json</code> מקבע אותם כבר עכשיו. עד שיפורסמו הקוד, ערכי המלח והקבצים
+המוחזקים, אי אפשר להשתמש בחבילה כדי לחשב מחדש ציון או לפתוח התחייבות: היא מקבעת את הקבצים האלה כך שכל שינוי
+מאוחר יותר יהיה ניתן לגילוי.</p>
+<h3>הגיבובים של החבילה הנוכחית</h3>
+<p class="fig-note">שלב interim, נוצרה ב-<bdi>2026-11-13T14:40:28.411557+00:00</bdi>, SHA-256.</p>
+<div class="table-wrap" dir="ltr"><table class="hashes"><tbody><tr><td><code>.gitattributes</code></td><td><code class='hash'>705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da</code></td></tr><tr><td><code>commitments.json</code></td><td><code class='hash'>f574a94eaad9561d631e3efa3a342d05e9ba4bfab9d43787f17a386ca8cdff19</code></td></tr><tr><td><code>criteria.json</code></td><td><code class='hash'>9ac0f46f313a447dff8e24670581b1b4aeff218c706a347c782d17aecffc7f67</code></td></tr><tr><td><code>prereg.json</code></td><td><code class='hash'>17860b43693187edfb070557dd1664efdebe170feb49d717fc7914e01751488c</code></td></tr><tr><td><code>scores.json</code></td><td><code class='hash'>c6ad5bb9e26828d51ca83bc7ea6654fb94ec4d9977f6fc80bf5640952e9c7de0</code></td></tr><tr><td><code>seal-log.jsonl</code></td><td><code class='hash'>6bddcc03fdfbc8bf041bdbac2372dc27981f83297578f637263e05b7b3f1cff4</code></td></tr><tr><td><code>withheld.json</code></td><td><code class='hash'>3726d39f96d619821292741ed8901a1e72c7148329332977db6af85ab8b14745</code></td></tr></tbody></table></div>
+<h2 id="cite">ציטוט</h2>
+<div class="code-block" dir="ltr"><button type="button" class="copy" data-copy="bibtex">Copy</button><pre id="bibtex">@misc{halachabench2026,
+  title        = {HalachaBench: AI models on real semicha exam questions},
+  author       = {{HalachaBench}},
+  year         = {2026},
+  howpublished = {\url{https://halachabench.ai}},
+  note         = {v1, provisional results, interim bundle of 2026-11-13}
+}</pre></div>
+</div>
+</main>
+<footer class="site-foot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <a class="wordmark small" href="/he/" dir="ltr"><svg class="mark" width="28" height="28" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path class="m0" d="M9 9h40.5a7.5 7.5 0 0 1 7.5 7.5V56h-8V17H9z"/><rect class="m0" x="9" y="26" width="8" height="30"/><rect class="m1" x="19" y="27" width="26" height="5" rx="1"/><rect class="m2" x="19" y="35" width="20" height="5" rx="1"/><rect class="m3" x="19" y="43" width="14" height="5" rx="1"/><rect class="m4" x="19" y="51" width="8" height="5" rx="1"/></svg>HalachaBench<span>.ai</span></a>
+      <p>מיזם עצמאי. אין לו קשר לרבנות הראשית לישראל או לחברות שמפתחות את המודלים, והוא אינו פועל מטעמן; שמות המודלים הם סימני מסחר של בעליהם. התוצאות זמניות, ואין בשום דבר כאן פסק הלכה.</p>
+    </div>
+    <nav class="foot-links" aria-label="תוצאות"><h2>תוצאות</h2>
+      <a href="/he/halachabench/">טבלת מבחן הסמיכה</a><a href="/he/hashkafabench/">HashkafaBench</a>
+      <a href="/he/values/">הלכה מול ערכים</a><a href="/he/findings/">כל הממצאים</a></nav>
+    <nav class="foot-links" aria-label="מקורות"><h2>מקורות</h2>
+      <a href="https://github.com/halachabench/halacha-bench-results">נתוני התוצאות ב-GitHub</a>
+      <a href="https://github.com/halachabench/hashkafa-bench-results">נתוני HashkafaBench ב-GitHub</a>
+      <a href="/he/method/#cite">ציטוט HalachaBench</a></nav>
+    <nav class="foot-links" aria-label="יצירת קשר"><h2>יצירת קשר</h2>
+      <a href="mailto:halachabench@gmail.com" dir="ltr">halachabench@gmail.com</a><a href="https://x.com/HalachaBench">‎@HalachaBench ב-X</a></nav>
+  </div>
+  <div class="wrap foot-legal"><span dir="ltr">© 2026 MasechetAI</span><span>עודכן לאחרונה 13 בנובמבר 2026</span></div>
+</footer>
+<div class="tip" role="tooltip" hidden></div>
+<script src="/assets/site.js?v=202611182111" defer></script>
+
+</body>
+</html>

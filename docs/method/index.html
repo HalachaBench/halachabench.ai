@@ -6,8 +6,11 @@
 <title>Method | HalachaBench</title>
 <meta name="description" content="How HalachaBench questions are answered, how rubrics are sealed, and how answers are graded.">
 <link rel="canonical" href="https://halachabench.ai/method/">
+<link rel="alternate" hreflang="en" href="https://halachabench.ai/method/">
+<link rel="alternate" hreflang="he" href="https://halachabench.ai/he/method/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="HalachaBench">
+<meta property="og:locale" content="en_US">
 <meta property="og:title" content="Method">
 <meta property="og:description" content="How HalachaBench questions are answered, how rubrics are sealed, and how answers are graded.">
 <meta property="og:url" content="https://halachabench.ai/method/">
@@ -19,24 +22,23 @@
 <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 
-<link rel="stylesheet" href="/assets/style.css?v=202611182055">
-<script>try{var t=localStorage.getItem('hb-theme');if(t)document.documentElement.dataset.theme=t;}catch(_){}</script>
+<link rel="stylesheet" href="/assets/style.css?v=202611182111">
+<script>try{var t=localStorage.getItem('hb-theme');if(t)document.documentElement.dataset.theme=t;var p=localStorage.getItem('hb-lang'),h='en';if(!p&&h==='en'&&/^he\b/i.test((navigator.languages&&navigator.languages[0])||navigator.language||''))p='he';if(p&&p!==h&&location.search.indexOf('lang=')<0)location.replace('/he/method/');}catch(_){}</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-head">
   <div class="wrap head-row">
-    <a class="wordmark" href="/"><svg class="mark" width="34" height="34" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path class="m0" d="M9 9h40.5a7.5 7.5 0 0 1 7.5 7.5V56h-8V17H9z"/><rect class="m0" x="9" y="26" width="8" height="30"/><rect class="m1" x="19" y="27" width="26" height="5" rx="1"/><rect class="m2" x="19" y="35" width="20" height="5" rx="1"/><rect class="m3" x="19" y="43" width="14" height="5" rx="1"/><rect class="m4" x="19" y="51" width="8" height="5" rx="1"/></svg>HalachaBench<span>.ai</span></a>
+    <a class="wordmark" href="/" dir="ltr"><svg class="mark" width="34" height="34" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path class="m0" d="M9 9h40.5a7.5 7.5 0 0 1 7.5 7.5V56h-8V17H9z"/><rect class="m0" x="9" y="26" width="8" height="30"/><rect class="m1" x="19" y="27" width="26" height="5" rx="1"/><rect class="m2" x="19" y="35" width="20" height="5" rx="1"/><rect class="m3" x="19" y="43" width="14" height="5" rx="1"/><rect class="m4" x="19" y="51" width="8" height="5" rx="1"/></svg>HalachaBench<span>.ai</span></a>
     <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav"><span class="visually-hidden">Menu</span><i></i></button>
-    <nav id="site-nav" class="site-nav" aria-label="Main"><a href="/halachabench/">Leaderboard</a><a href="/hashkafabench/">HashkafaBench</a><a href="/values/">Halacha vs. own values</a><a href="/findings/">Findings</a><a href="/method/" aria-current="page">Method</a><a href="/about/">About</a><a href="/he/" lang="he" class="he-link">עברית</a>
+    <nav id="site-nav" class="site-nav" aria-label="Main"><a href="/halachabench/">Leaderboard</a><a href="/hashkafabench/">HashkafaBench</a><a href="/values/">Halacha vs. own values</a><a href="/findings/">Findings</a><a href="/method/" aria-current="page">Method</a><a href="/about/">About</a><a class="lang-switch" href="/he/method/" data-lang-to="he" lang="he" hreflang="he">עברית</a>
       <button class="theme-toggle" type="button" aria-label="Switch between light and dark"></button></nav>
   </div>
 </header>
 <main id="main">
 
 <section class="page-head wrap narrow"><h1>How the exam is run and graded</h1>
-<p class="lede">Real questions, closed-book answers, rubrics sealed before grading, and a public record that any later
-change can be checked against.</p></section>
+<p class="lede">Real questions, closed-book answers, rubrics sealed before grading, and a public record that any later change can be checked against.</p></section>
 <div class="wrap narrow prose">
 <ol class="steps">
 <li><h3>Questions</h3><p>60 questions from five Chief Rabbinate semicha papers, Cheshvan 5787.</p></li>
@@ -155,9 +157,9 @@ files are published, the bundle cannot be used to recompute a score or open a co
 any later change can be detected.</p>
 <h3>Current bundle hashes</h3>
 <p class="fig-note">Stage interim, created 2026-11-13T14:40:28.411557+00:00, SHA-256.</p>
-<div class="table-wrap"><table class="hashes"><tbody><tr><td><code>.gitattributes</code></td><td><code class='hash'>705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da</code></td></tr><tr><td><code>commitments.json</code></td><td><code class='hash'>f574a94eaad9561d631e3efa3a342d05e9ba4bfab9d43787f17a386ca8cdff19</code></td></tr><tr><td><code>criteria.json</code></td><td><code class='hash'>9ac0f46f313a447dff8e24670581b1b4aeff218c706a347c782d17aecffc7f67</code></td></tr><tr><td><code>prereg.json</code></td><td><code class='hash'>17860b43693187edfb070557dd1664efdebe170feb49d717fc7914e01751488c</code></td></tr><tr><td><code>scores.json</code></td><td><code class='hash'>c6ad5bb9e26828d51ca83bc7ea6654fb94ec4d9977f6fc80bf5640952e9c7de0</code></td></tr><tr><td><code>seal-log.jsonl</code></td><td><code class='hash'>6bddcc03fdfbc8bf041bdbac2372dc27981f83297578f637263e05b7b3f1cff4</code></td></tr><tr><td><code>withheld.json</code></td><td><code class='hash'>3726d39f96d619821292741ed8901a1e72c7148329332977db6af85ab8b14745</code></td></tr></tbody></table></div>
+<div class="table-wrap" dir="ltr"><table class="hashes"><tbody><tr><td><code>.gitattributes</code></td><td><code class='hash'>705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da</code></td></tr><tr><td><code>commitments.json</code></td><td><code class='hash'>f574a94eaad9561d631e3efa3a342d05e9ba4bfab9d43787f17a386ca8cdff19</code></td></tr><tr><td><code>criteria.json</code></td><td><code class='hash'>9ac0f46f313a447dff8e24670581b1b4aeff218c706a347c782d17aecffc7f67</code></td></tr><tr><td><code>prereg.json</code></td><td><code class='hash'>17860b43693187edfb070557dd1664efdebe170feb49d717fc7914e01751488c</code></td></tr><tr><td><code>scores.json</code></td><td><code class='hash'>c6ad5bb9e26828d51ca83bc7ea6654fb94ec4d9977f6fc80bf5640952e9c7de0</code></td></tr><tr><td><code>seal-log.jsonl</code></td><td><code class='hash'>6bddcc03fdfbc8bf041bdbac2372dc27981f83297578f637263e05b7b3f1cff4</code></td></tr><tr><td><code>withheld.json</code></td><td><code class='hash'>3726d39f96d619821292741ed8901a1e72c7148329332977db6af85ab8b14745</code></td></tr></tbody></table></div>
 <h2 id="cite">Cite</h2>
-<div class="code-block"><button type="button" class="copy" data-copy="bibtex">Copy</button><pre id="bibtex">@misc{halachabench2026,
+<div class="code-block" dir="ltr"><button type="button" class="copy" data-copy="bibtex">Copy</button><pre id="bibtex">@misc{halachabench2026,
   title        = {HalachaBench: AI models on real semicha exam questions},
   author       = {{HalachaBench}},
   year         = {2026},
@@ -169,9 +171,8 @@ any later change can be detected.</p>
 <footer class="site-foot">
   <div class="wrap foot-grid">
     <div class="foot-about">
-      <a class="wordmark small" href="/"><svg class="mark" width="28" height="28" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path class="m0" d="M9 9h40.5a7.5 7.5 0 0 1 7.5 7.5V56h-8V17H9z"/><rect class="m0" x="9" y="26" width="8" height="30"/><rect class="m1" x="19" y="27" width="26" height="5" rx="1"/><rect class="m2" x="19" y="35" width="20" height="5" rx="1"/><rect class="m3" x="19" y="43" width="14" height="5" rx="1"/><rect class="m4" x="19" y="51" width="8" height="5" rx="1"/></svg>HalachaBench<span>.ai</span></a>
-      <p>An independent project. Not connected to or endorsed by the Chief Rabbinate of Israel or by any model
-      developer; model names are their owners' trademarks. Results are provisional, and nothing here is psak.</p>
+      <a class="wordmark small" href="/" dir="ltr"><svg class="mark" width="28" height="28" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path class="m0" d="M9 9h40.5a7.5 7.5 0 0 1 7.5 7.5V56h-8V17H9z"/><rect class="m0" x="9" y="26" width="8" height="30"/><rect class="m1" x="19" y="27" width="26" height="5" rx="1"/><rect class="m2" x="19" y="35" width="20" height="5" rx="1"/><rect class="m3" x="19" y="43" width="14" height="5" rx="1"/><rect class="m4" x="19" y="51" width="8" height="5" rx="1"/></svg>HalachaBench<span>.ai</span></a>
+      <p>An independent project. Not connected to or endorsed by the Chief Rabbinate of Israel or by any model developer; model names are their owners' trademarks. Results are provisional, and nothing here is psak.</p>
     </div>
     <nav class="foot-links" aria-label="Results"><h2>Results</h2>
       <a href="/halachabench/">Semicha exam leaderboard</a><a href="/hashkafabench/">HashkafaBench</a>
@@ -181,12 +182,12 @@ any later change can be detected.</p>
       <a href="https://github.com/halachabench/hashkafa-bench-results">HashkafaBench data on GitHub</a>
       <a href="/method/#cite">Cite HalachaBench</a></nav>
     <nav class="foot-links" aria-label="Contact"><h2>Contact</h2>
-      <a href="mailto:halachabench@gmail.com">halachabench@gmail.com</a><a href="https://x.com/HalachaBench">@HalachaBench on X</a></nav>
+      <a href="mailto:halachabench@gmail.com" dir="ltr">halachabench@gmail.com</a><a href="https://x.com/HalachaBench">@HalachaBench on X</a></nav>
   </div>
-  <div class="wrap foot-legal"><span>© 2026 MasechetAI</span><span>Last updated 13 November 2026</span></div>
+  <div class="wrap foot-legal"><span dir="ltr">© 2026 MasechetAI</span><span>Last updated 13 November 2026</span></div>
 </footer>
 <div class="tip" role="tooltip" hidden></div>
-<script src="/assets/site.js?v=202611182055" defer></script>
+<script src="/assets/site.js?v=202611182111" defer></script>
 
 </body>
 </html>

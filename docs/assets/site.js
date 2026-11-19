@@ -12,6 +12,12 @@
     try { localStorage.setItem('hb-theme', next); } catch (_) {}
   });
 
+  // language switch: remember the choice, keep the reader's place on the page
+  $$('a[data-lang-to]').forEach(a => a.addEventListener('click', () => {
+    try { localStorage.setItem('hb-lang', a.dataset.langTo); } catch (_) {}
+    if (location.hash) a.href = a.href.split('#')[0] + location.hash;
+  }));
+
   // mobile nav
   const navBtn = $('.nav-toggle'), nav = $('#site-nav');
   if (navBtn) navBtn.addEventListener('click', () => {

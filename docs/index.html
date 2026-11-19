@@ -6,8 +6,11 @@
 <title>HalachaBench: AI models on real semicha exams</title>
 <meta name="description" content="HalachaBench tests AI models on real semicha exam questions from Israel&#x27;s Chief Rabbinate, and measures how their halachic rulings lean.">
 <link rel="canonical" href="https://halachabench.ai/">
+<link rel="alternate" hreflang="en" href="https://halachabench.ai/">
+<link rel="alternate" hreflang="he" href="https://halachabench.ai/he/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="HalachaBench">
+<meta property="og:locale" content="en_US">
 <meta property="og:title" content="HalachaBench">
 <meta property="og:description" content="HalachaBench tests AI models on real semicha exam questions from Israel&#x27;s Chief Rabbinate, and measures how their halachic rulings lean.">
 <meta property="og:url" content="https://halachabench.ai/">
@@ -19,16 +22,16 @@
 <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 
-<link rel="stylesheet" href="/assets/style.css?v=202611182055">
-<script>try{var t=localStorage.getItem('hb-theme');if(t)document.documentElement.dataset.theme=t;}catch(_){}</script>
+<link rel="stylesheet" href="/assets/style.css?v=202611182111">
+<script>try{var t=localStorage.getItem('hb-theme');if(t)document.documentElement.dataset.theme=t;var p=localStorage.getItem('hb-lang'),h='en';if(!p&&h==='en'&&/^he\b/i.test((navigator.languages&&navigator.languages[0])||navigator.language||''))p='he';if(p&&p!==h&&location.search.indexOf('lang=')<0)location.replace('/he/');}catch(_){}</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-head">
   <div class="wrap head-row">
-    <a class="wordmark" href="/"><svg class="mark" width="34" height="34" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path class="m0" d="M9 9h40.5a7.5 7.5 0 0 1 7.5 7.5V56h-8V17H9z"/><rect class="m0" x="9" y="26" width="8" height="30"/><rect class="m1" x="19" y="27" width="26" height="5" rx="1"/><rect class="m2" x="19" y="35" width="20" height="5" rx="1"/><rect class="m3" x="19" y="43" width="14" height="5" rx="1"/><rect class="m4" x="19" y="51" width="8" height="5" rx="1"/></svg>HalachaBench<span>.ai</span></a>
+    <a class="wordmark" href="/" dir="ltr"><svg class="mark" width="34" height="34" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path class="m0" d="M9 9h40.5a7.5 7.5 0 0 1 7.5 7.5V56h-8V17H9z"/><rect class="m0" x="9" y="26" width="8" height="30"/><rect class="m1" x="19" y="27" width="26" height="5" rx="1"/><rect class="m2" x="19" y="35" width="20" height="5" rx="1"/><rect class="m3" x="19" y="43" width="14" height="5" rx="1"/><rect class="m4" x="19" y="51" width="8" height="5" rx="1"/></svg>HalachaBench<span>.ai</span></a>
     <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav"><span class="visually-hidden">Menu</span><i></i></button>
-    <nav id="site-nav" class="site-nav" aria-label="Main"><a href="/halachabench/">Leaderboard</a><a href="/hashkafabench/">HashkafaBench</a><a href="/values/">Halacha vs. own values</a><a href="/findings/">Findings</a><a href="/method/">Method</a><a href="/about/">About</a><a href="/he/" lang="he" class="he-link">עברית</a>
+    <nav id="site-nav" class="site-nav" aria-label="Main"><a href="/halachabench/">Leaderboard</a><a href="/hashkafabench/">HashkafaBench</a><a href="/values/">Halacha vs. own values</a><a href="/findings/">Findings</a><a href="/method/">Method</a><a href="/about/">About</a><a class="lang-switch" href="/he/" data-lang-to="he" lang="he" hreflang="he">עברית</a>
       <button class="theme-toggle" type="button" aria-label="Switch between light and dark"></button></nav>
   </div>
 </header>
@@ -38,37 +41,34 @@
   <div class="wrap hero-grid">
     <div class="hero-copy">
       <h1>How well do AI models know halacha?</h1>
-      <p class="lede">We give AI models the real semicha exam of Israel's Chief Rabbinate: in Hebrew, with no seforim
-      and no internet, three attempts at every question. Each answer is graded against a rubric sealed before grading began.</p>
-      <p class="hero-meta">30 models, 22 of them hosted, on 60 questions from five Cheshvan 5787 papers.
-      Updated 13 November 2026.</p>
+      <p class="lede">Real semicha exam questions from Israel's Chief Rabbinate, answered in Hebrew with no books and no internet.</p>
       <p class="hero-links"><a class="btn" href="/halachabench/">See all 30 models</a>
       <a class="plain-link" href="/method/">How grading works</a></p>
     </div>
     <figure class="hero-board">
       <figcaption><span class="cap">Top ten, score out of 100</span><span class="h-axis"><span></span><span></span><span class="axis" aria-hidden="true"><span style="left:0.00%">50</span><span style="left:20.00%">60</span><span style="left:40.00%">70</span><span style="left:60.00%">80</span><span style="left:80.00%">90</span><span style="left:100.00%">100</span></span><span></span></span></figcaption>
-      <ol><li data-tip="Claude Fable 5.2&#10;85.8 (95% interval 82.7 to 88.5)" tabindex="0" style="--d:0ms">
-<span class="h-rank">1</span><span class="h-name">Claude Fable 5.2<small>Anthropic</small></span>
-<span class="track big"><i class="ci" style="left:65.40%;width:11.60%"></i><i class="dot lab-anthropic" style="left:71.60%"></i></span><span class="h-score">85.8</span></li><li data-tip="Gemini 4 Carbon&#10;82.3 (95% interval 78.4 to 86.0)" tabindex="0" style="--d:60ms">
-<span class="h-rank">2</span><span class="h-name">Gemini 4 Carbon<small>Google</small></span>
-<span class="track big"><i class="ci" style="left:56.80%;width:15.20%"></i><i class="dot lab-google" style="left:64.60%"></i></span><span class="h-score">82.3</span></li><li data-tip="Claude Fable 5.1&#10;79.7 (95% interval 75.8 to 83.4)" tabindex="0" style="--d:120ms">
-<span class="h-rank">3</span><span class="h-name">Claude Fable 5.1<small>Anthropic</small></span>
-<span class="track big"><i class="ci" style="left:51.60%;width:15.20%"></i><i class="dot lab-anthropic" style="left:59.40%"></i></span><span class="h-score">79.7</span></li><li data-tip="Gemini 4 Argon&#10;78.2 (95% interval 74.3 to 81.9)" tabindex="0" style="--d:180ms">
-<span class="h-rank">4</span><span class="h-name">Gemini 4 Argon<small>Google</small></span>
-<span class="track big"><i class="ci" style="left:48.60%;width:15.20%"></i><i class="dot lab-google" style="left:56.40%"></i></span><span class="h-score">78.2</span></li><li data-tip="GPT-5.6 Sol&#10;77.3 (95% interval 72.4 to 81.3)" tabindex="0" style="--d:240ms">
-<span class="h-rank">5</span><span class="h-name">GPT-5.6 Sol<small>OpenAI</small></span>
-<span class="track big"><i class="ci" style="left:44.80%;width:17.80%"></i><i class="dot lab-openai" style="left:54.60%"></i></span><span class="h-score">77.3</span></li><li data-tip="GPT-6 Astra&#10;73.3 (95% interval 69.4 to 77.0)" tabindex="0" style="--d:300ms">
-<span class="h-rank">6</span><span class="h-name">GPT-6 Astra<small>OpenAI</small></span>
-<span class="track big"><i class="ci" style="left:38.80%;width:15.20%"></i><i class="dot lab-openai" style="left:46.60%"></i></span><span class="h-score">73.3</span></li><li data-tip="GPT-6.1 Sol&#10;72.8 (95% interval 69.1 to 76.2)" tabindex="0" style="--d:360ms">
-<span class="h-rank">7</span><span class="h-name">GPT-6.1 Sol<small>OpenAI</small></span>
-<span class="track big"><i class="ci" style="left:38.20%;width:14.20%"></i><i class="dot lab-openai" style="left:45.60%"></i></span><span class="h-score">72.8</span></li><li data-tip="Claude Opus 5.5&#10;69.1 (95% interval 64.7 to 73.3)" tabindex="0" style="--d:420ms">
-<span class="h-rank">8</span><span class="h-name">Claude Opus 5.5<small>Anthropic</small></span>
-<span class="track big"><i class="ci" style="left:29.40%;width:17.20%"></i><i class="dot lab-anthropic" style="left:38.20%"></i></span><span class="h-score">69.1</span></li><li data-tip="Gemini 3.8 Flash&#10;64.4 (95% interval 59.7 to 68.9)" tabindex="0" style="--d:480ms">
-<span class="h-rank">9</span><span class="h-name">Gemini 3.8 Flash<small>Google</small></span>
-<span class="track big"><i class="ci" style="left:19.40%;width:18.40%"></i><i class="dot lab-google" style="left:28.80%"></i></span><span class="h-score">64.4</span></li><li data-tip="Muse Wonder Full&#10;60.8 (95% interval 56.4 to 65.2)" tabindex="0" style="--d:540ms">
-<span class="h-rank">10</span><span class="h-name">Muse Wonder Full<small>Meta</small></span>
+      <ol><li data-tip="Claude Fable 5.2&amp;#10;85.8 (95% interval 82.7 to 88.5)" tabindex="0" style="--d:0ms">
+<span class="h-rank">1</span><span class="h-name"><bdi>Claude Fable 5.2</bdi><small>Anthropic</small></span>
+<span class="track big"><i class="ci" style="left:65.40%;width:11.60%"></i><i class="dot lab-anthropic" style="left:71.60%"></i></span><span class="h-score">85.8</span></li><li data-tip="Gemini 4 Carbon&amp;#10;82.3 (95% interval 78.4 to 86.0)" tabindex="0" style="--d:60ms">
+<span class="h-rank">2</span><span class="h-name"><bdi>Gemini 4 Carbon</bdi><small>Google</small></span>
+<span class="track big"><i class="ci" style="left:56.80%;width:15.20%"></i><i class="dot lab-google" style="left:64.60%"></i></span><span class="h-score">82.3</span></li><li data-tip="Claude Fable 5.1&amp;#10;79.7 (95% interval 75.8 to 83.4)" tabindex="0" style="--d:120ms">
+<span class="h-rank">3</span><span class="h-name"><bdi>Claude Fable 5.1</bdi><small>Anthropic</small></span>
+<span class="track big"><i class="ci" style="left:51.60%;width:15.20%"></i><i class="dot lab-anthropic" style="left:59.40%"></i></span><span class="h-score">79.7</span></li><li data-tip="Gemini 4 Argon&amp;#10;78.2 (95% interval 74.3 to 81.9)" tabindex="0" style="--d:180ms">
+<span class="h-rank">4</span><span class="h-name"><bdi>Gemini 4 Argon</bdi><small>Google</small></span>
+<span class="track big"><i class="ci" style="left:48.60%;width:15.20%"></i><i class="dot lab-google" style="left:56.40%"></i></span><span class="h-score">78.2</span></li><li data-tip="GPT-5.6 Sol&amp;#10;77.3 (95% interval 72.4 to 81.3)" tabindex="0" style="--d:240ms">
+<span class="h-rank">5</span><span class="h-name"><bdi>GPT-5.6 Sol</bdi><small>OpenAI</small></span>
+<span class="track big"><i class="ci" style="left:44.80%;width:17.80%"></i><i class="dot lab-openai" style="left:54.60%"></i></span><span class="h-score">77.3</span></li><li data-tip="GPT-6 Astra&amp;#10;73.3 (95% interval 69.4 to 77.0)" tabindex="0" style="--d:300ms">
+<span class="h-rank">6</span><span class="h-name"><bdi>GPT-6 Astra</bdi><small>OpenAI</small></span>
+<span class="track big"><i class="ci" style="left:38.80%;width:15.20%"></i><i class="dot lab-openai" style="left:46.60%"></i></span><span class="h-score">73.3</span></li><li data-tip="GPT-6.1 Sol&amp;#10;72.8 (95% interval 69.1 to 76.2)" tabindex="0" style="--d:360ms">
+<span class="h-rank">7</span><span class="h-name"><bdi>GPT-6.1 Sol</bdi><small>OpenAI</small></span>
+<span class="track big"><i class="ci" style="left:38.20%;width:14.20%"></i><i class="dot lab-openai" style="left:45.60%"></i></span><span class="h-score">72.8</span></li><li data-tip="Claude Opus 5.5&amp;#10;69.1 (95% interval 64.7 to 73.3)" tabindex="0" style="--d:420ms">
+<span class="h-rank">8</span><span class="h-name"><bdi>Claude Opus 5.5</bdi><small>Anthropic</small></span>
+<span class="track big"><i class="ci" style="left:29.40%;width:17.20%"></i><i class="dot lab-anthropic" style="left:38.20%"></i></span><span class="h-score">69.1</span></li><li data-tip="Gemini 3.8 Flash&amp;#10;64.4 (95% interval 59.7 to 68.9)" tabindex="0" style="--d:480ms">
+<span class="h-rank">9</span><span class="h-name"><bdi>Gemini 3.8 Flash</bdi><small>Google</small></span>
+<span class="track big"><i class="ci" style="left:19.40%;width:18.40%"></i><i class="dot lab-google" style="left:28.80%"></i></span><span class="h-score">64.4</span></li><li data-tip="Muse Wonder Full&amp;#10;60.8 (95% interval 56.4 to 65.2)" tabindex="0" style="--d:540ms">
+<span class="h-rank">10</span><span class="h-name"><bdi>Muse Wonder Full</bdi><small>Meta</small></span>
 <span class="track big"><i class="ci" style="left:12.80%;width:17.60%"></i><i class="dot lab-meta" style="left:21.60%"></i></span><span class="h-score">60.8</span></li></ol>
-      <p class="fig-note">Axis starts at 50. The line around each score is its 95% interval. Provisional: one AI judge, and no rabbi has graded an answer yet.</p>
+      <p class="fig-note">Provisional: one AI judge, no rabbi has graded yet. Lines show 95% intervals.</p>
     </figure>
   </div>
 </section>
@@ -76,23 +76,19 @@
 <section class="studies wrap" aria-label="The three studies">
   <article>
     <h2><a href="/halachabench/">The semicha exam</a></h2>
-    <p>Can a model answer the questions a rabbi must answer for semicha? Claude Fable 5.2 leads with
-    85.8; the open-weight models we can run locally all score under 11.</p>
+    <ol class="top3"><li><span class="lab-dot lab-anthropic" aria-hidden="true"></span><bdi>Claude Fable 5.2</bdi><b>85.8</b></li><li><span class="lab-dot lab-google" aria-hidden="true"></span><bdi>Gemini 4 Carbon</bdi><b>82.3</b></li><li><span class="lab-dot lab-anthropic" aria-hidden="true"></span><bdi>Claude Fable 5.1</bdi><b>79.7</b></li></ol>
     <a class="plain-link" href="/halachabench/">Leaderboard</a>
   </article>
   <article>
     <h2><a href="/hashkafabench/">Stringent or lenient?</a></h2>
-    <p>Which way do models lean on everyday questions? Claude's models rule most leniently; GPT, Gemini and Grok
-    can't be told apart.</p>
     <div class="mini-strip" aria-label="Stringency of 14 models on one line"><span class="ms-track"><i class="dot lab-openai" style="left:84.00%" data-tip="GPT-6 Astra: 0.56" tabindex="0"></i><i class="dot lab-openai" style="left:80.00%" data-tip="GPT-6.1 Sol: 0.55" tabindex="0"></i><i class="dot lab-openai" style="left:80.00%" data-tip="GPT-5.6 Sol: 0.55" tabindex="0"></i><i class="dot lab-openai" style="left:76.00%" data-tip="GPT-6 Sol: 0.54" tabindex="0"></i><i class="dot lab-google" style="left:72.00%" data-tip="Gemini 3.8 Flash: 0.53" tabindex="0"></i><i class="dot lab-xai" style="left:72.00%" data-tip="Grok 4.7: 0.53" tabindex="0"></i><i class="dot lab-google" style="left:64.00%" data-tip="Gemini 4 Argon (medium): 0.51" tabindex="0"></i><i class="dot lab-anthropic" style="left:60.00%" data-tip="Claude Haiku 5.5: 0.50" tabindex="0"></i><i class="dot lab-openai" style="left:52.00%" data-tip="GPT-6.1 Terra: 0.48" tabindex="0"></i><i class="dot lab-anthropic" style="left:44.00%" data-tip="Claude Fable 5.2: 0.46" tabindex="0"></i><i class="dot lab-anthropic" style="left:44.00%" data-tip="Claude Opus 5.5: 0.46" tabindex="0"></i><i class="dot lab-anthropic" style="left:32.00%" data-tip="Claude Fable 5.1: 0.43" tabindex="0"></i><i class="dot lab-anthropic" style="left:32.00%" data-tip="Claude Sonnet 5.5: 0.43" tabindex="0"></i><i class="dot lab-openai" style="left:16.00%" data-tip="GPT-6 Luna: 0.39" tabindex="0"></i></span>
     <span class="ms-ends"><span>lenient</span><span>stringent</span></span></div>
     <a class="plain-link" href="/hashkafabench/">Stringency by area</a>
   </article>
   <article>
     <h2><a href="/values/">Halacha vs. own values</a></h2>
-    <p>Asked twice for a ruling, a model gives the same answer 75% of the time.
-    Asked what it would do itself, its answer matches its ruling only 41% of the time.</p>
-    <div class="pair"><b>75%</b><b class="b2">41%</b></div>
+    <div class="pair"><div><b>75%</b><small>same ruling, asked twice</small></div>
+    <div><b class="b2">41%</b><small>ruling matches its own choice</small></div></div>
     <a class="plain-link" href="/values/">Where they part ways</a>
   </article>
 </section>
@@ -100,48 +96,24 @@
 <section class="wrap home-lower">
   <div>
     <h2 class="sec-title">Latest findings</h2>
-    <ol class="f-list"><li class="f-row" data-study="HalachaBench"><a href="/findings/gemini-carbon/">
-<time datetime="2026-11-13">Nov 13</time>
-<div class="f-text"><span class="tag t-hb">HalachaBench</span><h3>Gemini 4 Carbon climbs to second</h3><p>82.3, four points above Gemini 4 Argon and not clearly apart from Claude Fable 5.2. It thinks far longer than any other model, about 69,000 tokens per answer.</p></div></a></li><li class="f-row" data-study="HashkafaBench"><a href="/findings/sephardi-asker/">
-<time datetime="2026-11-12">Nov 12</time>
-<div class="f-text"><span class="tag t-hk">HashkafaBench</span><h3>Tell the AI you&#x27;re Sephardi</h3><p>The models carry a detailed map of where Sephardi practice departs from Ashkenazi practice, and apply it when told who is asking: more lenient overall, but only where the traditions differ.</p></div></a></li><li class="f-row" data-study="HalachaBench"><a href="/findings/fable-5-2/">
-<time datetime="2026-11-10">Nov 10</time>
-<div class="f-text"><span class="tag t-hb">HalachaBench</span><h3>Claude Fable 5.2 takes first place</h3><p>85.8, the highest score yet and clearly ahead of every model then on the board. Better than Fable 5.1 on all five papers; even its worst attempts beat 5.1&#x27;s average.</p></div></a></li><li class="f-row" data-study="Values"><a href="/findings/white-lie/">
-<time datetime="2026-11-09">Nov 9</time>
-<div class="f-text"><span class="tag t-v">Values</span><h3>AI says Aharon HaKohen&#x27;s white lie is allowed. It won&#x27;t tell one.</h3><p>13 models gave a halachic ruling, then said what they&#x27;d do themselves. Asked twice, the ruling repeats 75% of the time; their own choice matches it only 41% of the time.</p></div></a></li><li class="f-row" data-study="HashkafaBench"><a href="/findings/poskim/">
-<time datetime="2026-11-09">Nov 9</time>
-<div class="f-text"><span class="tag t-hk">HashkafaBench</span><h3>Which poskim are the models closest to?</h3><p>Claude and the Geminis rule near R. Ovadia Yosef and R. Shlomo Zalman Auerbach; the GPT models cluster with the Shulchan Aruch and Rema, and rarely cite a 20th-century posek.</p></div></a></li></ol>
+    <ol class="f-titles"><li><a href="/findings/gemini-carbon/"><time datetime="2026-11-13">Nov 13</time><span>Gemini 4 Carbon climbs to second</span></a></li><li><a href="/findings/sephardi-asker/"><time datetime="2026-11-12">Nov 12</time><span>Tell the AI you&#x27;re Sephardi</span></a></li><li><a href="/findings/fable-5-2/"><time datetime="2026-11-10">Nov 10</time><span>Claude Fable 5.2 takes first place</span></a></li><li><a href="/findings/white-lie/"><time datetime="2026-11-09">Nov 9</time><span>AI says Aharon HaKohen&#x27;s white lie is allowed. It won&#x27;t tell one.</span></a></li></ol>
     <a class="plain-link" href="/findings/">Every finding</a>
   </div>
-  <aside>
-    <h2 class="sec-title">Leaderboard changes</h2>
-    <ol class="changelog"><li><time>Nov 13</time><span>Gemini 4 Carbon added. It places second (82.3), 4.1 points above Gemini 4 Argon and not clearly apart from Claude Fable 5.2. During its grading the judge protocol was amended (note ⁸).</span></li><li><time>Nov 9</time><span>Two models added: Claude Fable 5.2, which takes first place (85.8) and is clearly ahead of every other model, and Meta's Muse Ember, the smallest Muse model (15.3, 19th).</span></li><li><time>Nov 6</time><span>Three of Meta's Muse models added, run through Meta's Muse Code CLI: Muse Wonder Full, Muse Wonder and Muse Spark 1.3. Muse Wonder Full places 8th (60.8).</span></li><li><time>Nov 3</time><span>Two earlier GPT models added, GPT-5.6 Sol and GPT-6 Sol. The older one scored far higher.</span></li></ol>
-    <div class="trust">
-      <h2 class="sec-title">Built to be checked</h2>
-      <ul>
-        <li>Rubrics sealed with salted cryptographic commitments before any answer was graded.</li>
-        <li>Model list, questions and analysis pre-registered by hash; every later change is a recorded amendment.</li>
-        <li>Questions, answers and rubric text stay private, out of training data.</li>
-        <li>Rabbis are invited to review the rubrics and grade a random sample of answers.</li>
-      </ul>
-      <a class="plain-link" href="/method/">Method and proof bundle</a>
-      <div class="sources-credit">
-        <a class="sefaria-badge" href="https://www.sefaria.org">
-          <img class="on-light" src="/assets/img/powered-by-sefaria-navy.png" alt="Powered by Sefaria" width="140" height="73">
-          <img class="on-dark" src="/assets/img/powered-by-sefaria-white.png" alt="Powered by Sefaria" width="140" height="73">
-        </a>
-        <p>Rubric sources were checked against texts from the Sefaria library.</p>
-      </div>
-    </div>
+  <aside class="trust">
+    <h2 class="sec-title">Built to be checked</h2>
+    <p>Rubrics sealed before grading, every step pre-registered, exam text kept private. <a href="/method/">Method</a></p>
+    <a class="sefaria-badge" href="https://www.sefaria.org">
+      <img class="on-light" src="/assets/img/powered-by-sefaria-navy.png" alt="Powered by Sefaria" width="132" height="69">
+      <img class="on-dark" src="/assets/img/powered-by-sefaria-white.png" alt="Powered by Sefaria" width="132" height="69">
+    </a>
   </aside>
 </section>
 </main>
 <footer class="site-foot">
   <div class="wrap foot-grid">
     <div class="foot-about">
-      <a class="wordmark small" href="/"><svg class="mark" width="28" height="28" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path class="m0" d="M9 9h40.5a7.5 7.5 0 0 1 7.5 7.5V56h-8V17H9z"/><rect class="m0" x="9" y="26" width="8" height="30"/><rect class="m1" x="19" y="27" width="26" height="5" rx="1"/><rect class="m2" x="19" y="35" width="20" height="5" rx="1"/><rect class="m3" x="19" y="43" width="14" height="5" rx="1"/><rect class="m4" x="19" y="51" width="8" height="5" rx="1"/></svg>HalachaBench<span>.ai</span></a>
-      <p>An independent project. Not connected to or endorsed by the Chief Rabbinate of Israel or by any model
-      developer; model names are their owners' trademarks. Results are provisional, and nothing here is psak.</p>
+      <a class="wordmark small" href="/" dir="ltr"><svg class="mark" width="28" height="28" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path class="m0" d="M9 9h40.5a7.5 7.5 0 0 1 7.5 7.5V56h-8V17H9z"/><rect class="m0" x="9" y="26" width="8" height="30"/><rect class="m1" x="19" y="27" width="26" height="5" rx="1"/><rect class="m2" x="19" y="35" width="20" height="5" rx="1"/><rect class="m3" x="19" y="43" width="14" height="5" rx="1"/><rect class="m4" x="19" y="51" width="8" height="5" rx="1"/></svg>HalachaBench<span>.ai</span></a>
+      <p>An independent project. Not connected to or endorsed by the Chief Rabbinate of Israel or by any model developer; model names are their owners' trademarks. Results are provisional, and nothing here is psak.</p>
     </div>
     <nav class="foot-links" aria-label="Results"><h2>Results</h2>
       <a href="/halachabench/">Semicha exam leaderboard</a><a href="/hashkafabench/">HashkafaBench</a>
@@ -151,12 +123,12 @@
       <a href="https://github.com/halachabench/hashkafa-bench-results">HashkafaBench data on GitHub</a>
       <a href="/method/#cite">Cite HalachaBench</a></nav>
     <nav class="foot-links" aria-label="Contact"><h2>Contact</h2>
-      <a href="mailto:halachabench@gmail.com">halachabench@gmail.com</a><a href="https://x.com/HalachaBench">@HalachaBench on X</a></nav>
+      <a href="mailto:halachabench@gmail.com" dir="ltr">halachabench@gmail.com</a><a href="https://x.com/HalachaBench">@HalachaBench on X</a></nav>
   </div>
-  <div class="wrap foot-legal"><span>© 2026 MasechetAI</span><span>Last updated 13 November 2026</span></div>
+  <div class="wrap foot-legal"><span dir="ltr">© 2026 MasechetAI</span><span>Last updated 13 November 2026</span></div>
 </footer>
 <div class="tip" role="tooltip" hidden></div>
-<script src="/assets/site.js?v=202611182055" defer></script>
+<script src="/assets/site.js?v=202611182111" defer></script>
 
 </body>
 </html>
