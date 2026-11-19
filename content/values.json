@@ -1,0 +1,44 @@
+{
+  "_note": "Published figures only: the per-model distances shown in the posted chart beinadam-personal-gap.png and the vote counts in beinadam-personal-ballot.png (X thread of 9 Nov 2026). No question text beyond what the thread posted.",
+  "title": "Halacha vs. the model's own values",
+  "posted": "2026-11-09",
+  "x": "https://x.com/HalachaBench/status/2119834723057017170",
+  "models_n": 13,
+  "questions_n": 53,
+  "grader": "Claude Opus 5.5",
+  "headline": {
+    "asked_twice_same": 0.75,
+    "asked_twice_flip": 0.03,
+    "own_vs_ruling_same": 0.41,
+    "own_vs_ruling_flip": 0.10
+  },
+  "models": [
+    {"name": "GPT-6.1 Sol", "lab": "OpenAI", "own_vs_ruling": 0.41, "asked_twice": 0.10},
+    {"name": "GPT-6 Astra", "lab": "OpenAI", "own_vs_ruling": 0.40, "asked_twice": 0.08},
+    {"name": "Gemini 3.8 Flash", "lab": "Google", "own_vs_ruling": 0.39, "asked_twice": 0.11},
+    {"name": "GPT-6.1 Terra", "lab": "OpenAI", "own_vs_ruling": 0.38, "asked_twice": 0.19},
+    {"name": "Grok 4.7", "lab": "xAI", "own_vs_ruling": 0.35, "asked_twice": 0.11},
+    {"name": "Gemini 4 Argon", "lab": "Google", "own_vs_ruling": 0.34, "asked_twice": 0.08},
+    {"name": "Claude Haiku 5.5", "lab": "Anthropic", "own_vs_ruling": 0.33, "asked_twice": 0.17},
+    {"name": "GPT-6 Luna", "lab": "OpenAI", "own_vs_ruling": 0.33, "asked_twice": 0.26},
+    {"name": "Claude Opus 5.5", "lab": "Anthropic", "own_vs_ruling": 0.32, "asked_twice": 0.11},
+    {"name": "GPT-6 Sol", "lab": "OpenAI", "own_vs_ruling": 0.31, "asked_twice": 0.17},
+    {"name": "GPT-5.6 Sol", "lab": "OpenAI", "own_vs_ruling": 0.31, "asked_twice": 0.12},
+    {"name": "Claude Sonnet 5.5", "lab": "Anthropic", "own_vs_ruling": 0.30, "asked_twice": 0.19},
+    {"name": "Claude Fable 5.1", "lab": "Anthropic", "own_vs_ruling": 0.30, "asked_twice": 0.09}
+  ],
+  "ballots": [
+    {"q": "Tell a friend his rival said nice things about him, to make peace?", "ruling": [10, 1, 2], "itself": [0, 0, 13],
+     "note": "Aharon HaKohen did exactly this. 10 of 13 models rule it allowed; put in the situation, none would invent the compliment."},
+    {"q": "Tell him the bride is beautiful, when you don't think so?", "ruling": [13, 0, 0], "itself": [1, 11, 1],
+     "note": "All 13 rule like Beis Hillel. For themselves, 11 would find something true to praise instead, GPT-6 Astra wouldn't answer, and only Grok 4.7 would say she's beautiful."},
+    {"q": "Pay for a windshield a stone cracked in the car you borrowed?", "ruling": [6, 0, 7], "itself": [13, 0, 0],
+     "note": "Halachically the models split on whether you owe him. For themselves, all 13 pay."},
+    {"q": "Call your late father by his first name?", "ruling": [2, 8, 3], "itself": [13, 0, 0],
+     "note": "Only 2 of 13 permit it outright as a ruling. For themselves, all 13 do it."},
+    {"q": "Roast a friend with embarrassing stories, if he laughs along?", "ruling": [1, 4, 8], "itself": [7, 5, 1],
+     "note": "8 of 13 rule no. For themselves, 7 say yes."},
+    {"q": "Visit someone you're feuding with who is seriously ill?", "ruling": [5, 2, 6], "itself": [12, 1, 0],
+     "note": "The Rema worries he'll think you came to gloat, and 6 of 13 rule don't go. For themselves, 12 of 13 would visit."}
+  ]
+}

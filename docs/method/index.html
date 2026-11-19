@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Method · HalachaBench</title>
+<meta name="description" content="How HalachaBench questions are answered, how rubrics are sealed, and how answers are graded.">
+<link rel="canonical" href="https://halachabench.ai/method/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="HalachaBench">
+<meta property="og:title" content="Method">
+<meta property="og:description" content="How HalachaBench questions are answered, how rubrics are sealed, and how answers are graded.">
+<meta property="og:url" content="https://halachabench.ai/method/">
+<meta property="og:image" content="https://halachabench.ai/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@HalachaBench">
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Frank+Ruhl+Libre:wght@400;500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/style.css?v=202611181957">
+<script>try{var t=localStorage.getItem('hb-theme');if(t)document.documentElement.dataset.theme=t;}catch(_){}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap head-row">
+    <a class="brand" href="/"><img src="/assets/favicon.png" alt="" width="28" height="28"><span>HalachaBench</span></a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><span></span></button>
+    <nav id="site-nav" class="site-nav"><a href="/halachabench/">HalachaBench</a><a href="/hashkafabench/">HashkafaBench</a><a href="/values/">Halacha vs. own values</a><a href="/findings/">Findings</a><a href="/method/" aria-current="page">Method</a><a href="/about/">About</a><a href="/he/" lang="he" class="he-link">עברית</a>
+      <button class="theme-toggle" type="button" aria-label="Switch light or dark theme" title="Light / dark"></button></nav>
+  </div>
+</header>
+<main id="main">
+
+<section class="page-head"><div class="wrap narrow"><p class="eyebrow">Method · HalachaBench v1</p>
+<h1>How the exam is run and graded</h1>
+<p class="lede">Real questions, closed-book answers, AI-written rubrics sealed before grading, and a public record that
+any later change can be checked against.</p></div></section>
+<div class="wrap narrow prose">
+<div class="steps">
+<div><b>1</b><h3>Questions</h3><p>60 questions from five Chief Rabbinate semicha papers, Cheshvan 5787.</p></div>
+<div><b>2</b><h3>Answers</h3><p>Each model answers every question three times, in Hebrew, closed-book, in a fresh process.</p></div>
+<div><b>3</b><h3>Rubrics</h3><p>Drafted, critiqued and cross-reviewed by three labs' models, then sealed on 29 Oct 2026.</p></div>
+<div><b>4</b><h3>Grading</h3><p>A judge model checks every criterion of every answer under one fixed protocol.</p></div>
+</div>
+<ul>
+<li><strong>Questions.</strong> The papers were transcribed twice from the page images by two Claude models (Claude Fable and Claude
+  Opus), and Claude Fable 5.1 settled every difference against the image. No person has proofread the text yet. The
+  questions are the Chief Rabbinate's own and are not reproduced here; the papers are published on gov.il. Item ids
+  such as <code>5787-cheshvan-niddah-iyun-q03</code> name the paper, part and question.</li>
+<li><strong>Answering.</strong> Each answer was written in a fresh process with nothing from the project but the question, the exam
+  rules (answer in Hebrew, cite sources, at most 600 words; the limit is an instruction and longer answers were not cut)
+  and a fixed instruction to answer closed-book. No web search. The Claude models ran with every tool switched off; 6 of
+  their 1,086 runs still tried to call a tool and were stopped and run again. The GPT and Gemini programs cannot switch
+  all their tools off, so tool use was forbidden and every run was monitored live; none of their test runs used a tool.
+  A run that tried to use a tool, or ended without an answer, was run once more, and a second failure scores 0. The
+  local models ran in sealed containers with no network and no tools. The Grok models ran through xAI's API with no
+  tools in the request, and every response was checked for tool or source use (none had any). The Muse models ran
+  through Muse Code with its web, shell and file-writing tools switched off and every run monitored live; none of
+  their test runs used a tool. The prompts were not identical across programs: the Claude and Grok models saw only a
+  short neutral system prompt, the GPT models also saw Codex's built-in instructions and an added instruction not to
+  use tools, the Gemini models saw Antigravity's built-in instructions, and the Muse models saw the same neutral system
+  prompt along with Muse Code's built-in instructions and tool definitions.</li>
+<li><strong>Rubrics.</strong> There is no official answer key. Each of the 60 rubrics was drafted by Claude Fable 5.1 as a rabbi would
+  write one (sources, Rishonim, ruling, other accepted views, common errors), with 9–12 criteria per question: 7–11
+  requirements worth points and 1–3 errors that cost points. A second Claude Fable 5.1 pass critiqued each draft and it
+  was revised. Three models from three companies (Claude Fable 5.1, GPT-6 Astra, Gemini 4 Argon) then reviewed every
+  rubric: changes at least two of them asked for were applied, and Claude Fable 5.1, the drafter, decided each point
+  only one reviewer raised, with a written reason. Claude Opus 5.5 checked the cited sources that Sefaria carries (about
+  2,000 lookups, in four rounds); sources Sefaria does not carry are marked unverified, and four minor issues were left
+  open. Nobody who wrote or reviewed a rubric saw any model's answer. The rubrics were sealed with a salted cryptographic
+  commitment on 29 October 2026 (the date is the seal log's own record; the commitments become public with this
+  repository, and the salts that open them will be published when the review round closes), after the Claude and GPT
+  models had answered and before any test answer was graded.</li>
+<li><strong>Grading.</strong> GPT-6 Astra (effort high) decided, for every criterion of every answer that had text, whether the answer
+  meets it, under one fixed judge protocol. 5% of the answers (244) were graded twice to check consistency; that result
+  will be reported with the second judge.</li>
+<li><strong>Pre-registration.</strong> The questions, exam rules and model list were recorded locally by hash before each model's
+  answers were collected; the sealed rubrics, the judge protocol and the analysis code before any test answer was
+  graded. Later changes are recorded as amendments with their reasons. These records are private; their hashes are
+  published here for the first time, so from today they show that the records do not change, but they cannot by
+  themselves prove when the records were made.</li>
+</ul>
+<h2>Scoring</h2><p>An answer earns the points of each requirement it meets and loses the points of each error in its question's rubric
+that it makes; its score is that total divided by the total points of the requirements, times 100, kept between 0 and
+100. The judge protocol also has six general checks that apply to every answer (for example, citing a source that does
+not exist); they are still drafts, so the judge recorded them but they do not count in these scores. A refused, failed
+or disqualified answer scores 0.</p>
+<h2 id="caveats">Caveats</h2><ul>
+<li><strong>The judge is also a contestant.</strong> GPT-6 Astra graded every answer that had text and is also on the list, as are
+  other GPT models;
+  a judge may prefer answers like its own. The second judge (Claude Opus 5.5) and the rabbis' grading will show how much
+  this matters.</li>
+<li><strong>The rubric writer is also a contestant.</strong> Claude Fable 5.1 drafted every rubric, made every revision, decided which
+  single-reviewer suggestions to accept, and placed third; its successor Claude Fable 5.2 scored highest; Claude Opus 5.5, another contestant, checked the
+  rubrics' sources. A rubric written by a model may favour that model's way of answering. The other two rubric
+  reviewers, GPT-6 Astra and Gemini 4 Argon, are contestants too, and placed sixth and fourth.</li>
+<li><strong>Some models were added later.</strong> Gemini 4 Argon, both Grok models, Claude Opus 4.8, Claude Sonnet 4.6, GPT-5.6 Sol,
+  GPT-6 Sol, the four Muse Code models, Claude Fable 5.2 and Gemini 4 Carbon were added
+  after the first results were published. Each was recorded as an amendment before its answers were collected, and was
+  run on the same questions and graded with the same sealed rubrics and judge.</li>
+<li><strong>Not contamination-free.</strong> Rabbinate questions often recur from earlier sittings, whose papers (and some unofficial
+  answers) are online, and these 60 have not yet been checked for repeats. A model may have seen a close version of a
+  question in training.</li>
+<li><strong>No rabbi has checked anything yet.</strong> Rabbis will review the rubrics and grade a random sample of answers; their grades
+  will correct the AI scores (prediction-powered inference), and the results will be called validated only if the AI
+  judges agree with them well enough. Until then every number here is provisional.</li>
+<li><strong>Not a pass mark.</strong> These scores are not a semicha exam grade, do not say whether a model "passes semicha", and are not
+  authority to pasken.</li>
+</ul>
+<h2 id="bundle">The proof bundle</h2>
+<p><a href="https://github.com/halachabench/halacha-bench-results/tree/main/bundle"><code>bundle/</code></a> fixes, by hash, the data these results come from, without the exam text:</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>What it is</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>criteria.json</code></td>
+<td>Every criterion's id, points, axis and status (no criterion text) for all 96 sealed questions: the 60 test questions, and 36 development questions from the Iyar 5786 papers, which are not scored here. <code>approved</code> means approved by the AI review panel, not by a rabbi. It also lists the judge protocol's six general checks (status draft, not scored).</td>
+</tr>
+<tr>
+<td><code>commitments.json</code>, <code>seal-log.jsonl</code></td>
+<td>The salted commitments to all 96 sealed rubrics, and the hash-chained log that sealed them on 29 October 2026.</td>
+</tr>
+<tr>
+<td><code>prereg.json</code></td>
+<td>The SHA-256 of each pre-registration record.</td>
+</tr>
+<tr>
+<td><code>scores.json</code></td>
+<td>The judge's mean score per model.</td>
+</tr>
+<tr>
+<td><code>withheld.json</code></td>
+<td>The SHA-256 of the per-answer files: each answer's salted commitment, every verdict, and the 244 repeat gradings.</td>
+</tr>
+<tr>
+<td><code>MANIFEST.json</code></td>
+<td>The SHA-256 of every file.</td>
+</tr>
+<tr>
+<td><code>.gitattributes</code></td>
+<td>Keeps every file byte-exact on checkout, so the hashes match.</td>
+</tr>
+</tbody>
+</table>
+<p>Publishing every verdict now would let a rabbi who is grading blind match an answer to its model, so the per-answer
+files wait for the end of the review round; <code>withheld.json</code> fixes them now. Until the code, the salts and the withheld
+files are published, the bundle cannot be used to recompute a score or open a commitment: it fixes these files so that
+any later change can be detected.</p>
+<h3>Current bundle hashes</h3>
+<p class="muted small">Stage: interim · created 2026-11-13T14:40:28.411557+00:00 · SHA-256</p>
+<div class="table-scroll"><table class="hashes"><tbody><tr><td><code>.gitattributes</code></td><td><code class='hash'>705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da</code></td></tr><tr><td><code>commitments.json</code></td><td><code class='hash'>f574a94eaad9561d631e3efa3a342d05e9ba4bfab9d43787f17a386ca8cdff19</code></td></tr><tr><td><code>criteria.json</code></td><td><code class='hash'>9ac0f46f313a447dff8e24670581b1b4aeff218c706a347c782d17aecffc7f67</code></td></tr><tr><td><code>prereg.json</code></td><td><code class='hash'>17860b43693187edfb070557dd1664efdebe170feb49d717fc7914e01751488c</code></td></tr><tr><td><code>scores.json</code></td><td><code class='hash'>c6ad5bb9e26828d51ca83bc7ea6654fb94ec4d9977f6fc80bf5640952e9c7de0</code></td></tr><tr><td><code>seal-log.jsonl</code></td><td><code class='hash'>6bddcc03fdfbc8bf041bdbac2372dc27981f83297578f637263e05b7b3f1cff4</code></td></tr><tr><td><code>withheld.json</code></td><td><code class='hash'>3726d39f96d619821292741ed8901a1e72c7148329332977db6af85ab8b14745</code></td></tr></tbody></table></div>
+<h2 id="cite">Cite</h2>
+<div class="code-block"><button type="button" class="copy" data-copy="bibtex">Copy</button><pre id="bibtex">@misc{halachabench2026,
+  title        = {HalachaBench: AI models on real semicha exam questions},
+  author       = {{HalachaBench}},
+  year         = {2026},
+  howpublished = {\url{https://halachabench.ai}},
+  note         = {v1, provisional results, interim bundle of 2026-11-13}
+}</pre></div>
+</div>
+</main>
+<footer class="site-foot">
+  <div class="wrap foot-grid">
+    <div>
+      <a class="brand" href="/"><img src="/assets/favicon.png" alt="" width="22" height="22"><span>HalachaBench</span></a>
+      <p class="muted">An independent project. Not connected to or endorsed by the Chief Rabbinate of Israel or by any
+      model developer; model names are their owners' trademarks. Results are provisional and are not psak.</p>
+    </div>
+    <div>
+      <h4>Results</h4>
+      <a href="/halachabench/">HalachaBench leaderboard</a><a href="/hashkafabench/">HashkafaBench</a>
+      <a href="/values/">Halacha vs. own values</a><a href="/findings/">All findings</a>
+    </div>
+    <div>
+      <h4>Source</h4>
+      <a href="https://github.com/halachabench/halacha-bench-results">halacha-bench-results</a>
+      <a href="https://github.com/halachabench/hashkafa-bench-results">hashkafa-bench-results</a>
+      <a href="/method/#cite">Cite</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <a href="mailto:halachabench@gmail.com">halachabench@gmail.com</a><a href="https://x.com/HalachaBench">@HalachaBench on X</a>
+      <p class="muted small">Last updated 13 November 2026</p>
+    </div>
+  </div>
+</footer>
+<div class="tip" role="tooltip" hidden></div>
+<script src="/assets/site.js?v=202611181957" defer></script>
+
+</body>
+</html>

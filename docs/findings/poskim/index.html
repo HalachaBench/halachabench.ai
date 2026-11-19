@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Which poskim are the models closest to? · HalachaBench</title>
+<meta name="description" content="Claude and the Geminis rule near R. Ovadia Yosef and R. Shlomo Zalman Auerbach; the GPT models cluster with the Shulchan Aruch and Rema, and rarely cite a 20th-century posek.">
+<link rel="canonical" href="https://halachabench.ai/findings/poskim/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="HalachaBench">
+<meta property="og:title" content="Which poskim are the models closest to?">
+<meta property="og:description" content="Claude and the Geminis rule near R. Ovadia Yosef and R. Shlomo Zalman Auerbach; the GPT models cluster with the Shulchan Aruch and Rema, and rarely cite a 20th-century posek.">
+<meta property="og:url" content="https://halachabench.ai/findings/poskim/">
+<meta property="og:image" content="https://halachabench.ai/assets/hashkafa/poskim-map.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@HalachaBench">
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Frank+Ruhl+Libre:wght@400;500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/style.css?v=202611181957">
+<script>try{var t=localStorage.getItem('hb-theme');if(t)document.documentElement.dataset.theme=t;}catch(_){}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap head-row">
+    <a class="brand" href="/"><img src="/assets/favicon.png" alt="" width="28" height="28"><span>HalachaBench</span></a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><span></span></button>
+    <nav id="site-nav" class="site-nav"><a href="/halachabench/">HalachaBench</a><a href="/hashkafabench/">HashkafaBench</a><a href="/values/">Halacha vs. own values</a><a href="/findings/" aria-current="page">Findings</a><a href="/method/">Method</a><a href="/about/">About</a><a href="/he/" lang="he" class="he-link">עברית</a>
+      <button class="theme-toggle" type="button" aria-label="Switch light or dark theme" title="Light / dark"></button></nav>
+  </div>
+</header>
+<main id="main">
+
+<article class="post">
+<header class="page-head"><div class="wrap narrow">
+<p class="eyebrow"><a href="/findings/">Findings</a> · <span class="tag tag-hashkafabench">HashkafaBench</span></p>
+<h1>Which poskim are the models closest to?</h1><p class="lede">Claude and the Geminis rule near R. Ovadia Yosef and R. Shlomo Zalman Auerbach; the GPT models cluster with the Shulchan Aruch and Rema, and rarely cite a 20th-century posek.</p>
+<p class="page-meta"><time datetime="2026-11-09">9 November 2026</time></p>
+</div></header>
+<div class="wrap narrow prose"><p>Every rubric position in HashkafaBench names the authorities who hold it, so a posek can be placed in the same space as
+the models. We looked three ways, from most to least dependent on the judge model. All three are descriptive.</p>
+<h2>1. Rulings</h2>
+<p><img alt="Models and poskim in the same ruling space" src="/assets/hashkafa/poskim-map.png" /></p>
+<p>The Claude models and the two Geminis sit on the side of R. Ovadia Yosef and R. Shlomo Zalman Auerbach; the GPT models
+cluster with the Shulchan Aruch, Rema and Shemiras Shabbos K'hilchasah.</p>
+<table>
+<thead>
+<tr>
+<th>Authority (questions)</th>
+<th>Closest model (mean gap)</th>
+<th>Farthest model (mean gap)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shulchan Aruch (101)</td>
+<td>GPT-6 Sol 0.33</td>
+<td>GPT-6 Luna 0.51</td>
+</tr>
+<tr>
+<td>Rema (67)</td>
+<td>GPT-6 Sol 0.28</td>
+<td>Claude Haiku 5.5 0.53</td>
+</tr>
+<tr>
+<td>Mishnah Berurah (33)</td>
+<td>GPT-6 Astra 0.18</td>
+<td>Claude Haiku 5.5 0.53</td>
+</tr>
+<tr>
+<td>R. Moshe Feinstein (31)</td>
+<td>Claude Opus 5.5 0.34</td>
+<td>GPT-6 Luna 0.51</td>
+</tr>
+<tr>
+<td>R. Shlomo Zalman Auerbach (15)</td>
+<td>Claude Fable 5.1 0.32</td>
+<td>GPT-6 Astra 0.61</td>
+</tr>
+<tr>
+<td>R. Ovadia Yosef (12)</td>
+<td>Claude Fable 5.1 0.22</td>
+<td>GPT-6 Luna 0.44</td>
+</tr>
+</tbody>
+</table>
+<p>A caution: R. Shlomo Zalman Auerbach and R. Ovadia Yosef appear mostly at lenient anchors in the rubrics, so "closest
+to R. Ovadia Yosef" largely means "lenient where he is lenient". The intervals are wide.</p>
+<h2>2. Citations (no judge model)</h2>
+<p><img alt="Whom the models cite" src="/assets/hashkafa/citations-map.png" /></p>
+<p>Every model cites the Shulchan Aruch, Rema and Mishnah Berurah. The labs differ in whether they go further:</p>
+<table>
+<thead>
+<tr>
+<th>Authority</th>
+<th>Claude</th>
+<th>Gemini</th>
+<th>GPT</th>
+<th>Grok</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shulchan Aruch</td>
+<td>83%</td>
+<td>84%</td>
+<td>73%</td>
+<td>67%</td>
+</tr>
+<tr>
+<td>Mishnah Berurah</td>
+<td>59%</td>
+<td>51%</td>
+<td>32%</td>
+<td>36%</td>
+</tr>
+<tr>
+<td>R. Moshe Feinstein</td>
+<td>30%</td>
+<td>33%</td>
+<td>4%</td>
+<td>14%</td>
+</tr>
+<tr>
+<td>R. Shlomo Zalman Auerbach</td>
+<td>16%</td>
+<td>16%</td>
+<td>1%</td>
+<td>5%</td>
+</tr>
+<tr>
+<td>Shemiras Shabbos K'hilchasah</td>
+<td>15%</td>
+<td>15%</td>
+<td>2%</td>
+<td>10%</td>
+</tr>
+</tbody>
+</table>
+<p>Claude and Gemini name 20th-century poskim in roughly one answer in six; the GPT models almost never do. R. Ovadia
+Yosef is almost never cited, consistent with an Ashkenazi asker.</p>
+<h2>3. Style (no judge model)</h2>
+<p><img alt="Which models write alike" src="/assets/hashkafa/style-dendrogram.png" /></p>
+<p>By Burrows's Delta on their most frequent words, the models cluster by lab: GPT in one branch, Claude and the Geminis
+in another, Grok nearest Claude.</p>
+<div class="post-foot"><a class="btn-ghost" href="https://x.com/HalachaBench/status/2119842194148430254">Read the thread on X</a><a class="btn-ghost" href="/hashkafabench/">See the data</a></div>
+<nav class="pager"><a class="pg prev" href="/findings/hashkafabench/"><span>Older</span>Is your AI stringent or lenient?</a><a class="pg next" href="/findings/white-lie/"><span>Newer</span>AI says Aharon HaKohen&#x27;s white lie is allowed. It won&#x27;t tell one.</a></nav></div></article>
+</main>
+<footer class="site-foot">
+  <div class="wrap foot-grid">
+    <div>
+      <a class="brand" href="/"><img src="/assets/favicon.png" alt="" width="22" height="22"><span>HalachaBench</span></a>
+      <p class="muted">An independent project. Not connected to or endorsed by the Chief Rabbinate of Israel or by any
+      model developer; model names are their owners' trademarks. Results are provisional and are not psak.</p>
+    </div>
+    <div>
+      <h4>Results</h4>
+      <a href="/halachabench/">HalachaBench leaderboard</a><a href="/hashkafabench/">HashkafaBench</a>
+      <a href="/values/">Halacha vs. own values</a><a href="/findings/">All findings</a>
+    </div>
+    <div>
+      <h4>Source</h4>
+      <a href="https://github.com/halachabench/halacha-bench-results">halacha-bench-results</a>
+      <a href="https://github.com/halachabench/hashkafa-bench-results">hashkafa-bench-results</a>
+      <a href="/method/#cite">Cite</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <a href="mailto:halachabench@gmail.com">halachabench@gmail.com</a><a href="https://x.com/HalachaBench">@HalachaBench on X</a>
+      <p class="muted small">Last updated 13 November 2026</p>
+    </div>
+  </div>
+</footer>
+<div class="tip" role="tooltip" hidden></div>
+<script src="/assets/site.js?v=202611181957" defer></script>
+
+</body>
+</html>

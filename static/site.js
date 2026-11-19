@@ -1,0 +1,104 @@
+(() => {
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+
+  // theme toggle (light <-> dark; remembered when storage is available)
+  const themeBtn = $('.theme-toggle');
+  if (themeBtn) themeBtn.addEventListener('click', () => {
+    const root = document.documentElement;
+    const cur = root.dataset.theme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    const next = cur === 'dark' ? 'light' : 'dark';
+    root.dataset.theme = next;
+    try { localStorage.setItem('hb-theme', next); } catch (_) {}
+  });
+
+  // mobile nav
+  const navBtn = $('.nav-toggle'), nav = $('#site-nav');
+  if (navBtn) navBtn.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    navBtn.setAttribute('aria-expanded', open);
+  });
+
+  // sortable tables
+  $$('table.lb').forEach(table => {
+    const heads = $$('th', table.tHead);
+    heads.forEach((th, i) => {
+      if (!th.dataset.sort) return;
+      th.tabIndex = 0;
+      const go = () => {
+        const asc = th.getAttribute('aria-sort') === 'descending';
+        heads.forEach(h => h.removeAttribute('aria-sort'));
+        th.setAttribute('aria-sort', asc ? 'ascending' : 'descending');
+        const rows = $$('tbody tr', table);
+        const val = r => r.children[i].dataset.v;
+        rows.sort((a, b) => {
+          let x = val(a), y = val(b);
+          if (th.dataset.sort === 'num') { x = +x; y = +y; return asc ? x - y : y - x; }
+          return asc ? String(y).localeCompare(x) : String(x).localeCompare(y);
+        });
+        // rank and text columns read naturally ascending first
+        if ((th.dataset.sort === 'text' || th.textContent.trim() === '#') && !asc) rows.reverse();
+        rows.forEach(r => table.tBodies[0].appendChild(r));
+      };
+      th.addEventListener('click', go);
+      th.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } });
+    });
+  });
+
+  // leaderboard filters
+  $$('.controls[data-for]').forEach(ctl => {
+    const table = document.getElementById(ctl.dataset.for);
+    let kind = 'all', lab = '';
+    const apply = () => $$('tbody tr', table).forEach(r => {
+      r.hidden = (kind !== 'all' && r.dataset.kind !== kind) || (lab && r.dataset.lab !== lab);
+    });
+    $$('button[data-kind]', ctl).forEach(b => b.addEventListener('click', () => {
+      kind = b.dataset.kind;
+      $$('button[data-kind]', ctl).forEach(x => x.setAttribute('aria-pressed', x === b));
+      apply();
+    }));
+    const sel = $('select[data-lab-filter]', ctl);
+    if (sel) sel.addEventListener('change', () => { lab = sel.value; apply(); });
+  });
+
+  // findings filter
+  const grid = $('#findings');
+  if (grid) $$('button[data-study]').forEach(b => b.addEventListener('click', () => {
+    $$('button[data-study]').forEach(x => x.setAttribute('aria-pressed', x === b));
+    $$('.finding-card', grid).forEach(c => {
+      const tag = $('.tag', c).textContent.trim();
+      c.hidden = !!b.dataset.study && tag !== b.dataset.study;
+    });
+  }));
+
+  // tooltips on [data-tip]
+  const tip = $('.tip');
+  const show = (el, x, y) => {
+    tip.textContent = el.dataset.tip;
+    tip.hidden = false;
+    const w = tip.offsetWidth, h = tip.offsetHeight;
+    tip.style.left = Math.max(8, Math.min(innerWidth - w - 8, x + 14)) + 'px';
+    tip.style.top = Math.max(8, y - h - 12) + 'px';
+  };
+  document.addEventListener('mousemove', e => {
+    const el = e.target.closest('[data-tip]');
+    if (el) show(el, e.clientX, e.clientY); else tip.hidden = true;
+  });
+  document.addEventListener('focusin', e => {
+    const el = e.target.closest('[data-tip]');
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    show(el, r.left + r.width / 2, r.top);
+  });
+  document.addEventListener('focusout', () => { tip.hidden = true; });
+  addEventListener('scroll', () => { tip.hidden = true; }, { passive: true });
+
+  // copy buttons
+  $$('button[data-copy]').forEach(b => b.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(document.getElementById(b.dataset.copy).textContent);
+      b.textContent = 'Copied';
+      setTimeout(() => { b.textContent = 'Copy'; }, 1500);
+    } catch (_) { b.textContent = 'Select and copy'; }
+  }));
+})();

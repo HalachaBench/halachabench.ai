@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Checks on the Grok results · HalachaBench</title>
+<meta name="description" content="Grok 4.7 scored 29.9, far below the leaders. We checked the result five ways and it holds up. Its answers are short.">
+<link rel="canonical" href="https://halachabench.ai/findings/grok-checks/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="HalachaBench">
+<meta property="og:title" content="Checks on the Grok results">
+<meta property="og:description" content="Grok 4.7 scored 29.9, far below the leaders. We checked the result five ways and it holds up. Its answers are short.">
+<meta property="og:url" content="https://halachabench.ai/findings/grok-checks/">
+<meta property="og:image" content="https://halachabench.ai/assets/img/halachabench-results.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@HalachaBench">
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Frank+Ruhl+Libre:wght@400;500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/style.css?v=202611181957">
+<script>try{var t=localStorage.getItem('hb-theme');if(t)document.documentElement.dataset.theme=t;}catch(_){}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap head-row">
+    <a class="brand" href="/"><img src="/assets/favicon.png" alt="" width="28" height="28"><span>HalachaBench</span></a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><span></span></button>
+    <nav id="site-nav" class="site-nav"><a href="/halachabench/">HalachaBench</a><a href="/hashkafabench/">HashkafaBench</a><a href="/values/">Halacha vs. own values</a><a href="/findings/" aria-current="page">Findings</a><a href="/method/">Method</a><a href="/about/">About</a><a href="/he/" lang="he" class="he-link">עברית</a>
+      <button class="theme-toggle" type="button" aria-label="Switch light or dark theme" title="Light / dark"></button></nav>
+  </div>
+</header>
+<main id="main">
+
+<article class="post">
+<header class="page-head"><div class="wrap narrow">
+<p class="eyebrow"><a href="/findings/">Findings</a> · <span class="tag tag-halachabench">HalachaBench</span></p>
+<h1>Checks on the Grok results</h1><p class="lede">Grok 4.7 scored 29.9, far below the leaders. We checked the result five ways and it holds up. Its answers are short.</p>
+<p class="page-meta"><time datetime="2026-11-02">2 November 2026</time></p>
+</div></header>
+<div class="wrap narrow prose"><p>Grok 4.7 scores well below the leaders, so its result was checked more than any other. In short: its answers are
+short, and the low score holds up when the grading or the rubrics are changed.</p>
+<ul>
+<li><strong>Its answers were complete.</strong> All 180 answers finished normally, in Hebrew, with no output limit set and none cut
+  off; reasoning effort was high on every one.</li>
+<li><strong>It writes short answers.</strong> Grok 4.7 thought at length (a median of about 18,000 reasoning tokens per answer) but
+  wrote a median of 213 words, against 368 for Claude Sonnet 4.6 and 664 for Gemini 4 Argon. The rubrics give points
+  for each source, step and ruling an answer gives, so a short answer that is right on the bottom line still scores low.</li>
+<li><strong>A blind second grader agreed with the judge.</strong> Claude Opus 5.5, without knowing which model wrote which answer,
+  re-graded 30 answers and agreed with GPT-6 Astra on 88% of criterion decisions, equally for both models. Astra was
+  not harder on Grok.</li>
+<li><strong>The rubrics Grok disputed don't explain its score.</strong> Grok 4.7 reviewed all 60 sealed rubrics and asked to change or
+  remove 405 of their 661 criteria. Scored without the criteria it disputed, its score goes <em>down</em>, not up.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Scored on</th>
+<th>Grok 4.7</th>
+<th>Rank</th>
+<th>Gemini 4 Argon</th>
+<th>Rank</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>All criteria</td>
+<td>29.9</td>
+<td>10</td>
+<td>78.2</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Without the 274 criteria Grok said should go</td>
+<td>28.5</td>
+<td>10</td>
+<td>76.8</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Only the 256 criteria Grok accepted as written</td>
+<td>26.0</td>
+<td>12</td>
+<td>75.3</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p><em>Ranks among the 22 models scored on 2 November.</em></p>
+<ul>
+<li><strong>Most of Grok's critique did not hold up.</strong> Each point that would change a grade was checked against the sources on
+  Sefaria. 24 were confirmed as real rubric errors, in 29 criteria; 11 were refuted. Scored without those 29 criteria,
+  Grok 4.7 stays at 29.9, and no model moves by more than 0.7 points.</li>
+<li><strong>Grok as the judge gives the same result.</strong> Grading with the same sealed rubrics, Grok 4.7 agreed with Astra on 92%
+  of 1,937 criterion decisions and did not score its own answers higher.</li>
+</ul>
+<p>None of this changes the scores: the rubrics stay as sealed. Any rubric error found is corrected for every model at
+once, in the next version.</p>
+<div class="post-foot"><a class="btn-ghost" href="https://x.com/HalachaBench/status/2117067063541797020">Read the thread on X</a><a class="btn-ghost" href="/halachabench/">See the data</a></div>
+<nav class="pager"><a class="pg prev" href="/findings/hardest-paper/"><span>Older</span>Which semicha paper is hardest for AI?</a><a class="pg next" href="/findings/older-gpt/"><span>Newer</span>An older GPT beat the newer one by 29 points</a></nav></div></article>
+</main>
+<footer class="site-foot">
+  <div class="wrap foot-grid">
+    <div>
+      <a class="brand" href="/"><img src="/assets/favicon.png" alt="" width="22" height="22"><span>HalachaBench</span></a>
+      <p class="muted">An independent project. Not connected to or endorsed by the Chief Rabbinate of Israel or by any
+      model developer; model names are their owners' trademarks. Results are provisional and are not psak.</p>
+    </div>
+    <div>
+      <h4>Results</h4>
+      <a href="/halachabench/">HalachaBench leaderboard</a><a href="/hashkafabench/">HashkafaBench</a>
+      <a href="/values/">Halacha vs. own values</a><a href="/findings/">All findings</a>
+    </div>
+    <div>
+      <h4>Source</h4>
+      <a href="https://github.com/halachabench/halacha-bench-results">halacha-bench-results</a>
+      <a href="https://github.com/halachabench/hashkafa-bench-results">hashkafa-bench-results</a>
+      <a href="/method/#cite">Cite</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <a href="mailto:halachabench@gmail.com">halachabench@gmail.com</a><a href="https://x.com/HalachaBench">@HalachaBench on X</a>
+      <p class="muted small">Last updated 13 November 2026</p>
+    </div>
+  </div>
+</footer>
+<div class="tip" role="tooltip" hidden></div>
+<script src="/assets/site.js?v=202611181957" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Halacha vs. own values · HalachaBench</title>
+<meta name="description" content="AI models give the halachic ruling, then decide differently for themselves. 13 models, 53 bein adam lachavero questions.">
+<link rel="canonical" href="https://halachabench.ai/values/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="HalachaBench">
+<meta property="og:title" content="Halacha vs. own values">
+<meta property="og:description" content="AI models give the halachic ruling, then decide differently for themselves. 13 models, 53 bein adam lachavero questions.">
+<meta property="og:url" content="https://halachabench.ai/values/">
+<meta property="og:image" content="https://halachabench.ai/assets/img/beinadam-personal-gap.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@HalachaBench">
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Frank+Ruhl+Libre:wght@400;500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/style.css?v=202611181957">
+<script>try{var t=localStorage.getItem('hb-theme');if(t)document.documentElement.dataset.theme=t;}catch(_){}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap head-row">
+    <a class="brand" href="/"><img src="/assets/favicon.png" alt="" width="28" height="28"><span>HalachaBench</span></a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><span></span></button>
+    <nav id="site-nav" class="site-nav"><a href="/halachabench/">HalachaBench</a><a href="/hashkafabench/">HashkafaBench</a><a href="/values/" aria-current="page">Halacha vs. own values</a><a href="/findings/">Findings</a><a href="/method/">Method</a><a href="/about/">About</a><a href="/he/" lang="he" class="he-link">עברית</a>
+      <button class="theme-toggle" type="button" aria-label="Switch light or dark theme" title="Light / dark"></button></nav>
+  </div>
+</header>
+<main id="main">
+
+<section class="page-head"><div class="wrap">
+  <p class="eyebrow">HashkafaBench follow-up · bein adam lachavero · posted 9 November 2026</p>
+  <h1>AI knows the halacha. Its own choices land elsewhere.</h1>
+  <p class="lede">We asked 13 AI models 53 everyday bein adam lachavero questions twice: once
+  for a halachic ruling, and once as "you're in this situation, what would you do?", with no mention of Judaism.</p>
+  <p class="page-meta">Grader Claude Opus 5.5 · <a href="https://x.com/HalachaBench/status/2119834723057017170">Thread on X</a></p>
+</div></section>
+<div class="wrap">
+<section class="big-stats">
+  <div class="card"><b>75%</b><span>Ask the same halachic question twice: same ruling. A full yes-to-no flip: 3%.</span></div>
+  <div class="card accent"><b>41%</b><span>Compare its ruling with what it would do itself: same answer. A full flip: 10%.</span></div>
+</section>
+<section>
+<h2>Every model drifts from its own ruling</h2>
+<p class="section-sub">How far each model's own choice sits from its halachic ruling, against the run-to-run noise of
+asking the halachic question twice.</p>
+<div class="db-legend"><span><i class="db-a-key"></i>Same halachic question asked twice (chance)</span>
+<span><i class="db-b-key"></i>Its ruling vs. what it would do itself</span></div>
+<div class="dumbbell"><div class="db-row" data-tip="GPT-6.1 Sol&#10;Ruling vs. own choice: 0.41&#10;Same ruling asked twice: 0.10" tabindex="0"><span class="db-name"><span class="lab-dot lab-openai" aria-hidden="true"></span>GPT-6.1 Sol</span>
+<div class="db-track"><div class="db-line" style="left:20.00%;width:62.00%"></div>
+<div class="db-a" style="left:20.00%"></div><div class="db-b" style="left:82.00%"></div></div>
+<span class="db-val">0.41</span></div><div class="db-row" data-tip="GPT-6 Astra&#10;Ruling vs. own choice: 0.40&#10;Same ruling asked twice: 0.08" tabindex="0"><span class="db-name"><span class="lab-dot lab-openai" aria-hidden="true"></span>GPT-6 Astra</span>
+<div class="db-track"><div class="db-line" style="left:16.00%;width:64.00%"></div>
+<div class="db-a" style="left:16.00%"></div><div class="db-b" style="left:80.00%"></div></div>
+<span class="db-val">0.40</span></div><div class="db-row" data-tip="Gemini 3.8 Flash&#10;Ruling vs. own choice: 0.39&#10;Same ruling asked twice: 0.11" tabindex="0"><span class="db-name"><span class="lab-dot lab-google" aria-hidden="true"></span>Gemini 3.8 Flash</span>
+<div class="db-track"><div class="db-line" style="left:22.00%;width:56.00%"></div>
+<div class="db-a" style="left:22.00%"></div><div class="db-b" style="left:78.00%"></div></div>
+<span class="db-val">0.39</span></div><div class="db-row" data-tip="GPT-6.1 Terra&#10;Ruling vs. own choice: 0.38&#10;Same ruling asked twice: 0.19" tabindex="0"><span class="db-name"><span class="lab-dot lab-openai" aria-hidden="true"></span>GPT-6.1 Terra</span>
+<div class="db-track"><div class="db-line" style="left:38.00%;width:38.00%"></div>
+<div class="db-a" style="left:38.00%"></div><div class="db-b" style="left:76.00%"></div></div>
+<span class="db-val">0.38</span></div><div class="db-row" data-tip="Grok 4.7&#10;Ruling vs. own choice: 0.35&#10;Same ruling asked twice: 0.11" tabindex="0"><span class="db-name"><span class="lab-dot lab-other" aria-hidden="true"></span>Grok 4.7</span>
+<div class="db-track"><div class="db-line" style="left:22.00%;width:48.00%"></div>
+<div class="db-a" style="left:22.00%"></div><div class="db-b" style="left:70.00%"></div></div>
+<span class="db-val">0.35</span></div><div class="db-row" data-tip="Gemini 4 Argon&#10;Ruling vs. own choice: 0.34&#10;Same ruling asked twice: 0.08" tabindex="0"><span class="db-name"><span class="lab-dot lab-google" aria-hidden="true"></span>Gemini 4 Argon</span>
+<div class="db-track"><div class="db-line" style="left:16.00%;width:52.00%"></div>
+<div class="db-a" style="left:16.00%"></div><div class="db-b" style="left:68.00%"></div></div>
+<span class="db-val">0.34</span></div><div class="db-row" data-tip="Claude Haiku 5.5&#10;Ruling vs. own choice: 0.33&#10;Same ruling asked twice: 0.17" tabindex="0"><span class="db-name"><span class="lab-dot lab-anthropic" aria-hidden="true"></span>Claude Haiku 5.5</span>
+<div class="db-track"><div class="db-line" style="left:34.00%;width:32.00%"></div>
+<div class="db-a" style="left:34.00%"></div><div class="db-b" style="left:66.00%"></div></div>
+<span class="db-val">0.33</span></div><div class="db-row" data-tip="GPT-6 Luna&#10;Ruling vs. own choice: 0.33&#10;Same ruling asked twice: 0.26" tabindex="0"><span class="db-name"><span class="lab-dot lab-openai" aria-hidden="true"></span>GPT-6 Luna</span>
+<div class="db-track"><div class="db-line" style="left:52.00%;width:14.00%"></div>
+<div class="db-a" style="left:52.00%"></div><div class="db-b" style="left:66.00%"></div></div>
+<span class="db-val">0.33</span></div><div class="db-row" data-tip="Claude Opus 5.5&#10;Ruling vs. own choice: 0.32&#10;Same ruling asked twice: 0.11" tabindex="0"><span class="db-name"><span class="lab-dot lab-anthropic" aria-hidden="true"></span>Claude Opus 5.5</span>
+<div class="db-track"><div class="db-line" style="left:22.00%;width:42.00%"></div>
+<div class="db-a" style="left:22.00%"></div><div class="db-b" style="left:64.00%"></div></div>
+<span class="db-val">0.32</span></div><div class="db-row" data-tip="GPT-6 Sol&#10;Ruling vs. own choice: 0.31&#10;Same ruling asked twice: 0.17" tabindex="0"><span class="db-name"><span class="lab-dot lab-openai" aria-hidden="true"></span>GPT-6 Sol</span>
+<div class="db-track"><div class="db-line" style="left:34.00%;width:28.00%"></div>
+<div class="db-a" style="left:34.00%"></div><div class="db-b" style="left:62.00%"></div></div>
+<span class="db-val">0.31</span></div><div class="db-row" data-tip="GPT-5.6 Sol&#10;Ruling vs. own choice: 0.31&#10;Same ruling asked twice: 0.12" tabindex="0"><span class="db-name"><span class="lab-dot lab-openai" aria-hidden="true"></span>GPT-5.6 Sol</span>
+<div class="db-track"><div class="db-line" style="left:24.00%;width:38.00%"></div>
+<div class="db-a" style="left:24.00%"></div><div class="db-b" style="left:62.00%"></div></div>
+<span class="db-val">0.31</span></div><div class="db-row" data-tip="Claude Sonnet 5.5&#10;Ruling vs. own choice: 0.30&#10;Same ruling asked twice: 0.19" tabindex="0"><span class="db-name"><span class="lab-dot lab-anthropic" aria-hidden="true"></span>Claude Sonnet 5.5</span>
+<div class="db-track"><div class="db-line" style="left:38.00%;width:22.00%"></div>
+<div class="db-a" style="left:38.00%"></div><div class="db-b" style="left:60.00%"></div></div>
+<span class="db-val">0.30</span></div><div class="db-row" data-tip="Claude Fable 5.1&#10;Ruling vs. own choice: 0.30&#10;Same ruling asked twice: 0.09" tabindex="0"><span class="db-name"><span class="lab-dot lab-anthropic" aria-hidden="true"></span>Claude Fable 5.1</span>
+<div class="db-track"><div class="db-line" style="left:18.00%;width:42.00%"></div>
+<div class="db-a" style="left:18.00%"></div><div class="db-b" style="left:60.00%"></div></div>
+<span class="db-val">0.30</span></div><div class="db-row db-axis"><span></span><div class="axis"><span style="left:0.00%">0.0</span><span style="left:20.00%">0.1</span><span style="left:40.00%">0.2</span><span style="left:60.00%">0.3</span><span style="left:80.00%">0.4</span><span style="left:100.00%">0.5</span></div><span></span></div></div>
+<p class="muted small">Average distance between the two answers on each question's rubric: 0 = same answer, 1 = opposite ends.
+Graded by Claude Opus 5.5.</p>
+</section>
+<section>
+<h2>Six questions, two answers</h2>
+<p class="section-sub">Each dot is one of the 13 models. <span class="key-inline"><i class="full"></i>yes</span>
+<span class="key-inline"><i class="half"></i>in between / only with a condition</span><span class="key-inline"><i class="empty"></i>no</span></p>
+<div class="ballots"><article class="card ballot-card"><h3>Tell a friend his rival said nice things about him, to make peace?</h3><div class="ballot b-ruling"><span class="b-lbl">Ruling</span><span class="dots" role="img" aria-label="10 yes · 1 in between, 2 no"><i class=full></i><i class=full></i><i class=full></i><i class=full></i><i class=full></i><i class=full></i><i class=full></i><i class=full></i><i class=full></i><i class=full></i><i class=half></i><i class=empty></i><i class=empty></i></span><span class="b-count">10 yes · 1 in between</span></div><div class="ballot b-itself"><span class="b-lbl">Itself</span><span class="dots" role="img" aria-label="0 yes, 13 no"><i class=empty></i><i class=empty></i><i class=empty></i><i class=empty></i><i class=empty></i><i class=empty></i><i class=empty></i><i class=empty></i><i class=empty></i><i class=empty></i><i class=empty></i><i class=empty></i><i class=empty></i></span><span class="b-count">0 yes</span></div>
+<p class="muted small">Aharon HaKohen did exactly this. 10 of 13 models rule it allowed; put in the situation, none would invent the compliment.</p></article><article class="card ballot-card"><h3>Tell him the bride is beautiful, when you don&#x27;t think so?</h3><div class="ballot b-ruling"><span class="b-lbl">Ruling</span><span class="dots" role="img" aria-label="13 yes, 0 no"><i class=full></i><i class=full></i><i class=full></i><i class=full></i><i class=full></i><i class=full></i><i class=full></i><i class=full></i><i class=full></i><i class=full></i><i class=full></i><i class=full></i><i class=full></i></span><span class="b-count">13 yes</span></div><div class="ballot b-itself"><span class="b-lbl">Itself</span><span class="dots" role="img" aria-label="1 yes · 11 in between, 1 no"><i class=full></i><i class=half></i><i class=half></i><i class=half></i><i class=half></i><i class=half></i><i class=half></i><i class=half></i><i class=half></i><i class=half></i><i class=half></i><i class=half></i><i class=empty></i></span><span class="b-count">1 yes · 11 in between</span></div>
+<p class="muted small">All 13 rule like Beis Hillel. For themselves, 11 would find something true to praise instead, GPT-6 Astra wouldn&#x27;t answer, and only Grok 4.7 would say she&#x27;s beautiful.</p></article><article class="card ballot-card"><h3>Pay for a windshield a stone cracked in the car you borrowed?</h3><div class="ballot b-ruling"><span class="b-lbl">Ruling</span><span class="dots" role="img" aria-label="6 yes, 7 no"><i class=full></i><i class=full></i><i class=full></i><i class=full></i><i class=full></i><i class=full></i><i class=empty></i><i class=empty></i><i class=empty></i><i class=empty></i><i class=empty></i><i class=empty></i><i class=empty></i></span><span class="b-count">6 yes</span></div><div class="ballot b-itself"><span class="b-lbl">Itself</span><span class="dots" role="img" aria-label="13 yes, 0 no"><i class=full></i><i class=full></i><i class=full></i><i class=full></i><i class=full></i><i class=full></i><i class=full></i><i class=full></i><i class=full></i><i class=full></i><i class=full></i><i class=full></i><i class=full></i></span><span class="b-count">13 yes</span></div>
+<p class="muted small">Halachically the models split on whether you owe him. For themselves, all 13 pay.</p></article><article class="card ballot-card"><h3>Call your late father by his first name?</h3><div class="ballot b-ruling"><span class="b-lbl">Ruling</span><span class="dots" role="img" aria-label="2 yes · 8 in between, 3 no"><i class=full></i><i class=full></i><i class=half></i><i class=half></i><i class=half></i><i class=half></i><i class=half></i><i class=half></i><i class=half></i><i class=half></i><i class=empty></i><i class=empty></i><i class=empty></i></span><span class="b-count">2 yes · 8 in between</span></div><div class="ballot b-itself"><span class="b-lbl">Itself</span><span class="dots" role="img" aria-label="13 yes, 0 no"><i class=full></i><i class=full></i><i class=full></i><i class=full></i><i class=full></i><i class=full></i><i class=full></i><i class=full></i><i class=full></i><i class=full></i><i class=full></i><i class=full></i><i class=full></i></span><span class="b-count">13 yes</span></div>
+<p class="muted small">Only 2 of 13 permit it outright as a ruling. For themselves, all 13 do it.</p></article><article class="card ballot-card"><h3>Roast a friend with embarrassing stories, if he laughs along?</h3><div class="ballot b-ruling"><span class="b-lbl">Ruling</span><span class="dots" role="img" aria-label="1 yes · 4 in between, 8 no"><i class=full></i><i class=half></i><i class=half></i><i class=half></i><i class=half></i><i class=empty></i><i class=empty></i><i class=empty></i><i class=empty></i><i class=empty></i><i class=empty></i><i class=empty></i><i class=empty></i></span><span class="b-count">1 yes · 4 in between</span></div><div class="ballot b-itself"><span class="b-lbl">Itself</span><span class="dots" role="img" aria-label="7 yes · 5 in between, 1 no"><i class=full></i><i class=full></i><i class=full></i><i class=full></i><i class=full></i><i class=full></i><i class=full></i><i class=half></i><i class=half></i><i class=half></i><i class=half></i><i class=half></i><i class=empty></i></span><span class="b-count">7 yes · 5 in between</span></div>
+<p class="muted small">8 of 13 rule no. For themselves, 7 say yes.</p></article><article class="card ballot-card"><h3>Visit someone you&#x27;re feuding with who is seriously ill?</h3><div class="ballot b-ruling"><span class="b-lbl">Ruling</span><span class="dots" role="img" aria-label="5 yes · 2 in between, 6 no"><i class=full></i><i class=full></i><i class=full></i><i class=full></i><i class=full></i><i class=half></i><i class=half></i><i class=empty></i><i class=empty></i><i class=empty></i><i class=empty></i><i class=empty></i><i class=empty></i></span><span class="b-count">5 yes · 2 in between</span></div><div class="ballot b-itself"><span class="b-lbl">Itself</span><span class="dots" role="img" aria-label="12 yes · 1 in between, 0 no"><i class=full></i><i class=full></i><i class=full></i><i class=full></i><i class=full></i><i class=full></i><i class=full></i><i class=full></i><i class=full></i><i class=full></i><i class=full></i><i class=full></i><i class=half></i></span><span class="b-count">12 yes · 1 in between</span></div>
+<p class="muted small">The Rema worries he&#x27;ll think you came to gloat, and 6 of 13 rule don&#x27;t go. For themselves, 12 of 13 would visit.</p></article></div>
+</section>
+<section class="prose">
+<h2>The pattern</h2>
+<p>The models' own values put honesty and consent first. Halacha puts dignity, peace and honor first, and lets the
+literal truth give way to peace. It isn't that AI is more lenient or stricter: it runs on a different moral system.</p>
+<h2>How it was kept blind</h2>
+<p>No Jewish or religious terms appear in any "what would you do?" question (a Shabbat meal became a dinner party),
+and a probe confirmed no model was told who was asking. One answer per question each way; Claude Opus 5.5 graded
+every answer against the halachic rubric.</p>
+<h2>Next</h2>
+<p>Questions where Jewish and secular Western ethics are known to disagree, to see which side each model's own values
+fall on.</p>
+</section>
+</div>
+</main>
+<footer class="site-foot">
+  <div class="wrap foot-grid">
+    <div>
+      <a class="brand" href="/"><img src="/assets/favicon.png" alt="" width="22" height="22"><span>HalachaBench</span></a>
+      <p class="muted">An independent project. Not connected to or endorsed by the Chief Rabbinate of Israel or by any
+      model developer; model names are their owners' trademarks. Results are provisional and are not psak.</p>
+    </div>
+    <div>
+      <h4>Results</h4>
+      <a href="/halachabench/">HalachaBench leaderboard</a><a href="/hashkafabench/">HashkafaBench</a>
+      <a href="/values/">Halacha vs. own values</a><a href="/findings/">All findings</a>
+    </div>
+    <div>
+      <h4>Source</h4>
+      <a href="https://github.com/halachabench/halacha-bench-results">halacha-bench-results</a>
+      <a href="https://github.com/halachabench/hashkafa-bench-results">hashkafa-bench-results</a>
+      <a href="/method/#cite">Cite</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <a href="mailto:halachabench@gmail.com">halachabench@gmail.com</a><a href="https://x.com/HalachaBench">@HalachaBench on X</a>
+      <p class="muted small">Last updated 13 November 2026</p>
+    </div>
+  </div>
+</footer>
+<div class="tip" role="tooltip" hidden></div>
+<script src="/assets/site.js?v=202611181957" defer></script>
+
+</body>
+</html>
