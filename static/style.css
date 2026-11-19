@@ -1,12 +1,12 @@
 /* HalachaBench — site styles. Tokens first; dark mode is selected, not flipped. */
 :root {
   color-scheme: light;
-  --page: #f9f9f7;
-  --surface: #fcfcfb;
-  --surface-2: #f3f2ee;
-  --ink: #0b0b0b;
-  --ink-2: #52514e;
-  --muted: #7a7973;
+  --page: #f6f4ef;
+  --surface: #fbfaf7;
+  --surface-2: #efece5;
+  --ink: #111111;
+  --ink-2: #4f4c46;
+  --muted: #77736b;
   --hair: #e1e0d9;
   --axis: #c3c2b7;
   --ring: rgba(11, 11, 11, .10);
@@ -27,7 +27,8 @@
   --shadow: 0 1px 2px rgba(0, 0, 0, .04), 0 4px 16px rgba(0, 0, 0, .04);
   --radius: 14px;
   --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --serif: "Source Serif 4", Georgia, serif;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   --hebrew: "Frank Ruhl Libre", "Times New Roman", serif;
 }
 @media (prefers-color-scheme: dark) {
@@ -81,7 +82,7 @@ code { font: 13px/1.4 ui-monospace, "Cascadia Code", Consolas, monospace; backgr
 .brand:hover { text-decoration: none; }
 .brand img { border-radius: 7px; }
 .site-nav { display: flex; align-items: center; gap: 2px; margin-left: auto; }
-.site-nav a { color: var(--ink-2); font-size: 14.5px; font-weight: 500; padding: 7px 11px; border-radius: 8px; }
+.site-nav a { white-space: nowrap; color: var(--ink-2); font-size: 14.5px; font-weight: 500; padding: 7px 11px; border-radius: 8px; }
 .site-nav a:hover { background: var(--surface-2); color: var(--ink); text-decoration: none; }
 .site-nav a[aria-current="page"] { color: var(--ink); background: var(--surface-2); }
 .he-link { font-family: var(--hebrew); font-size: 16px !important; }
@@ -384,3 +385,23 @@ table.hashes { width: 100%; border-collapse: collapse; font-size: 13px; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 @media (forced-colors: active) { .bar, .dot, .db-b { forced-color-adjust: none; } }
+
+/* match the existing halachabench.ai holding page: serif display type, monospace small print */
+h1, h2, h3, .brand span, .stats dd, .big-stats b, .pair-stats b, .pg { font-family: var(--serif); font-weight: 400; }
+h1 { letter-spacing: -.02em; }
+h2, h3 { letter-spacing: -.01em; }
+.study h2, .card-body h3, .ballot-card h3, .steps h3 { font-weight: 500; }
+.brand span { font-size: 21px; letter-spacing: -.02em; font-weight: 400; }
+.brand span::after { content: ".ai"; color: var(--muted); }
+.eyebrow, .page-meta, .tag, .badge, .meta, .changelog time, .site-foot h4, .site-foot .small, .axis, .axis-ends,
+.lb th, .heat th:not([scope="row"]), .stats dt, .pg span, .steps b, code, .hash { font-family: var(--mono); }
+.eyebrow, .lb th, .site-foot h4, .tag, .badge { letter-spacing: .02em; }
+
+@media (max-width: 960px) {
+  .nav-toggle { display: block; }
+  .site-nav { display: none; position: absolute; top: 62px; left: 0; right: 0; flex-direction: column; align-items: stretch;
+    background: var(--page); border-bottom: 1px solid var(--hair); padding: 8px 16px 14px; }
+  .site-nav.open { display: flex; }
+  .site-nav a { padding: 10px 8px; }
+  .theme-toggle { margin: 6px 0 0 8px; }
+}
