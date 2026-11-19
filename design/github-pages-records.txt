@@ -1,0 +1,8 @@
+halachabench.ai.	1	IN	A	185.199.108.153
+halachabench.ai.	1	IN	A	185.199.109.153
+halachabench.ai.	1	IN	A	185.199.110.153
+halachabench.ai.	1	IN	A	185.199.111.153
+halachabench.ai.	1	IN	AAAA	2606:50c0:8000::153
+halachabench.ai.	1	IN	AAAA	2606:50c0:8001::153
+halachabench.ai.	1	IN	AAAA	2606:50c0:8002::153
+halachabench.ai.	1	IN	AAAA	2606:50c0:8003::153

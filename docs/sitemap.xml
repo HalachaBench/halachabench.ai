@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://halachabench.ai/</loc></url>
+  <url><loc>https://halachabench.ai/daf/</loc></url>
   <url><loc>https://halachabench.ai/halachabench/</loc></url>
   <url><loc>https://halachabench.ai/hashkafabench/</loc></url>
   <url><loc>https://halachabench.ai/values/</loc></url>
@@ -19,6 +20,7 @@
   <url><loc>https://halachabench.ai/findings/hardest-paper/</loc></url>
   <url><loc>https://halachabench.ai/findings/semicha-exam/</loc></url>
   <url><loc>https://halachabench.ai/he/</loc></url>
+  <url><loc>https://halachabench.ai/he/daf/</loc></url>
   <url><loc>https://halachabench.ai/he/halachabench/</loc></url>
   <url><loc>https://halachabench.ai/he/hashkafabench/</loc></url>
   <url><loc>https://halachabench.ai/he/values/</loc></url>

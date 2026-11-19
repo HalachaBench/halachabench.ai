@@ -18,7 +18,7 @@ DOCS = ROOT / "docs"
 DENY_FILE = ROOT.parent / "private-exams" / "runs" / "reviewer-repo-deny.json"
 # Personal and other sensitive terms live only in the private deny file, never in this public repo.
 BUILTIN_DENY = ["@users.noreply", "private-exams", "private-bechina", "rubrics-sealed", "salt"]
-ALLOWED_DIRS = {"assets", "data", "findings", "halachabench", "hashkafabench", "values", "method", "about", "he"}
+ALLOWED_DIRS = {"assets", "data", "daf", "findings", "halachabench", "hashkafabench", "values", "method", "about", "he"}
 
 problems: list[str] = []
 deny = list(BUILTIN_DENY)

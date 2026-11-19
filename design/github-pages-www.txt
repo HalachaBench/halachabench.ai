@@ -1,0 +1,1 @@
+www.halachabench.ai.	1	IN	CNAME	halachabench.github.io.
