@@ -1,7 +1,7 @@
 # Cloudflare helpers for the team preview. The API token is read from Windows Credential Manager
 # (target HalachaBench/cloudflare-token) only for the call that needs it, and is never printed.
 param(
-  [Parameter(Mandatory = $true)][ValidateSet('access-org', 'create', 'deploy', 'access-apps', 'protect', 'check')][string]$Action,
+  [Parameter(Mandatory = $true)][ValidateSet('access-org', 'create', 'deploy', 'access-apps', 'protect', 'check', 'allowed', 'add-emails')][string]$Action,
   [string]$Project = 'halachabench-preview',
   [string[]]$Emails = @()
 )
@@ -69,5 +69,22 @@ switch ($Action) {
     }
     $r = Cf POST '/access/apps' $app
     "Access app created: $($r.result.name) on $($r.result.domain), success $($r.success)"
+  }
+  'allowed' {
+    $app = (Cf GET '/access/apps').result | Where-Object { $_.domain -eq "$Project.pages.dev" } | Select-Object -First 1
+    $app.policies | ForEach-Object { "$($_.name): " + (($_.include | ForEach-Object { $_.email.email }) -join ', ') }
+  }
+  'add-emails' {
+    if ($Emails.Count -eq 0) { throw 'Pass -Emails a@b.com,c@d.com' }
+    $app = (Cf GET '/access/apps').result | Where-Object { $_.domain -eq "$Project.pages.dev" } | Select-Object -First 1
+    if (-not $app) { throw "No Access app for $Project.pages.dev" }
+    $pol = $app.policies | Where-Object { $_.name -eq 'Team emails' } | Select-Object -First 1
+    $have = @($pol.include | ForEach-Object { $_.email.email.ToLower() })
+    $new = @($Emails | ForEach-Object { $_.Trim().ToLower() } | Where-Object { $_ -and ($have -notcontains $_) } | Select-Object -Unique)
+    if ($new.Count -eq 0) { 'Nothing to add: every address is already allowed.'; break }
+    $include = @($have + $new | ForEach-Object { @{ email = @{ email = $_ } } })
+    $body = @{ name = $pol.name; decision = $pol.decision; include = $include }
+    $r = Cf PUT "/access/apps/$($app.id)/policies/$($pol.id)" $body
+    "Added $($new.Count): $($new -join ', '). Allowed now: $($r.result.include.Count). success $($r.success)"
   }
 }
