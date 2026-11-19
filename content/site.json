@@ -2,8 +2,8 @@
   "domain": "halachabench.ai",
   "email": "halachabench@gmail.com",
   "copyright": "MasechetAI",
-  "tagline_en": "Testing AI against the wisdom of Jewish law and thought, for the people who will rely on it.",
-  "tagline_he": "בוחנים את הבינה המלאכותית מול חכמת ההלכה והמחשבה היהודית, למען מי שיסמכו עליה.",
+  "tagline_en": "Holding AI to the standard of the beit midrash.",
+  "tagline_he": "מעמידים את הבינה המלאכותית במבחן בית המדרש.",
   "description": "HalachaBench tests AI models on real semicha exam questions from Israel's Chief Rabbinate, and measures how their halachic rulings lean.",
   "cf_beacon_token": ""
 }
