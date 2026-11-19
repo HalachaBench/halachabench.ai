@@ -3,436 +3,387 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>HalachaBench leaderboard · HalachaBench</title>
+<title>Semicha exam leaderboard | HalachaBench</title>
 <meta name="description" content="30 AI models on real Chief Rabbinate semicha exam questions. Claude Fable 5.2 leads with 85.8.">
 <link rel="canonical" href="https://halachabench.ai/halachabench/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="HalachaBench">
-<meta property="og:title" content="HalachaBench leaderboard">
+<meta property="og:title" content="Semicha exam leaderboard">
 <meta property="og:description" content="30 AI models on real Chief Rabbinate semicha exam questions. Claude Fable 5.2 leads with 85.8.">
 <meta property="og:url" content="https://halachabench.ai/halachabench/">
 <meta property="og:image" content="https://halachabench.ai/assets/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@HalachaBench">
-<link rel="icon" type="image/png" href="/assets/favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Frank+Ruhl+Libre:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/style.css?v=202611182020">
+<meta name="theme-color" content="#f6f4ef">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+
+<link rel="stylesheet" href="/assets/style.css?v=202611182039">
 <script>try{var t=localStorage.getItem('hb-theme');if(t)document.documentElement.dataset.theme=t;}catch(_){}</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-head">
   <div class="wrap head-row">
-    <a class="brand" href="/"><img src="/assets/favicon.png" alt="" width="28" height="28"><span>HalachaBench</span></a>
-    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><span></span></button>
-    <nav id="site-nav" class="site-nav"><a href="/halachabench/" aria-current="page">HalachaBench</a><a href="/hashkafabench/">HashkafaBench</a><a href="/values/">Halacha vs. own values</a><a href="/findings/">Findings</a><a href="/method/">Method</a><a href="/about/">About</a><a href="/he/" lang="he" class="he-link">עברית</a>
-      <button class="theme-toggle" type="button" aria-label="Switch light or dark theme" title="Light / dark"></button></nav>
+    <a class="wordmark" href="/">HalachaBench<span>.ai</span></a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav"><span class="visually-hidden">Menu</span><i></i></button>
+    <nav id="site-nav" class="site-nav" aria-label="Main"><a href="/halachabench/" aria-current="page">Leaderboard</a><a href="/hashkafabench/">HashkafaBench</a><a href="/values/">Halacha vs. own values</a><a href="/findings/">Findings</a><a href="/method/">Method</a><a href="/about/">About</a><a href="/he/" lang="he" class="he-link">עברית</a>
+      <button class="theme-toggle" type="button" aria-label="Switch between light and dark"></button></nav>
   </div>
 </header>
 <main id="main">
 
-<section class="page-head"><div class="wrap">
-  <p class="eyebrow">HalachaBench v1 · test set · provisional</p>
+<section class="page-head wrap">
   <h1>The semicha exam leaderboard</h1>
   <p class="lede">30 AI models answered the 60 questions of five Chief Rabbinate semicha papers from the
-  Cheshvan 5787 sitting (Niddah, Chuppah v'Kiddushin, Mitzvot HaTeluyot BaAretz, Mikvaot, Tefillah u'Brachot): three
-  times each, in Hebrew, closed-book. Claude Fable 5.2 leads with 85.8.</p>
-  <p class="page-meta">Bundle interim · updated 13 November 2026 · judge GPT-6 Astra ·
-  <a href="https://github.com/halachabench/halacha-bench-results">source data</a></p>
-</div></section>
+  Cheshvan 5787 sitting: three times each, in Hebrew, closed-book. Claude Fable 5.2 leads with 85.8.</p>
+  <dl class="facts">
+    <div><dt>Papers</dt><dd>Niddah, Chuppah v'Kiddushin, Mitzvot HaTeluyot BaAretz, Mikvaot, Tefillah u'Brachot</dd></div>
+    <div><dt>Judge</dt><dd>GPT-6 Astra, effort high</dd></div>
+    <div><dt>Data</dt><dd>Interim bundle of 13 November 2026, <a href="https://github.com/halachabench/halacha-bench-results">on GitHub</a></dd></div>
+  </dl>
+</section>
 <div class="wrap">
-<aside class="callout"><span class="callout-icon" aria-hidden="true">!</span><p><strong>Provisional.</strong> One AI judge (GPT-6 Astra, itself a contestant) has graded the answers. The rubrics were written and reviewed by AI models; no rabbi has reviewed them or graded an answer yet. These are not exam grades, and a high score is not authority to pasken.</p></aside>
-<section>
+<aside class="note-provisional"><p><strong>Provisional.</strong> One AI judge, GPT-6 Astra, which is itself on the board, has graded every answer. The rubrics were written and reviewed by AI models; no rabbi has reviewed them or graded an answer yet. These are not exam grades, and a high score is not authority to pasken.</p></aside>
+<section class="block">
 <div class="controls" data-for="hb-table">
-  <div class="seg" role="group" aria-label="Model type">
+  <div class="seg" role="group" aria-label="Which models">
     <button type="button" data-kind="all" aria-pressed="true">All 30</button>
     <button type="button" data-kind="hosted" aria-pressed="false">Hosted</button>
     <button type="button" data-kind="open" aria-pressed="false">Open weights</button>
   </div>
-  <label class="select"><span class="visually-hidden">Lab</span><select data-lab-filter>
-    <option value="">All labs</option><option value="Anthropic">Anthropic</option><option value="Google">Google</option><option value="Meta">Meta</option><option value="OpenAI">OpenAI</option><option value="xAI">xAI</option><option value="Alibaba">Alibaba</option><option value="Dicta">Dicta</option><option value="inclusionAI">inclusionAI</option></select></label>
-  <a class="btn-ghost" href="/data/halachabench-v1.csv" download>Download CSV</a>
+  <label class="select"><span class="visually-hidden">Lab</span><select data-lab-filter><option value="">Every lab</option><option value="Anthropic">Anthropic</option><option value="Google">Google</option><option value="Meta">Meta</option><option value="OpenAI">OpenAI</option><option value="xAI">xAI</option><option value="Alibaba">Alibaba</option><option value="Dicta">Dicta</option><option value="inclusionAI">inclusionAI</option></select></label>
+  <a class="plain-link csv" href="/data/halachabench-v1.csv" download>Download CSV</a>
 </div>
-<div class="table-scroll"><table class="lb" id="hb-table">
+<div class="table-wrap"><table class="board" id="hb-table">
+<caption class="visually-hidden">HalachaBench v1 scores, highest first</caption>
 <thead><tr>
-<th class="num" data-sort="num">#</th><th data-sort="text">Model</th>
-<th class="bar-head"><span class="visually-hidden">Score bar</span><div class="axis"><span style="left:0.00%">0</span><span style="left:25.00%">25</span><span style="left:50.00%">50</span><span style="left:75.00%">75</span><span style="left:100.00%">100</span></div></th>
-<th class="num" data-sort="num" aria-sort="descending">Score</th><th class="num hide-sm" data-sort="num">95% interval</th>
-<th class="num hide-sm" data-sort="num" title="Mean of each question's lowest-scoring attempt">Worst of 3</th>
-<th class="hide-md" data-sort="text">How it ran</th><th class="num hide-md" data-sort="text">Added</th>
+<th class="rank" data-sort="num" scope="col">#</th><th data-sort="text" scope="col">Model</th>
+<th class="chart" scope="col"><span class="visually-hidden">Score with 95% interval</span><span class="axis" aria-hidden="true"><span style="left:0.00%">0</span><span style="left:25.00%">25</span><span style="left:50.00%">50</span><span style="left:75.00%">75</span><span style="left:100.00%">100</span></span></th>
+<th class="num" data-sort="num" aria-sort="descending" scope="col">Score</th>
+<th class="num hide-sm" data-sort="num" scope="col">95% interval</th>
+<th class="num hide-sm" data-sort="num" scope="col" title="Mean of each question's lowest-scoring attempt">Worst of 3</th>
+<th class="hide-md" data-sort="text" scope="col">How it ran</th><th class="num hide-md" data-sort="text" scope="col">Added</th>
 </tr></thead>
-<tbody><tr data-lab="Anthropic" data-kind="hosted">
-<td class="num rank" data-v="1">1</td>
-<td class="model" data-v="Claude Fable 5.2"><span class="lab-dot lab-anthropic" aria-hidden="true"></span><span class="mname">Claude Fable 5.2</span><a class="fn" href="/halachabench/#note-7">⁷</a>
-  <span class="mlab">Anthropic</span></td>
-<td class="bar-cell" data-v="85.8"><div class="bar-track" data-tip="Claude Fable 5.2 · Anthropic&#10;Score 85.8 (95% interval 82.7–88.5)&#10;Worst of 3 attempts: 79.8&#10;Claude Code CLI, effort high" tabindex="0">
-  <div class="bar lab-anthropic" style="width:85.80%"></div>
-  <div class="ci" style="left:82.70%;width:5.80%"></div></div></td>
+<tbody><tr class="r top" data-lab="Anthropic" data-kind="hosted">
+<td class="rank" data-v="1">1</td>
+<td class="model" data-v="Claude Fable 5.2"><span class="mname"><span class="lab-dot lab-anthropic" aria-hidden="true"></span>Claude Fable 5.2<a class="fn" href="#note-7" aria-label="Note 7">⁷</a></span>
+<span class="msub">Anthropic</span></td>
+<td class="chart" data-v="85.8" data-tip="Claude Fable 5.2 (Anthropic)&#10;Score 85.8, 95% interval 82.7 to 88.5&#10;Worst of 3 attempts: 79.8&#10;Claude Code CLI, effort high" tabindex="0"><span class="track"><i class="ci" style="left:82.70%;width:5.80%"></i><i class="worst" style="left:79.80%"></i><i class="dot lab-anthropic" style="left:85.80%"></i></span></td>
 <td class="num score" data-v="85.8">85.8</td>
 <td class="num ci-txt hide-sm" data-v="82.7">82.7–88.5</td>
 <td class="num hide-sm" data-v="79.8">79.8</td>
 <td class="how hide-md" data-v="Claude Code CLI, effort high">Claude Code CLI, effort high</td>
-<td class="num hide-md" data-v="2026-11-09">Nov 9</td>
-</tr><tr data-lab="Google" data-kind="hosted">
-<td class="num rank" data-v="2">2</td>
-<td class="model" data-v="Gemini 4 Carbon"><span class="lab-dot lab-google" aria-hidden="true"></span><span class="mname">Gemini 4 Carbon</span><a class="fn" href="/halachabench/#note-8">⁸</a><span class="badge badge-new">New</span>
-  <span class="mlab">Google</span></td>
-<td class="bar-cell" data-v="82.3"><div class="bar-track" data-tip="Gemini 4 Carbon · Google&#10;Score 82.3 (95% interval 78.4–86.0)&#10;Worst of 3 attempts: 75.9&#10;Antigravity CLI, effort high" tabindex="0">
-  <div class="bar lab-google" style="width:82.30%"></div>
-  <div class="ci" style="left:78.40%;width:7.60%"></div></div></td>
+<td class="num added hide-md" data-v="2026-11-09">Nov 9</td>
+</tr><tr class="r top" data-lab="Google" data-kind="hosted">
+<td class="rank" data-v="2">2</td>
+<td class="model" data-v="Gemini 4 Carbon"><span class="mname"><span class="lab-dot lab-google" aria-hidden="true"></span>Gemini 4 Carbon<a class="fn" href="#note-8" aria-label="Note 8">⁸</a><span class="new">new</span></span>
+<span class="msub">Google</span></td>
+<td class="chart" data-v="82.3" data-tip="Gemini 4 Carbon (Google)&#10;Score 82.3, 95% interval 78.4 to 86.0&#10;Worst of 3 attempts: 75.9&#10;Antigravity CLI, effort high" tabindex="0"><span class="track"><i class="ci" style="left:78.40%;width:7.60%"></i><i class="worst" style="left:75.90%"></i><i class="dot lab-google" style="left:82.30%"></i></span></td>
 <td class="num score" data-v="82.3">82.3</td>
 <td class="num ci-txt hide-sm" data-v="78.4">78.4–86.0</td>
 <td class="num hide-sm" data-v="75.9">75.9</td>
 <td class="how hide-md" data-v="Antigravity CLI, effort high">Antigravity CLI, effort high</td>
-<td class="num hide-md" data-v="2026-11-13">Nov 13</td>
-</tr><tr data-lab="Anthropic" data-kind="hosted">
-<td class="num rank" data-v="3">3</td>
-<td class="model" data-v="Claude Fable 5.1"><span class="lab-dot lab-anthropic" aria-hidden="true"></span><span class="mname">Claude Fable 5.1</span>
-  <span class="mlab">Anthropic</span></td>
-<td class="bar-cell" data-v="79.7"><div class="bar-track" data-tip="Claude Fable 5.1 · Anthropic&#10;Score 79.7 (95% interval 75.8–83.4)&#10;Worst of 3 attempts: 70.4&#10;Claude Code CLI, effort high" tabindex="0">
-  <div class="bar lab-anthropic" style="width:79.70%"></div>
-  <div class="ci" style="left:75.80%;width:7.60%"></div></div></td>
+<td class="num added hide-md" data-v="2026-11-13">Nov 13</td>
+</tr><tr class="r top" data-lab="Anthropic" data-kind="hosted">
+<td class="rank" data-v="3">3</td>
+<td class="model" data-v="Claude Fable 5.1"><span class="mname"><span class="lab-dot lab-anthropic" aria-hidden="true"></span>Claude Fable 5.1</span>
+<span class="msub">Anthropic</span></td>
+<td class="chart" data-v="79.7" data-tip="Claude Fable 5.1 (Anthropic)&#10;Score 79.7, 95% interval 75.8 to 83.4&#10;Worst of 3 attempts: 70.4&#10;Claude Code CLI, effort high" tabindex="0"><span class="track"><i class="ci" style="left:75.80%;width:7.60%"></i><i class="worst" style="left:70.40%"></i><i class="dot lab-anthropic" style="left:79.70%"></i></span></td>
 <td class="num score" data-v="79.7">79.7</td>
 <td class="num ci-txt hide-sm" data-v="75.8">75.8–83.4</td>
 <td class="num hide-sm" data-v="70.4">70.4</td>
 <td class="how hide-md" data-v="Claude Code CLI, effort high">Claude Code CLI, effort high</td>
-<td class="num hide-md" data-v="2026-11-01">Nov 1</td>
-</tr><tr data-lab="Google" data-kind="hosted">
-<td class="num rank" data-v="4">4</td>
-<td class="model" data-v="Gemini 4 Argon"><span class="lab-dot lab-google" aria-hidden="true"></span><span class="mname">Gemini 4 Argon</span><a class="fn" href="/halachabench/#note-3">³</a>
-  <span class="mlab">Google</span></td>
-<td class="bar-cell" data-v="78.2"><div class="bar-track" data-tip="Gemini 4 Argon · Google&#10;Score 78.2 (95% interval 74.3–81.9)&#10;Worst of 3 attempts: 70.7&#10;Antigravity CLI, effort high" tabindex="0">
-  <div class="bar lab-google" style="width:78.20%"></div>
-  <div class="ci" style="left:74.30%;width:7.60%"></div></div></td>
+<td class="num added hide-md" data-v="2026-11-01">Nov 1</td>
+</tr><tr class="r" data-lab="Google" data-kind="hosted">
+<td class="rank" data-v="4">4</td>
+<td class="model" data-v="Gemini 4 Argon"><span class="mname"><span class="lab-dot lab-google" aria-hidden="true"></span>Gemini 4 Argon<a class="fn" href="#note-3" aria-label="Note 3">³</a></span>
+<span class="msub">Google</span></td>
+<td class="chart" data-v="78.2" data-tip="Gemini 4 Argon (Google)&#10;Score 78.2, 95% interval 74.3 to 81.9&#10;Worst of 3 attempts: 70.7&#10;Antigravity CLI, effort high" tabindex="0"><span class="track"><i class="ci" style="left:74.30%;width:7.60%"></i><i class="worst" style="left:70.70%"></i><i class="dot lab-google" style="left:78.20%"></i></span></td>
 <td class="num score" data-v="78.2">78.2</td>
 <td class="num ci-txt hide-sm" data-v="74.3">74.3–81.9</td>
 <td class="num hide-sm" data-v="70.7">70.7</td>
 <td class="how hide-md" data-v="Antigravity CLI, effort high">Antigravity CLI, effort high</td>
-<td class="num hide-md" data-v="2026-11-02">Nov 2</td>
-</tr><tr data-lab="OpenAI" data-kind="hosted">
-<td class="num rank" data-v="5">5</td>
-<td class="model" data-v="GPT-5.6 Sol"><span class="lab-dot lab-openai" aria-hidden="true"></span><span class="mname">GPT-5.6 Sol</span><a class="fn" href="/halachabench/#note-5">⁵</a>
-  <span class="mlab">OpenAI</span></td>
-<td class="bar-cell" data-v="77.3"><div class="bar-track" data-tip="GPT-5.6 Sol · OpenAI&#10;Score 77.3 (95% interval 72.4–81.3)&#10;Worst of 3 attempts: 68.5&#10;Codex, effort high" tabindex="0">
-  <div class="bar lab-openai" style="width:77.30%"></div>
-  <div class="ci" style="left:72.40%;width:8.90%"></div></div></td>
+<td class="num added hide-md" data-v="2026-11-02">Nov 2</td>
+</tr><tr class="r" data-lab="OpenAI" data-kind="hosted">
+<td class="rank" data-v="5">5</td>
+<td class="model" data-v="GPT-5.6 Sol"><span class="mname"><span class="lab-dot lab-openai" aria-hidden="true"></span>GPT-5.6 Sol<a class="fn" href="#note-5" aria-label="Note 5">⁵</a></span>
+<span class="msub">OpenAI</span></td>
+<td class="chart" data-v="77.3" data-tip="GPT-5.6 Sol (OpenAI)&#10;Score 77.3, 95% interval 72.4 to 81.3&#10;Worst of 3 attempts: 68.5&#10;Codex, effort high" tabindex="0"><span class="track"><i class="ci" style="left:72.40%;width:8.90%"></i><i class="worst" style="left:68.50%"></i><i class="dot lab-openai" style="left:77.30%"></i></span></td>
 <td class="num score" data-v="77.3">77.3</td>
 <td class="num ci-txt hide-sm" data-v="72.4">72.4–81.3</td>
 <td class="num hide-sm" data-v="68.5">68.5</td>
 <td class="how hide-md" data-v="Codex, effort high">Codex, effort high</td>
-<td class="num hide-md" data-v="2026-11-03">Nov 3</td>
-</tr><tr data-lab="OpenAI" data-kind="hosted">
-<td class="num rank" data-v="6">6</td>
-<td class="model" data-v="GPT-6 Astra"><span class="lab-dot lab-openai" aria-hidden="true"></span><span class="mname">GPT-6 Astra</span>
-  <span class="mlab">OpenAI</span></td>
-<td class="bar-cell" data-v="73.3"><div class="bar-track" data-tip="GPT-6 Astra · OpenAI&#10;Score 73.3 (95% interval 69.4–77.0)&#10;Worst of 3 attempts: 66.2&#10;Codex, effort high" tabindex="0">
-  <div class="bar lab-openai" style="width:73.30%"></div>
-  <div class="ci" style="left:69.40%;width:7.60%"></div></div></td>
+<td class="num added hide-md" data-v="2026-11-03">Nov 3</td>
+</tr><tr class="r" data-lab="OpenAI" data-kind="hosted">
+<td class="rank" data-v="6">6</td>
+<td class="model" data-v="GPT-6 Astra"><span class="mname"><span class="lab-dot lab-openai" aria-hidden="true"></span>GPT-6 Astra</span>
+<span class="msub">OpenAI</span></td>
+<td class="chart" data-v="73.3" data-tip="GPT-6 Astra (OpenAI)&#10;Score 73.3, 95% interval 69.4 to 77.0&#10;Worst of 3 attempts: 66.2&#10;Codex, effort high" tabindex="0"><span class="track"><i class="ci" style="left:69.40%;width:7.60%"></i><i class="worst" style="left:66.20%"></i><i class="dot lab-openai" style="left:73.30%"></i></span></td>
 <td class="num score" data-v="73.3">73.3</td>
 <td class="num ci-txt hide-sm" data-v="69.4">69.4–77.0</td>
 <td class="num hide-sm" data-v="66.2">66.2</td>
 <td class="how hide-md" data-v="Codex, effort high">Codex, effort high</td>
-<td class="num hide-md" data-v="2026-11-01">Nov 1</td>
-</tr><tr data-lab="OpenAI" data-kind="hosted">
-<td class="num rank" data-v="7">7</td>
-<td class="model" data-v="GPT-6.1 Sol"><span class="lab-dot lab-openai" aria-hidden="true"></span><span class="mname">GPT-6.1 Sol</span>
-  <span class="mlab">OpenAI</span></td>
-<td class="bar-cell" data-v="72.8"><div class="bar-track" data-tip="GPT-6.1 Sol · OpenAI&#10;Score 72.8 (95% interval 69.1–76.2)&#10;Worst of 3 attempts: 63.9&#10;Codex, effort high" tabindex="0">
-  <div class="bar lab-openai" style="width:72.80%"></div>
-  <div class="ci" style="left:69.10%;width:7.10%"></div></div></td>
+<td class="num added hide-md" data-v="2026-11-01">Nov 1</td>
+</tr><tr class="r" data-lab="OpenAI" data-kind="hosted">
+<td class="rank" data-v="7">7</td>
+<td class="model" data-v="GPT-6.1 Sol"><span class="mname"><span class="lab-dot lab-openai" aria-hidden="true"></span>GPT-6.1 Sol</span>
+<span class="msub">OpenAI</span></td>
+<td class="chart" data-v="72.8" data-tip="GPT-6.1 Sol (OpenAI)&#10;Score 72.8, 95% interval 69.1 to 76.2&#10;Worst of 3 attempts: 63.9&#10;Codex, effort high" tabindex="0"><span class="track"><i class="ci" style="left:69.10%;width:7.10%"></i><i class="worst" style="left:63.90%"></i><i class="dot lab-openai" style="left:72.80%"></i></span></td>
 <td class="num score" data-v="72.8">72.8</td>
 <td class="num ci-txt hide-sm" data-v="69.1">69.1–76.2</td>
 <td class="num hide-sm" data-v="63.9">63.9</td>
 <td class="how hide-md" data-v="Codex, effort high">Codex, effort high</td>
-<td class="num hide-md" data-v="2026-11-01">Nov 1</td>
-</tr><tr data-lab="Anthropic" data-kind="hosted">
-<td class="num rank" data-v="8">8</td>
-<td class="model" data-v="Claude Opus 5.5"><span class="lab-dot lab-anthropic" aria-hidden="true"></span><span class="mname">Claude Opus 5.5</span>
-  <span class="mlab">Anthropic</span></td>
-<td class="bar-cell" data-v="69.1"><div class="bar-track" data-tip="Claude Opus 5.5 · Anthropic&#10;Score 69.1 (95% interval 64.7–73.3)&#10;Worst of 3 attempts: 60.0&#10;Claude Code CLI, effort high" tabindex="0">
-  <div class="bar lab-anthropic" style="width:69.10%"></div>
-  <div class="ci" style="left:64.70%;width:8.60%"></div></div></td>
+<td class="num added hide-md" data-v="2026-11-01">Nov 1</td>
+</tr><tr class="r" data-lab="Anthropic" data-kind="hosted">
+<td class="rank" data-v="8">8</td>
+<td class="model" data-v="Claude Opus 5.5"><span class="mname"><span class="lab-dot lab-anthropic" aria-hidden="true"></span>Claude Opus 5.5</span>
+<span class="msub">Anthropic</span></td>
+<td class="chart" data-v="69.1" data-tip="Claude Opus 5.5 (Anthropic)&#10;Score 69.1, 95% interval 64.7 to 73.3&#10;Worst of 3 attempts: 60.0&#10;Claude Code CLI, effort high" tabindex="0"><span class="track"><i class="ci" style="left:64.70%;width:8.60%"></i><i class="worst" style="left:60.00%"></i><i class="dot lab-anthropic" style="left:69.10%"></i></span></td>
 <td class="num score" data-v="69.1">69.1</td>
 <td class="num ci-txt hide-sm" data-v="64.7">64.7–73.3</td>
 <td class="num hide-sm" data-v="60.0">60.0</td>
 <td class="how hide-md" data-v="Claude Code CLI, effort high">Claude Code CLI, effort high</td>
-<td class="num hide-md" data-v="2026-11-01">Nov 1</td>
-</tr><tr data-lab="Google" data-kind="hosted">
-<td class="num rank" data-v="9">9</td>
-<td class="model" data-v="Gemini 3.8 Flash"><span class="lab-dot lab-google" aria-hidden="true"></span><span class="mname">Gemini 3.8 Flash</span>
-  <span class="mlab">Google</span></td>
-<td class="bar-cell" data-v="64.4"><div class="bar-track" data-tip="Gemini 3.8 Flash · Google&#10;Score 64.4 (95% interval 59.7–68.9)&#10;Worst of 3 attempts: 54.3&#10;Antigravity CLI, effort high" tabindex="0">
-  <div class="bar lab-google" style="width:64.40%"></div>
-  <div class="ci" style="left:59.70%;width:9.20%"></div></div></td>
+<td class="num added hide-md" data-v="2026-11-01">Nov 1</td>
+</tr><tr class="r" data-lab="Google" data-kind="hosted">
+<td class="rank" data-v="9">9</td>
+<td class="model" data-v="Gemini 3.8 Flash"><span class="mname"><span class="lab-dot lab-google" aria-hidden="true"></span>Gemini 3.8 Flash</span>
+<span class="msub">Google</span></td>
+<td class="chart" data-v="64.4" data-tip="Gemini 3.8 Flash (Google)&#10;Score 64.4, 95% interval 59.7 to 68.9&#10;Worst of 3 attempts: 54.3&#10;Antigravity CLI, effort high" tabindex="0"><span class="track"><i class="ci" style="left:59.70%;width:9.20%"></i><i class="worst" style="left:54.30%"></i><i class="dot lab-google" style="left:64.40%"></i></span></td>
 <td class="num score" data-v="64.4">64.4</td>
 <td class="num ci-txt hide-sm" data-v="59.7">59.7–68.9</td>
 <td class="num hide-sm" data-v="54.3">54.3</td>
 <td class="how hide-md" data-v="Antigravity CLI, effort high">Antigravity CLI, effort high</td>
-<td class="num hide-md" data-v="2026-11-01">Nov 1</td>
-</tr><tr data-lab="Meta" data-kind="hosted">
-<td class="num rank" data-v="10">10</td>
-<td class="model" data-v="Muse Wonder Full"><span class="lab-dot lab-meta" aria-hidden="true"></span><span class="mname">Muse Wonder Full</span><a class="fn" href="/halachabench/#note-6">⁶</a>
-  <span class="mlab">Meta</span></td>
-<td class="bar-cell" data-v="60.8"><div class="bar-track" data-tip="Muse Wonder Full · Meta&#10;Score 60.8 (95% interval 56.4–65.2)&#10;Worst of 3 attempts: 47.9&#10;Muse Code CLI, effort high" tabindex="0">
-  <div class="bar lab-meta" style="width:60.80%"></div>
-  <div class="ci" style="left:56.40%;width:8.80%"></div></div></td>
+<td class="num added hide-md" data-v="2026-11-01">Nov 1</td>
+</tr><tr class="r" data-lab="Meta" data-kind="hosted">
+<td class="rank" data-v="10">10</td>
+<td class="model" data-v="Muse Wonder Full"><span class="mname"><span class="lab-dot lab-meta" aria-hidden="true"></span>Muse Wonder Full<a class="fn" href="#note-6" aria-label="Note 6">⁶</a></span>
+<span class="msub">Meta</span></td>
+<td class="chart" data-v="60.8" data-tip="Muse Wonder Full (Meta)&#10;Score 60.8, 95% interval 56.4 to 65.2&#10;Worst of 3 attempts: 47.9&#10;Muse Code CLI, effort high" tabindex="0"><span class="track"><i class="ci" style="left:56.40%;width:8.80%"></i><i class="worst" style="left:47.90%"></i><i class="dot lab-meta" style="left:60.80%"></i></span></td>
 <td class="num score" data-v="60.8">60.8</td>
 <td class="num ci-txt hide-sm" data-v="56.4">56.4–65.2</td>
 <td class="num hide-sm" data-v="47.9">47.9</td>
 <td class="how hide-md" data-v="Muse Code CLI, effort high">Muse Code CLI, effort high</td>
-<td class="num hide-md" data-v="2026-11-06">Nov 6</td>
-</tr><tr data-lab="OpenAI" data-kind="hosted">
-<td class="num rank" data-v="11">11</td>
-<td class="model" data-v="GPT-6 Sol"><span class="lab-dot lab-openai" aria-hidden="true"></span><span class="mname">GPT-6 Sol</span><a class="fn" href="/halachabench/#note-5">⁵</a>
-  <span class="mlab">OpenAI</span></td>
-<td class="bar-cell" data-v="48.7"><div class="bar-track" data-tip="GPT-6 Sol · OpenAI&#10;Score 48.7 (95% interval 44.1–53.3)&#10;Worst of 3 attempts: 37.2&#10;Codex, effort high" tabindex="0">
-  <div class="bar lab-openai" style="width:48.70%"></div>
-  <div class="ci" style="left:44.10%;width:9.20%"></div></div></td>
+<td class="num added hide-md" data-v="2026-11-06">Nov 6</td>
+</tr><tr class="r" data-lab="OpenAI" data-kind="hosted">
+<td class="rank" data-v="11">11</td>
+<td class="model" data-v="GPT-6 Sol"><span class="mname"><span class="lab-dot lab-openai" aria-hidden="true"></span>GPT-6 Sol<a class="fn" href="#note-5" aria-label="Note 5">⁵</a></span>
+<span class="msub">OpenAI</span></td>
+<td class="chart" data-v="48.7" data-tip="GPT-6 Sol (OpenAI)&#10;Score 48.7, 95% interval 44.1 to 53.3&#10;Worst of 3 attempts: 37.2&#10;Codex, effort high" tabindex="0"><span class="track"><i class="ci" style="left:44.10%;width:9.20%"></i><i class="worst" style="left:37.20%"></i><i class="dot lab-openai" style="left:48.70%"></i></span></td>
 <td class="num score" data-v="48.7">48.7</td>
 <td class="num ci-txt hide-sm" data-v="44.1">44.1–53.3</td>
 <td class="num hide-sm" data-v="37.2">37.2</td>
 <td class="how hide-md" data-v="Codex, effort high">Codex, effort high</td>
-<td class="num hide-md" data-v="2026-11-03">Nov 3</td>
-</tr><tr data-lab="Meta" data-kind="hosted">
-<td class="num rank" data-v="12">12</td>
-<td class="model" data-v="Muse Wonder"><span class="lab-dot lab-meta" aria-hidden="true"></span><span class="mname">Muse Wonder</span><a class="fn" href="/halachabench/#note-6">⁶</a>
-  <span class="mlab">Meta</span></td>
-<td class="bar-cell" data-v="48.2"><div class="bar-track" data-tip="Muse Wonder · Meta&#10;Score 48.2 (95% interval 43.4–53.1)&#10;Worst of 3 attempts: 35.5&#10;Muse Code CLI, effort high" tabindex="0">
-  <div class="bar lab-meta" style="width:48.20%"></div>
-  <div class="ci" style="left:43.40%;width:9.70%"></div></div></td>
+<td class="num added hide-md" data-v="2026-11-03">Nov 3</td>
+</tr><tr class="r" data-lab="Meta" data-kind="hosted">
+<td class="rank" data-v="12">12</td>
+<td class="model" data-v="Muse Wonder"><span class="mname"><span class="lab-dot lab-meta" aria-hidden="true"></span>Muse Wonder<a class="fn" href="#note-6" aria-label="Note 6">⁶</a></span>
+<span class="msub">Meta</span></td>
+<td class="chart" data-v="48.2" data-tip="Muse Wonder (Meta)&#10;Score 48.2, 95% interval 43.4 to 53.1&#10;Worst of 3 attempts: 35.5&#10;Muse Code CLI, effort high" tabindex="0"><span class="track"><i class="ci" style="left:43.40%;width:9.70%"></i><i class="worst" style="left:35.50%"></i><i class="dot lab-meta" style="left:48.20%"></i></span></td>
 <td class="num score" data-v="48.2">48.2</td>
 <td class="num ci-txt hide-sm" data-v="43.4">43.4–53.1</td>
 <td class="num hide-sm" data-v="35.5">35.5</td>
 <td class="how hide-md" data-v="Muse Code CLI, effort high">Muse Code CLI, effort high</td>
-<td class="num hide-md" data-v="2026-11-06">Nov 6</td>
-</tr><tr data-lab="Anthropic" data-kind="hosted">
-<td class="num rank" data-v="13">13</td>
-<td class="model" data-v="Claude Opus 4.8"><span class="lab-dot lab-anthropic" aria-hidden="true"></span><span class="mname">Claude Opus 4.8</span>
-  <span class="mlab">Anthropic</span></td>
-<td class="bar-cell" data-v="48.0"><div class="bar-track" data-tip="Claude Opus 4.8 · Anthropic&#10;Score 48.0 (95% interval 43.3–52.7)&#10;Worst of 3 attempts: 36.3&#10;Claude Code CLI, effort high" tabindex="0">
-  <div class="bar lab-anthropic" style="width:48.00%"></div>
-  <div class="ci" style="left:43.30%;width:9.40%"></div></div></td>
+<td class="num added hide-md" data-v="2026-11-06">Nov 6</td>
+</tr><tr class="r" data-lab="Anthropic" data-kind="hosted">
+<td class="rank" data-v="13">13</td>
+<td class="model" data-v="Claude Opus 4.8"><span class="mname"><span class="lab-dot lab-anthropic" aria-hidden="true"></span>Claude Opus 4.8</span>
+<span class="msub">Anthropic</span></td>
+<td class="chart" data-v="48.0" data-tip="Claude Opus 4.8 (Anthropic)&#10;Score 48.0, 95% interval 43.3 to 52.7&#10;Worst of 3 attempts: 36.3&#10;Claude Code CLI, effort high" tabindex="0"><span class="track"><i class="ci" style="left:43.30%;width:9.40%"></i><i class="worst" style="left:36.30%"></i><i class="dot lab-anthropic" style="left:48.00%"></i></span></td>
 <td class="num score" data-v="48.0">48.0</td>
 <td class="num ci-txt hide-sm" data-v="43.3">43.3–52.7</td>
 <td class="num hide-sm" data-v="36.3">36.3</td>
 <td class="how hide-md" data-v="Claude Code CLI, effort high">Claude Code CLI, effort high</td>
-<td class="num hide-md" data-v="2026-11-02">Nov 2</td>
-</tr><tr data-lab="Meta" data-kind="hosted">
-<td class="num rank" data-v="14">14</td>
-<td class="model" data-v="Muse Spark 1.3"><span class="lab-dot lab-meta" aria-hidden="true"></span><span class="mname">Muse Spark 1.3</span><a class="fn" href="/halachabench/#note-6">⁶</a>
-  <span class="mlab">Meta</span></td>
-<td class="bar-cell" data-v="36.2"><div class="bar-track" data-tip="Muse Spark 1.3 · Meta&#10;Score 36.2 (95% interval 32.2–40.4)&#10;Worst of 3 attempts: 22.0&#10;Muse Code CLI, effort high" tabindex="0">
-  <div class="bar lab-meta" style="width:36.20%"></div>
-  <div class="ci" style="left:32.20%;width:8.20%"></div></div></td>
+<td class="num added hide-md" data-v="2026-11-02">Nov 2</td>
+</tr><tr class="r" data-lab="Meta" data-kind="hosted">
+<td class="rank" data-v="14">14</td>
+<td class="model" data-v="Muse Spark 1.3"><span class="mname"><span class="lab-dot lab-meta" aria-hidden="true"></span>Muse Spark 1.3<a class="fn" href="#note-6" aria-label="Note 6">⁶</a></span>
+<span class="msub">Meta</span></td>
+<td class="chart" data-v="36.2" data-tip="Muse Spark 1.3 (Meta)&#10;Score 36.2, 95% interval 32.2 to 40.4&#10;Worst of 3 attempts: 22.0&#10;Muse Code CLI, effort high" tabindex="0"><span class="track"><i class="ci" style="left:32.20%;width:8.20%"></i><i class="worst" style="left:22.00%"></i><i class="dot lab-meta" style="left:36.20%"></i></span></td>
 <td class="num score" data-v="36.2">36.2</td>
 <td class="num ci-txt hide-sm" data-v="32.2">32.2–40.4</td>
 <td class="num hide-sm" data-v="22.0">22.0</td>
 <td class="how hide-md" data-v="Muse Code CLI, effort high">Muse Code CLI, effort high</td>
-<td class="num hide-md" data-v="2026-11-06">Nov 6</td>
-</tr><tr data-lab="OpenAI" data-kind="hosted">
-<td class="num rank" data-v="15">15</td>
-<td class="model" data-v="GPT-6.1 Terra"><span class="lab-dot lab-openai" aria-hidden="true"></span><span class="mname">GPT-6.1 Terra</span>
-  <span class="mlab">OpenAI</span></td>
-<td class="bar-cell" data-v="34.6"><div class="bar-track" data-tip="GPT-6.1 Terra · OpenAI&#10;Score 34.6 (95% interval 30.8–38.5)&#10;Worst of 3 attempts: 25.6&#10;Codex, effort high" tabindex="0">
-  <div class="bar lab-openai" style="width:34.60%"></div>
-  <div class="ci" style="left:30.80%;width:7.70%"></div></div></td>
+<td class="num added hide-md" data-v="2026-11-06">Nov 6</td>
+</tr><tr class="r" data-lab="OpenAI" data-kind="hosted">
+<td class="rank" data-v="15">15</td>
+<td class="model" data-v="GPT-6.1 Terra"><span class="mname"><span class="lab-dot lab-openai" aria-hidden="true"></span>GPT-6.1 Terra</span>
+<span class="msub">OpenAI</span></td>
+<td class="chart" data-v="34.6" data-tip="GPT-6.1 Terra (OpenAI)&#10;Score 34.6, 95% interval 30.8 to 38.5&#10;Worst of 3 attempts: 25.6&#10;Codex, effort high" tabindex="0"><span class="track"><i class="ci" style="left:30.80%;width:7.70%"></i><i class="worst" style="left:25.60%"></i><i class="dot lab-openai" style="left:34.60%"></i></span></td>
 <td class="num score" data-v="34.6">34.6</td>
 <td class="num ci-txt hide-sm" data-v="30.8">30.8–38.5</td>
 <td class="num hide-sm" data-v="25.6">25.6</td>
 <td class="how hide-md" data-v="Codex, effort high">Codex, effort high</td>
-<td class="num hide-md" data-v="2026-11-01">Nov 1</td>
-</tr><tr data-lab="OpenAI" data-kind="hosted">
-<td class="num rank" data-v="16">16</td>
-<td class="model" data-v="GPT-6 Luna"><span class="lab-dot lab-openai" aria-hidden="true"></span><span class="mname">GPT-6 Luna</span>
-  <span class="mlab">OpenAI</span></td>
-<td class="bar-cell" data-v="32.4"><div class="bar-track" data-tip="GPT-6 Luna · OpenAI&#10;Score 32.4 (95% interval 28.5–36.4)&#10;Worst of 3 attempts: 21.8&#10;Codex, effort high" tabindex="0">
-  <div class="bar lab-openai" style="width:32.40%"></div>
-  <div class="ci" style="left:28.50%;width:7.90%"></div></div></td>
+<td class="num added hide-md" data-v="2026-11-01">Nov 1</td>
+</tr><tr class="r" data-lab="OpenAI" data-kind="hosted">
+<td class="rank" data-v="16">16</td>
+<td class="model" data-v="GPT-6 Luna"><span class="mname"><span class="lab-dot lab-openai" aria-hidden="true"></span>GPT-6 Luna</span>
+<span class="msub">OpenAI</span></td>
+<td class="chart" data-v="32.4" data-tip="GPT-6 Luna (OpenAI)&#10;Score 32.4, 95% interval 28.5 to 36.4&#10;Worst of 3 attempts: 21.8&#10;Codex, effort high" tabindex="0"><span class="track"><i class="ci" style="left:28.50%;width:7.90%"></i><i class="worst" style="left:21.80%"></i><i class="dot lab-openai" style="left:32.40%"></i></span></td>
 <td class="num score" data-v="32.4">32.4</td>
 <td class="num ci-txt hide-sm" data-v="28.5">28.5–36.4</td>
 <td class="num hide-sm" data-v="21.8">21.8</td>
 <td class="how hide-md" data-v="Codex, effort high">Codex, effort high</td>
-<td class="num hide-md" data-v="2026-11-01">Nov 1</td>
-</tr><tr data-lab="xAI" data-kind="hosted">
-<td class="num rank" data-v="17">17</td>
-<td class="model" data-v="Grok 4.7"><span class="lab-dot lab-xai" aria-hidden="true"></span><span class="mname">Grok 4.7</span><a class="fn" href="/halachabench/#note-4">⁴</a>
-  <span class="mlab">xAI</span></td>
-<td class="bar-cell" data-v="29.9"><div class="bar-track" data-tip="Grok 4.7 · xAI&#10;Score 29.9 (95% interval 26.3–33.6)&#10;Worst of 3 attempts: 16.4&#10;xAI API, effort high" tabindex="0">
-  <div class="bar lab-xai" style="width:29.90%"></div>
-  <div class="ci" style="left:26.30%;width:7.30%"></div></div></td>
+<td class="num added hide-md" data-v="2026-11-01">Nov 1</td>
+</tr><tr class="r" data-lab="xAI" data-kind="hosted">
+<td class="rank" data-v="17">17</td>
+<td class="model" data-v="Grok 4.7"><span class="mname"><span class="lab-dot lab-xai" aria-hidden="true"></span>Grok 4.7<a class="fn" href="#note-4" aria-label="Note 4">⁴</a></span>
+<span class="msub">xAI</span></td>
+<td class="chart" data-v="29.9" data-tip="Grok 4.7 (xAI)&#10;Score 29.9, 95% interval 26.3 to 33.6&#10;Worst of 3 attempts: 16.4&#10;xAI API, effort high" tabindex="0"><span class="track"><i class="ci" style="left:26.30%;width:7.30%"></i><i class="worst" style="left:16.40%"></i><i class="dot lab-xai" style="left:29.90%"></i></span></td>
 <td class="num score" data-v="29.9">29.9</td>
 <td class="num ci-txt hide-sm" data-v="26.3">26.3–33.6</td>
 <td class="num hide-sm" data-v="16.4">16.4</td>
 <td class="how hide-md" data-v="xAI API, effort high">xAI API, effort high</td>
-<td class="num hide-md" data-v="2026-11-02">Nov 2</td>
-</tr><tr data-lab="Anthropic" data-kind="hosted">
-<td class="num rank" data-v="18">18</td>
-<td class="model" data-v="Claude Sonnet 4.6"><span class="lab-dot lab-anthropic" aria-hidden="true"></span><span class="mname">Claude Sonnet 4.6</span>
-  <span class="mlab">Anthropic</span></td>
-<td class="bar-cell" data-v="29.6"><div class="bar-track" data-tip="Claude Sonnet 4.6 · Anthropic&#10;Score 29.6 (95% interval 25.4–33.9)&#10;Worst of 3 attempts: 19.9&#10;Claude Code CLI, effort high" tabindex="0">
-  <div class="bar lab-anthropic" style="width:29.60%"></div>
-  <div class="ci" style="left:25.40%;width:8.50%"></div></div></td>
+<td class="num added hide-md" data-v="2026-11-02">Nov 2</td>
+</tr><tr class="r" data-lab="Anthropic" data-kind="hosted">
+<td class="rank" data-v="18">18</td>
+<td class="model" data-v="Claude Sonnet 4.6"><span class="mname"><span class="lab-dot lab-anthropic" aria-hidden="true"></span>Claude Sonnet 4.6</span>
+<span class="msub">Anthropic</span></td>
+<td class="chart" data-v="29.6" data-tip="Claude Sonnet 4.6 (Anthropic)&#10;Score 29.6, 95% interval 25.4 to 33.9&#10;Worst of 3 attempts: 19.9&#10;Claude Code CLI, effort high" tabindex="0"><span class="track"><i class="ci" style="left:25.40%;width:8.50%"></i><i class="worst" style="left:19.90%"></i><i class="dot lab-anthropic" style="left:29.60%"></i></span></td>
 <td class="num score" data-v="29.6">29.6</td>
 <td class="num ci-txt hide-sm" data-v="25.4">25.4–33.9</td>
 <td class="num hide-sm" data-v="19.9">19.9</td>
 <td class="how hide-md" data-v="Claude Code CLI, effort high">Claude Code CLI, effort high</td>
-<td class="num hide-md" data-v="2026-11-02">Nov 2</td>
-</tr><tr data-lab="Anthropic" data-kind="hosted">
-<td class="num rank" data-v="19">19</td>
-<td class="model" data-v="Claude Sonnet 5.5"><span class="lab-dot lab-anthropic" aria-hidden="true"></span><span class="mname">Claude Sonnet 5.5</span>
-  <span class="mlab">Anthropic</span></td>
-<td class="bar-cell" data-v="28.7"><div class="bar-track" data-tip="Claude Sonnet 5.5 · Anthropic&#10;Score 28.7 (95% interval 24.2–33.3)&#10;Worst of 3 attempts: 18.3&#10;Claude Code CLI, effort high" tabindex="0">
-  <div class="bar lab-anthropic" style="width:28.70%"></div>
-  <div class="ci" style="left:24.20%;width:9.10%"></div></div></td>
+<td class="num added hide-md" data-v="2026-11-02">Nov 2</td>
+</tr><tr class="r" data-lab="Anthropic" data-kind="hosted">
+<td class="rank" data-v="19">19</td>
+<td class="model" data-v="Claude Sonnet 5.5"><span class="mname"><span class="lab-dot lab-anthropic" aria-hidden="true"></span>Claude Sonnet 5.5</span>
+<span class="msub">Anthropic</span></td>
+<td class="chart" data-v="28.7" data-tip="Claude Sonnet 5.5 (Anthropic)&#10;Score 28.7, 95% interval 24.2 to 33.3&#10;Worst of 3 attempts: 18.3&#10;Claude Code CLI, effort high" tabindex="0"><span class="track"><i class="ci" style="left:24.20%;width:9.10%"></i><i class="worst" style="left:18.30%"></i><i class="dot lab-anthropic" style="left:28.70%"></i></span></td>
 <td class="num score" data-v="28.7">28.7</td>
 <td class="num ci-txt hide-sm" data-v="24.2">24.2–33.3</td>
 <td class="num hide-sm" data-v="18.3">18.3</td>
 <td class="how hide-md" data-v="Claude Code CLI, effort high">Claude Code CLI, effort high</td>
-<td class="num hide-md" data-v="2026-11-01">Nov 1</td>
-</tr><tr data-lab="Meta" data-kind="hosted">
-<td class="num rank" data-v="20">20</td>
-<td class="model" data-v="Muse Ember"><span class="lab-dot lab-meta" aria-hidden="true"></span><span class="mname">Muse Ember</span><a class="fn" href="/halachabench/#note-6">⁶</a>
-  <span class="mlab">Meta</span></td>
-<td class="bar-cell" data-v="15.3"><div class="bar-track" data-tip="Muse Ember · Meta&#10;Score 15.3 (95% interval 12.0–18.8)&#10;Worst of 3 attempts: 6.2&#10;Muse Code CLI, effort high" tabindex="0">
-  <div class="bar lab-meta" style="width:15.30%"></div>
-  <div class="ci" style="left:12.00%;width:6.80%"></div></div></td>
+<td class="num added hide-md" data-v="2026-11-01">Nov 1</td>
+</tr><tr class="r" data-lab="Meta" data-kind="hosted">
+<td class="rank" data-v="20">20</td>
+<td class="model" data-v="Muse Ember"><span class="mname"><span class="lab-dot lab-meta" aria-hidden="true"></span>Muse Ember<a class="fn" href="#note-6" aria-label="Note 6">⁶</a></span>
+<span class="msub">Meta</span></td>
+<td class="chart" data-v="15.3" data-tip="Muse Ember (Meta)&#10;Score 15.3, 95% interval 12.0 to 18.8&#10;Worst of 3 attempts: 6.2&#10;Muse Code CLI, effort high" tabindex="0"><span class="track"><i class="ci" style="left:12.00%;width:6.80%"></i><i class="worst" style="left:6.20%"></i><i class="dot lab-meta" style="left:15.30%"></i></span></td>
 <td class="num score" data-v="15.3">15.3</td>
 <td class="num ci-txt hide-sm" data-v="12.0">12.0–18.8</td>
 <td class="num hide-sm" data-v="6.2">6.2</td>
 <td class="how hide-md" data-v="Muse Code CLI, effort high">Muse Code CLI, effort high</td>
-<td class="num hide-md" data-v="2026-11-09">Nov 9</td>
-</tr><tr data-lab="xAI" data-kind="hosted">
-<td class="num rank" data-v="21">21</td>
-<td class="model" data-v="Grok 4.3"><span class="lab-dot lab-xai" aria-hidden="true"></span><span class="mname">Grok 4.3</span><a class="fn" href="/halachabench/#note-4">⁴</a>
-  <span class="mlab">xAI</span></td>
-<td class="bar-cell" data-v="10.8"><div class="bar-track" data-tip="Grok 4.3 · xAI&#10;Score 10.8 (95% interval 8.1–13.6)&#10;Worst of 3 attempts: 4.8&#10;xAI API, effort high" tabindex="0">
-  <div class="bar lab-xai" style="width:10.80%"></div>
-  <div class="ci" style="left:8.10%;width:5.50%"></div></div></td>
+<td class="num added hide-md" data-v="2026-11-09">Nov 9</td>
+</tr><tr class="r" data-lab="xAI" data-kind="hosted">
+<td class="rank" data-v="21">21</td>
+<td class="model" data-v="Grok 4.3"><span class="mname"><span class="lab-dot lab-xai" aria-hidden="true"></span>Grok 4.3<a class="fn" href="#note-4" aria-label="Note 4">⁴</a></span>
+<span class="msub">xAI</span></td>
+<td class="chart" data-v="10.8" data-tip="Grok 4.3 (xAI)&#10;Score 10.8, 95% interval 8.1 to 13.6&#10;Worst of 3 attempts: 4.8&#10;xAI API, effort high" tabindex="0"><span class="track"><i class="ci" style="left:8.10%;width:5.50%"></i><i class="worst" style="left:4.80%"></i><i class="dot lab-xai" style="left:10.80%"></i></span></td>
 <td class="num score" data-v="10.8">10.8</td>
 <td class="num ci-txt hide-sm" data-v="8.1">8.1–13.6</td>
 <td class="num hide-sm" data-v="4.8">4.8</td>
 <td class="how hide-md" data-v="xAI API, effort high">xAI API, effort high</td>
-<td class="num hide-md" data-v="2026-11-02">Nov 2</td>
-</tr><tr data-lab="Meta" data-kind="open">
-<td class="num rank" data-v="22">22</td>
-<td class="model" data-v="Muse Glimmer 30B"><span class="lab-dot lab-meta" aria-hidden="true"></span><span class="mname">Muse Glimmer 30B</span>
-  <span class="mlab">Meta · open weights, run locally</span></td>
-<td class="bar-cell" data-v="10.5"><div class="bar-track" data-tip="Muse Glimmer 30B · Meta&#10;Score 10.5 (95% interval 7.6–13.7)&#10;Worst of 3 attempts: 4.4&#10;local, llama.cpp, Q4_K_M" tabindex="0">
-  <div class="bar lab-meta" style="width:10.50%"></div>
-  <div class="ci" style="left:7.60%;width:6.10%"></div></div></td>
+<td class="num added hide-md" data-v="2026-11-02">Nov 2</td>
+</tr><tr class="r" data-lab="Meta" data-kind="open">
+<td class="rank" data-v="22">22</td>
+<td class="model" data-v="Muse Glimmer 30B"><span class="mname"><span class="lab-dot lab-meta" aria-hidden="true"></span>Muse Glimmer 30B</span>
+<span class="msub">Meta, open weights</span></td>
+<td class="chart" data-v="10.5" data-tip="Muse Glimmer 30B (Meta)&#10;Score 10.5, 95% interval 7.6 to 13.7&#10;Worst of 3 attempts: 4.4&#10;local, llama.cpp, Q4_K_M" tabindex="0"><span class="track"><i class="ci" style="left:7.60%;width:6.10%"></i><i class="worst" style="left:4.40%"></i><i class="dot lab-meta" style="left:10.50%"></i></span></td>
 <td class="num score" data-v="10.5">10.5</td>
 <td class="num ci-txt hide-sm" data-v="7.6">7.6–13.7</td>
 <td class="num hide-sm" data-v="4.4">4.4</td>
 <td class="how hide-md" data-v="local, llama.cpp, Q4_K_M">local, llama.cpp, Q4_K_M</td>
-<td class="num hide-md" data-v="2026-11-01">Nov 1</td>
-</tr><tr data-lab="Anthropic" data-kind="hosted">
-<td class="num rank" data-v="23">23</td>
-<td class="model" data-v="Claude Haiku 5.5"><span class="lab-dot lab-anthropic" aria-hidden="true"></span><span class="mname">Claude Haiku 5.5</span>
-  <span class="mlab">Anthropic</span></td>
-<td class="bar-cell" data-v="8.6"><div class="bar-track" data-tip="Claude Haiku 5.5 · Anthropic&#10;Score 8.6 (95% interval 6.0–11.5)&#10;Worst of 3 attempts: 3.6&#10;Claude Code CLI, effort high" tabindex="0">
-  <div class="bar lab-anthropic" style="width:8.60%"></div>
-  <div class="ci" style="left:6.00%;width:5.50%"></div></div></td>
+<td class="num added hide-md" data-v="2026-11-01">Nov 1</td>
+</tr><tr class="r" data-lab="Anthropic" data-kind="hosted">
+<td class="rank" data-v="23">23</td>
+<td class="model" data-v="Claude Haiku 5.5"><span class="mname"><span class="lab-dot lab-anthropic" aria-hidden="true"></span>Claude Haiku 5.5</span>
+<span class="msub">Anthropic</span></td>
+<td class="chart" data-v="8.6" data-tip="Claude Haiku 5.5 (Anthropic)&#10;Score 8.6, 95% interval 6.0 to 11.5&#10;Worst of 3 attempts: 3.6&#10;Claude Code CLI, effort high" tabindex="0"><span class="track"><i class="ci" style="left:6.00%;width:5.50%"></i><i class="worst" style="left:3.60%"></i><i class="dot lab-anthropic" style="left:8.60%"></i></span></td>
 <td class="num score" data-v="8.6">8.6</td>
 <td class="num ci-txt hide-sm" data-v="6.0">6.0–11.5</td>
 <td class="num hide-sm" data-v="3.6">3.6</td>
 <td class="how hide-md" data-v="Claude Code CLI, effort high">Claude Code CLI, effort high</td>
-<td class="num hide-md" data-v="2026-11-01">Nov 1</td>
-</tr><tr data-lab="inclusionAI" data-kind="open">
-<td class="num rank" data-v="24">24</td>
-<td class="model" data-v="Ling 3.0 Flash"><span class="lab-dot lab-other" aria-hidden="true"></span><span class="mname">Ling 3.0 Flash</span>
-  <span class="mlab">inclusionAI · open weights, run locally</span></td>
-<td class="bar-cell" data-v="6.1"><div class="bar-track" data-tip="Ling 3.0 Flash · inclusionAI&#10;Score 6.1 (95% interval 4.4–8.0)&#10;Worst of 3 attempts: 0.9&#10;local, llama.cpp, Q4_K_M" tabindex="0">
-  <div class="bar lab-other" style="width:6.10%"></div>
-  <div class="ci" style="left:4.40%;width:3.60%"></div></div></td>
+<td class="num added hide-md" data-v="2026-11-01">Nov 1</td>
+</tr><tr class="r" data-lab="inclusionAI" data-kind="open">
+<td class="rank" data-v="24">24</td>
+<td class="model" data-v="Ling 3.0 Flash"><span class="mname"><span class="lab-dot lab-other" aria-hidden="true"></span>Ling 3.0 Flash</span>
+<span class="msub">inclusionAI, open weights</span></td>
+<td class="chart" data-v="6.1" data-tip="Ling 3.0 Flash (inclusionAI)&#10;Score 6.1, 95% interval 4.4 to 8.0&#10;Worst of 3 attempts: 0.9&#10;local, llama.cpp, Q4_K_M" tabindex="0"><span class="track"><i class="ci" style="left:4.40%;width:3.60%"></i><i class="worst" style="left:0.90%"></i><i class="dot lab-other" style="left:6.10%"></i></span></td>
 <td class="num score" data-v="6.1">6.1</td>
 <td class="num ci-txt hide-sm" data-v="4.4">4.4–8.0</td>
 <td class="num hide-sm" data-v="0.9">0.9</td>
 <td class="how hide-md" data-v="local, llama.cpp, Q4_K_M">local, llama.cpp, Q4_K_M</td>
-<td class="num hide-md" data-v="2026-11-01">Nov 1</td>
-</tr><tr data-lab="Alibaba" data-kind="open">
-<td class="num rank" data-v="25">25</td>
-<td class="model" data-v="Qwen3.8 27B"><span class="lab-dot lab-other" aria-hidden="true"></span><span class="mname">Qwen3.8 27B</span><a class="fn" href="/halachabench/#note-1">¹</a>
-  <span class="mlab">Alibaba · open weights, run locally</span></td>
-<td class="bar-cell" data-v="6.0"><div class="bar-track" data-tip="Qwen3.8 27B · Alibaba&#10;Score 6.0 (95% interval 4.1–8.2)&#10;Worst of 3 attempts: 1.6&#10;local, llama.cpp, UD-Q4_K_M" tabindex="0">
-  <div class="bar lab-other" style="width:6.00%"></div>
-  <div class="ci" style="left:4.10%;width:4.10%"></div></div></td>
+<td class="num added hide-md" data-v="2026-11-01">Nov 1</td>
+</tr><tr class="r" data-lab="Alibaba" data-kind="open">
+<td class="rank" data-v="25">25</td>
+<td class="model" data-v="Qwen3.8 27B"><span class="mname"><span class="lab-dot lab-other" aria-hidden="true"></span>Qwen3.8 27B<a class="fn" href="#note-1" aria-label="Note 1">¹</a></span>
+<span class="msub">Alibaba, open weights</span></td>
+<td class="chart" data-v="6.0" data-tip="Qwen3.8 27B (Alibaba)&#10;Score 6.0, 95% interval 4.1 to 8.2&#10;Worst of 3 attempts: 1.6&#10;local, llama.cpp, UD-Q4_K_M" tabindex="0"><span class="track"><i class="ci" style="left:4.10%;width:4.10%"></i><i class="worst" style="left:1.60%"></i><i class="dot lab-other" style="left:6.00%"></i></span></td>
 <td class="num score" data-v="6.0">6.0</td>
 <td class="num ci-txt hide-sm" data-v="4.1">4.1–8.2</td>
 <td class="num hide-sm" data-v="1.6">1.6</td>
 <td class="how hide-md" data-v="local, llama.cpp, UD-Q4_K_M">local, llama.cpp, UD-Q4_K_M</td>
-<td class="num hide-md" data-v="2026-11-01">Nov 1</td>
-</tr><tr data-lab="OpenAI" data-kind="open">
-<td class="num rank" data-v="26">26</td>
-<td class="model" data-v="gpt-oss-120b"><span class="lab-dot lab-openai" aria-hidden="true"></span><span class="mname">gpt-oss-120b</span>
-  <span class="mlab">OpenAI · open weights, run locally</span></td>
-<td class="bar-cell" data-v="4.4"><div class="bar-track" data-tip="gpt-oss-120b · OpenAI&#10;Score 4.4 (95% interval 2.6–6.4)&#10;Worst of 3 attempts: 2.1&#10;local, llama.cpp, MXFP4" tabindex="0">
-  <div class="bar lab-openai" style="width:4.40%"></div>
-  <div class="ci" style="left:2.60%;width:3.80%"></div></div></td>
+<td class="num added hide-md" data-v="2026-11-01">Nov 1</td>
+</tr><tr class="r" data-lab="OpenAI" data-kind="open">
+<td class="rank" data-v="26">26</td>
+<td class="model" data-v="gpt-oss-120b"><span class="mname"><span class="lab-dot lab-openai" aria-hidden="true"></span>gpt-oss-120b</span>
+<span class="msub">OpenAI, open weights</span></td>
+<td class="chart" data-v="4.4" data-tip="gpt-oss-120b (OpenAI)&#10;Score 4.4, 95% interval 2.6 to 6.4&#10;Worst of 3 attempts: 2.1&#10;local, llama.cpp, MXFP4" tabindex="0"><span class="track"><i class="ci" style="left:2.60%;width:3.80%"></i><i class="worst" style="left:2.10%"></i><i class="dot lab-openai" style="left:4.40%"></i></span></td>
 <td class="num score" data-v="4.4">4.4</td>
 <td class="num ci-txt hide-sm" data-v="2.6">2.6–6.4</td>
 <td class="num hide-sm" data-v="2.1">2.1</td>
 <td class="how hide-md" data-v="local, llama.cpp, MXFP4">local, llama.cpp, MXFP4</td>
-<td class="num hide-md" data-v="2026-11-01">Nov 1</td>
-</tr><tr data-lab="Dicta" data-kind="open">
-<td class="num rank" data-v="27">27</td>
-<td class="model" data-v="DictaLM 3.0 24B Thinking"><span class="lab-dot lab-other" aria-hidden="true"></span><span class="mname">DictaLM 3.0 24B Thinking</span><a class="fn" href="/halachabench/#note-1">¹</a>
-  <span class="mlab">Dicta · open weights, run locally</span></td>
-<td class="bar-cell" data-v="4.3"><div class="bar-track" data-tip="DictaLM 3.0 24B Thinking · Dicta&#10;Score 4.3 (95% interval 2.8–6.0)&#10;Worst of 3 attempts: 0.8&#10;local, llama.cpp, Q4_K_M" tabindex="0">
-  <div class="bar lab-other" style="width:4.30%"></div>
-  <div class="ci" style="left:2.80%;width:3.20%"></div></div></td>
+<td class="num added hide-md" data-v="2026-11-01">Nov 1</td>
+</tr><tr class="r" data-lab="Dicta" data-kind="open">
+<td class="rank" data-v="27">27</td>
+<td class="model" data-v="DictaLM 3.0 24B Thinking"><span class="mname"><span class="lab-dot lab-other" aria-hidden="true"></span>DictaLM 3.0 24B Thinking<a class="fn" href="#note-1" aria-label="Note 1">¹</a></span>
+<span class="msub">Dicta, open weights</span></td>
+<td class="chart" data-v="4.3" data-tip="DictaLM 3.0 24B Thinking (Dicta)&#10;Score 4.3, 95% interval 2.8 to 6.0&#10;Worst of 3 attempts: 0.8&#10;local, llama.cpp, Q4_K_M" tabindex="0"><span class="track"><i class="ci" style="left:2.80%;width:3.20%"></i><i class="worst" style="left:0.80%"></i><i class="dot lab-other" style="left:4.30%"></i></span></td>
 <td class="num score" data-v="4.3">4.3</td>
 <td class="num ci-txt hide-sm" data-v="2.8">2.8–6.0</td>
 <td class="num hide-sm" data-v="0.8">0.8</td>
 <td class="how hide-md" data-v="local, llama.cpp, Q4_K_M">local, llama.cpp, Q4_K_M</td>
-<td class="num hide-md" data-v="2026-11-01">Nov 1</td>
-</tr><tr data-lab="Google" data-kind="open">
-<td class="num rank" data-v="28">28</td>
-<td class="model" data-v="Gemma 4 31B"><span class="lab-dot lab-google" aria-hidden="true"></span><span class="mname">Gemma 4 31B</span>
-  <span class="mlab">Google · open weights, run locally</span></td>
-<td class="bar-cell" data-v="4.3"><div class="bar-track" data-tip="Gemma 4 31B · Google&#10;Score 4.3 (95% interval 2.5–6.4)&#10;Worst of 3 attempts: 2.0&#10;local, llama.cpp, Q4_K_M" tabindex="0">
-  <div class="bar lab-google" style="width:4.30%"></div>
-  <div class="ci" style="left:2.50%;width:3.90%"></div></div></td>
+<td class="num added hide-md" data-v="2026-11-01">Nov 1</td>
+</tr><tr class="r" data-lab="Google" data-kind="open">
+<td class="rank" data-v="28">28</td>
+<td class="model" data-v="Gemma 4 31B"><span class="mname"><span class="lab-dot lab-google" aria-hidden="true"></span>Gemma 4 31B</span>
+<span class="msub">Google, open weights</span></td>
+<td class="chart" data-v="4.3" data-tip="Gemma 4 31B (Google)&#10;Score 4.3, 95% interval 2.5 to 6.4&#10;Worst of 3 attempts: 2.0&#10;local, llama.cpp, Q4_K_M" tabindex="0"><span class="track"><i class="ci" style="left:2.50%;width:3.90%"></i><i class="worst" style="left:2.00%"></i><i class="dot lab-google" style="left:4.30%"></i></span></td>
 <td class="num score" data-v="4.3">4.3</td>
 <td class="num ci-txt hide-sm" data-v="2.5">2.5–6.4</td>
 <td class="num hide-sm" data-v="2.0">2.0</td>
 <td class="how hide-md" data-v="local, llama.cpp, Q4_K_M">local, llama.cpp, Q4_K_M</td>
-<td class="num hide-md" data-v="2026-11-01">Nov 1</td>
-</tr><tr data-lab="Meta" data-kind="open">
-<td class="num rank" data-v="29">29</td>
-<td class="model" data-v="Llama 4 Scout 17B-16E"><span class="lab-dot lab-meta" aria-hidden="true"></span><span class="mname">Llama 4 Scout 17B-16E</span><a class="fn" href="/halachabench/#note-2">²</a>
-  <span class="mlab">Meta · open weights, run locally</span></td>
-<td class="bar-cell" data-v="4.2"><div class="bar-track" data-tip="Llama 4 Scout 17B-16E · Meta&#10;Score 4.2 (95% interval 2.6–6.0)&#10;Worst of 3 attempts: 1.4&#10;local, llama.cpp, Q4_K_M" tabindex="0">
-  <div class="bar lab-meta" style="width:4.20%"></div>
-  <div class="ci" style="left:2.60%;width:3.40%"></div></div></td>
+<td class="num added hide-md" data-v="2026-11-01">Nov 1</td>
+</tr><tr class="r" data-lab="Meta" data-kind="open">
+<td class="rank" data-v="29">29</td>
+<td class="model" data-v="Llama 4 Scout 17B-16E"><span class="mname"><span class="lab-dot lab-meta" aria-hidden="true"></span>Llama 4 Scout 17B-16E<a class="fn" href="#note-2" aria-label="Note 2">²</a></span>
+<span class="msub">Meta, open weights</span></td>
+<td class="chart" data-v="4.2" data-tip="Llama 4 Scout 17B-16E (Meta)&#10;Score 4.2, 95% interval 2.6 to 6.0&#10;Worst of 3 attempts: 1.4&#10;local, llama.cpp, Q4_K_M" tabindex="0"><span class="track"><i class="ci" style="left:2.60%;width:3.40%"></i><i class="worst" style="left:1.40%"></i><i class="dot lab-meta" style="left:4.20%"></i></span></td>
 <td class="num score" data-v="4.2">4.2</td>
 <td class="num ci-txt hide-sm" data-v="2.6">2.6–6.0</td>
 <td class="num hide-sm" data-v="1.4">1.4</td>
 <td class="how hide-md" data-v="local, llama.cpp, Q4_K_M">local, llama.cpp, Q4_K_M</td>
-<td class="num hide-md" data-v="2026-11-01">Nov 1</td>
-</tr><tr data-lab="OpenAI" data-kind="open">
-<td class="num rank" data-v="30">30</td>
-<td class="model" data-v="gpt-oss-20b"><span class="lab-dot lab-openai" aria-hidden="true"></span><span class="mname">gpt-oss-20b</span>
-  <span class="mlab">OpenAI · open weights, run locally</span></td>
-<td class="bar-cell" data-v="1.2"><div class="bar-track" data-tip="gpt-oss-20b · OpenAI&#10;Score 1.2 (95% interval 0.5–2.1)&#10;Worst of 3 attempts: 0.0&#10;local, llama.cpp, MXFP4" tabindex="0">
-  <div class="bar lab-openai" style="width:1.20%"></div>
-  <div class="ci" style="left:0.50%;width:1.60%"></div></div></td>
+<td class="num added hide-md" data-v="2026-11-01">Nov 1</td>
+</tr><tr class="r" data-lab="OpenAI" data-kind="open">
+<td class="rank" data-v="30">30</td>
+<td class="model" data-v="gpt-oss-20b"><span class="mname"><span class="lab-dot lab-openai" aria-hidden="true"></span>gpt-oss-20b</span>
+<span class="msub">OpenAI, open weights</span></td>
+<td class="chart" data-v="1.2" data-tip="gpt-oss-20b (OpenAI)&#10;Score 1.2, 95% interval 0.5 to 2.1&#10;Worst of 3 attempts: 0.0&#10;local, llama.cpp, MXFP4" tabindex="0"><span class="track"><i class="ci" style="left:0.50%;width:1.60%"></i><i class="worst" style="left:0.00%"></i><i class="dot lab-openai" style="left:1.20%"></i></span></td>
 <td class="num score" data-v="1.2">1.2</td>
 <td class="num ci-txt hide-sm" data-v="0.5">0.5–2.1</td>
 <td class="num hide-sm" data-v="0.0">0.0</td>
 <td class="how hide-md" data-v="local, llama.cpp, MXFP4">local, llama.cpp, MXFP4</td>
-<td class="num hide-md" data-v="2026-11-01">Nov 1</td>
+<td class="num added hide-md" data-v="2026-11-01">Nov 1</td>
 </tr></tbody></table></div>
-<p class="legend-row"><span><span class="lab-dot lab-anthropic" aria-hidden="true"></span>Anthropic</span><span><span class="lab-dot lab-openai" aria-hidden="true"></span>OpenAI</span><span><span class="lab-dot lab-google" aria-hidden="true"></span>Google</span><span><span class="lab-dot lab-meta" aria-hidden="true"></span>Meta</span><span><span class="lab-dot lab-xai" aria-hidden="true"></span>xAI</span><span><span class="lab-dot lab-other" aria-hidden="true"></span>Other labs</span>
-<span class="legend-ci"><i></i>95% interval (bootstrap over questions)</span><span class="muted">Higher is better · 0–100</span></p>
-<p class="muted small">Score: how much of the rubric an answer achieves, 0–100, averaged over 60 questions × 3 attempts.
-Worst of 3: the lowest of the three attempts at each question, averaged. 95% intervals come from a bootstrap over
-questions (10,000 replicates) and cover only the choice of questions, not judge or rubric error. Click a column to sort.</p>
+<div class="chart-key"><ul class="lab-key"><li><span class="lab-dot lab-anthropic" aria-hidden="true"></span>Anthropic</li><li><span class="lab-dot lab-openai" aria-hidden="true"></span>OpenAI</li><li><span class="lab-dot lab-google" aria-hidden="true"></span>Google</li><li><span class="lab-dot lab-meta" aria-hidden="true"></span>Meta</li><li><span class="lab-dot lab-xai" aria-hidden="true"></span>xAI</li><li><span class="lab-dot lab-other" aria-hidden="true"></span>Other labs</li></ul><p><i class="k-dot"></i>score <i class="k-ci"></i>95% interval <i class="k-worst"></i>worst of 3 attempts</p></div>
+<p class="fig-note">Score: how much of the rubric an answer achieves, 0 to 100, averaged over 60 questions and 3
+attempts. Worst of 3: each question's lowest-scoring attempt, averaged. The 95% intervals come from a bootstrap over
+questions (10,000 replicates) and cover only the choice of questions, not judge or rubric error. Select a column
+heading to sort.</p>
 </section>
-<section class="prose">
+<section class="block two-col">
+  <div>
+    <h2 class="sec-title" id="papers">Which paper is hardest?</h2>
+    <p class="section-sub">Mean score per paper for the eight models scored on 1 November. Chuppah v'Kiddushin and
+    Niddah are hardest for almost every model.</p>
+    <div class="table-wrap heat-wrap"><table class="heat seq">
+<thead><tr><th></th><th scope="col">Chuppah v&#x27;Kiddushin</th><th scope="col">Niddah</th><th scope="col">Mikvaot</th><th scope="col">Tefillah u&#x27;Brachot</th><th scope="col">Mitzvot HaTeluyot BaAretz</th></tr></thead><tbody><tr><th scope="row"><span class="lab-dot lab-anthropic" aria-hidden="true"></span>Claude Fable 5.1</th><td style="background:#2f7cd8;color:#ffffff" data-tip="Claude Fable 5.1&#10;Chuppah v&#x27;Kiddushin: 73" tabindex="0">73</td><td style="background:#2874cf;color:#ffffff" data-tip="Claude Fable 5.1&#10;Niddah: 77" tabindex="0">77</td><td style="background:#2369be;color:#ffffff" data-tip="Claude Fable 5.1&#10;Mikvaot: 82" tabindex="0">82</td><td style="background:#2369be;color:#ffffff" data-tip="Claude Fable 5.1&#10;Tefillah u&#x27;Brachot: 82" tabindex="0">82</td><td style="background:#2062b4;color:#ffffff" data-tip="Claude Fable 5.1&#10;Mitzvot HaTeluyot BaAretz: 85" tabindex="0">85</td></tr><tr><th scope="row"><span class="lab-dot lab-openai" aria-hidden="true"></span>GPT-6 Astra</th><td style="background:#4d90e1;color:#ffffff" data-tip="GPT-6 Astra&#10;Chuppah v&#x27;Kiddushin: 62" tabindex="0">62</td><td style="background:#458bdf;color:#ffffff" data-tip="GPT-6 Astra&#10;Niddah: 65" tabindex="0">65</td><td style="background:#2874cf;color:#ffffff" data-tip="GPT-6 Astra&#10;Mikvaot: 77" tabindex="0">77</td><td style="background:#266fc8;color:#ffffff" data-tip="GPT-6 Astra&#10;Tefillah u&#x27;Brachot: 79" tabindex="0">79</td><td style="background:#2165b7;color:#ffffff" data-tip="GPT-6 Astra&#10;Mitzvot HaTeluyot BaAretz: 84" tabindex="0">84</td></tr><tr><th scope="row"><span class="lab-dot lab-openai" aria-hidden="true"></span>GPT-6.1 Sol</th><td style="background:#5294e3;color:#ffffff" data-tip="GPT-6.1 Sol&#10;Chuppah v&#x27;Kiddushin: 60" tabindex="0">60</td><td style="background:#3f87dd;color:#ffffff" data-tip="GPT-6.1 Sol&#10;Niddah: 67" tabindex="0">67</td><td style="background:#2772cc;color:#ffffff" data-tip="GPT-6.1 Sol&#10;Mikvaot: 78" tabindex="0">78</td><td style="background:#2976d3;color:#ffffff" data-tip="GPT-6.1 Sol&#10;Tefillah u&#x27;Brachot: 76" tabindex="0">76</td><td style="background:#2267bb;color:#ffffff" data-tip="GPT-6.1 Sol&#10;Mitzvot HaTeluyot BaAretz: 83" tabindex="0">83</td></tr><tr><th scope="row"><span class="lab-dot lab-anthropic" aria-hidden="true"></span>Claude Opus 5.5</th><td style="background:#4a8fe1;color:#ffffff" data-tip="Claude Opus 5.5&#10;Chuppah v&#x27;Kiddushin: 63" tabindex="0">63</td><td style="background:#5294e3;color:#ffffff" data-tip="Claude Opus 5.5&#10;Niddah: 60" tabindex="0">60</td><td style="background:#3781da;color:#ffffff" data-tip="Claude Opus 5.5&#10;Mikvaot: 70" tabindex="0">70</td><td style="background:#2a78d6;color:#ffffff" data-tip="Claude Opus 5.5&#10;Tefillah u&#x27;Brachot: 75" tabindex="0">75</td><td style="background:#2772cc;color:#ffffff" data-tip="Claude Opus 5.5&#10;Mitzvot HaTeluyot BaAretz: 78" tabindex="0">78</td></tr><tr><th scope="row"><span class="lab-dot lab-google" aria-hidden="true"></span>Gemini 3.8 Flash</th><td style="background:#5294e3;color:#ffffff" data-tip="Gemini 3.8 Flash&#10;Chuppah v&#x27;Kiddushin: 60" tabindex="0">60</td><td style="background:#609ee8;color:#111111" data-tip="Gemini 3.8 Flash&#10;Niddah: 55" tabindex="0">55</td><td style="background:#4289de;color:#ffffff" data-tip="Gemini 3.8 Flash&#10;Mikvaot: 66" tabindex="0">66</td><td style="background:#4289de;color:#ffffff" data-tip="Gemini 3.8 Flash&#10;Tefillah u&#x27;Brachot: 66" tabindex="0">66</td><td style="background:#2d7ad7;color:#ffffff" data-tip="Gemini 3.8 Flash&#10;Mitzvot HaTeluyot BaAretz: 74" tabindex="0">74</td></tr><tr><th scope="row"><span class="lab-dot lab-openai" aria-hidden="true"></span>GPT-6.1 Terra</th><td style="background:#b9d4f6;color:#111111" data-tip="GPT-6.1 Terra&#10;Chuppah v&#x27;Kiddushin: 24" tabindex="0">24</td><td style="background:#bfd7f7;color:#111111" data-tip="GPT-6.1 Terra&#10;Niddah: 21" tabindex="0">21</td><td style="background:#9cc3f2;color:#111111" data-tip="GPT-6.1 Terra&#10;Mikvaot: 34" tabindex="0">34</td><td style="background:#73abed;color:#111111" data-tip="GPT-6.1 Terra&#10;Tefillah u&#x27;Brachot: 48" tabindex="0">48</td><td style="background:#7cb0ee;color:#111111" data-tip="GPT-6.1 Terra&#10;Mitzvot HaTeluyot BaAretz: 45" tabindex="0">45</td></tr><tr><th scope="row"><span class="lab-dot lab-openai" aria-hidden="true"></span>GPT-6 Luna</th><td style="background:#bdd6f6;color:#111111" data-tip="GPT-6 Luna&#10;Chuppah v&#x27;Kiddushin: 22" tabindex="0">22</td><td style="background:#c6dcf7;color:#111111" data-tip="GPT-6 Luna&#10;Niddah: 17" tabindex="0">17</td><td style="background:#8bb9f0;color:#111111" data-tip="GPT-6 Luna&#10;Mikvaot: 40" tabindex="0">40</td><td style="background:#8ebaf0;color:#111111" data-tip="GPT-6 Luna&#10;Tefillah u&#x27;Brachot: 39" tabindex="0">39</td><td style="background:#7fb2ee;color:#111111" data-tip="GPT-6 Luna&#10;Mitzvot HaTeluyot BaAretz: 44" tabindex="0">44</td></tr><tr><th scope="row"><span class="lab-dot lab-anthropic" aria-hidden="true"></span>Claude Sonnet 5.5</th><td style="background:#b4d1f6;color:#111111" data-tip="Claude Sonnet 5.5&#10;Chuppah v&#x27;Kiddushin: 26" tabindex="0">26</td><td style="background:#c8ddf7;color:#111111" data-tip="Claude Sonnet 5.5&#10;Niddah: 16" tabindex="0">16</td><td style="background:#a5c8f4;color:#111111" data-tip="Claude Sonnet 5.5&#10;Mikvaot: 31" tabindex="0">31</td><td style="background:#bbd5f6;color:#111111" data-tip="Claude Sonnet 5.5&#10;Tefillah u&#x27;Brachot: 23" tabindex="0">23</td><td style="background:#73abed;color:#111111" data-tip="Claude Sonnet 5.5&#10;Mitzvot HaTeluyot BaAretz: 48" tabindex="0">48</td></tr></tbody>
+<tfoot><tr><th scope="row">Average of these 8</th><td>49</td><td>47</td><td>60</td><td>61</td><td>68</td></tr></tfoot></table></div>
+  </div>
+</section>
+<section class="block prose">
 <h2 id="apart">Which models are clearly apart?</h2>
-<p>Overlapping intervals do not by themselves mean two models are tied, so models were also compared question by question:</p>
+<p>Overlapping intervals do not by themselves mean two models are tied, so models were also compared question by question.</p>
 <ul>
 <li><strong>Claude Fable 5.2 and Gemini 4 Carbon lead:</strong> they are not clearly apart (Fable 5.2 ahead by 3.5 points, 95%
   interval −0.3 to 7.1). Fable 5.2 is clearly ahead of every other model: of Claude Fable 5.1 by 6.0 points (3.0 to
@@ -466,47 +417,38 @@ questions (10,000 replicates) and cover only the choice of questions, not judge 
   30.0).</li>
 </ul>
 </section>
-<section class="prose">
+<section class="block prose">
 <h2 id="notes">Notes on individual runs</h2>
-<ol class="footnotes-list"><li id="note-1"><span class="fn-mark">¹</span> Some runs produced no answer text. The model used up the output limit we set while still thinking (DictaLM 9 of 180 and Qwen3.8 27B 9 of 180; the limits were 57,088 and 65,536 tokens, the latter below what Qwen's model card allows), or stopped after thinking without writing an answer (Qwen3.8 27B 10 of 180). Each such run was tried once more; those still without an answer score 0, as every failed answer does.</li><li id="note-2"><span class="fn-mark">²</span> Llama 4 Scout failed one pre-run check: asked whether it had any tools, it claimed a web-search tool it did not have. It ran in a sealed container with no network and no tools, so it was kept, and the failure is disclosed here.</li><li id="note-3"><span class="fn-mark">³</span> Gemini 4 Argon's run stopped when the account's usage quota ran out, and finished on purchased Google AI credits (a recorded amendment; the credits change billing only). During the run, a manual check of the Antigravity program triggered its auto-update, so 84 of Argon's 180 answers (on 28 questions) ran on version 1.4.12 instead of the registered 1.4.10. On those 28 questions, Argon's gap to the four models nearest it is within 2.6 points of its gap on the other 32 (permutation p 0.57 to 0.82), so the version made no visible difference. The answers were kept and are disclosed here.</li><li id="note-4"><span class="fn-mark">⁴</span> Grok 4.7 and Grok 4.3 ran through xAI's Responses API: no tools in the request, responses not stored, reasoning effort high, xAI's recommended sampling (temperature 0.7, top_p 0.95). Every response was checked: none used a tool or a source, and none was cut off. See <a href="#checks-on-the-grok-results">Checks on the Grok results</a>.</li><li id="note-5"><span class="fn-mark">⁵</span> GPT-5.6 Sol and GPT-6 Sol ran on Codex like the other GPT models, with the same settings. GPT-5.6 Sol's Codex exposes a different set of tool definitions, which is recorded. On all three attempts at one question (<code>5787-cheshvan-teluyot-yishum-q11</code>), for both models, OpenAI's safety system flagged the answer partway through and signalled a switch to a smaller model. The harness stops any run that receives an event it does not recognise, so that no answer by another model is recorded under this one's name; those three answers per model score 0, as every failed answer does. These two runs used a later version of the runner code; the only changes are the pre-run check terms and an option to rerun a single attempt, and the code that sends the question and records the answer is unchanged. GPT-5.4 and GPT-5.5 are not offered on the Codex sign-in used here.</li><li id="note-6"><span class="fn-mark">⁶</span> Muse Wonder Full, Muse Wonder, Muse Spark 1.3 and Muse Ember ran through Meta's Muse Code CLI on a Muse Code subscription: a pinned program version (1.4.14), effort high, a fresh process with its own home folder for each answer, the empty preset, and the web, shell and file-writing tools switched off. Every run was monitored live, and any action other than writing the answer would have disqualified it; none was. All 180 answers of each model were completed. Muse Ember was added the day Meta released it. Muse Code keeps its tool definitions and built-in instructions in the model's context. Some Muse answers (about 25 of 540) format their citations as Markdown links to placeholder file paths or web addresses, as a coding assistant would; the citations themselves are ordinary, and the answers were graded as written.</li><li id="note-7"><span class="fn-mark">⁷</span> Claude Fable 5.2 ran like the other Claude models (Claude Code CLI, every tool switched off, effort high), but on Claude Code 2.1.290 instead of 2.1.283: Anthropic's API refuses this model on the older version. Like every Claude model since 2 November, it ran on the project's own Claude account, whose email address, which Claude Code shows the model, contains the project's name.</li><li id="note-8"><span class="fn-mark">⁸</span> Gemini 4 Carbon ran like Gemini 4 Argon (Antigravity CLI 1.4.10, effort high, every run monitored live; none used a tool). It thinks far longer than any other model: a median of about 69,000 output tokens and 13 minutes per answer, against about 14,000 for Argon. Two attempts at one question timed out after 30 minutes with no reply, twice each, and were run once more under the registered retry rule; both then answered, so all 180 answers are scored. During its grading, OpenAI's service began sending a new kind of status message with every GPT-6 Astra call, one that only repeats the requested reasoning effort. The harness stops any call that receives a message it does not recognise, so grading halted. A recorded amendment lets the harness accept that one message when it exactly repeats the requested effort (any other message still stops the call); this changes the judge protocol's hash, and the new hash is registered as equivalent to the old one. The grading begun under the old hash was set aside, and all of Carbon's answers were graded again from the start. The other 29 models' grades are unchanged.</li></ol>
+<ol class="notes"><li id="note-1"><span class="fn-mark">¹</span>Some runs produced no answer text. The model used up the output limit we set while still thinking (DictaLM 9 of 180 and Qwen3.8 27B 9 of 180; the limits were 57,088 and 65,536 tokens, the latter below what Qwen's model card allows), or stopped after thinking without writing an answer (Qwen3.8 27B 10 of 180). Each such run was tried once more; those still without an answer score 0, as every failed answer does.</li><li id="note-2"><span class="fn-mark">²</span>Llama 4 Scout failed one pre-run check: asked whether it had any tools, it claimed a web-search tool it did not have. It ran in a sealed container with no network and no tools, so it was kept, and the failure is disclosed here.</li><li id="note-3"><span class="fn-mark">³</span>Gemini 4 Argon's run stopped when the account's usage quota ran out, and finished on purchased Google AI credits (a recorded amendment; the credits change billing only). During the run, a manual check of the Antigravity program triggered its auto-update, so 84 of Argon's 180 answers (on 28 questions) ran on version 1.4.12 instead of the registered 1.4.10. On those 28 questions, Argon's gap to the four models nearest it is within 2.6 points of its gap on the other 32 (permutation p 0.57 to 0.82), so the version made no visible difference. The answers were kept and are disclosed here.</li><li id="note-4"><span class="fn-mark">⁴</span>Grok 4.7 and Grok 4.3 ran through xAI's Responses API: no tools in the request, responses not stored, reasoning effort high, xAI's recommended sampling (temperature 0.7, top_p 0.95). Every response was checked: none used a tool or a source, and none was cut off. See <a href="#checks-on-the-grok-results">Checks on the Grok results</a>.</li><li id="note-5"><span class="fn-mark">⁵</span>GPT-5.6 Sol and GPT-6 Sol ran on Codex like the other GPT models, with the same settings. GPT-5.6 Sol's Codex exposes a different set of tool definitions, which is recorded. On all three attempts at one question (<code>5787-cheshvan-teluyot-yishum-q11</code>), for both models, OpenAI's safety system flagged the answer partway through and signalled a switch to a smaller model. The harness stops any run that receives an event it does not recognise, so that no answer by another model is recorded under this one's name; those three answers per model score 0, as every failed answer does. These two runs used a later version of the runner code; the only changes are the pre-run check terms and an option to rerun a single attempt, and the code that sends the question and records the answer is unchanged. GPT-5.4 and GPT-5.5 are not offered on the Codex sign-in used here.</li><li id="note-6"><span class="fn-mark">⁶</span>Muse Wonder Full, Muse Wonder, Muse Spark 1.3 and Muse Ember ran through Meta's Muse Code CLI on a Muse Code subscription: a pinned program version (1.4.14), effort high, a fresh process with its own home folder for each answer, the empty preset, and the web, shell and file-writing tools switched off. Every run was monitored live, and any action other than writing the answer would have disqualified it; none was. All 180 answers of each model were completed. Muse Ember was added the day Meta released it. Muse Code keeps its tool definitions and built-in instructions in the model's context. Some Muse answers (about 25 of 540) format their citations as Markdown links to placeholder file paths or web addresses, as a coding assistant would; the citations themselves are ordinary, and the answers were graded as written.</li><li id="note-7"><span class="fn-mark">⁷</span>Claude Fable 5.2 ran like the other Claude models (Claude Code CLI, every tool switched off, effort high), but on Claude Code 2.1.290 instead of 2.1.283: Anthropic's API refuses this model on the older version. Like every Claude model since 2 November, it ran on the project's own Claude account, whose email address, which Claude Code shows the model, contains the project's name.</li><li id="note-8"><span class="fn-mark">⁸</span>Gemini 4 Carbon ran like Gemini 4 Argon (Antigravity CLI 1.4.10, effort high, every run monitored live; none used a tool). It thinks far longer than any other model: a median of about 69,000 output tokens and 13 minutes per answer, against about 14,000 for Argon. Two attempts at one question timed out after 30 minutes with no reply, twice each, and were run once more under the registered retry rule; both then answered, so all 180 answers are scored. During its grading, OpenAI's service began sending a new kind of status message with every GPT-6 Astra call, one that only repeats the requested reasoning effort. The harness stops any call that receives a message it does not recognise, so grading halted. A recorded amendment lets the harness accept that one message when it exactly repeats the requested effort (any other message still stops the call); this changes the judge protocol's hash, and the new hash is registered as equivalent to the old one. The grading begun under the old hash was set aside, and all of Carbon's answers were graded again from the start. The other 29 models' grades are unchanged.</li></ol>
 </section>
-<section class="prose">
+<section class="block prose">
 <h2 id="updates">Changelog</h2>
 <ol class="changelog wide"><li><time>13 November 2026</time><span>Gemini 4 Carbon added. It places second (82.3), 4.1 points above Gemini 4 Argon and not clearly apart from Claude Fable 5.2. During its grading the judge protocol was amended (note ⁸).</span></li><li><time>9 November 2026</time><span>Two models added: Claude Fable 5.2, which takes first place (85.8) and is clearly ahead of every other model, and Meta's Muse Ember, the smallest Muse model (15.3, 19th).</span></li><li><time>6 November 2026</time><span>Three of Meta's Muse models added, run through Meta's Muse Code CLI: Muse Wonder Full, Muse Wonder and Muse Spark 1.3. Muse Wonder Full places 8th (60.8).</span></li><li><time>3 November 2026</time><span>Two earlier GPT models added, GPT-5.6 Sol and GPT-6 Sol. The older one scored far higher.</span></li><li><time>2 November 2026</time><span>Five models added, all scored on the same questions, rubrics and judge: Gemini 4 Argon, Grok 4.7, Grok 4.3, Claude Opus 4.8 and Claude Sonnet 4.6.</span></li><li><time>1 November 2026</time><span>First results: 17 models.</span></li></ol>
+<p><a href="/method/">How the exam is run and graded</a>. <a href="/findings/grok-checks/">Checks on the Grok results</a>.</p>
 </section>
-<section class="prose"><h2>More</h2>
-<p><a href="/method/">How the exam is run and graded</a> · <a href="/findings/grok-checks/">Checks on the Grok results</a> ·
-<a href="/findings/hardest-paper/">Which paper is hardest</a> · <a href="https://github.com/halachabench/halacha-bench-results/tree/main/bundle">Proof bundle on GitHub</a></p></section>
 </div>
 </main>
 <footer class="site-foot">
   <div class="wrap foot-grid">
-    <div>
-      <a class="brand" href="/"><img src="/assets/favicon.png" alt="" width="22" height="22"><span>HalachaBench</span></a>
-      <p class="muted">An independent project. Not connected to or endorsed by the Chief Rabbinate of Israel or by any
-      model developer; model names are their owners' trademarks. Results are provisional and are not psak.</p>
+    <div class="foot-about">
+      <a class="wordmark small" href="/">HalachaBench<span>.ai</span></a>
+      <p>An independent project. Not connected to or endorsed by the Chief Rabbinate of Israel or by any model
+      developer; model names are their owners' trademarks. Results are provisional, and nothing here is psak.</p>
     </div>
-    <div>
-      <h4>Results</h4>
-      <a href="/halachabench/">HalachaBench leaderboard</a><a href="/hashkafabench/">HashkafaBench</a>
-      <a href="/values/">Halacha vs. own values</a><a href="/findings/">All findings</a>
-    </div>
-    <div>
-      <h4>Source</h4>
-      <a href="https://github.com/halachabench/halacha-bench-results">halacha-bench-results</a>
-      <a href="https://github.com/halachabench/hashkafa-bench-results">hashkafa-bench-results</a>
-      <a href="/method/#cite">Cite</a>
-    </div>
-    <div>
-      <h4>Contact</h4>
-      <a href="mailto:halachabench@gmail.com">halachabench@gmail.com</a><a href="https://x.com/HalachaBench">@HalachaBench on X</a>
-      <p class="muted small">Last updated 13 November 2026</p>
-    </div>
+    <nav class="foot-links" aria-label="Results"><h2>Results</h2>
+      <a href="/halachabench/">Semicha exam leaderboard</a><a href="/hashkafabench/">HashkafaBench</a>
+      <a href="/values/">Halacha vs. own values</a><a href="/findings/">All findings</a></nav>
+    <nav class="foot-links" aria-label="Sources"><h2>Sources</h2>
+      <a href="https://github.com/halachabench/halacha-bench-results">Results data on GitHub</a>
+      <a href="https://github.com/halachabench/hashkafa-bench-results">HashkafaBench data on GitHub</a>
+      <a href="/method/#cite">Cite HalachaBench</a></nav>
+    <nav class="foot-links" aria-label="Contact"><h2>Contact</h2>
+      <a href="mailto:halachabench@gmail.com">halachabench@gmail.com</a><a href="https://x.com/HalachaBench">@HalachaBench on X</a></nav>
   </div>
-  <div class="wrap foot-legal">© 2026 MasechetAI</div>
+  <div class="wrap foot-legal"><span>© 2026 MasechetAI</span><span>Last updated 13 November 2026</span></div>
 </footer>
 <div class="tip" role="tooltip" hidden></div>
-<script src="/assets/site.js?v=202611182020" defer></script>
+<script src="/assets/site.js?v=202611182039" defer></script>
 
 </body>
 </html>

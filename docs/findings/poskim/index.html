@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Which poskim are the models closest to? · HalachaBench</title>
+<title>Which poskim are the models closest to? | HalachaBench</title>
 <meta name="description" content="Claude and the Geminis rule near R. Ovadia Yosef and R. Shlomo Zalman Auerbach; the GPT models cluster with the Shulchan Aruch and Rema, and rarely cite a 20th-century posek.">
 <link rel="canonical" href="https://halachabench.ai/findings/poskim/">
 <meta property="og:type" content="website">
@@ -14,31 +14,30 @@
 <meta property="og:image" content="https://halachabench.ai/assets/hashkafa/poskim-map.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@HalachaBench">
-<link rel="icon" type="image/png" href="/assets/favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Frank+Ruhl+Libre:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/style.css?v=202611182020">
+<meta name="theme-color" content="#f6f4ef">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+
+<link rel="stylesheet" href="/assets/style.css?v=202611182039">
 <script>try{var t=localStorage.getItem('hb-theme');if(t)document.documentElement.dataset.theme=t;}catch(_){}</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-head">
   <div class="wrap head-row">
-    <a class="brand" href="/"><img src="/assets/favicon.png" alt="" width="28" height="28"><span>HalachaBench</span></a>
-    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><span></span></button>
-    <nav id="site-nav" class="site-nav"><a href="/halachabench/">HalachaBench</a><a href="/hashkafabench/">HashkafaBench</a><a href="/values/">Halacha vs. own values</a><a href="/findings/" aria-current="page">Findings</a><a href="/method/">Method</a><a href="/about/">About</a><a href="/he/" lang="he" class="he-link">עברית</a>
-      <button class="theme-toggle" type="button" aria-label="Switch light or dark theme" title="Light / dark"></button></nav>
+    <a class="wordmark" href="/">HalachaBench<span>.ai</span></a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav"><span class="visually-hidden">Menu</span><i></i></button>
+    <nav id="site-nav" class="site-nav" aria-label="Main"><a href="/halachabench/">Leaderboard</a><a href="/hashkafabench/">HashkafaBench</a><a href="/values/">Halacha vs. own values</a><a href="/findings/" aria-current="page">Findings</a><a href="/method/">Method</a><a href="/about/">About</a><a href="/he/" lang="he" class="he-link">עברית</a>
+      <button class="theme-toggle" type="button" aria-label="Switch between light and dark"></button></nav>
   </div>
 </header>
 <main id="main">
 
 <article class="post">
-<header class="page-head"><div class="wrap narrow">
-<p class="eyebrow"><a href="/findings/">Findings</a> · <span class="tag tag-hashkafabench">HashkafaBench</span></p>
+<header class="page-head wrap narrow">
+<p class="crumbs"><a href="/findings/">Findings</a> <span class="tag t-hk">HashkafaBench</span>
+<time datetime="2026-11-09">9 November 2026</time></p>
 <h1>Which poskim are the models closest to?</h1><p class="lede">Claude and the Geminis rule near R. Ovadia Yosef and R. Shlomo Zalman Auerbach; the GPT models cluster with the Shulchan Aruch and Rema, and rarely cite a 20th-century posek.</p>
-<p class="page-meta"><time datetime="2026-11-09">9 November 2026</time></p>
-</div></header>
+</header>
 <div class="wrap narrow prose"><p>Every rubric position in HashkafaBench names the authorities who hold it, so a posek can be placed in the same space as
 the models. We looked three ways, from most to least dependent on the judge model. All three are descriptive.</p>
 <h2>1. Rulings</h2>
@@ -145,37 +144,30 @@ Yosef is almost never cited, consistent with an Ashkenazi asker.</p>
 <p><img alt="Which models write alike" src="/assets/hashkafa/style-dendrogram.png" /></p>
 <p>By Burrows's Delta on their most frequent words, the models cluster by lab: GPT in one branch, Claude and the Geminis
 in another, Grok nearest Claude.</p>
-<div class="post-foot"><a class="btn-ghost" href="https://x.com/HalachaBench/status/2119842194148430254">Read the thread on X</a><a class="btn-ghost" href="/hashkafabench/">See the data</a></div>
-<nav class="pager"><a class="pg prev" href="/findings/hashkafabench/"><span>Older</span>Is your AI stringent or lenient?</a><a class="pg next" href="/findings/white-lie/"><span>Newer</span>AI says Aharon HaKohen&#x27;s white lie is allowed. It won&#x27;t tell one.</a></nav></div></article>
+<p class="post-links"><a class="plain-link" href="https://x.com/HalachaBench/status/2119842194148430254">Read the thread on X</a><a class="plain-link" href="/hashkafabench/">See the data</a></p>
+<nav class="pager" aria-label="More findings"><a class="pg prev" href="/findings/hashkafabench/"><small>Older</small>Is your AI stringent or lenient?</a><a class="pg next" href="/findings/white-lie/"><small>Newer</small>AI says Aharon HaKohen&#x27;s white lie is allowed. It won&#x27;t tell one.</a></nav></div></article>
 </main>
 <footer class="site-foot">
   <div class="wrap foot-grid">
-    <div>
-      <a class="brand" href="/"><img src="/assets/favicon.png" alt="" width="22" height="22"><span>HalachaBench</span></a>
-      <p class="muted">An independent project. Not connected to or endorsed by the Chief Rabbinate of Israel or by any
-      model developer; model names are their owners' trademarks. Results are provisional and are not psak.</p>
+    <div class="foot-about">
+      <a class="wordmark small" href="/">HalachaBench<span>.ai</span></a>
+      <p>An independent project. Not connected to or endorsed by the Chief Rabbinate of Israel or by any model
+      developer; model names are their owners' trademarks. Results are provisional, and nothing here is psak.</p>
     </div>
-    <div>
-      <h4>Results</h4>
-      <a href="/halachabench/">HalachaBench leaderboard</a><a href="/hashkafabench/">HashkafaBench</a>
-      <a href="/values/">Halacha vs. own values</a><a href="/findings/">All findings</a>
-    </div>
-    <div>
-      <h4>Source</h4>
-      <a href="https://github.com/halachabench/halacha-bench-results">halacha-bench-results</a>
-      <a href="https://github.com/halachabench/hashkafa-bench-results">hashkafa-bench-results</a>
-      <a href="/method/#cite">Cite</a>
-    </div>
-    <div>
-      <h4>Contact</h4>
-      <a href="mailto:halachabench@gmail.com">halachabench@gmail.com</a><a href="https://x.com/HalachaBench">@HalachaBench on X</a>
-      <p class="muted small">Last updated 13 November 2026</p>
-    </div>
+    <nav class="foot-links" aria-label="Results"><h2>Results</h2>
+      <a href="/halachabench/">Semicha exam leaderboard</a><a href="/hashkafabench/">HashkafaBench</a>
+      <a href="/values/">Halacha vs. own values</a><a href="/findings/">All findings</a></nav>
+    <nav class="foot-links" aria-label="Sources"><h2>Sources</h2>
+      <a href="https://github.com/halachabench/halacha-bench-results">Results data on GitHub</a>
+      <a href="https://github.com/halachabench/hashkafa-bench-results">HashkafaBench data on GitHub</a>
+      <a href="/method/#cite">Cite HalachaBench</a></nav>
+    <nav class="foot-links" aria-label="Contact"><h2>Contact</h2>
+      <a href="mailto:halachabench@gmail.com">halachabench@gmail.com</a><a href="https://x.com/HalachaBench">@HalachaBench on X</a></nav>
   </div>
-  <div class="wrap foot-legal">© 2026 MasechetAI</div>
+  <div class="wrap foot-legal"><span>© 2026 MasechetAI</span><span>Last updated 13 November 2026</span></div>
 </footer>
 <div class="tip" role="tooltip" hidden></div>
-<script src="/assets/site.js?v=202611182020" defer></script>
+<script src="/assets/site.js?v=202611182039" defer></script>
 
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Findings · HalachaBench</title>
+<title>Findings | HalachaBench</title>
 <meta name="description" content="Every HalachaBench and HashkafaBench finding, newest first.">
 <link rel="canonical" href="https://halachabench.ai/findings/">
 <meta property="og:type" content="website">
@@ -14,92 +14,73 @@
 <meta property="og:image" content="https://halachabench.ai/assets/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@HalachaBench">
-<link rel="icon" type="image/png" href="/assets/favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Frank+Ruhl+Libre:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/style.css?v=202611182020">
+<meta name="theme-color" content="#f6f4ef">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+
+<link rel="stylesheet" href="/assets/style.css?v=202611182039">
 <script>try{var t=localStorage.getItem('hb-theme');if(t)document.documentElement.dataset.theme=t;}catch(_){}</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-head">
   <div class="wrap head-row">
-    <a class="brand" href="/"><img src="/assets/favicon.png" alt="" width="28" height="28"><span>HalachaBench</span></a>
-    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><span></span></button>
-    <nav id="site-nav" class="site-nav"><a href="/halachabench/">HalachaBench</a><a href="/hashkafabench/">HashkafaBench</a><a href="/values/">Halacha vs. own values</a><a href="/findings/" aria-current="page">Findings</a><a href="/method/">Method</a><a href="/about/">About</a><a href="/he/" lang="he" class="he-link">עברית</a>
-      <button class="theme-toggle" type="button" aria-label="Switch light or dark theme" title="Light / dark"></button></nav>
+    <a class="wordmark" href="/">HalachaBench<span>.ai</span></a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav"><span class="visually-hidden">Menu</span><i></i></button>
+    <nav id="site-nav" class="site-nav" aria-label="Main"><a href="/halachabench/">Leaderboard</a><a href="/hashkafabench/">HashkafaBench</a><a href="/values/">Halacha vs. own values</a><a href="/findings/" aria-current="page">Findings</a><a href="/method/">Method</a><a href="/about/">About</a><a href="/he/" lang="he" class="he-link">עברית</a>
+      <button class="theme-toggle" type="button" aria-label="Switch between light and dark"></button></nav>
   </div>
 </header>
 <main id="main">
 
-<section class="page-head"><div class="wrap"><p class="eyebrow">Findings</p><h1>What we've found</h1>
-<p class="lede">Each result we've published, with the data behind it. Newest first.</p></div></section>
+<section class="page-head wrap"><h1>Findings</h1>
+<p class="lede">Every result we have published, newest first, each with the data behind it.</p></section>
 <div class="wrap"><div class="controls"><div class="seg" role="group" aria-label="Study">
 <button type="button" data-study="" aria-pressed="true">All</button><button type="button" data-study="HalachaBench" aria-pressed="false">HalachaBench</button><button type="button" data-study="HashkafaBench" aria-pressed="false">HashkafaBench</button><button type="button" data-study="Values" aria-pressed="false">Values</button></div></div>
-<div class="findings-grid" id="findings"><a class="card finding-card" href="/findings/gemini-carbon/"><img src="/assets/img/efficiency-score-vs-tokens.png" alt="" loading="lazy">
-<div class="card-body"><div class="meta"><span class="tag tag-halachabench">HalachaBench</span>
-<time datetime="2026-11-13">13 November 2026</time></div>
-<h3>Gemini 4 Carbon climbs to second</h3><p>82.3, four points above Gemini 4 Argon and not clearly apart from Claude Fable 5.2. It thinks far longer than any other model, about 69,000 tokens per answer.</p></div></a><a class="card finding-card" href="/findings/sephardi-asker/"><img src="/assets/hashkafa/sephardi-overlay-radar.png" alt="" loading="lazy">
-<div class="card-body"><div class="meta"><span class="tag tag-hashkafabench">HashkafaBench</span>
-<time datetime="2026-11-12">12 November 2026</time></div>
-<h3>Tell the AI you&#x27;re Sephardi</h3><p>The models carry a detailed map of where Sephardi practice departs from Ashkenazi practice, and apply it when told who is asking: more lenient overall, but only where the traditions differ.</p></div></a><a class="card finding-card" href="/findings/fable-5-2/"><img src="/assets/img/halachabench-results.png" alt="" loading="lazy">
-<div class="card-body"><div class="meta"><span class="tag tag-halachabench">HalachaBench</span>
-<time datetime="2026-11-10">10 November 2026</time></div>
-<h3>Claude Fable 5.2 takes first place</h3><p>85.8, the highest score yet and clearly ahead of every model then on the board. Better than Fable 5.1 on all five papers; even its worst attempts beat 5.1&#x27;s average.</p></div></a><a class="card finding-card" href="/findings/white-lie/"><img src="/assets/img/beinadam-personal-ballot.png" alt="" loading="lazy">
-<div class="card-body"><div class="meta"><span class="tag tag-values">Values</span>
-<time datetime="2026-11-09">9 November 2026</time></div>
-<h3>AI says Aharon HaKohen&#x27;s white lie is allowed. It won&#x27;t tell one.</h3><p>13 models gave a halachic ruling, then said what they&#x27;d do themselves. Asked twice, the ruling repeats 75% of the time; their own choice matches it only 41% of the time.</p></div></a><a class="card finding-card" href="/findings/poskim/"><img src="/assets/hashkafa/poskim-map.png" alt="" loading="lazy">
-<div class="card-body"><div class="meta"><span class="tag tag-hashkafabench">HashkafaBench</span>
-<time datetime="2026-11-09">9 November 2026</time></div>
-<h3>Which poskim are the models closest to?</h3><p>Claude and the Geminis rule near R. Ovadia Yosef and R. Shlomo Zalman Auerbach; the GPT models cluster with the Shulchan Aruch and Rema, and rarely cite a 20th-century posek.</p></div></a><a class="card finding-card" href="/findings/hashkafabench/"><img src="/assets/hashkafa/labs-radar.png" alt="" loading="lazy">
-<div class="card-body"><div class="meta"><span class="tag tag-hashkafabench">HashkafaBench</span>
-<time datetime="2026-11-06">6 November 2026</time></div>
-<h3>Is your AI stringent or lenient?</h3><p>13 models, 288 everyday questions. Claude&#x27;s models rule most leniently; GPT, Gemini and Grok can&#x27;t be told apart. On bein adam lachavero, every lab agrees.</p></div></a><a class="card finding-card" href="/findings/muse/"><img src="/assets/img/halachabench-results.png" alt="" loading="lazy">
-<div class="card-body"><div class="meta"><span class="tag tag-halachabench">HalachaBench</span>
-<time datetime="2026-11-06">6 November 2026</time></div>
-<h3>Meta&#x27;s Muse models take the exam</h3><p>Muse Wonder Full scored 60.8, just behind Gemini 3.8 Flash. Muse Wonder scored 48.2, Muse Spark 1.3 36.2, and the lightest, Muse Ember, 15.3.</p></div></a><a class="card finding-card" href="/findings/older-gpt/"><img src="/assets/img/halachabench-results.png" alt="" loading="lazy">
-<div class="card-body"><div class="meta"><span class="tag tag-halachabench">HalachaBench</span>
-<time datetime="2026-11-03">3 November 2026</time></div>
-<h3>An older GPT beat the newer one by 29 points</h3><p>GPT-5.6 Sol scored 77.3; the newer GPT-6 Sol scored 48.7. The newer model didn&#x27;t make more errors. It wrote shorter answers.</p></div></a><a class="card finding-card" href="/findings/grok-checks/"><img src="/assets/img/halachabench-results.png" alt="" loading="lazy">
-<div class="card-body"><div class="meta"><span class="tag tag-halachabench">HalachaBench</span>
-<time datetime="2026-11-02">2 November 2026</time></div>
-<h3>Checks on the Grok results</h3><p>Grok 4.7 scored 29.9, far below the leaders. We checked the result five ways and it holds up. Its answers are short.</p></div></a><a class="card finding-card" href="/findings/hardest-paper/"><img src="/assets/img/by-paper.png" alt="" loading="lazy">
-<div class="card-body"><div class="meta"><span class="tag tag-halachabench">HalachaBench</span>
-<time datetime="2026-11-02">2 November 2026</time></div>
-<h3>Which semicha paper is hardest for AI?</h3><p>Chuppah v&#x27;Kiddushin and Niddah were the hardest papers for nearly every model. Mitzvot HaTeluyot BaAretz was the easiest.</p></div></a><a class="card finding-card" href="/findings/semicha-exam/"><img src="/assets/img/halachabench-results.png" alt="" loading="lazy">
-<div class="card-body"><div class="meta"><span class="tag tag-halachabench">HalachaBench</span>
-<time datetime="2026-11-01">1 November 2026</time></div>
-<h3>We gave AI a semicha exam</h3><p>Real Chief Rabbinate semicha questions, in Hebrew, with no books and no internet. The best model scored 80 out of 100; many scored under 11.</p></div></a></div></div>
+<ol class="f-list big" id="findings"><li class="f-row" data-study="HalachaBench"><a href="/findings/gemini-carbon/">
+<time datetime="2026-11-13">Nov 13</time>
+<div class="f-text"><span class="tag t-hb">HalachaBench</span><h3>Gemini 4 Carbon climbs to second</h3><p>82.3, four points above Gemini 4 Argon and not clearly apart from Claude Fable 5.2. It thinks far longer than any other model, about 69,000 tokens per answer.</p></div><img src="/assets/img/efficiency-score-vs-tokens.png" alt="" loading="lazy" width="320" height="180"></a></li><li class="f-row" data-study="HashkafaBench"><a href="/findings/sephardi-asker/">
+<time datetime="2026-11-12">Nov 12</time>
+<div class="f-text"><span class="tag t-hk">HashkafaBench</span><h3>Tell the AI you&#x27;re Sephardi</h3><p>The models carry a detailed map of where Sephardi practice departs from Ashkenazi practice, and apply it when told who is asking: more lenient overall, but only where the traditions differ.</p></div><img src="/assets/hashkafa/sephardi-overlay-radar.png" alt="" loading="lazy" width="320" height="180"></a></li><li class="f-row" data-study="HalachaBench"><a href="/findings/fable-5-2/">
+<time datetime="2026-11-10">Nov 10</time>
+<div class="f-text"><span class="tag t-hb">HalachaBench</span><h3>Claude Fable 5.2 takes first place</h3><p>85.8, the highest score yet and clearly ahead of every model then on the board. Better than Fable 5.1 on all five papers; even its worst attempts beat 5.1&#x27;s average.</p></div><img src="/assets/img/halachabench-results.png" alt="" loading="lazy" width="320" height="180"></a></li><li class="f-row" data-study="Values"><a href="/findings/white-lie/">
+<time datetime="2026-11-09">Nov 9</time>
+<div class="f-text"><span class="tag t-v">Values</span><h3>AI says Aharon HaKohen&#x27;s white lie is allowed. It won&#x27;t tell one.</h3><p>13 models gave a halachic ruling, then said what they&#x27;d do themselves. Asked twice, the ruling repeats 75% of the time; their own choice matches it only 41% of the time.</p></div><img src="/assets/img/beinadam-personal-ballot.png" alt="" loading="lazy" width="320" height="180"></a></li><li class="f-row" data-study="HashkafaBench"><a href="/findings/poskim/">
+<time datetime="2026-11-09">Nov 9</time>
+<div class="f-text"><span class="tag t-hk">HashkafaBench</span><h3>Which poskim are the models closest to?</h3><p>Claude and the Geminis rule near R. Ovadia Yosef and R. Shlomo Zalman Auerbach; the GPT models cluster with the Shulchan Aruch and Rema, and rarely cite a 20th-century posek.</p></div><img src="/assets/hashkafa/poskim-map.png" alt="" loading="lazy" width="320" height="180"></a></li><li class="f-row" data-study="HashkafaBench"><a href="/findings/hashkafabench/">
+<time datetime="2026-11-06">Nov 6</time>
+<div class="f-text"><span class="tag t-hk">HashkafaBench</span><h3>Is your AI stringent or lenient?</h3><p>13 models, 288 everyday questions. Claude&#x27;s models rule most leniently; GPT, Gemini and Grok can&#x27;t be told apart. On bein adam lachavero, every lab agrees.</p></div><img src="/assets/hashkafa/labs-radar.png" alt="" loading="lazy" width="320" height="180"></a></li><li class="f-row" data-study="HalachaBench"><a href="/findings/muse/">
+<time datetime="2026-11-06">Nov 6</time>
+<div class="f-text"><span class="tag t-hb">HalachaBench</span><h3>Meta&#x27;s Muse models take the exam</h3><p>Muse Wonder Full scored 60.8, just behind Gemini 3.8 Flash. Muse Wonder scored 48.2, Muse Spark 1.3 36.2, and the lightest, Muse Ember, 15.3.</p></div><img src="/assets/img/halachabench-results.png" alt="" loading="lazy" width="320" height="180"></a></li><li class="f-row" data-study="HalachaBench"><a href="/findings/older-gpt/">
+<time datetime="2026-11-03">Nov 3</time>
+<div class="f-text"><span class="tag t-hb">HalachaBench</span><h3>An older GPT beat the newer one by 29 points</h3><p>GPT-5.6 Sol scored 77.3; the newer GPT-6 Sol scored 48.7. The newer model didn&#x27;t make more errors. It wrote shorter answers.</p></div><img src="/assets/img/halachabench-results.png" alt="" loading="lazy" width="320" height="180"></a></li><li class="f-row" data-study="HalachaBench"><a href="/findings/grok-checks/">
+<time datetime="2026-11-02">Nov 2</time>
+<div class="f-text"><span class="tag t-hb">HalachaBench</span><h3>Checks on the Grok results</h3><p>Grok 4.7 scored 29.9, far below the leaders. We checked the result five ways and it holds up. Its answers are short.</p></div><img src="/assets/img/halachabench-results.png" alt="" loading="lazy" width="320" height="180"></a></li><li class="f-row" data-study="HalachaBench"><a href="/findings/hardest-paper/">
+<time datetime="2026-11-02">Nov 2</time>
+<div class="f-text"><span class="tag t-hb">HalachaBench</span><h3>Which semicha paper is hardest for AI?</h3><p>Chuppah v&#x27;Kiddushin and Niddah were the hardest papers for nearly every model. Mitzvot HaTeluyot BaAretz was the easiest.</p></div><img src="/assets/img/by-paper.png" alt="" loading="lazy" width="320" height="180"></a></li><li class="f-row" data-study="HalachaBench"><a href="/findings/semicha-exam/">
+<time datetime="2026-11-01">Nov 1</time>
+<div class="f-text"><span class="tag t-hb">HalachaBench</span><h3>We gave AI a semicha exam</h3><p>Real Chief Rabbinate semicha questions, in Hebrew, with no books and no internet. The best model scored 80 out of 100; many scored under 11.</p></div><img src="/assets/img/halachabench-results.png" alt="" loading="lazy" width="320" height="180"></a></li></ol></div>
 </main>
 <footer class="site-foot">
   <div class="wrap foot-grid">
-    <div>
-      <a class="brand" href="/"><img src="/assets/favicon.png" alt="" width="22" height="22"><span>HalachaBench</span></a>
-      <p class="muted">An independent project. Not connected to or endorsed by the Chief Rabbinate of Israel or by any
-      model developer; model names are their owners' trademarks. Results are provisional and are not psak.</p>
+    <div class="foot-about">
+      <a class="wordmark small" href="/">HalachaBench<span>.ai</span></a>
+      <p>An independent project. Not connected to or endorsed by the Chief Rabbinate of Israel or by any model
+      developer; model names are their owners' trademarks. Results are provisional, and nothing here is psak.</p>
     </div>
-    <div>
-      <h4>Results</h4>
-      <a href="/halachabench/">HalachaBench leaderboard</a><a href="/hashkafabench/">HashkafaBench</a>
-      <a href="/values/">Halacha vs. own values</a><a href="/findings/">All findings</a>
-    </div>
-    <div>
-      <h4>Source</h4>
-      <a href="https://github.com/halachabench/halacha-bench-results">halacha-bench-results</a>
-      <a href="https://github.com/halachabench/hashkafa-bench-results">hashkafa-bench-results</a>
-      <a href="/method/#cite">Cite</a>
-    </div>
-    <div>
-      <h4>Contact</h4>
-      <a href="mailto:halachabench@gmail.com">halachabench@gmail.com</a><a href="https://x.com/HalachaBench">@HalachaBench on X</a>
-      <p class="muted small">Last updated 13 November 2026</p>
-    </div>
+    <nav class="foot-links" aria-label="Results"><h2>Results</h2>
+      <a href="/halachabench/">Semicha exam leaderboard</a><a href="/hashkafabench/">HashkafaBench</a>
+      <a href="/values/">Halacha vs. own values</a><a href="/findings/">All findings</a></nav>
+    <nav class="foot-links" aria-label="Sources"><h2>Sources</h2>
+      <a href="https://github.com/halachabench/halacha-bench-results">Results data on GitHub</a>
+      <a href="https://github.com/halachabench/hashkafa-bench-results">HashkafaBench data on GitHub</a>
+      <a href="/method/#cite">Cite HalachaBench</a></nav>
+    <nav class="foot-links" aria-label="Contact"><h2>Contact</h2>
+      <a href="mailto:halachabench@gmail.com">halachabench@gmail.com</a><a href="https://x.com/HalachaBench">@HalachaBench on X</a></nav>
   </div>
-  <div class="wrap foot-legal">© 2026 MasechetAI</div>
+  <div class="wrap foot-legal"><span>© 2026 MasechetAI</span><span>Last updated 13 November 2026</span></div>
 </footer>
 <div class="tip" role="tooltip" hidden></div>
-<script src="/assets/site.js?v=202611182020" defer></script>
+<script src="/assets/site.js?v=202611182039" defer></script>
 
 </body>
 </html>

@@ -1,0 +1,15 @@
+{
+  "_note": "Mean score per exam paper as posted on X (by-paper.png, results of 1 November 2026). 12 questions x 3 attempts per paper.",
+  "as_of": "2026-11-01",
+  "papers": ["Chuppah v'Kiddushin", "Niddah", "Mikvaot", "Tefillah u'Brachot", "Mitzvot HaTeluyot BaAretz"],
+  "models": [
+    {"name": "Claude Fable 5.1", "lab": "Anthropic", "scores": [73, 77, 82, 82, 85]},
+    {"name": "GPT-6 Astra", "lab": "OpenAI", "scores": [62, 65, 77, 79, 84]},
+    {"name": "GPT-6.1 Sol", "lab": "OpenAI", "scores": [60, 67, 78, 76, 83]},
+    {"name": "Claude Opus 5.5", "lab": "Anthropic", "scores": [63, 60, 70, 75, 78]},
+    {"name": "Gemini 3.8 Flash", "lab": "Google", "scores": [60, 55, 66, 66, 74]},
+    {"name": "GPT-6.1 Terra", "lab": "OpenAI", "scores": [24, 21, 34, 48, 45]},
+    {"name": "GPT-6 Luna", "lab": "OpenAI", "scores": [22, 17, 40, 39, 44]},
+    {"name": "Claude Sonnet 5.5", "lab": "Anthropic", "scores": [26, 16, 31, 23, 48]}
+  ]
+}

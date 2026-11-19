@@ -65,11 +65,26 @@
   const grid = $('#findings');
   if (grid) $$('button[data-study]').forEach(b => b.addEventListener('click', () => {
     $$('button[data-study]').forEach(x => x.setAttribute('aria-pressed', x === b));
-    $$('.finding-card', grid).forEach(c => {
-      const tag = $('.tag', c).textContent.trim();
-      c.hidden = !!b.dataset.study && tag !== b.dataset.study;
+    $$('.f-row', grid).forEach(c => {
+      c.hidden = !!b.dataset.study && c.dataset.study !== b.dataset.study;
     });
   }));
+
+  // radar: toggle lab shapes, overlay one model
+  const radar = $('svg.radar');
+  if (radar) {
+    $$('.key-btn').forEach(b => b.addEventListener('click', () => {
+      const on = b.getAttribute('aria-pressed') !== 'true';
+      b.setAttribute('aria-pressed', on);
+      const g = radar.querySelector(`g.shape[data-series="${b.dataset.series}"]`);
+      if (g) g.hidden = !on;
+    }));
+    const pick = $('select[data-overlay]');
+    if (pick) pick.addEventListener('change', () => {
+      $$('g.overlay', radar).forEach(g => { g.hidden = g.dataset.model !== pick.value; });
+      radar.classList.toggle('dim', !!pick.value);
+    });
+  }
 
   // tooltips on [data-tip]
   const tip = $('.tip');

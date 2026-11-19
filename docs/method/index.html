@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Method · HalachaBench</title>
+<title>Method | HalachaBench</title>
 <meta name="description" content="How HalachaBench questions are answered, how rubrics are sealed, and how answers are graded.">
 <link rel="canonical" href="https://halachabench.ai/method/">
 <meta property="og:type" content="website">
@@ -14,36 +14,34 @@
 <meta property="og:image" content="https://halachabench.ai/assets/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@HalachaBench">
-<link rel="icon" type="image/png" href="/assets/favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Frank+Ruhl+Libre:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/style.css?v=202611182020">
+<meta name="theme-color" content="#f6f4ef">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+
+<link rel="stylesheet" href="/assets/style.css?v=202611182039">
 <script>try{var t=localStorage.getItem('hb-theme');if(t)document.documentElement.dataset.theme=t;}catch(_){}</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-head">
   <div class="wrap head-row">
-    <a class="brand" href="/"><img src="/assets/favicon.png" alt="" width="28" height="28"><span>HalachaBench</span></a>
-    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><span></span></button>
-    <nav id="site-nav" class="site-nav"><a href="/halachabench/">HalachaBench</a><a href="/hashkafabench/">HashkafaBench</a><a href="/values/">Halacha vs. own values</a><a href="/findings/">Findings</a><a href="/method/" aria-current="page">Method</a><a href="/about/">About</a><a href="/he/" lang="he" class="he-link">עברית</a>
-      <button class="theme-toggle" type="button" aria-label="Switch light or dark theme" title="Light / dark"></button></nav>
+    <a class="wordmark" href="/">HalachaBench<span>.ai</span></a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav"><span class="visually-hidden">Menu</span><i></i></button>
+    <nav id="site-nav" class="site-nav" aria-label="Main"><a href="/halachabench/">Leaderboard</a><a href="/hashkafabench/">HashkafaBench</a><a href="/values/">Halacha vs. own values</a><a href="/findings/">Findings</a><a href="/method/" aria-current="page">Method</a><a href="/about/">About</a><a href="/he/" lang="he" class="he-link">עברית</a>
+      <button class="theme-toggle" type="button" aria-label="Switch between light and dark"></button></nav>
   </div>
 </header>
 <main id="main">
 
-<section class="page-head"><div class="wrap narrow"><p class="eyebrow">Method · HalachaBench v1</p>
-<h1>How the exam is run and graded</h1>
-<p class="lede">Real questions, closed-book answers, AI-written rubrics sealed before grading, and a public record that
-any later change can be checked against.</p></div></section>
+<section class="page-head wrap narrow"><h1>How the exam is run and graded</h1>
+<p class="lede">Real questions, closed-book answers, rubrics sealed before grading, and a public record that any later
+change can be checked against.</p></section>
 <div class="wrap narrow prose">
-<div class="steps">
-<div><b>1</b><h3>Questions</h3><p>60 questions from five Chief Rabbinate semicha papers, Cheshvan 5787.</p></div>
-<div><b>2</b><h3>Answers</h3><p>Each model answers every question three times, in Hebrew, closed-book, in a fresh process.</p></div>
-<div><b>3</b><h3>Rubrics</h3><p>Drafted, critiqued and cross-reviewed by three labs' models, then sealed on 29 Oct 2026.</p></div>
-<div><b>4</b><h3>Grading</h3><p>A judge model checks every criterion of every answer under one fixed protocol.</p></div>
-</div>
+<ol class="steps">
+<li><h3>Questions</h3><p>60 questions from five Chief Rabbinate semicha papers, Cheshvan 5787.</p></li>
+<li><h3>Answers</h3><p>Every model answers every question three times, in Hebrew, closed-book, each in a fresh process.</p></li>
+<li><h3>Rubrics</h3><p>Drafted, critiqued and cross-reviewed by models from three labs, then sealed on 29 October 2026.</p></li>
+<li><h3>Grading</h3><p>A judge model checks every criterion of every answer under one fixed protocol.</p></li>
+</ol>
 <ul>
 <li><strong>Questions.</strong> The papers were transcribed twice from the page images by two Claude models (Claude Fable and Claude
   Opus), and Claude Fable 5.1 settled every difference against the image. No person has proofread the text yet. The
@@ -154,8 +152,8 @@ files wait for the end of the review round; <code>withheld.json</code> fixes the
 files are published, the bundle cannot be used to recompute a score or open a commitment: it fixes these files so that
 any later change can be detected.</p>
 <h3>Current bundle hashes</h3>
-<p class="muted small">Stage: interim · created 2026-11-13T14:40:28.411557+00:00 · SHA-256</p>
-<div class="table-scroll"><table class="hashes"><tbody><tr><td><code>.gitattributes</code></td><td><code class='hash'>705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da</code></td></tr><tr><td><code>commitments.json</code></td><td><code class='hash'>f574a94eaad9561d631e3efa3a342d05e9ba4bfab9d43787f17a386ca8cdff19</code></td></tr><tr><td><code>criteria.json</code></td><td><code class='hash'>9ac0f46f313a447dff8e24670581b1b4aeff218c706a347c782d17aecffc7f67</code></td></tr><tr><td><code>prereg.json</code></td><td><code class='hash'>17860b43693187edfb070557dd1664efdebe170feb49d717fc7914e01751488c</code></td></tr><tr><td><code>scores.json</code></td><td><code class='hash'>c6ad5bb9e26828d51ca83bc7ea6654fb94ec4d9977f6fc80bf5640952e9c7de0</code></td></tr><tr><td><code>seal-log.jsonl</code></td><td><code class='hash'>6bddcc03fdfbc8bf041bdbac2372dc27981f83297578f637263e05b7b3f1cff4</code></td></tr><tr><td><code>withheld.json</code></td><td><code class='hash'>3726d39f96d619821292741ed8901a1e72c7148329332977db6af85ab8b14745</code></td></tr></tbody></table></div>
+<p class="fig-note">Stage interim, created 2026-11-13T14:40:28.411557+00:00, SHA-256.</p>
+<div class="table-wrap"><table class="hashes"><tbody><tr><td><code>.gitattributes</code></td><td><code class='hash'>705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da</code></td></tr><tr><td><code>commitments.json</code></td><td><code class='hash'>f574a94eaad9561d631e3efa3a342d05e9ba4bfab9d43787f17a386ca8cdff19</code></td></tr><tr><td><code>criteria.json</code></td><td><code class='hash'>9ac0f46f313a447dff8e24670581b1b4aeff218c706a347c782d17aecffc7f67</code></td></tr><tr><td><code>prereg.json</code></td><td><code class='hash'>17860b43693187edfb070557dd1664efdebe170feb49d717fc7914e01751488c</code></td></tr><tr><td><code>scores.json</code></td><td><code class='hash'>c6ad5bb9e26828d51ca83bc7ea6654fb94ec4d9977f6fc80bf5640952e9c7de0</code></td></tr><tr><td><code>seal-log.jsonl</code></td><td><code class='hash'>6bddcc03fdfbc8bf041bdbac2372dc27981f83297578f637263e05b7b3f1cff4</code></td></tr><tr><td><code>withheld.json</code></td><td><code class='hash'>3726d39f96d619821292741ed8901a1e72c7148329332977db6af85ab8b14745</code></td></tr></tbody></table></div>
 <h2 id="cite">Cite</h2>
 <div class="code-block"><button type="button" class="copy" data-copy="bibtex">Copy</button><pre id="bibtex">@misc{halachabench2026,
   title        = {HalachaBench: AI models on real semicha exam questions},
@@ -168,32 +166,25 @@ any later change can be detected.</p>
 </main>
 <footer class="site-foot">
   <div class="wrap foot-grid">
-    <div>
-      <a class="brand" href="/"><img src="/assets/favicon.png" alt="" width="22" height="22"><span>HalachaBench</span></a>
-      <p class="muted">An independent project. Not connected to or endorsed by the Chief Rabbinate of Israel or by any
-      model developer; model names are their owners' trademarks. Results are provisional and are not psak.</p>
+    <div class="foot-about">
+      <a class="wordmark small" href="/">HalachaBench<span>.ai</span></a>
+      <p>An independent project. Not connected to or endorsed by the Chief Rabbinate of Israel or by any model
+      developer; model names are their owners' trademarks. Results are provisional, and nothing here is psak.</p>
     </div>
-    <div>
-      <h4>Results</h4>
-      <a href="/halachabench/">HalachaBench leaderboard</a><a href="/hashkafabench/">HashkafaBench</a>
-      <a href="/values/">Halacha vs. own values</a><a href="/findings/">All findings</a>
-    </div>
-    <div>
-      <h4>Source</h4>
-      <a href="https://github.com/halachabench/halacha-bench-results">halacha-bench-results</a>
-      <a href="https://github.com/halachabench/hashkafa-bench-results">hashkafa-bench-results</a>
-      <a href="/method/#cite">Cite</a>
-    </div>
-    <div>
-      <h4>Contact</h4>
-      <a href="mailto:halachabench@gmail.com">halachabench@gmail.com</a><a href="https://x.com/HalachaBench">@HalachaBench on X</a>
-      <p class="muted small">Last updated 13 November 2026</p>
-    </div>
+    <nav class="foot-links" aria-label="Results"><h2>Results</h2>
+      <a href="/halachabench/">Semicha exam leaderboard</a><a href="/hashkafabench/">HashkafaBench</a>
+      <a href="/values/">Halacha vs. own values</a><a href="/findings/">All findings</a></nav>
+    <nav class="foot-links" aria-label="Sources"><h2>Sources</h2>
+      <a href="https://github.com/halachabench/halacha-bench-results">Results data on GitHub</a>
+      <a href="https://github.com/halachabench/hashkafa-bench-results">HashkafaBench data on GitHub</a>
+      <a href="/method/#cite">Cite HalachaBench</a></nav>
+    <nav class="foot-links" aria-label="Contact"><h2>Contact</h2>
+      <a href="mailto:halachabench@gmail.com">halachabench@gmail.com</a><a href="https://x.com/HalachaBench">@HalachaBench on X</a></nav>
   </div>
-  <div class="wrap foot-legal">© 2026 MasechetAI</div>
+  <div class="wrap foot-legal"><span>© 2026 MasechetAI</span><span>Last updated 13 November 2026</span></div>
 </footer>
 <div class="tip" role="tooltip" hidden></div>
-<script src="/assets/site.js?v=202611182020" defer></script>
+<script src="/assets/site.js?v=202611182039" defer></script>
 
 </body>
 </html>
