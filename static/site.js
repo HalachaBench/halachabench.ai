@@ -27,6 +27,43 @@
     }
   });
 
+  // hb-daf-typed: hidden ways into the daf view
+  const dafUrl = (location.pathname.startsWith('/he/') ? '/he' : '') + '/daf/';
+  const onDaf = /\/daf\/$/.test(location.pathname);
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const goDaf = (how) => {
+    if (onDaf) return;
+    if (how === 'logo') document.querySelector('.site-head .wordmark')?.classList.add('scatter');
+    else document.body.classList.add('leaf-turn');
+    setTimeout(() => { location.href = dafUrl; }, reduce ? 0 : 520);
+  };
+  // 1. type d-a-f (by letter, or by physical key on any layout), or the Hebrew word
+  let typed = '', codes = '';
+  document.addEventListener('keydown', e => {
+    if (e.ctrlKey || e.metaKey || e.altKey || /input|select|textarea/i.test(e.target.tagName) || e.target.isContentEditable) return;
+    typed = (typed + (e.key || '')).slice(-3).toLowerCase();
+    codes = (codes + '|' + (e.code || '')).split('|').slice(-3).join('|');
+    if (typed === 'daf' || typed.endsWith('דף') || codes === 'KeyD|KeyA|KeyF') { typed = ''; codes = ''; goDaf('typed'); }
+  });
+  // 2. triple-click the logo mark; a single click still goes home
+  const markLink = document.querySelector('.site-head .wordmark');
+  if (markLink) {
+    let clicks = 0, timer = null;
+    markLink.addEventListener('click', e => {
+      if (!e.target.closest('svg.mark')) return;
+      e.preventDefault();
+      clicks += 1;
+      clearTimeout(timer);
+      if (clicks >= 3) { clicks = 0; goDaf('logo'); return; }
+      timer = setTimeout(() => { if (clicks) location.href = markLink.href; clicks = 0; }, 380);
+    });
+  }
+  // 3. a note for whoever opens the console
+  try {
+    console.log('%cשלום! You found the back room.', 'font: 600 15px Georgia, serif');
+    console.log('Try typing "daf" on the page. The source is open: https://github.com/HalachaBench/halachabench.ai');
+  } catch (_) {}
+
   // mobile nav
   const navBtn = $('.nav-toggle'), nav = $('#site-nav');
   if (navBtn) navBtn.addEventListener('click', () => {

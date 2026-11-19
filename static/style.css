@@ -693,6 +693,24 @@ html[lang="he"] .d-cm .dh { font-family: "Frank Ruhl Libre", var(--serif); font-
 }
 
 /* ---------- daf easter egg ---------- */
-.daf-egg { color: var(--muted); text-decoration: none; border-bottom: 1px dotted var(--rule-strong); }
-.daf-egg:hover { color: var(--ink); border-bottom-color: var(--ink); }
+.daf-egg { position: relative; color: var(--rule-strong); text-decoration: none; font: 600 12px var(--serif); letter-spacing: .02em; }
+.daf-egg::after { content: attr(data-hint); position: absolute; bottom: 130%; left: 50%; transform: translateX(-50%); white-space: nowrap;
+  font: 12px var(--mono); color: var(--paper); background: var(--ink); padding: 4px 8px; border-radius: 4px; opacity: 0; pointer-events: none;
+  transition: opacity .2s .4s; }
+.daf-egg:hover, .daf-egg:focus-visible { color: var(--ink); }
+.daf-egg:hover::after, .daf-egg:focus-visible::after { opacity: 1; }
 .daf-back { margin-top: -20px; margin-bottom: 28px; }
+
+/* ---------- daf easter eggs: page turn and scattering logo ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  body.leaf-turn main { transform-origin: left center; animation: leaf 0.55s cubic-bezier(.5, 0, .7, .4) forwards; }
+  [dir="rtl"] body.leaf-turn main { transform-origin: right center; animation-name: leaf-rtl; }
+  .wordmark.scatter .mark rect.m1 { animation: bar-out .5s ease-in forwards; }
+  .wordmark.scatter .mark rect.m2 { animation: bar-out .5s .05s ease-in forwards; }
+  .wordmark.scatter .mark rect.m3 { animation: bar-out .5s .1s ease-in forwards; }
+  .wordmark.scatter .mark rect.m4 { animation: bar-out .5s .15s ease-in forwards; }
+}
+@keyframes leaf { to { transform: perspective(1400px) rotateY(-80deg); opacity: 0; } }
+@keyframes leaf-rtl { to { transform: perspective(1400px) rotateY(80deg); opacity: 0; } }
+@keyframes bar-out { to { transform: translateX(40px); opacity: 0; } }
+.mark rect { transform-box: fill-box; }

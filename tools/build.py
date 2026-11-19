@@ -498,7 +498,7 @@ def page(path: str, title: str, body: str, desc: str = "", image: str = "/assets
     <nav class="foot-links" aria-label="{tr('Contact', 'יצירת קשר')}"><h2>{tr("Contact", "יצירת קשר")}</h2>
       <a href="mailto:{SITE['email']}" dir="ltr">{SITE['email']}</a><a href="https://x.com/HalachaBench">{tr("@HalachaBench on X", "‎@HalachaBench ב-X")}</a></nav>
   </div>
-  <div class="wrap foot-legal"><span dir="ltr">© {SITE['_updated'].year} {e(SITE['copyright'])}</span><a class="daf-egg" href="{u('/daf/')}" title="{tr('Press D on the home page', 'אפשר גם ללחוץ D בדף הבית')}">{tr("Read it as a daf", "לקרוא כדף גמרא")}</a><span>{tr("Last updated", "עודכן לאחרונה")} {fmt_date(SITE['_updated'])}</span></div>
+  <div class="wrap foot-legal"><span dir="ltr">© {SITE['_updated'].year} {e(SITE['copyright'])}</span><a class="daf-egg" href="{u('/daf/')}" data-hint="{tr('Read it as a daf', 'לקרוא כדף גמרא')}" aria-label="{tr('Read it as a daf', 'לקרוא כדף גמרא')}">{tr("2a", "ב.")}</a><span>{tr("Last updated", "עודכן לאחרונה")} {fmt_date(SITE['_updated'])}</span></div>
 </footer>
 <div class="tip" role="tooltip" hidden></div>
 <script src="/assets/site.js?v={SITE['build']}" defer></script>
