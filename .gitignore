@@ -3,3 +3,4 @@ __pycache__/
 .claude/
 preview-build/
 _src/
+_cards_tmp/

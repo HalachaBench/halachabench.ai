@@ -6,6 +6,7 @@ summary: Real Chief Rabbinate semicha questions, in Hebrew, with no books and no
 x: https://x.com/HalachaBench/status/2116997953785413996
 image: /assets/img/halachabench-results.png
 data: /halachabench/
+stat: 79.7
 ---
 
 We gave AI models from the makers of ChatGPT, Claude, Gemini and others the real questions of five semicha papers from
@@ -24,7 +25,7 @@ accepted views, common errors) and sealed with a cryptographic commitment before
   scored under 11.
 - **Newer and bigger is not always better.** Within a single lab, models are 60 points and more apart.
 
-![HalachaBench results: the models' scores with 95% intervals](/assets/img/halachabench-results.png)
+{{chart:board||HalachaBench results: the models' scores with 95% intervals}}
 
 The chart above is the current board. Since launch, more models have been added, each recorded as an amendment to the
 pre-registration before its answers were collected, and graded with the same sealed rubrics and judge.

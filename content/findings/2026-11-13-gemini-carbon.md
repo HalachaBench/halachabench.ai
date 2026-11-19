@@ -6,6 +6,8 @@ summary: 82.3, four points above Gemini 4 Argon and not clearly apart from Claud
 x: https://x.com/HalachaBench/status/2121254678205800572
 image: /assets/img/efficiency-score-vs-tokens.png
 data: /halachabench/
+lead: board:Gemini 4 Carbon|Gemini 4 Argon|Claude Fable 5.2
+stat: 82.3
 ---
 
 Google's Gemini 4 Carbon scores **82.3** (95% interval 78.4 – 86.0), second on the board.
@@ -18,10 +20,10 @@ Google's Gemini 4 Carbon scores **82.3** (95% interval 78.4 – 86.0), second on
   Argon and about 6,000 for Fable 5.2. Two attempts at one question timed out after 30 minutes and were rerun under the
   registered retry rule; all 180 answers are scored.
 
-![Score against tokens per answer, as posted on 10 November, before Carbon was added](/assets/img/efficiency-score-vs-tokens.png)
+{{chart:tokens||Score against tokens per answer. Carbon sits far to the right}}
 
-As the chart from before Carbon's run shows, more thinking hasn't generally bought a better answer: Fable 5.1 and
-GPT-6 Astra reached the top with a few thousand tokens.
+Across the board, more thinking hasn't generally bought a better answer: Claude Fable 5.2, Fable 5.1 and GPT-6 Astra
+reached the top with a few thousand tokens. Carbon is the exception, near the top at many times the cost.
 
 During Carbon's grading the judge service began sending a new kind of status message. A recorded amendment let the
 harness accept it, all of Carbon's answers were graded again from the start, and no other model's grades changed.

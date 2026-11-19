@@ -6,7 +6,9 @@ summary: Grok 4.7 קיבל 29.9, הרבה מתחת למובילים. בדקנו 
 x: https://x.com/HalachaBench/status/2117067063541797020
 image: /assets/img/halachabench-results.png
 data: /he/halachabench/
-source_sha: 5d65f11f9eed
+source_sha: 3a924cf80f0c
+lead: board:Grok 4.7|Grok 4.3|Gemini 4 Argon
+stat: 29.9
 ---
 
 Grok 4.7 מקבל ציון נמוך בהרבה מהמובילים, ולכן התוצאה שלו נבדקה יותר מכל תוצאה אחרת. בקצרה: התשובות שלו קצרות, והציון הנמוך עומד בעינו גם כששינינו את אופן הבדיקה או את המחוונים.

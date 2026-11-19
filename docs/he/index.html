@@ -14,15 +14,17 @@
 <meta property="og:title" content="HalachaBench">
 <meta property="og:description" content="HalachaBench בודק מודלים של בינה מלאכותית על שאלות אמיתיות ממבחני הסמיכה של הרבנות הראשית לישראל, ומודד לאיזה כיוון נוטות הפסיקות שלהם.">
 <meta property="og:url" content="https://halachabench.ai/he/">
-<meta property="og:image" content="https://halachabench.ai/assets/og.png">
+<meta property="og:image" content="https://halachabench.ai/assets/og/235e9338b6299416.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@HalachaBench">
 <meta name="theme-color" content="#f6f4ef">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600&family=Frank+Ruhl+Libre:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/style.css?v=202611182111">
+<link rel="preload" href="/assets/fonts/frank-ruhl-libre-400-hebrew.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="/assets/fonts/fonts.css?v=202611182128">
+<link rel="stylesheet" href="/assets/style.css?v=202611182128">
 <script>try{var t=localStorage.getItem('hb-theme');if(t)document.documentElement.dataset.theme=t;var p=localStorage.getItem('hb-lang'),h='he';if(!p&&h==='en'&&/^he\b/i.test((navigator.languages&&navigator.languages[0])||navigator.language||''))p='he';if(p&&p!==h&&location.search.indexOf('lang=')<0)location.replace('/');}catch(_){}</script>
 </head>
 <body>
@@ -37,15 +39,20 @@
 </header>
 <main id="main">
 
-<section class="hero">
-  <div class="wrap hero-grid">
-    <div class="hero-copy">
-      <h1>כמה הלכה יודעת הבינה המלאכותית?</h1>
+<section class="daf wrap" aria-label="סקירה">
+  <header class="daf-head">
+    <span>HalachaBench</span>
+    <span class="daf-title">מבחן הסמיכה, חשוון תשפ"ז</span>
+    <span>30 מודלים</span>
+  </header>
+  <div class="daf-grid">
+    <div class="daf-main">
+      <h1><span class="opener">כמה</span> הלכה יודעת הבינה המלאכותית?</h1>
       <p class="lede">שאלות אמיתיות ממבחני הסמיכה של הרבנות הראשית, בעברית, בלי ספרים ובלי אינטרנט.</p>
       <p class="hero-links"><a class="btn" href="/he/halachabench/">לכל 30 המודלים</a>
       <a class="plain-link" href="/he/method/">איך בודקים</a></p>
     </div>
-    <figure class="hero-board">
+    <figure class="daf-side daf-rashi hero-board">
       <figcaption><span class="cap">עשרת הראשונים, ציון מתוך 100</span><span class="h-axis"><span></span><span></span><span class="axis" aria-hidden="true"><span style="left:0.00%">50</span><span style="left:20.00%">60</span><span style="left:40.00%">70</span><span style="left:60.00%">80</span><span style="left:80.00%">90</span><span style="left:100.00%">100</span></span><span></span></span></figcaption>
       <ol><li data-tip="Claude Fable 5.2&amp;#10;85.8 (רווח סמך 82.7 עד 88.5)" tabindex="0" style="--d:0ms">
 <span class="h-rank">1</span><span class="h-name"><bdi>Claude Fable 5.2</bdi><small>Anthropic</small></span>
@@ -70,27 +77,24 @@
 <span class="track big"><i class="ci" style="left:12.80%;width:17.60%"></i><i class="dot lab-meta" style="left:21.60%"></i></span><span class="h-score">60.8</span></li></ol>
       <p class="fig-note">זמני: שופט ממוחשב אחד, ואף רב עדיין לא בדק. הקווים הם רווחי סמך של 95%.</p>
     </figure>
+    <aside class="daf-side daf-tosafot" aria-label="המחקרים">
+      <p class="side-title">המחקרים</p>
+      <article>
+        <h2><a href="/he/hashkafabench/">מחמיר או מקל?</a></h2>
+        <div class="mini-strip"><span class="ms-track"><i class="dot lab-openai" style="left:84.00%" data-tip="GPT-6 Astra: 0.56" tabindex="0"></i><i class="dot lab-openai" style="left:80.00%" data-tip="GPT-6.1 Sol: 0.55" tabindex="0"></i><i class="dot lab-openai" style="left:80.00%" data-tip="GPT-5.6 Sol: 0.55" tabindex="0"></i><i class="dot lab-openai" style="left:76.00%" data-tip="GPT-6 Sol: 0.54" tabindex="0"></i><i class="dot lab-google" style="left:72.00%" data-tip="Gemini 3.8 Flash: 0.53" tabindex="0"></i><i class="dot lab-xai" style="left:72.00%" data-tip="Grok 4.7: 0.53" tabindex="0"></i><i class="dot lab-google" style="left:64.00%" data-tip="Gemini 4 Argon (medium): 0.51" tabindex="0"></i><i class="dot lab-anthropic" style="left:60.00%" data-tip="Claude Haiku 5.5: 0.50" tabindex="0"></i><i class="dot lab-openai" style="left:52.00%" data-tip="GPT-6.1 Terra: 0.48" tabindex="0"></i><i class="dot lab-anthropic" style="left:44.00%" data-tip="Claude Fable 5.2: 0.46" tabindex="0"></i><i class="dot lab-anthropic" style="left:44.00%" data-tip="Claude Opus 5.5: 0.46" tabindex="0"></i><i class="dot lab-anthropic" style="left:32.00%" data-tip="Claude Fable 5.1: 0.43" tabindex="0"></i><i class="dot lab-anthropic" style="left:32.00%" data-tip="Claude Sonnet 5.5: 0.43" tabindex="0"></i><i class="dot lab-openai" style="left:16.00%" data-tip="GPT-6 Luna: 0.39" tabindex="0"></i></span>
+        <span class="ms-ends"><span>מקל</span><span>מחמיר</span></span></div>
+      </article>
+      <article>
+        <h2><a href="/he/values/">הלכה מול ערכים</a></h2>
+        <div class="pair"><div><b>75%</b><small>אותה פסיקה, פעמיים</small></div>
+        <div><b class="b2">41%</b><small>הפסיקה תואמת את בחירתו</small></div></div>
+      </article>
+      <article>
+        <h2><a href="/he/halachabench/#papers">השאלון הקשה ביותר</a></h2>
+        <p class="side-note">חופה וקידושין ונידה, כמעט לכל מודל.</p>
+      </article>
+    </aside>
   </div>
-</section>
-
-<section class="studies wrap" aria-label="שלושת המחקרים">
-  <article>
-    <h2><a href="/he/halachabench/">מבחן הסמיכה</a></h2>
-    <ol class="top3"><li><span class="lab-dot lab-anthropic" aria-hidden="true"></span><bdi>Claude Fable 5.2</bdi><b>85.8</b></li><li><span class="lab-dot lab-google" aria-hidden="true"></span><bdi>Gemini 4 Carbon</bdi><b>82.3</b></li><li><span class="lab-dot lab-anthropic" aria-hidden="true"></span><bdi>Claude Fable 5.1</bdi><b>79.7</b></li></ol>
-    <a class="plain-link" href="/he/halachabench/">טבלת התוצאות</a>
-  </article>
-  <article>
-    <h2><a href="/he/hashkafabench/">מחמיר או מקל?</a></h2>
-    <div class="mini-strip" aria-label="רמת החומרה של 14 מודלים על קו אחד"><span class="ms-track"><i class="dot lab-openai" style="left:84.00%" data-tip="GPT-6 Astra: 0.56" tabindex="0"></i><i class="dot lab-openai" style="left:80.00%" data-tip="GPT-6.1 Sol: 0.55" tabindex="0"></i><i class="dot lab-openai" style="left:80.00%" data-tip="GPT-5.6 Sol: 0.55" tabindex="0"></i><i class="dot lab-openai" style="left:76.00%" data-tip="GPT-6 Sol: 0.54" tabindex="0"></i><i class="dot lab-google" style="left:72.00%" data-tip="Gemini 3.8 Flash: 0.53" tabindex="0"></i><i class="dot lab-xai" style="left:72.00%" data-tip="Grok 4.7: 0.53" tabindex="0"></i><i class="dot lab-google" style="left:64.00%" data-tip="Gemini 4 Argon (medium): 0.51" tabindex="0"></i><i class="dot lab-anthropic" style="left:60.00%" data-tip="Claude Haiku 5.5: 0.50" tabindex="0"></i><i class="dot lab-openai" style="left:52.00%" data-tip="GPT-6.1 Terra: 0.48" tabindex="0"></i><i class="dot lab-anthropic" style="left:44.00%" data-tip="Claude Fable 5.2: 0.46" tabindex="0"></i><i class="dot lab-anthropic" style="left:44.00%" data-tip="Claude Opus 5.5: 0.46" tabindex="0"></i><i class="dot lab-anthropic" style="left:32.00%" data-tip="Claude Fable 5.1: 0.43" tabindex="0"></i><i class="dot lab-anthropic" style="left:32.00%" data-tip="Claude Sonnet 5.5: 0.43" tabindex="0"></i><i class="dot lab-openai" style="left:16.00%" data-tip="GPT-6 Luna: 0.39" tabindex="0"></i></span>
-    <span class="ms-ends"><span>מקל</span><span>מחמיר</span></span></div>
-    <a class="plain-link" href="/he/hashkafabench/">חומרה לפי תחום</a>
-  </article>
-  <article>
-    <h2><a href="/he/values/">הלכה מול ערכים</a></h2>
-    <div class="pair"><div><b>75%</b><small>אותה פסיקה, פעמיים</small></div>
-    <div><b class="b2">41%</b><small>הפסיקה תואמת את בחירתו</small></div></div>
-    <a class="plain-link" href="/he/values/">איפה הם נפרדים</a>
-  </article>
 </section>
 
 <section class="wrap home-lower">
@@ -128,7 +132,7 @@
   <div class="wrap foot-legal"><span dir="ltr">© 2026 MasechetAI</span><span>עודכן לאחרונה 13 בנובמבר 2026</span></div>
 </footer>
 <div class="tip" role="tooltip" hidden></div>
-<script src="/assets/site.js?v=202611182111" defer></script>
+<script src="/assets/site.js?v=202611182128" defer></script>
 
 </body>
 </html>

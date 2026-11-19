@@ -328,10 +328,88 @@ def mark_svg(size: int, small: bool = False, cls: str = "mark") -> str:
             f'<path class="m0" d="{ROOF}"/><rect class="m0" x="9" y="26" width="8" height="30"/>{rects}</svg>')
 
 
+# --------------------------------------------------------------------------- share cards (Open Graph images)
+
+CARD_JOBS: list[dict] = []
+CARD_DIR = ROOT / "cards"          # committed cache: one PNG per distinct card content
+CARD_VERSION = "4"
+CHROME = next((p for p in [Path(r"C:\Program Files\Google\Chrome\Application\chrome.exe"),
+                           Path(r"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"),
+                           Path("/usr/bin/google-chrome"), Path("/Applications/Google Chrome.app/Contents/MacOS/Google Chrome")]
+               if p.exists()), None)
+
+
+def card_id(title: str, desc: str, lang: str, stat: str = "") -> str:
+    return hashlib.sha256(f"{CARD_VERSION}|{lang}|{title}|{desc}|{stat}".encode("utf-8")).hexdigest()[:16]
+
+
+def card_html(title: str, desc: str, lang: str, stat: str = "") -> str:
+    fonts = (STATIC / "fonts").resolve().as_uri()
+    rtl = lang == "he"
+    face = "'Frank Ruhl Libre', 'Domitian'" if rtl else "'Domitian', 'Frank Ruhl Libre'"
+    small = "'IBM Plex Sans Hebrew', 'IBM Plex Mono'" if rtl else "'IBM Plex Mono', 'IBM Plex Sans Hebrew'"
+    kicker = "מבחן הסמיכה ומחקרים נלווים" if rtl else "AI models on real semicha exams"
+    css = (STATIC / "fonts" / "fonts.css").read_text(encoding="utf-8").replace("/assets/fonts/", fonts + "/")
+    return f"""<!doctype html><html lang="{lang}"{' dir="rtl"' if rtl else ''}><head><meta charset="utf-8"><style>{css}
+html,body{{margin:0;width:1200px;height:630px;background:#f6f4ef;color:#111;overflow:hidden}}
+.c{{box-sizing:border-box;width:1200px;height:630px;padding:56px 72px 52px;display:flex;flex-direction:column}}
+.top{{display:flex;justify-content:space-between;align-items:center;border-bottom:3px double #111;padding-bottom:18px}}
+.wm{{display:flex;align-items:center;gap:14px;font:400 38px 'Domitian',serif;letter-spacing:-.02em;direction:ltr}}
+.wm b{{font-weight:400}} .wm b span{{color:#77736b}}
+.mid{{display:flex;gap:48px;align-items:flex-start}} .mid>div{{flex:1;min-width:0}}
+.stat{{font:400 128px/1 'Domitian',serif;letter-spacing:-.04em;color:#2a78d6;margin-top:40px;white-space:nowrap;direction:ltr}}
+.k{{font:400 20px {small};color:#45423c}}
+h1{{font:400 {'66px' if len(title) < 46 else '56px'}/1.1 {face};letter-spacing:-.015em;margin:44px 0 0;max-width:1000px}}
+p{{font:400 27px/1.45 {face};color:#45423c;margin:22px 0 0;max-width:980px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}}
+.bot{{margin-top:auto;display:flex;gap:8px;align-items:flex-end;direction:ltr}}
+.bot i{{display:block;height:10px;border-radius:2px}}
+</style></head><body><div class="c">
+<div class="top"><div class="wm">{mark_svg(52).replace('class="m0"', 'fill="#111"').replace('class="m1"', 'fill="#2a78d6"').replace('class="m2"', 'fill="#eb6834"').replace('class="m3"', 'fill="#1baf7a"').replace('class="m4"', 'fill="#a3459c"')}<b>HalachaBench<span>.ai</span></b></div>
+<div class="k">{e(kicker)}</div></div>
+<div class="mid"><div><h1>{e(title)}</h1><p>{e(desc)}</p></div>{f'<div class="stat">{e(stat)}</div>' if stat else ''}</div>
+<div class="bot"><i style="width:420px;background:#2a78d6"></i><i style="width:300px;background:#eb6834"></i><i style="width:200px;background:#1baf7a"></i><i style="width:110px;background:#a3459c"></i></div>
+</div></body></html>"""
+
+
+def render_cards() -> None:
+    """Render missing cards with headless Chrome (cached by content hash) and copy them into the site."""
+    CARD_DIR.mkdir(exist_ok=True)
+    tmp = ROOT / "preview-build" / "_cards" if PREVIEW else ROOT / "_cards_tmp"
+    todo = [j for j in CARD_JOBS if not (CARD_DIR / f"{j['id']}.png").exists()]
+    if todo and not CHROME:
+        print(f"WARNING: {len(todo)} share cards need Chrome to render; those pages fall back to the default image")
+    if todo and CHROME:
+        import subprocess
+        tmp.mkdir(parents=True, exist_ok=True)
+        for j in todo:
+            h = tmp / f"{j['id']}.html"
+            h.write_text(card_html(j["title"], j["desc"], j["lang"], j.get("stat", "")), encoding="utf-8")
+            png = tmp / f"{j['id']}.png"
+            subprocess.run([str(CHROME), "--headless=new", "--disable-gpu", "--hide-scrollbars", "--force-device-scale-factor=1",
+                            "--virtual-time-budget=1500", "--window-size=1200,630", f"--screenshot={png}", h.resolve().as_uri()],
+                           stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=60)
+            if png.exists():
+                from PIL import Image
+                Image.open(png).convert("RGB").crop((0, 0, 1200, 630)).save(CARD_DIR / f"{j['id']}.png", optimize=True)
+        shutil.rmtree(tmp, ignore_errors=True)
+        print(f"rendered {len(todo)} share cards")
+    dest = OUT / "assets" / "og"
+    dest.mkdir(parents=True, exist_ok=True)
+    keep = set()
+    for j in CARD_JOBS:
+        src = CARD_DIR / f"{j['id']}.png"
+        if src.exists():
+            shutil.copy2(src, dest / f"{j['id']}.png")
+            keep.add(src.name)
+    for old in CARD_DIR.glob("*.png"):  # drop cards no page uses any more
+        if old.name not in keep:
+            old.unlink()
+
+
 # --------------------------------------------------------------------------- page shell
 
 
-def page(path: str, title: str, body: str, desc: str = "", image: str = "/assets/og.png", active: str = "") -> None:
+def page(path: str, title: str, body: str, desc: str = "", image: str = "/assets/og.png", active: str = "", stat: str = "") -> None:
     """path is the English path; the Hebrew twin lives under /he."""
     lang = LANG
     here = u(path)
@@ -341,6 +419,10 @@ def page(path: str, title: str, body: str, desc: str = "", image: str = "/assets
                   else tr("HalachaBench: AI models on real semicha exams", "HalachaBench: בינה מלאכותית במבחני הסמיכה"))
     desc = desc or tr(SITE["description"], "HalachaBench בודק מודלים של בינה מלאכותית על שאלות אמיתיות ממבחני הסמיכה של "
                                            "הרבנות הראשית לישראל, ומודד לאיזה כיוון נוטות הפסיקות שלהם.")
+    cid = card_id(title if title != "HalachaBench" else full_title, desc, lang, stat)
+    if path != "/404.html":
+        CARD_JOBS.append({"id": cid, "lang": lang, "title": title if title != "HalachaBench" else full_title, "desc": desc, "stat": stat})
+        image = f"/assets/og/{cid}.png"
     nav = "".join(f'<a href="{u(h)}"{" aria-current=\"page\"" if active == h else ""}>{e(lbl)}</a>' for h, lbl in nav_items())
     switch = (f'<a class="lang-switch" href="{alt}" data-lang-to="{"he" if lang == "en" else "en"}" '
               f'lang="{"he" if lang == "en" else "en"}" hreflang="{"he" if lang == "en" else "en"}">'
@@ -349,9 +431,9 @@ def page(path: str, title: str, body: str, desc: str = "", image: str = "/assets
     if SITE.get("cf_beacon_token"):
         beacon = ('<script defer src="https://static.cloudflareinsights.com/beacon.min.js" '
                   f"data-cf-beacon='{{\"token\": \"{e(SITE['cf_beacon_token'])}\"}}'></script>")
-    fonts = ('<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
-             '<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600&family=Frank+Ruhl+Libre:wght@400;500&display=swap" rel="stylesheet">'
-             if lang == "he" else "")
+    first_font = "frank-ruhl-libre-400-hebrew" if lang == "he" else "domitian-roman"
+    fonts = (f'<link rel="preload" href="/assets/fonts/{first_font}.woff2" as="font" type="font/woff2" crossorigin>'
+             f'<link rel="stylesheet" href="/assets/fonts/fonts.css?v={SITE["build"]}">')
     redirect = "" if path == "/404.html" else (
         "var p=localStorage.getItem('hb-lang'),h='" + lang + "';"
         "if(!p&&h==='en'&&/^he\\b/i.test((navigator.languages&&navigator.languages[0])||navigator.language||''))p='he';"
@@ -373,6 +455,8 @@ def page(path: str, title: str, body: str, desc: str = "", image: str = "/assets
 <meta property="og:description" content="{e(desc)}">
 <meta property="og:url" content="https://{SITE['domain']}{here}">
 <meta property="og:image" content="https://{SITE['domain']}{image}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@HalachaBench">
 <meta name="theme-color" content="#f6f4ef">
@@ -716,11 +800,233 @@ def finding_row(f, thumbs=True) -> str:
 <div class="f-text"{lang_attr}>{study_tag(f['study'])}<h3>{e(f['title'])}</h3><p>{e(f['summary'])}</p></div>{img}</a></li>"""
 
 
+# --------------------------------------------------------------------------- finding charts (native, bilingual)
+
+DATA = {}  # filled in main(): H, K, V, P, tokens, poskim, citations, style, sephardi
+
+
+def fig(inner: str, caption: str = "", cls: str = "") -> str:
+    cap = f'<figcaption>{e(caption)}</figcaption>' if caption else ""
+    return f'<figure class="chart-fig {cls}">{inner}{cap}</figure>'
+
+
+def mini_board(names: list[str] | None = None, lo: float = 0, hi: float = 100) -> str:
+    """All models as ranked dots; the named ones are highlighted."""
+    H = DATA["H"]
+    hl = set(names or [])
+    rows = []
+    for m in H["models"]:
+        on = (not hl) or m["name"] in hl
+        tip = m["name"] + nl(tr(f"{m['score']:.1f} (95% interval {m['lo']:.1f} to {m['hi']:.1f})",
+                                f"{m['score']:.1f} (רווח סמך {m['lo']:.1f} עד {m['hi']:.1f})"))
+        rows.append(f'<li class="{"on" if on else "off"}" data-tip="{e(tip)}" tabindex="0"><span class="mb-rank">{m["rank"]}</span>'
+                    f'<span class="mb-name">{chip(m["lab"])}<bdi>{e(m["name"])}</bdi></span>{score_track(m, lo=lo, hi=hi)}'
+                    f'<span class="mb-score">{m["score"]:.1f}</span></li>')
+    ax = axis([0, 25, 50, 75, 100], lambda v: f"{v:g}", 0, 100)
+    return (f'<div class="mini-board{" has-hl" if hl else ""}"><div class="mb-axis"><span></span><span></span>{ax}<span></span></div>'
+            f'<ol>{"".join(rows)}</ol></div>')
+
+
+def scatter(points, xlab, ylab, logx=False, xr=None, yr=None, xticks=(), yticks=(), w=760, h=460, legend="") -> str:
+    """points: dicts with x, y, label, cls (lab class or 'auth'), tip, prio (higher = label placed first).
+    Labels try eight positions around their point and are dropped (tooltip only) when nothing fits."""
+    L, R, T, B = 56, 24, 16, 58
+    f = (lambda v: math.log10(v)) if logx else (lambda v: v)
+    xs = [p["x"] for p in points]
+    ys = [p["y"] for p in points]
+    x0, x1 = xr or (min(map(f, xs)), max(map(f, xs)))
+    y0, y1 = yr or (min(ys), max(ys))
+    px = lambda v: L + (f(v) - x0) / (x1 - x0) * (w - L - R)
+    py = lambda v: T + (1 - (v - y0) / (y1 - y0)) * (h - T - B)
+    g = []
+    for t, lab in xticks:
+        X = px(t)
+        g.append(f'<line class="grid" x1="{X:.1f}" x2="{X:.1f}" y1="{T}" y2="{h - B}"/><text class="tick" x="{X:.1f}" y="{h - B + 18}" text-anchor="middle">{lab}</text>')
+    for t, lab in yticks:
+        Y = py(t)
+        g.append(f'<line class="grid" x1="{L}" x2="{w - R}" y1="{Y:.1f}" y2="{Y:.1f}"/><text class="tick" x="{L - 8}" y="{Y + 4:.1f}" text-anchor="end">{lab}</text>')
+    g.append(f'<text class="ax-lbl" x="{(L + w - R) / 2:.0f}" y="{h - 8}" text-anchor="middle">{e(xlab)}</text>')
+    g.append(f'<text class="ax-lbl" transform="translate(14 {(T + h - B) / 2:.0f}) rotate(-90)" text-anchor="middle">{e(ylab)}</text>')
+    pos = [(p, px(p["x"]), py(p["y"])) for p in points]
+    boxes = [(X - 7, Y - 7, X + 7, Y + 7) for _, X, Y in pos]  # points are obstacles too
+    dots, labels = [], []
+    for p, X, Y in pos:
+        shape = (f'<rect class="pt auth" x="{X - 5:.1f}" y="{Y - 5:.1f}" width="10" height="10" transform="rotate(45 {X:.1f} {Y:.1f})"/>'
+                 if p["cls"] == "auth" else f'<circle class="pt {p["cls"]}" cx="{X:.1f}" cy="{Y:.1f}" r="6"/>')
+        dots.append(f'<g class="pt-g" data-tip="{e(p["tip"])}" tabindex="0">{shape}<circle class="hit" cx="{X:.1f}" cy="{Y:.1f}" r="12"/></g>')
+    for p, X, Y in sorted(pos, key=lambda t: -t[0].get("prio", 0)):
+        tw, th = len(p["label"]) * 6.4 + 4, 14
+        cands = [(X + 10, Y + 4, "start"), (X - 10, Y + 4, "end"), (X, Y - 11, "middle"), (X, Y + 19, "middle"),
+                 (X + 9, Y - 8, "start"), (X - 9, Y - 8, "end"), (X + 9, Y + 16, "start"), (X - 9, Y + 16, "end")]
+        for lx, ly, anchor in cands:
+            bx0 = lx if anchor == "start" else (lx - tw if anchor == "end" else lx - tw / 2)
+            box = (bx0, ly - th + 3, bx0 + tw, ly + 3)
+            if box[0] < L - 4 or box[2] > w - 2 or box[1] < 0 or box[3] > h - B:
+                continue
+            if any(not (box[2] < b[0] or box[0] > b[2] or box[3] < b[1] or box[1] > b[3]) for b in boxes):
+                continue
+            boxes.append(box)
+            labels.append(f'<text class="pt-lbl{" auth-lbl" if p["cls"] == "auth" else ""}" x="{lx:.1f}" y="{ly:.1f}" text-anchor="{anchor}">{e(p["label"])}</text>')
+            break
+    svg = (f'<svg class="scatter" viewBox="0 0 {w} {h}" role="img" aria-label="{e(ylab)} / {e(xlab)}">'
+           f'{"".join(g)}{"".join(dots)}{"".join(labels)}</svg>')
+    return svg + (f'<div class="chart-key">{legend}</div>' if legend else "")
+
+
+def chart_tokens() -> str:
+    H, T = DATA["H"], DATA["tokens"]
+    pts = []
+    for m in H["models"]:
+        if m["name"] in T:
+            t = T[m["name"]]
+            approx = f"{round(t, -3):,.0f}" if t >= 1000 else f"{t:,.0f}"
+            pts.append({"x": t, "y": m["score"], "label": m["name"], "cls": lab_cls(m["lab"]), "prio": m["score"],
+                        "tip": m["name"] + nl(tr(f"Score {m['score']:.1f}", f"ציון {m['score']:.1f}")) +
+                        nl(tr(f"About {approx} tokens per answer", f"כ-{approx} טוקנים לתשובה"))})
+    xt = [(500, "500"), (1000, "1K"), (2000, "2K"), (5000, "5K"), (10000, "10K"), (20000, "20K"), (50000, "50K")]
+    yt = [(v, str(v)) for v in (0, 20, 40, 60, 80, 100)]
+    return scatter(pts, tr("Output tokens per answer, median (thinking included; log scale)", "טוקנים בתשובה, חציון (כולל חשיבה; סולם לוגריתמי)"),
+                   tr("Score, 0 to 100", "ציון, 0 עד 100"), logx=True, xr=(math.log10(400), math.log10(90000)), yr=(0, 100),
+                   xticks=xt, yticks=yt, legend=lab_key())
+
+
+def chart_map(kind: str) -> str:
+    rows = DATA["poskim" if kind == "poskim" else "citations"]
+    pts = []
+    for r in rows:
+        is_model = r["kind"] == "model"
+        name = r["name"]
+        n = r.get("n_questions") or r.get("n")
+        tip = name if is_model else name + nl(tr(f"named on {n} questions", f"מוזכר ב-{n} שאלות") if kind == "poskim"
+                                              else tr(f"named {n} times", f"מוזכר {n} פעמים"))
+        pts.append({"x": float(r["x"]), "y": float(r["y"]), "label": name, "cls": lab_cls(lab_of(name)) if is_model else "auth",
+                    "tip": tip, "prio": 1 if not is_model else 0})
+    xs, ys = [p["x"] for p in pts], [p["y"] for p in pts]
+    pad = lambda a, b: (a - (b - a) * .1, b + (b - a) * .12)
+    legend = (lab_key() + f'<p><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect x="2" y="2" width="8" height="8" '
+              f'transform="rotate(45 6 6)" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>'
+              f'{tr("authority (posek or source)", "פוסק או מקור")}</p>')
+    return scatter(pts, tr("First axis", "ציר ראשון"), tr("Second axis", "ציר שני"), xr=pad(min(xs), max(xs)),
+                   yr=pad(min(ys), max(ys)), h=520, legend=legend)
+
+
+def chart_style() -> str:
+    names, M = DATA["style"]
+    head = "".join(f'<th scope="col"><span>{e(n)}</span></th>' for n in names)
+    vals = [v for row in M for v in row if v > 0]
+    lo, hi = min(vals), max(vals)
+    body = []
+    for n, row in zip(names, M):
+        cells = []
+        for m2, v in zip(names, row):
+            if v == 0:
+                cells.append('<td class="diag"></td>')
+                continue
+            t = 1 - (v - lo) / (hi - lo)
+            bg, fg = seq_color(t * 100)
+            cells.append(f'<td style="background:{bg};color:{fg}" data-tip="{e(n)} / {e(m2)}{nl(f"Delta {v:.2f}")}" tabindex="0">{v:.2f}</td>')
+        body.append(f'<tr><th scope="row">{chip(lab_of(n))}<bdi>{e(n)}</bdi></th>{"".join(cells)}</tr>')
+    return (f'<div class="table-wrap heat-wrap"><table class="heat style-heat"><thead><tr><th></th>{head}</tr></thead>'
+            f'<tbody>{"".join(body)}</tbody></table></div><p class="fig-note">{tr("Darker means the two models write more alike (smaller Delta).", "צבע כהה יותר פירושו ששני המודלים כותבים בסגנון דומה יותר (דלתא קטנה יותר).")}</p>')
+
+
+def bars_diverging(items, lo=-.2, hi=.05, fmt=lambda v: f"{v:+.2f}") -> str:
+    """items: (label, value, ci_low, ci_high, significant). Zero line, bar to value, interval whiskers."""
+    rows = []
+    z = pct(0, lo, hi)
+    for label, v, a, b, sig in items:
+        x0, x1 = sorted((z, pct(v, lo, hi)))
+        tip = f"{label}" + nl(f"{fmt(v)} ({tr('95% CI', 'רווח סמך')} {a:+.2f} {tr('to', 'עד')} {b:+.2f})")
+        rows.append(f'<li data-tip="{e(tip)}" tabindex="0"><span class="dv-name">{e(label)}</span><span class="dv-track">'
+                    f'<i class="dv-zero" style="left:{z:.2f}%"></i><i class="dv-bar{" sig" if sig else ""}" style="left:{x0:.2f}%;width:{x1 - x0:.2f}%"></i>'
+                    f'<i class="dv-ci" style="left:{pct(a, lo, hi):.2f}%;width:{pct(b, lo, hi) - pct(a, lo, hi):.2f}%"></i></span>'
+                    f'<span class="dv-val">{fmt(v)}</span></li>')
+    return f'<ol class="diverge">{"".join(rows)}</ol>'
+
+
+def chart_sephardi_shift() -> str:
+    S = DATA["sephardi"]
+    cats = [(cat_label(r["category"], dict(CATS).get(r["category"], r["category"])), float(r["diff"]), float(r["ci_low"]),
+             float(r["ci_high"]), r["significant"] == "True") for r in S["by_category"]]
+    cats.sort(key=lambda t: t[1])
+    labs = {"claude": "Claude", "gpt": "GPT", "gemini": "Gemini", "grok": "Grok"}
+    vend = [(labs.get(r["vendor"], r["vendor"]), float(r["diff"]), float(r["ci_low"]), float(r["ci_high"]), r["significant"] == "True")
+            for r in S["by_vendor"]]
+    vend.sort(key=lambda t: t[1])
+    return (f'<div class="two-charts"><div><p class="chart-sub">{tr("By area of halacha", "לפי תחום הלכה")}</p>{bars_diverging(cats)}</div>'
+            f'<div><p class="chart-sub">{tr("By lab", "לפי חברה")}</p>{bars_diverging(vend)}</div></div>'
+            f'<p class="fig-note">{tr("Change in stringency when the asker is Sephardi (negative = more lenient). Solid bars are significant after Holm correction; lines are 95% intervals.", "השינוי ברמת החומרה כשהשואל ספרדי (שלילי = מקל יותר). עמודות מלאות מובהקות אחרי תיקון הולם; הקווים הם רווחי סמך של 95%.")}</p>')
+
+
+def chart_ovadia() -> str:
+    rows = DATA["sephardi"]["citations_by_vendor"]
+    by = {}
+    for r in rows:
+        by.setdefault(r["vendor"], {})[r["asker"]] = float(r["Rav Ovadia Yosef"])
+    li = []
+    for v in ["Claude", "Gemini", "Grok", "GPT"]:
+        if v not in by:
+            continue
+        a, s = by[v].get("ashkenazi", 0), by[v].get("sephardi", 0)
+        li.append(f'<li data-tip="{e(v)}{nl(tr(f"Ashkenazi asker {a:.0f}%, Sephardi asker {s:.0f}%", f"שואל אשכנזי {a:.0f}%, שואל ספרדי {s:.0f}%"))}" tabindex="0">'
+                  f'<span class="db-name">{chip({"Claude": "Anthropic", "Gemini": "Google", "Grok": "xAI", "GPT": "OpenAI"}[v])}{v}</span>'
+                  f'<span class="db-track"><i class="db-line" style="left:{a:.2f}%;width:{s - a:.2f}%"></i><i class="db-a" style="left:{a:.2f}%"></i>'
+                  f'<i class="db-b" style="left:{s:.2f}%"></i></span><span class="db-val">{s:.0f}%</span></li>')
+    return (f'<div class="db-key"><span><i class="db-a-key"></i>{tr("Ashkenazi asker", "שואל אשכנזי")}</span><span><i class="db-b-key"></i>{tr("Sephardi asker", "שואל ספרדי")}</span></div>'
+            f'<ol class="dumbbell">{"".join(li)}</ol><div class="db-axis">{axis([0, 25, 50, 75, 100], lambda v: f"{v:g}%", 0, 100)}</div>'
+            f'<p class="fig-note">{tr("Share of answers that name R. Ovadia Yosef.", "שיעור התשובות שמזכירות את הרב עובדיה יוסף.")}</p>')
+
+
+def chart_ballots() -> str:
+    V = DATA["V"]
+    he_v = V.get("he") or {}
+    out = []
+    for i, b in enumerate(V["ballots"]):
+        hb = (he_v.get("ballots") or [{}] * 6)[i] if LANG == "he" else {}
+        out.append(f'<article class="ballot-card"><h3>{e(hb.get("q", b["q"]))}</h3>{ballot(b["ruling"], "ruling")}{ballot(b["itself"], "itself")}</article>')
+    key = (f'<p class="fig-note"><span class="key-inline"><i class="full"></i>{tr("yes", "כן")}</span><span class="key-inline"><i class="half"></i>'
+           f'{tr("in between", "באמצע")}</span><span class="key-inline"><i class="empty"></i>{tr("no", "לא")}</span></p>')
+    return key + f'<div class="ballots">{"".join(out)}</div>'
+
+
+def render_chart(spec: str) -> str:
+    name, _, arg = spec.partition(":")
+    if name == "board":
+        return mini_board([x.strip() for x in arg.split("|") if x.strip()] or None)
+    if name == "by-paper":
+        return by_paper_table(DATA["P"])
+    if name == "tokens":
+        return chart_tokens()
+    if name in ("poskim-map", "citations-map"):
+        return chart_map("poskim" if name == "poskim-map" else "citations")
+    if name == "style":
+        return chart_style()
+    if name == "radar":
+        return radar(DATA["K"])
+    if name == "heatmap":
+        return heatmap(DATA["K"])
+    if name == "sephardi-shift":
+        return chart_sephardi_shift()
+    if name == "sephardi-ovadia":
+        return chart_ovadia()
+    if name == "ballots":
+        return chart_ballots()
+    if name == "dumbbells":
+        return dumbbells(DATA["V"])
+    raise SystemExit(f"unknown chart shortcode: {spec}")
+
+
+def render_shortcodes(html_body: str) -> str:
+    def sub(m):
+        spec, _, cap = m.group(1).partition("||")
+        return fig(render_chart(spec.strip()), html.unescape(cap.strip()))
+    return re.sub(r"<p>\s*\{\{chart:(.+?)\}\}\s*</p>", sub, html_body)
+
+
 # --------------------------------------------------------------------------- pages
 
 
 def build_home(H, K, V, F):
-    lead = H["models"][0]
     top = H["models"][:10]
     rows = "".join(f"""<li data-tip="{e(m['name'] + nl(tr(f"{m['score']:.1f} (95% interval {m['lo']:.1f} to {m['hi']:.1f})", f"{m['score']:.1f} (רווח סמך {m['lo']:.1f} עד {m['hi']:.1f})")))}" tabindex="0" style="--d:{i * 60}ms">
 <span class="h-rank">{m['rank']}</span><span class="h-name"><bdi>{e(m['name'])}</bdi><small>{e(m['lab'])}</small></span>
@@ -731,46 +1037,48 @@ def build_home(H, K, V, F):
         f'<li><a href="{u("/findings/" + f["slug"] + "/")}"><time datetime="{f["date"].isoformat()}">{short_date(f["date"])}</time>'
         f'<span{" lang=\"en\" dir=\"ltr\"" if LANG == "he" and f.get("lang") == "en" else ""}>{e(f["title"])}</span></a></li>'
         for f in F[:4])
-    top3 = "".join(f'<li>{chip(m["lab"])}<bdi>{e(m["name"])}</bdi><b>{m["score"]:.1f}</b></li>' for m in H["models"][:3])
     n = len(H["models"])
     s1, s2 = V["headline"]["asked_twice_same"], V["headline"]["own_vs_ruling_same"]
+    opener, rest = tr("How", "כמה"), tr("well do AI models know halacha?", "הלכה יודעת הבינה המלאכותית?")
     body = f"""
-<section class="hero">
-  <div class="wrap hero-grid">
-    <div class="hero-copy">
-      <h1>{tr("How well do AI models know halacha?", "כמה הלכה יודעת הבינה המלאכותית?")}</h1>
+<section class="daf wrap" aria-label="{tr('Overview', 'סקירה')}">
+  <header class="daf-head">
+    <span>HalachaBench</span>
+    <span class="daf-title">{tr("The semicha exam, Cheshvan 5787", "מבחן הסמיכה, חשוון תשפ\"ז")}</span>
+    <span>{tr(f"{n} models", f"{n} מודלים")}</span>
+  </header>
+  <div class="daf-grid">
+    <div class="daf-main">
+      <h1><span class="opener">{opener}</span> {rest}</h1>
       <p class="lede">{tr("Real semicha exam questions from Israel's Chief Rabbinate, answered in Hebrew with no books and no internet.",
                           "שאלות אמיתיות ממבחני הסמיכה של הרבנות הראשית, בעברית, בלי ספרים ובלי אינטרנט.")}</p>
       <p class="hero-links"><a class="btn" href="{u('/halachabench/')}">{tr(f"See all {n} models", f"לכל {n} המודלים")}</a>
       <a class="plain-link" href="{u('/method/')}">{tr("How grading works", "איך בודקים")}</a></p>
     </div>
-    <figure class="hero-board">
+    <figure class="daf-side daf-rashi hero-board">
       <figcaption><span class="cap">{tr("Top ten, score out of 100", "עשרת הראשונים, ציון מתוך 100")}</span><span class="h-axis"><span></span><span></span>{axis([50, 60, 70, 80, 90, 100], lambda v: f"{v:g}", 50, 100)}<span></span></span></figcaption>
       <ol>{rows}</ol>
       <p class="fig-note">{tr("Provisional: one AI judge, no rabbi has graded yet. Lines show 95% intervals.",
                               "זמני: שופט ממוחשב אחד, ואף רב עדיין לא בדק. הקווים הם רווחי סמך של 95%.")}</p>
     </figure>
+    <aside class="daf-side daf-tosafot" aria-label="{tr('The studies', 'המחקרים')}">
+      <p class="side-title">{tr("The studies", "המחקרים")}</p>
+      <article>
+        <h2><a href="{u('/hashkafabench/')}">{tr("Stringent or lenient?", "מחמיר או מקל?")}</a></h2>
+        <div class="mini-strip"><span class="ms-track">{strip}</span>
+        <span class="ms-ends"><span>{tr("lenient", "מקל")}</span><span>{tr("stringent", "מחמיר")}</span></span></div>
+      </article>
+      <article>
+        <h2><a href="{u('/values/')}">{tr("Halacha vs. own values", "הלכה מול ערכים")}</a></h2>
+        <div class="pair"><div><b>{s1:.0%}</b><small>{tr("same ruling, asked twice", "אותה פסיקה, פעמיים")}</small></div>
+        <div><b class="b2">{s2:.0%}</b><small>{tr("ruling matches its own choice", "הפסיקה תואמת את בחירתו")}</small></div></div>
+      </article>
+      <article>
+        <h2><a href="{u('/halachabench/')}#papers">{tr("Hardest paper", "השאלון הקשה ביותר")}</a></h2>
+        <p class="side-note">{tr("Chuppah v'Kiddushin and Niddah, for nearly every model.", "חופה וקידושין ונידה, כמעט לכל מודל.")}</p>
+      </article>
+    </aside>
   </div>
-</section>
-
-<section class="studies wrap" aria-label="{tr('The three studies', 'שלושת המחקרים')}">
-  <article>
-    <h2><a href="{u('/halachabench/')}">{tr("The semicha exam", "מבחן הסמיכה")}</a></h2>
-    <ol class="top3">{top3}</ol>
-    <a class="plain-link" href="{u('/halachabench/')}">{tr("Leaderboard", "טבלת התוצאות")}</a>
-  </article>
-  <article>
-    <h2><a href="{u('/hashkafabench/')}">{tr("Stringent or lenient?", "מחמיר או מקל?")}</a></h2>
-    <div class="mini-strip" aria-label="{tr(f'Stringency of {len(hk)} models on one line', f'רמת החומרה של {len(hk)} מודלים על קו אחד')}"><span class="ms-track">{strip}</span>
-    <span class="ms-ends"><span>{tr("lenient", "מקל")}</span><span>{tr("stringent", "מחמיר")}</span></span></div>
-    <a class="plain-link" href="{u('/hashkafabench/')}">{tr("Stringency by area", "חומרה לפי תחום")}</a>
-  </article>
-  <article>
-    <h2><a href="{u('/values/')}">{tr("Halacha vs. own values", "הלכה מול ערכים")}</a></h2>
-    <div class="pair"><div><b>{s1:.0%}</b><small>{tr("same ruling, asked twice", "אותה פסיקה, פעמיים")}</small></div>
-    <div><b class="b2">{s2:.0%}</b><small>{tr("ruling matches its own choice", "הפסיקה תואמת את בחירתו")}</small></div></div>
-    <a class="plain-link" href="{u('/values/')}">{tr("Where they part ways", "איפה הם נפרדים")}</a>
-  </article>
 </section>
 
 <section class="wrap home-lower">
@@ -789,7 +1097,7 @@ def build_home(H, K, V, F):
     </a>
   </aside>
 </section>"""
-    page("/", "HalachaBench", body, active="/")
+    page("/", "HalachaBench", body, active="/", stat=f"{H['models'][0]['score']:.1f}")
 
 
 def build_halacha(H):
@@ -851,7 +1159,7 @@ def build_halacha(H):
     page("/halachabench/", tr("Semicha exam leaderboard", "טבלת מבחן הסמיכה"), body,
          desc=tr(f"{n} AI models on real Chief Rabbinate semicha exam questions. {lead['name']} leads with {lead['score']:.1f}.",
                  f"{n} מודלים של בינה מלאכותית על שאלות אמיתיות ממבחני הסמיכה של הרבנות הראשית. {lead['name']} מוביל עם {lead['score']:.1f}."),
-         active="/halachabench/")
+         active="/halachabench/", stat=f"{lead['score']:.1f}")
 
 
 def build_hashkafa(K):
@@ -967,7 +1275,7 @@ def build_values(V):
     page("/values/", tr("Halacha vs. own values", "הלכה מול ערכים"), body,
          desc=tr("AI models give the halachic ruling, then decide differently for themselves. 13 models, 53 bein adam lachavero questions.",
                  "מודלים של בינה מלאכותית נותנים את הפסיקה ההלכתית, ואז מחליטים אחרת בשביל עצמם. 13 מודלים, 53 שאלות בבין אדם לחברו."),
-         image="/assets/img/beinadam-personal-gap.png", active="/values/")
+         image="/assets/img/beinadam-personal-gap.png", active="/values/", stat=f"{h['asked_twice_same']:.0%}→{h['own_vs_ruling_same']:.0%}")
 
 
 def build_findings(F):
@@ -993,6 +1301,8 @@ def build_findings(F):
         en_note = (f'<p class="lang-note">{tr("", "עמוד זה עדיין לא תורגם לעברית.")}</p>' if LANG == "he" and f.get("lang") == "en" else "")
         art_attr = ' lang="en" dir="ltr"' if LANG == "he" and f.get("lang") == "en" else ""
         data = f.get("data", "/halachabench/")
+        lead = fig(render_chart(f["lead"]), "", "lead") if f.get("lead") else ""
+        body_html = lead + render_shortcodes(f["body"])
         page(f"/findings/{f['slug']}/", f["title"], f"""
 <article class="post"{art_attr}>
 <header class="page-head wrap narrow">
@@ -1000,10 +1310,11 @@ def build_findings(F):
 <time datetime="{f['date'].isoformat()}">{fmt_date(f['date'])}</time></p>{en_note}
 <h1>{e(f['title'])}</h1><p class="lede">{e(f['summary'])}</p>
 </header>
-<div class="wrap narrow prose">{f['body']}
+<div class="wrap narrow prose">{body_html}
 <p class="post-links">{x}<a class="plain-link" href="{e(data if data.startswith('/he/') else u(data))}">{tr("See the data", "לנתונים")}</a></p>
 <nav class="pager" aria-label="{tr('More findings', 'עוד ממצאים')}">{pager}</nav></div></article>""", desc=f["summary"],
-             image=f.get("image") or "/assets/og.png", active="/findings/")
+             image=f.get("image") or "/assets/og.png", active="/findings/",
+             stat=f.get("stat", ""))
 
 
 def build_method(H):
@@ -1138,6 +1449,17 @@ def main():
     K = parse_hashkafa()
     V = json.loads((CONTENT / "values.json").read_text(encoding="utf-8"))
     load_hebrew(H, V)
+    P = json.loads((CONTENT / "by_paper.json").read_text(encoding="utf-8"))
+    P["papers_he"] = json.loads((CONTENT / "he" / "by_paper.he.json").read_text(encoding="utf-8"))["papers"]
+    rd = lambda p: list(csv.DictReader(open(p, encoding="utf-8")))
+    sty = list(csv.reader(open(HK / "data" / "style_delta.csv", encoding="utf-8")))
+    DATA.update(H=H, K=K, V=V, P=P,
+                tokens=json.loads((CONTENT / "tokens.json").read_text(encoding="utf-8"))["tokens"],
+                poskim=rd(HK / "data" / "poskim_map.csv"), citations=rd(HK / "data" / "citations_ca.csv"),
+                style=(sty[0][1:], [[float(x) for x in r[1:]] for r in sty[1:]]),
+                sephardi={"by_category": rd(HK / "data" / "sephardi" / "by_category.csv"),
+                          "by_vendor": rd(HK / "data" / "sephardi" / "by_vendor.csv"),
+                          "citations_by_vendor": rd(HK / "data" / "sephardi" / "citations_by_vendor.csv")})
     FL = {"en": parse_findings("en"), "he": parse_findings("he")}
     SITE["_updated"] = max([H["manifest_date"]] + [f["date"] for f in FL["en"]])
     SITE["build"] = datetime.now().strftime("%Y%m%d%H%M")
@@ -1145,7 +1467,7 @@ def main():
     (a / "img").mkdir(parents=True)
     (a / "hashkafa").mkdir()
     for p in STATIC.iterdir():
-        shutil.copy2(p, a / p.name)
+        shutil.copytree(p, a / p.name) if p.is_dir() else shutil.copy2(p, a / p.name)
     for p in (CONTENT / "images").iterdir():
         shutil.copy2(p, a / "img" / p.name)
     for p in (HK / "charts").glob("*.png"):
@@ -1163,6 +1485,7 @@ def main():
         build_about()
         build_404()
     LANG = "en"
+    render_cards()
     write_csv(H, K)
     if not PREVIEW:
         (OUT / "CNAME").write_text(SITE["domain"] + "\n", encoding="utf-8")

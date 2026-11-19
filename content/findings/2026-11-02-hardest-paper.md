@@ -11,7 +11,7 @@ data: /halachabench/
 Each of the five Cheshvan 5787 papers has 12 questions. Splitting the first results by paper shows nearly the same
 order for every model.
 
-![Mean score per exam paper for eight models: Chuppah v'Kiddushin and Niddah lowest, Mitzvot HaTeluyot BaAretz highest](/assets/img/by-paper.png)
+{{chart:by-paper||Mean score per exam paper for eight models: Chuppah v'Kiddushin and Niddah lowest, Mitzvot HaTeluyot BaAretz highest}}
 
 - **Hardest: Chuppah v'Kiddushin and Niddah.** Even the leader at the time, Claude Fable 5.1, scored 73 and 77 there.
 - **Easiest: Mitzvot HaTeluyot BaAretz.** The top models scored in the 80s, and most weaker ones did best here too.

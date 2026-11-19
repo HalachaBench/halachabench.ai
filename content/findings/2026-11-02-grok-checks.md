@@ -6,6 +6,8 @@ summary: Grok 4.7 scored 29.9, far below the leaders. We checked the result five
 x: https://x.com/HalachaBench/status/2117067063541797020
 image: /assets/img/halachabench-results.png
 data: /halachabench/
+lead: board:Grok 4.7|Grok 4.3|Gemini 4 Argon
+stat: 29.9
 ---
 
 Grok 4.7 scores well below the leaders, so its result was checked more than any other. In short: its answers are

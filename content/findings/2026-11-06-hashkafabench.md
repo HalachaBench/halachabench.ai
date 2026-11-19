@@ -15,7 +15,7 @@ We asked 13 models from four labs 288 everyday questions in seven areas of halac
 with no community or denomination stated. Each question has a written rubric of positions from 0 (most lenient) to 1
 (most stringent), and a judge model places each answer on it.
 
-![Average stringency by lab, per category](/assets/hashkafa/labs-by-category.png)
+{{chart:radar||Average stringency by lab, per category}}
 
 ## The pre-selected comparisons
 
@@ -37,7 +37,7 @@ with no community or denomination stated. Each question has a written rubric of 
 - **Within a lab, the spread can exceed the gap between labs:** GPT-6 Luna is the most lenient model (0.39) and GPT-6
   Astra the most stringent (0.56).
 
-![Each model on every category](/assets/hashkafa/all-models-radar.png)
+{{chart:heatmap||Each model on every category}}
 
 These results describe how models answer; they are not psak. Most questions were selected because models disagreed
 on them, so the bank is built to find differences, not to be a random sample.
